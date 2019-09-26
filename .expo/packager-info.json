@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 5997,
-  "expoServerNgrokUrl": "https://kx-6aj.anonymous.overheard-app-001.exp.direct",
-  "packagerNgrokUrl": "https://packager.kx-6aj.anonymous.overheard-app-001.exp.direct",
-  "ngrokPid": 6012
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
