@@ -6,15 +6,14 @@ const DealCard = (props) => {
     return (
         
             <View style={styles.cardContainer}>
-                <Image
-                    style={styles.imageStyle} 
-                    source={require(`./img/${props.img}`) } />
+                {/* <Image source={} /> */}
                 <View style={styles.cardTextContainer}>
                     <Text>{props.name}</Text>
                     <Text>{props.lineOne}</Text>
                     <Text>{props.lineTwo}</Text>
                     <Text>{props.lineThree}</Text>
                 </View>
+
             </View>
     )
 };
@@ -26,12 +25,12 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         marginRight: 8,
         backgroundColor: 'white',
-        width: 180,
+        width: 160,
         alignItems: 'center',
 
-        borderWidth: 1,
-        borderColor: 'grey',
-        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: 'black',
+        borderRadius: 0,
     },
 
     cardTextContainer: {
@@ -39,8 +38,8 @@ const styles = StyleSheet.create({
 
     imageStyle: {
         borderRadius: 10,
-        width: 180,
-        height: 180,
+        width: 160,
+        height: 160,
     },
     
 });

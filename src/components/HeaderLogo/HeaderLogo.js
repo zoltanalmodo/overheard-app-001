@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 
-import LogoImage from './overheardlogo.png'
+import LogoImage from './overhearddealslogo.png'
 
 const HeaderLogo = () => {
     return (
@@ -16,14 +16,15 @@ const HeaderLogo = () => {
 
 const styles = StyleSheet.create({
     logoBar: {
-        height: 40,
+        height: 50,
         backgroundColor: 'white',
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 20,
     },
     logo: {
-        width: '42%',
-        height: 32
+        width: 134,
+        height: 48
     }
 });
 

@@ -15,12 +15,14 @@ class DealsList extends Component {
             deals: deals.data
         });
         
-            
-    
     };
 
     
     render() {
+        
+        this.state.deals.forEach(deal => alert(deal));
+        
+        
         return (
             
             <SafeAreaView style={styles.styleSafeAreaView}>
@@ -54,7 +56,8 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginTop: 55,
     },
 
     container: {

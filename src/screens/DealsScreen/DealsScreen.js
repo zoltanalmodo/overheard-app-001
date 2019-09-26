@@ -5,12 +5,12 @@ import backimage from './newbg.png'
 import Header from '../../components/Header/Header.js'
 import Categories from '../../components/Categories/Categories'
 import DealsList from '../../components/DealsList/DealsList'
+import { createKeyboardAwareNavigator } from 'react-navigation';
 
 const DealsScreen = () => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <Header />
-        <Categories />
         <DealsList />
         
     </ImageBackground>
@@ -25,6 +25,8 @@ DealsScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 0,
+        backgroundColor: 'cyan',
         flex: 1,
         // remove width and height to override fixed static size
         width: null,

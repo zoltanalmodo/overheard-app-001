@@ -15,15 +15,14 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     header: {
-        height: 64,
-        backgroundColor: 'orange',
+        height: 40,
+        backgroundColor: 'white',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2
     },
     logoBar: {
-        height: 40,
-        backgroundColor: 'white'
+        height: 30,
     },
     logo: {
         fontSize: 18,
