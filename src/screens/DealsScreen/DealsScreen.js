@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import Header from '../../components/Header/Header.js'
-import Categories from '../../components/Categories/Categories'
 import DealsList from '../../components/DealsList/DealsList'
 import { createKeyboardAwareNavigator } from 'react-navigation';
 
