@@ -2,21 +2,20 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 import backimage from '../../img/newbg.png'
-import Header from '../../components/Header/Header.js'
-import DealsList from '../../components/DealsList/DealsList'
-import { createKeyboardAwareNavigator } from 'react-navigation';
+import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-const DealsScreen = () => {
+const LoadingScreen = () => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
-        <Header />
-        <DealsList />
+        <View style={styles.logoPosition}>
+            <OverheardDealsLogo />
+        </View>
         
     </ImageBackground>
     )
 };
 
-DealsScreen.navigationOptions = () => {
+LoadingScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -30,7 +29,10 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      }
+      },
+    logoPosition: {
+        marginTop: '60%',
+      },
 });
 
-export default DealsScreen;
+export default LoadingScreen;
