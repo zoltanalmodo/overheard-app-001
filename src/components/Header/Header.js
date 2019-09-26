@@ -15,7 +15,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     header: {
-        height: 40,
+        height: 96,
         backgroundColor: 'white',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },

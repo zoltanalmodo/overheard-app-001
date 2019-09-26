@@ -20,16 +20,17 @@ class DealsList extends Component {
     
     render() {
         
-        this.state.deals.forEach(deal => alert(deal));
+        // this.state.deals.forEach(deal => console.log(deal));
         
         
         return (
             
             <SafeAreaView style={styles.styleSafeAreaView}>
+            <Text style={styles.dealsTitleText}>All deals</Text>
             <FlatList
                 data={this.state.deals}
-                horizontal={false}
-                numColumns= {2}
+                // horizontal={false}
+                numColumns= {4}
                 columnWrapperStyle
                 keyExtractor={item => item._id}
                 renderItem={(deal) => {
@@ -42,6 +43,8 @@ class DealsList extends Component {
                             lineOne={deal.item.lineOne}
                             lineTwo={deal.item.lineTwo}
                             lineThree={deal.item.lineThree}
+                            mainOffer={deal.item.mainOffer}
+                            offerSmall={deal.item.offerSmall}
                         />
                     )
                 }}
@@ -56,19 +59,18 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        justifyContent: 'space-between',
-        marginTop: 55,
+        // backgroundColor: 'pink',
+        marginTop: 12,
+        marginHorizontal: 32,
     },
 
-    container: {
-        marginTop: 10,
-        marginLeft: 8,
-        marginRight: 8
+    dealsTitleText: {
+        // backgroundColor: 'cyan',
+        fontSize: 16,
+        fontWeight: '800',
+        marginTop: 4,
+        marginBottom: -4,
     },
-    text: {
-        fontSize: 20,
-        color: 'red'
-      }
 });
 
 export default DealsList;

@@ -6,12 +6,16 @@ const DealCard = (props) => {
     return (
         
             <View style={styles.cardContainer}>
-                {/* <Image source={} /> */}
+                <Image style={{ width: 139, height: 139 }} source={{ uri: `https://overheard.co.uk/img/${props.img}` }} />
+                
                 <View style={styles.cardTextContainer}>
-                    <Text>{props.name}</Text>
-                    <Text>{props.lineOne}</Text>
-                    <Text>{props.lineTwo}</Text>
-                    <Text>{props.lineThree}</Text>
+                    <Text style={styles.cardTextName}>{props.name}</Text>
+                    {/* <Text style={styles.cardTextLineOne}>{props.lineOne}</Text>
+                    <Text style={styles.cardTextLineTwo}>{props.lineTwo}</Text>
+                    <Text style={styles.cardTextLineThree}>{props.lineThree}</Text> */}
+                    <Text style={styles.cardTextMainOffer}>{props.mainOffer}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{props.offerSmall}</Text>
+                    
                 </View>
 
             </View>
@@ -25,22 +29,60 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         marginRight: 8,
         backgroundColor: 'white',
-        width: 160,
+        width: 139,
+        height: 260,
         alignItems: 'center',
+    },
 
-        borderWidth: 2,
-        borderColor: 'black',
-        borderRadius: 0,
+    cardImageContainer: {
+        backgroundColor: 'purple',
+        width: 139,
+        height: 139,
     },
 
     cardTextContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        borderLeftWidth: 2,
+        borderRightWidth: 2,
+        borderBottomWidth: 2,
+        borderColor: 'black',
+        borderRadius: 0,
+        width: 139,
+        height: 121,
     },
 
-    imageStyle: {
-        borderRadius: 10,
-        width: 160,
-        height: 160,
+    cardTextName: {
+        fontSize: 10,
+        textAlign: 'center',
     },
+
+    cardTextLineOne: {
+        fontSize: 10,
+        textAlign: 'center',
+    },
+
+    cardTextLineTwo: {
+        fontSize: 10,
+        textAlign: 'center',
+    },
+
+    cardTextLineThree: {
+        fontSize: 10,
+        textAlign: 'center',
+    },
+
+    cardTextMainOffer: {
+        fontSize: 14,
+        fontWeight: '800',
+        textAlign: 'center',
+    },
+
+    cardTextOfferSmall: {
+        fontSize: 10,
+        textAlign: 'center',
+    },
+    
     
 });
 

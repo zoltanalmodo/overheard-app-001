@@ -1,15 +1,15 @@
 import { createAppContainer } from 'react-navigation';
-import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 
 
 const navigator = createStackNavigator (
   {
-  Screen: DealsScreen
+  DealsScreen: DealsScreen,
   },
 {
-  initialRouteName: 'Screen',
+  initialRouteName: 'DealsScreen',
   defaultNavigationOptions: {
     title: 'Overheard Deals'
   }

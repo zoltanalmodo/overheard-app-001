@@ -20,7 +20,7 @@ const HeaderButtons = () => {
 const styles = StyleSheet.create({
     filter: {
         height: 36,
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
         borderColor: 'black',
     },
     buttonText: {
-        fontWeight: '600',
+        fontWeight: '800',
         textAlign: 'center',
-        fontSize: 18,
-        border: 2,
+        fontSize: 16,
+        paddingTop: 5
     },
     buttonBox: {
         height: 36,
