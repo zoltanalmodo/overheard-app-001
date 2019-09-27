@@ -42,17 +42,6 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         top: 1,
 
-    },
-    buttonActive: {
-        backgroundColor: 'rgb(30, 30, 30)',
-        fontWeight: '600',
-        color: 'white',
-        fontSize: 18
-    },
-    buttonLogout: {
-        fontWeight: '600',
-        backgroundColor: 'rgb(0, 237, 241)',
-        fontSize: 18
     }
 });
 
