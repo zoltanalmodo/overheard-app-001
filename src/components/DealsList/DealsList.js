@@ -30,7 +30,7 @@ class DealsList extends Component {
             <FlatList
                 data={this.state.deals}
                 // horizontal={false}
-                numColumns= {4}
+                numColumns= {2}
                 columnWrapperStyle
                 keyExtractor={item => item._id}
                 renderItem={(deal) => {
@@ -59,17 +59,18 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        // backgroundColor: 'pink',
-        marginTop: 12,
+        backgroundColor: 'pink',
+        marginTop: 0,
         marginHorizontal: 32,
     },
 
     dealsTitleText: {
         // backgroundColor: 'cyan',
+        // fontFamily: 'Roboto',
         fontSize: 16,
         fontWeight: '800',
         marginTop: 4,
-        marginBottom: -4,
+        marginBottom: 4,
     },
 });
 

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const HeaderButtons = () => {
     return (
-        <View style={styles.filter}>
+        <View style={styles.topNavBar}>
             <View style={styles.buttonBox}>
                 <Text style={styles.buttonText}>Categories</Text>
             </View>
@@ -18,7 +18,7 @@ const HeaderButtons = () => {
 };
 
 const styles = StyleSheet.create({
-    filter: {
+    topNavBar: {
         height: 36,
         backgroundColor: 'white',
         flexDirection: 'row',

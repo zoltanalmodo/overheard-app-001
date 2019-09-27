@@ -25,7 +25,7 @@ const DealCard = (props) => {
 const styles = StyleSheet.create({
 
     cardContainer: {
-        marginTop: 10,
+        marginBottom: 16,
         marginLeft: 8,
         marginRight: 8,
         backgroundColor: 'white',

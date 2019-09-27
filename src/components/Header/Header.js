@@ -15,11 +15,8 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     header: {
-        height: 96,
+        height: 88,
         backgroundColor: 'white',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2
     },
     logoBar: {
         height: 30,

@@ -17,10 +17,9 @@ const HeaderLogo = () => {
 const styles = StyleSheet.create({
     logoBar: {
         height: 52,
-        backgroundColor: 'magenta',
+        backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 0,
     },
     logo: {
         width: 134,
