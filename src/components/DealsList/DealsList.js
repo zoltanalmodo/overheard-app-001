@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
     dealsTitleText: {
         // backgroundColor: 'cyan',
-        // fontFamily: 'Roboto',
+        fontFamily: 'roboto-bold',
         fontSize: 16,
         fontWeight: '800',
         marginTop: 4,
