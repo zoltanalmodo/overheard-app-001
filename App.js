@@ -11,7 +11,7 @@ const navigator = createStackNavigator (
   LoadingScreen: LoadingScreen,
   },
 {
-  initialRouteName: 'LoadingScreen',
+  initialRouteName: 'DealsScreen',
   defaultNavigationOptions: {
     title: 'Overheard Deals'
   }
