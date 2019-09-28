@@ -6,8 +6,10 @@ const DealCard = (props) => {
     return (
         
             <View style={styles.cardContainer}>
-                <Image style={{ width: 139, height: 139 }} source={{ uri: `https://overheard.co.uk/img/${props.img}` }} />
-                
+
+                <View style={styles.cardImageContainer}>
+                    <Image style={{ width: 135, height: 135 }} source={{ uri: `https://overheard.co.uk/img/${props.img}` }} />
+                </View>
                 <View style={styles.cardTextContainer}>
                     <Text style={styles.cardTextName}>{props.name}</Text>
                     {/* <Text style={styles.cardTextLineOne}>{props.lineOne}</Text>
@@ -35,9 +37,11 @@ const styles = StyleSheet.create({
     },
 
     cardImageContainer: {
-        backgroundColor: 'purple',
+        backgroundColor: 'white',
         width: 139,
         height: 139,
+        borderWidth: 2,
+        borderColor: 'black',
     },
 
     cardTextContainer: {

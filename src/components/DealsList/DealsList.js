@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import axios from 'axios';
 
 
+import DealsListCategoryTitle from '../DealsListCategoryTitle/DealsListCategoryTitle';
 import DealCard from '../DealCard/DealCard'
 
 class DealsList extends Component {
@@ -14,7 +15,6 @@ class DealsList extends Component {
         this.setState({
             deals: deals.data
         });
-        
     };
 
     
@@ -26,7 +26,9 @@ class DealsList extends Component {
         return (
             
             <SafeAreaView style={styles.styleSafeAreaView}>
-            <Text style={styles.dealsTitleText}>All deals</Text>
+
+            <DealsListCategoryTitle title={`All deals`}/>
+
             <FlatList
                 data={this.state.deals}
                 // horizontal={false}
@@ -64,14 +66,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 32,
     },
 
-    dealsTitleText: {
-        // backgroundColor: 'cyan',
-        // fontFamily: 'roboto-bold',
-        fontSize: 16,
-        fontWeight: '800',
-        marginTop: 4,
-        marginBottom: 4,
-    },
 });
 
 export default DealsList;
