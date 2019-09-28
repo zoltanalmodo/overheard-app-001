@@ -59,14 +59,14 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        backgroundColor: 'pink',
+        // backgroundColor: 'pink',
         marginTop: 0,
         marginHorizontal: 32,
     },
 
     dealsTitleText: {
         // backgroundColor: 'cyan',
-        fontFamily: 'roboto-bold',
+        // fontFamily: 'roboto-bold',
         fontSize: 16,
         fontWeight: '800',
         marginTop: 4,
