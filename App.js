@@ -18,27 +18,7 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
 
-
-// import * as Font from 'expo-font';
-
-// export default class App extends React.Component {
-
-//   state = {
-//     fontLoaded: false,
-//   };
-
-//   async componentDidMount() {
-//     await Font.loadAsync({
-//       'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
-//       'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
-//     });
-
-//     this.setState({ fontLoaded: true });
-//   }
-
-//   // ...
-// }
-
+import CustomFonts from './src/components/CustomFonts/CustomFonts'
 
 const navigator = createStackNavigator (
   {
@@ -57,9 +37,10 @@ const navigator = createStackNavigator (
   MapDealCenteredScreen: MapDealCenteredScreen,
   ProfileScreen: ProfileScreen,
   ProfileWarningScreen: ProfileWarningScreen,
+  CustomFonts: CustomFonts,
   },
 {
-  initialRouteName: 'ProfileWarningScreen',
+  initialRouteName: 'CustomFonts',
   defaultNavigationOptions: {
     title: 'Overheard Deals'
   }
