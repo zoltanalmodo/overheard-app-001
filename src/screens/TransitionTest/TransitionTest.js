@@ -1,10 +1,15 @@
+import React from 'react';
+
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
 import { Transition } from 'react-native-reanimated';
 
+import LoginScreen from '../LoginScreen/LoginScreen';
+import DealsScreen from '../DealsScreen/DealsScreen';
+
 const TransitionTest = createAnimatedSwitchNavigator(
   {
-    Home: HomeScreen,
-    Other: OtherScreen,
+    LoginScreen: LoginScreen,
+    DealsScreen: DealsScreen,
   },
   {
     // The previous screen will slide to the bottom while the next screen will fade in
