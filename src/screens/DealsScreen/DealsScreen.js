@@ -24,7 +24,7 @@ DealsScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 33,
+        marginTop:33,
         backgroundColor: 'white',
         flex: 1,
         // remove width and height to override fixed static size
