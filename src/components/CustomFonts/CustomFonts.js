@@ -11,7 +11,8 @@ export default class CustomFonts extends React.Component {
 
     async componentDidMount() {
         await Font.loadAsync({
-        'roboto-bold': require('../../../assets/fonts/Roboto-Bold.ttf'),
+            'roboto-bold': require('../../../assets/fonts/Roboto-Bold.ttf'),
+            'roboto-regular': require('../../../assets/fonts/Roboto-Regular.ttf'),
         });
     
         this.setState({ fontLoaded: true });
@@ -22,9 +23,14 @@ export default class CustomFonts extends React.Component {
         <View style={styles.container}>
             {
                 this.state.fontLoaded ? (
-                <Text style={styles.customFontsText}>
-                    Hello, world!
-                </Text>
+                <View>
+                    <Text style={styles.customFontsRobotoBold}>
+                        Roboto Bold.ttf
+                    </Text>
+                    <Text style={styles.customFontsRobotoRegular}>
+                        Roboto Regular.ttf
+                    </Text>
+                </View>
                 ) : null
             }
         </View>
@@ -48,8 +54,15 @@ const styles = StyleSheet.create({
         width: null,
         height: null,
       },
-      customFontsText: {
+    customFontsRobotoBold: {
         fontFamily: 'roboto-bold',
+        textAlign: 'center',
+        marginTop: 50,
+        fontSize: 36,
+        color: 'salmon',
+    },
+    customFontsRobotoRegular: {
+        fontFamily: 'roboto-regular',
         textAlign: 'center',
         marginTop: 50,
         fontSize: 36,
