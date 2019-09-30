@@ -17,8 +17,8 @@ import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCe
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
+import TransitionTest from './src/screens/TransitionTest/TransitionTest';
 
-import CustomFonts from './src/components/CustomFonts/CustomFonts'
 
 const navigator = createStackNavigator (
   {
@@ -37,10 +37,10 @@ const navigator = createStackNavigator (
   MapDealCenteredScreen: MapDealCenteredScreen,
   ProfileScreen: ProfileScreen,
   ProfileWarningScreen: ProfileWarningScreen,
-  CustomFonts: CustomFonts,
+  TransitionTest: TransitionTest,
   },
 {
-  initialRouteName: 'CustomFonts',
+  initialRouteName: 'TransitionTest',
   defaultNavigationOptions: {
     title: 'Overheard Deals'
   }
