@@ -10,6 +10,7 @@ const LoginScreen = () => {
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>
+        
         <Text style={styles.loginScreenText}>Login Screen</Text>
         
     </ImageBackground>
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
         height: null,
       },
     logoPosition: {
-        marginTop: 110,
+        marginTop: 52,
       },
     loginScreenText: {
         textAlign: 'center',
