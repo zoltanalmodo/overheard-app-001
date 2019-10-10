@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
+import ModalDropdown from 'react-native-modal-dropdown';
+
+
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
@@ -20,7 +23,7 @@ const RepSigUpScreen = ({navigation}) => {
                         style={styles.firstNameTextInput}
                         label='first name'
                         placeholder='first name'
-                        placeholderTextColor='#ababab'
+                        placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='default'
                         returnKeyType='done'
@@ -34,7 +37,7 @@ const RepSigUpScreen = ({navigation}) => {
                         style={styles.lastNameTextInput}
                         label='last name'
                         placeholder='last name'
-                        placeholderTextColor='#ababab'
+                        placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='default'
                         returnKeyType='done'
@@ -48,7 +51,7 @@ const RepSigUpScreen = ({navigation}) => {
                         style={styles.emailTextInput}
                         label='email'
                         placeholder='email'
-                        placeholderTextColor='#ababab'
+                        placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='email-address'
                         returnKeyType='done'
@@ -56,29 +59,29 @@ const RepSigUpScreen = ({navigation}) => {
                     />
                 </View>
 
-
-                <View style={styles.selectUniPosition}>
-                    <TextInput
-                        style={styles.selectUni}
-                        label='select your uni'
-                        placeholder='select your uni'
-                        placeholderTextColor='#ababab'
-                        keyboardAppearance='dark'
+                <View style={styles.modalDropdownPosition}>
+                    <ModalDropdown
+                        defaultValue={'select your uni'}
+                        options={['Cardiff', 'option 1', 'option 2', 'option 3']}
+                        style={styles.modalDropdown}
+                        textStyle={styles.modalDropdownText}
+                        dropdownStyle={styles.modalDropdownDropdownBox}
+                        dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
+                        dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
                     />
                 </View>
                 
-
+                
                 <View style={styles.phoneTextInputPosition}>
                     <TextInput
                         style={styles.phoneTextInput}
                         label='phone'
                         placeholder='phone'
-                        placeholderTextColor='#ababab'
+                        placeholderTextColor='black'
                         keyboardAppearance='dark'
-                        keyboardType='default'
+                        keyboardType='phone-pad'
                         returnKeyType='done'
                         clearTextOnFocus={true}
-                        secureTextEntry={true}
                     />
                 </View>
 
@@ -94,7 +97,6 @@ const RepSigUpScreen = ({navigation}) => {
 
         );
 
-    
 };
 
 RepSigUpScreen.navigationOptions = () => {
@@ -165,20 +167,45 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECECEC',
     },
 
-    selectUniPosition: {
+    modalDropdownPosition: {
         marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    selectUni: {
-        textAlign: 'center',
-        fontSize: 16,
-        color:  'black',
+    modalDropdown: {
         height: 50,
         width: 270,
         borderColor: 'black',
         borderWidth: 2,
         backgroundColor: '#ECECEC',
+    },
+    modalDropdownText: {
+        marginTop: 12,
+        textAlign: 'center',
+        fontSize: 16,
+        color: 'black',
+    },
+    modalDropdownDropdownBox: {
+        width: 270,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: '#ECECEC',
+        margin: -2,
+    },
+    modalDropdownDropdownTextStyle: {
+        textAlign: 'center',
+        fontSize: 16,
+        color: 'black',
+        backgroundColor: '#ECECEC',
+        left: -2,
+    },
+    dropdownTextHighlightStyle: {
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: '800',
+        color: 'white',
+        backgroundColor: 'black',
+        left: -2,
     },
 
     phoneTextInputPosition: {
@@ -218,47 +245,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 0,
 
-    },
-
-    forgotPasswordStylePosition: {
-        marginTop: 15,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    forgotPasswordStyle: {
-
-    },
-
-    newUserStylePosition: {
-        marginTop: 5,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    newUserStyle: {
-
-    },
-
-    repLoginButtonPosition: {
-        marginTop: 15,
-        flexDirection: 'row',
-        justifyContent: 'center',
-
-    },
-    repLoginButton: {
-        textAlign: 'center',
-        fontSize: 24,
-        fontWeight: 'bold',
-        color:  'white',
-        height: 50,
-        width: 270,
-        borderColor: '#ECECEC',
-        borderWidth: 2,
-        backgroundColor: '#ECECEC',
-
-        shadowColor: '#ababab',
-        shadowOffset: {width: 4, height: 4},
-        shadowOpacity: 1,
-        shadowRadius: 0,
     },
 
       
