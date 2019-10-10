@@ -1,4 +1,6 @@
-import { createAppContainer } from 'react-navigation';
+import React from 'react'
+
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 
@@ -17,36 +19,42 @@ import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCe
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
-import TransitionTest from './src/screens/TransitionTest/TransitionTest';
 
 
+const switchNavigator = createSwitchNavigator ({
 
-const navigator = createStackNavigator (
-  {
-  DealsScreen: DealsScreen,
-  LoadingScreen: LoadingScreen,
-  LoginScreen: LoginScreen,
-  ResetPasswordScreen: ResetPasswordScreen,
-  RepSignUpScreen: RepSignUpScreen,
-  RepLoginScreen: RepLoginScreen,
-  RepPlatformScreen: RepPlatformScreen,
-  DealBuyOnlineScreen: DealBuyOnlineScreen,
-  DealsBuyInStoreScreen: DealsBuyInStoreScreen,
-  DealsQRCodeScreen: DealsQRCodeScreen,
-  CategoriesScreen: CategoriesScreen,
-  MapUserCenteredScreen: MapUserCenteredScreen,
-  MapDealCenteredScreen: MapDealCenteredScreen,
-  ProfileScreen: ProfileScreen,
-  ProfileWarningScreen: ProfileWarningScreen,
-  TransitionTest: TransitionTest,
-  },
+    loginFlow: createStackNavigator({
 
-{
-  initialRouteName: 'DealsScreen',
-  defaultNavigationOptions: {
-    title: 'Overheard Deals'
-  }
-});
+      LoadingScreen: LoadingScreen,
 
-export default createAppContainer(navigator);
+      LoginScreen: LoginScreen,
+      ResetPasswordScreen: ResetPasswordScreen,
+
+      RepLoginScreen: RepLoginScreen,
+      RepSignUpScreen: RepSignUpScreen,
+      RepPlatformScreen: RepPlatformScreen,
+
+    }),
+
+    mainFlow: createSwitchNavigator({
+        
+      DealsScreen: DealsScreen,
+      
+      DealBuyOnlineScreen: DealBuyOnlineScreen,
+      DealsBuyInStoreScreen: DealsBuyInStoreScreen,
+      DealsQRCodeScreen: DealsQRCodeScreen,
+
+      CategoriesScreen: CategoriesScreen,
+
+      MapUserCenteredScreen: MapUserCenteredScreen,
+      MapDealCenteredScreen: MapDealCenteredScreen,
+
+      ProfileScreen: ProfileScreen,
+      ProfileWarningScreen: ProfileWarningScreen,
+
+    })
+
+  });
+ 
+export default createAppContainer(switchNavigator);
 

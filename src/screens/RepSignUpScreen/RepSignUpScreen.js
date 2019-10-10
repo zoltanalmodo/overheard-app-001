@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         height: null,
       },
     logoPosition: {
-        marginTop: 110,
+        marginTop: 52,
       },
       repSignUpScreenText: {
         textAlign: 'center',

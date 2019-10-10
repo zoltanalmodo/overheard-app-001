@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         height: null,
       },
     logoPosition: {
-        marginTop: '60%',
+        marginTop: '50%',
       },
 });
 
