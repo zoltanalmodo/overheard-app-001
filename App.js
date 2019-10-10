@@ -40,6 +40,7 @@ const navigator = createStackNavigator (
   ProfileWarningScreen: ProfileWarningScreen,
   TransitionTest: TransitionTest,
   },
+
 {
   initialRouteName: 'DealsScreen',
   defaultNavigationOptions: {
