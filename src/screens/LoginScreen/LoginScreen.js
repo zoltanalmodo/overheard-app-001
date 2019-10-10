@@ -14,9 +14,9 @@ const LoginScreen = ({navigation}) => {
                     <OverheardDealsLogo />
                 </View>
 
-                <View style={styles.emailTextInputStylePosition}>
+                <View style={styles.emailTextInputPosition}>
                     <TextInput
-                        style={styles.emailTextInputSyle}
+                        style={styles.emailTextInput}
                         label='email'
                         placeholder='email'
                         placeholderTextColor='#ababab'
@@ -27,9 +27,9 @@ const LoginScreen = ({navigation}) => {
                     />
                 </View>
                 
-                <View style={styles.passwordTextInputStylePosition}>
+                <View style={styles.passwordTextInputPosition}>
                     <TextInput
-                        style={styles.passwordTextInputSyle}
+                        style={styles.passwordTextInput}
                         label='password'
                         placeholder='password'
                         placeholderTextColor='#ababab'
@@ -41,20 +41,20 @@ const LoginScreen = ({navigation}) => {
                     />
                 </View>
 
-                <View style={styles.loginButtonStylePosition}>
-                        <View style={styles.loginButtonStyle}>                    
+                <View style={styles.loginButtonPosition}>
+                        <View style={styles.loginButton}>                    
                             <Button title='Login' onPress={() => navigation.navigate('DealsScreen')} />
                         </View>
                 </View>
 
-                <View style={styles.forgotPasswordStylePosition}>
-                        <View style={styles.forgotPasswordStyle}>                    
+                <View style={styles.forgotPasswordPosition}>
+                        <View style={styles.forgotPassword}>                    
                             <Button title='forgot password' onPress={() => navigation.navigate('ResetPasswordScreen')} />
                         </View>
                 </View>
 
-                <View style={styles.newUserStylePosition}>
-                        <View style={styles.newUserStyle}>                    
+                <View style={styles.newUserPosition}>
+                        <View style={styles.newUser}>                    
                             <Button title='I am a new user' onPress={() => navigation.navigate('#')} />
                         </View>
                 </View>
@@ -92,12 +92,12 @@ const styles = StyleSheet.create({
         marginTop: 52,
       },
 
-    emailTextInputStylePosition: {
-        marginTop: 62,
+    emailTextInputPosition: {
+        marginTop: 52,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    emailTextInputSyle: {
+    emailTextInput: {
         textAlign: 'center',
         fontSize: 16,
         color:  'black',
@@ -108,12 +108,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECECEC',
     },
 
-    passwordTextInputStylePosition: {
+    passwordTextInputPosition: {
         marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    passwordTextInputSyle: {
+    passwordTextInput: {
         textAlign: 'center',
         fontSize: 16,
         color:  'black',
@@ -124,12 +124,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECECEC',
     },
     
-    loginButtonStylePosition: {
+    loginButtonPosition: {
         marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    loginButtonStyle: {
+    loginButton: {
         textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
@@ -147,22 +147,22 @@ const styles = StyleSheet.create({
 
     },
 
-    forgotPasswordStylePosition: {
+    forgotPasswordPosition: {
         marginTop: 15,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    forgotPasswordStyle: {
+    forgotPassword: {
 
     },
 
-    newUserStylePosition: {
+    newUserPosition: {
         marginTop: 5,
         flexDirection: 'row',
         justifyContent: 'center',
 
     },
-    newUserStyle: {
+    newUser: {
 
     },
 
