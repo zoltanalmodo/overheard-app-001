@@ -22,7 +22,7 @@ const ConfirmRecoverPasswordScreen = ({navigation}) => {
                 <Text style={styles.confirmRecoverTextTop}>A link to reset your password</Text>
                 <Text style={styles.confirmRecoverText} >has been</Text>
                 <Text style={styles.confirmRecoverText} >SENT to</Text>
-                <Text style={styles.confirmRecoverText} >`$(email)`</Text>
+                <Text style={styles.confirmRecoverTextEmail} >`$(email)`</Text>
             </View>   
         </View>
 
@@ -108,6 +108,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '800',
         textAlign: 'center',
+    },
+
+    confirmRecoverTextEmail: {
+        paddingTop: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'center',
+        color: 'blue',
     },
 
     confirmRecoverOkButtonPosition: {

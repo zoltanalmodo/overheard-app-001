@@ -4,7 +4,7 @@ import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-nati
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-const ResetPasswordScreen = ({navigation}) => {
+const RecoverPasswordScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
@@ -26,7 +26,7 @@ const ResetPasswordScreen = ({navigation}) => {
 
         <View style={styles.recoverPasswordButtonPosition}>
             <View style={styles.recoverPasswordButton}>                    
-                <Button title='Recover password' onPress={() => navigation.navigate('DealsScreen')} />
+                <Button title='Recover password' onPress={() => navigation.navigate('RecoverPasswordConfirmScreen')} />
             </View>
         </View>
 
@@ -35,7 +35,7 @@ const ResetPasswordScreen = ({navigation}) => {
     )
 };
 
-ResetPasswordScreen.navigationOptions = () => {
+RecoverPasswordScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default ResetPasswordScreen;
+export default RecoverPasswordScreen;

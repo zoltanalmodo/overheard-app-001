@@ -19,9 +19,9 @@ import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCe
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
-import ConfirmRecoverPasswordScreen from './src/screens/ConfirmRecoverPasswordScreen/ConfirmRecoverPasswordScreen';
+import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
 
-ConfirmRecoverPasswordScreen
+
 
 
 const switchNavigator = createSwitchNavigator ({
@@ -32,7 +32,7 @@ const switchNavigator = createSwitchNavigator ({
 
       // LoginScreen: LoginScreen,
       // RecoverPasswordScreen: RecoverPasswordScreen,
-      // ConfirmRecoverPasswordScreen: ConfirmRecoverPasswordScreen,
+      // RecoverPasswordConfirmScreen: RecoverPasswordConfirmScreen,
 
 
       // RepLoginScreen: RepLoginScreen,

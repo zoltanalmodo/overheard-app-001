@@ -1,22 +1,65 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-const RepPlatformScreen = () => {
+const ConfirmRecoverPasswordScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>
-        <Text style={styles.repPlatformScreenText}>Rep Platform Screen</Text>
+
+        <View style={styles.repPlatformTitleBoxPosition}>
+            <View style={styles.repPlatformTitleBox}>                    
+                <Text style={styles.repPlatformTitleText} >Rep platform</Text>
+            </View>
+        </View>
+        
+        <View style={styles.repPlatformTextBoxPosition}>
+            <View style={styles.repPlatformTextBox}>
+                <Text style={styles.repPlatformTextTop}>Your sales stats</Text>
+
+
+                <View style={styles.repPlatformStatsPosition}>
+                    <View style={styles.repPlatformStats}>
+                        <Text style={styles.statsTextLeft} >Sales:</Text>
+                        <Text style={styles.statsTextRight} >5</Text>
+                    </View>
+
+                    <View style={styles.repPlatformStats}>
+                        <Text style={styles.statsTextLeft} >Link click:</Text>
+                        <Text style={styles.statsTextRight} >45</Text>
+                    </View>
+
+                    <View style={styles.repPlatformStats}>
+                        <Text style={styles.statsTextLeft} >Commission earned:</Text>
+                        <Text style={styles.statsTextRight} >£ 12.50</Text>
+                    </View>
+                </View>
+                
+
+                <View style={styles.uniqueRepLinkTextBoxPosition}>
+                    <Text style={styles.uniqueRepLinkTextBox} >* display unique rep link*</Text>
+                </View>
+            </View>   
+        </View>
+
+
+
+        <View style={styles.copyRepLinkButtonPosition}>
+            <View style={styles.copyRepLinkButton}>                    
+                <Button title='Copy Rep link' onPress={() => navigation.navigate('LoginScreen')} />
+            </View>
+        </View>
+
         
     </ImageBackground>
     )
 };
 
-RepPlatformScreen.navigationOptions = () => {
+ConfirmRecoverPasswordScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -30,16 +73,132 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      },
+    },
     logoPosition: {
         marginTop: 52,
-      },
-      repPlatformScreenText: {
+    },
+    
+    repPlatformTitleBoxPosition: {
+        marginTop: 52,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        zIndex: 1,
+    },
+    repPlatformTitleBox: {
+        width: 270,
+        height: 50,
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderColor: 'black',
+        
+    },
+    repPlatformTitleText: {
+        fontSize: 18,
+        fontWeight: '800',
         textAlign: 'center',
-        marginTop: 50,
-        fontSize: 36,
-        color: 'salmon',
-    }
+        paddingTop: 12,
+        color: 'black',
+    },
+    
+
+    repPlatformTextBoxPosition: {
+        marginTop: -25,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    repPlatformTextBox: {
+        width: 355,
+        height: 280,
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderColor: 'black',
+    },
+
+
+    repPlatformTextTop: {
+        paddingTop: 40,
+        paddingLeft: 20,
+        paddingRight: 20,
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'center',
+    },
+
+
+    repPlatformStatsPosition: {
+        width: 270,
+        paddingTop: 10,
+        marginLeft: 40,
+        marginLeft: 40,
+
+    },
+    repPlatformStats: {
+        paddingTop: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    statsTextLeft: {
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'left',
+        color: 'blue',
+    },
+    statsTextRight: {
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'right',
+        color: 'red',
+    },
+
+    uniqueRepLinkTextBoxPosition: {
+        marginTop: 26,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    uniqueRepLinkTextBox: {
+        paddingTop: 12,
+        textAlign: 'center',
+        fontSize: 16,
+        color:  '#ababab',
+        height: 50,
+        width: 270,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: '#ECECEC',
+    },
+    uniqueRepLinkText: {
+        paddingTop: 40,
+        paddingLeft: 20,
+        paddingRight: 20,
+        fontSize: 18,
+        fontWeight: '400',
+        textAlign: 'center',
+        color: '#ababab',
+    },
+
+    copyRepLinkButtonPosition: {
+        marginTop: -26,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    copyRepLinkButton: {
+        textAlign: 'center',
+        fontSize: 24,
+        fontWeight: 'bold',
+        color:  'white',
+        height: 50,
+        width: 270,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: 'black',
+
+        shadowColor: '#ababab',
+        shadowOffset: {width: 4, height: 4},
+        shadowOpacity: 1,
+        shadowRadius: 0,
+    },
+    
 });
 
-export default RepPlatformScreen;
+export default ConfirmRecoverPasswordScreen;
