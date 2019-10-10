@@ -10,7 +10,9 @@ const RepLoginScreen = () => {
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>
-        <Text style={styles.repLoginScreenText}>Rep Login Screen</Text>
+        
+        
+
         
     </ImageBackground>
     )
@@ -30,16 +32,13 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      },
+    },
     logoPosition: {
         marginTop: 52,
-      },
-      repLoginScreenText: {
-        textAlign: 'center',
-        marginTop: 50,
-        fontSize: 36,
-        color: 'salmon',
-    }
+    },
+
+    
+    
 });
 
 export default RepLoginScreen;

@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     },
     
     loginButtonStylePosition: {
-        marginTop: 10,
+        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },

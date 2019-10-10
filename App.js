@@ -7,7 +7,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen';
 import LoginScreen from './src/screens/LoginScreen/LoginScreen';
-import ResetPasswordScreen from './src/screens/ResetPasswordScreen/ResetPasswordScreen';
+import RecoverPasswordScreen from './src/screens/RecoverPasswordScreen/RecoverPasswordScreen';
 import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
 import RepLoginScreen from './src/screens/RepLoginScreen/RepLoginScreen';
 import RepPlatformScreen from './src/screens/RepPlatformScreen/RepPlatformScreen';
@@ -19,6 +19,9 @@ import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCe
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
+import ConfirmRecoverPasswordScreen from './src/screens/ConfirmRecoverPasswordScreen/ConfirmRecoverPasswordScreen';
+
+ConfirmRecoverPasswordScreen
 
 
 const switchNavigator = createSwitchNavigator ({
@@ -27,8 +30,10 @@ const switchNavigator = createSwitchNavigator ({
 
       // LoadingScreen: LoadingScreen,
 
-      LoginScreen: LoginScreen,
-      ResetPasswordScreen: ResetPasswordScreen,
+      // LoginScreen: LoginScreen,
+      // RecoverPasswordScreen: RecoverPasswordScreen,
+      ConfirmRecoverPasswordScreen: ConfirmRecoverPasswordScreen,
+
 
       RepLoginScreen: RepLoginScreen,
       RepSignUpScreen: RepSignUpScreen,
