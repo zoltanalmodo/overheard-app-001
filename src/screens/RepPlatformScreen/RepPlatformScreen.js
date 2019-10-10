@@ -41,7 +41,7 @@ const ConfirmRecoverPasswordScreen = ({navigation}) => {
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* display unique rep link*</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >* display unique rep link *</Text>
                 </View>
             </View>   
         </View>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
         paddingTop: 12,
         textAlign: 'center',
         fontSize: 16,
-        color:  '#ababab',
+        color:  'black',
         height: 50,
         width: 270,
         borderColor: 'black',
