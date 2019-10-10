@@ -4,7 +4,7 @@ import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-const RepPlatformScreen = ({navigation}) => {
+const RepPlatformConfirmScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
@@ -48,9 +48,9 @@ const RepPlatformScreen = ({navigation}) => {
 
 
 
-        <View style={styles.copyRepLinkButtonPosition}>
-            <View style={styles.copyRepLinkButton}>                    
-                <Button title='Copy Rep link' onPress={() => navigation.navigate('RepPlatformConfirmScreen')} />
+        <View style={styles.repLinkCopiedButtonPosition}>
+            <View style={styles.repLinkCopiedButton}>                    
+                <Text style={styles.repLinkCopiedButtonText}>Rep link copied</Text>
             </View>
         </View>
 
@@ -59,7 +59,7 @@ const RepPlatformScreen = ({navigation}) => {
     )
 };
 
-RepPlatformScreen.navigationOptions = () => {
+RepPlatformConfirmScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     repPlatformTextBox: {
         width: 355,
         height: 280,
-        backgroundColor: 'white',
+        backgroundColor: '#B8F3DC',
         borderWidth: 2,
         borderColor: 'black',
     },
@@ -177,28 +177,30 @@ const styles = StyleSheet.create({
         color: '#ababab',
     },
 
-    copyRepLinkButtonPosition: {
+    repLinkCopiedButtonPosition: {
         marginTop: -26,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    copyRepLinkButton: {
-        textAlign: 'center',
-        fontSize: 24,
-        fontWeight: 'bold',
-        color:  'white',
+    repLinkCopiedButton: {
         height: 50,
         width: 270,
         borderColor: 'black',
         borderWidth: 2,
-        backgroundColor: 'black',
+        backgroundColor: '#B8F3DC',
 
         shadowColor: '#ababab',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
     },
-    
+    repLinkCopiedButtonText: {
+        color: 'black',
+        paddingTop: 6,
+        fontSize: 24,
+        fontWeight: '800',
+        textAlign: 'center',
+    },
 });
 
-export default RepPlatformScreen;
+export default RepPlatformConfirmScreen;

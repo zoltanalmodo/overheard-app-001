@@ -19,7 +19,9 @@ import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCe
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
+
 import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
+import RepPlatformConfirmScreen from './src/screens/RepPlatformConfirmScreen/RepPlatformConfirmScreen';
 
 
 
@@ -37,7 +39,9 @@ const switchNavigator = createSwitchNavigator ({
 
       // RepLoginScreen: RepLoginScreen,
       // RepSignUpScreen: RepSignUpScreen,
-      RepPlatformScreen: RepPlatformScreen,
+      // RepPlatformScreen: RepPlatformScreen,
+
+      RepPlatformConfirmScreen: RepPlatformConfirmScreen,
 
     }),
 
