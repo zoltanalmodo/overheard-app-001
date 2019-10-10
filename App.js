@@ -25,7 +25,7 @@ const switchNavigator = createSwitchNavigator ({
 
     loginFlow: createStackNavigator({
 
-      LoadingScreen: LoadingScreen,
+      // LoadingScreen: LoadingScreen,
 
       LoginScreen: LoginScreen,
       ResetPasswordScreen: ResetPasswordScreen,
