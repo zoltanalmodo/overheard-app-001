@@ -20,6 +20,7 @@ import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarn
 import TransitionTest from './src/screens/TransitionTest/TransitionTest';
 
 
+
 const navigator = createStackNavigator (
   {
   DealsScreen: DealsScreen,
