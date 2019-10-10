@@ -19,7 +19,7 @@ const LoginScreen = ({navigation}) => {
                         style={styles.emailTextInput}
                         label='email'
                         placeholder='email'
-                        placeholderTextColor='#ababab'
+                        placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='email-address'
                         returnKeyType='done'
@@ -32,7 +32,7 @@ const LoginScreen = ({navigation}) => {
                         style={styles.passwordTextInput}
                         label='password'
                         placeholder='password'
-                        placeholderTextColor='#ababab'
+                        placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='default'
                         returnKeyType='done'

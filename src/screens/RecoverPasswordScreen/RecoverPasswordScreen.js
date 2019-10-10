@@ -16,7 +16,7 @@ const ResetPasswordScreen = ({navigation}) => {
                 style={styles.emailTextInputSyle}
                 label='email'
                 placeholder='email'
-                placeholderTextColor='#ababab'
+                placeholderTextColor='black'
                 keyboardAppearance='dark'
                 keyboardType='email-address'
                 returnKeyType='done'

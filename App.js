@@ -36,7 +36,7 @@ const switchNavigator = createSwitchNavigator ({
 
 
       // RepLoginScreen: RepLoginScreen,
-      RepSignUpScreen: RepSignUpScreen,
+      // RepSignUpScreen: RepSignUpScreen,
       RepPlatformScreen: RepPlatformScreen,
 
     }),
