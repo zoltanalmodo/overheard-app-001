@@ -10,19 +10,27 @@ const ConfirmRecoverPasswordScreen = ({navigation}) => {
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>
+
+        <View style={styles.confirmTitleBoxPosition}>
+            <View style={styles.confirmTitleBox}>                    
+                <Text style={styles.confirmTitleText} >Confirmed</Text>
+            </View>
+        </View>
         
         <View style={styles.confirmRecoverTextBoxPosition}>
             <View style={styles.confirmRecoverTextBox}>
-
-                <Text style={styles.confirmRecoverText}>A link to reset your password has been SENT to `$(email)`</Text>
-
-            </View>
-            
+                <Text style={styles.confirmRecoverTextTop}>A link to reset your password</Text>
+                <Text style={styles.confirmRecoverText} >has been</Text>
+                <Text style={styles.confirmRecoverText} >SENT to</Text>
+                <Text style={styles.confirmRecoverText} >`$(email)`</Text>
+            </View>   
         </View>
 
-        <View style={styles.confirmRecoverPasswordButtonPosition}>
-            <View style={styles.confirmRecoverPasswordButton}>                    
-                <Button title='Ok' onPress={() => navigation.navigate('DealsScreen')} />
+
+
+        <View style={styles.confirmRecoverOkButtonPosition}>
+            <View style={styles.confirmRecoverOkButton}>                    
+                <Button title='Ok' onPress={() => navigation.navigate('LoginScreen')} />
             </View>
         </View>
 
@@ -45,35 +53,69 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      },
+    },
     logoPosition: {
         marginTop: 52,
-      },
+    },
+    
+    confirmTitleBoxPosition: {
+        marginTop: 52,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        zIndex: 1,
+    },
+    confirmTitleBox: {
+        width: 270,
+        height: 50,
+        backgroundColor: 'white',
+        borderWidth: 2,
+        borderColor: 'black',
+        
+    },
+    confirmTitleText: {
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'center',
+        paddingTop: 12,
+        color: 'black',
+    },
     
     confirmRecoverTextBoxPosition: {
-        marginTop: 62,
+        marginTop: -25,
         flexDirection: 'row',
         justifyContent: 'center',
     },
     confirmRecoverTextBox: {
-        width: 300,
-        height: 300,
+        width: 355,
+        height: 270,
         backgroundColor: '#B8F3DC',
         borderWidth: 2,
         borderColor: 'black',
     },
-    confirmRecoverText: {
-        padding: 20,
+    confirmRecoverTextTop: {
+        paddingTop: 52,
+        paddingLeft: 20,
+        paddingRight: 20,
         fontSize: 18,
         fontWeight: '800',
-    },    
+        textAlign: 'center',
+    },
 
-    confirmRecoverPasswordButtonPosition: {
+    confirmRecoverText: {
+        paddingTop: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'center',
+    },
+
+    confirmRecoverOkButtonPosition: {
         marginTop: -26,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    confirmRecoverPasswordButton: {
+    confirmRecoverOkButton: {
         textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
@@ -88,7 +130,6 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
-
     },
     
 });
