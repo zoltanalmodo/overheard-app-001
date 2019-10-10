@@ -32,10 +32,11 @@ class DealsList extends Component {
             <FlatList
                 data={this.state.deals}
                 // horizontal={false}
-                numColumns= {2}
+                centerContent = {true}
+                numColumns = {2}
                 columnWrapperStyle
-                keyExtractor={item => item._id}
-                renderItem={(deal) => {
+                keyExtractor = {item => item._id}
+                renderItem = {(deal) => {
                     // deal === { item: { name: 'Friend #1 }, index: 0 }
                     return (
                         <DealCard 

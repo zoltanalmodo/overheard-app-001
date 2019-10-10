@@ -40,7 +40,7 @@ const navigator = createStackNavigator (
   TransitionTest: TransitionTest,
   },
 {
-  initialRouteName: 'TransitionTest',
+  initialRouteName: 'DealsScreen',
   defaultNavigationOptions: {
     title: 'Overheard Deals'
   }
