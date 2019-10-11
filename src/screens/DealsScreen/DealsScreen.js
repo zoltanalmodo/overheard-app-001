@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, ImageBackground } from 'react-native';
+import { View, Button, StyleSheet, ImageBackground } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
@@ -11,8 +11,11 @@ const DealsScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
-        <Header />
-        <DealsList />
+        <View style={styles.header}>
+            <Header />
+        </View>
+
+        <DealsList style={styles.list}/>
 
         <BottomDrawer
             containerHeight={70}
@@ -41,6 +44,15 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
+      },
+
+      header: {
+        zIndex: 33,
+      },
+
+      list: {
+          backgroundColor: 'yellow',
+          zIndex: 1,
       }
 });
 

@@ -42,6 +42,12 @@ const switchNavigator = createSwitchNavigator ({
       // BottomDrawerTest: BottomDrawerTest,
 
       //===========================================test
+
+      //==========================================build
+
+      DealsScreen: DealsScreen,
+
+      //==========================================build
       
 
       LoginScreen: LoginScreen,

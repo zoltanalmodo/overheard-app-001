@@ -3,7 +3,6 @@ import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import axios from 'axios';
 
 
-import DealsListCategoryTitle from '../DealsListCategoryTitle/DealsListCategoryTitle';
 import DealCard from '../DealCard/DealCard'
 
 class DealsList extends Component {
@@ -25,11 +24,10 @@ class DealsList extends Component {
         
         return (
             
-            <SafeAreaView style={styles.styleSafeAreaView}>
-
-            <DealsListCategoryTitle title={`All deals`}/>
+            
 
             <FlatList
+                style={styles.flatList}
                 data={this.state.deals}
                 // horizontal={false}
                 centerContent = {true}
@@ -52,7 +50,6 @@ class DealsList extends Component {
                     )
                 }}
             />
-            </SafeAreaView>
 
         );
     }
@@ -61,10 +58,12 @@ class DealsList extends Component {
 
 const styles = StyleSheet.create({
 
-    styleSafeAreaView: {
+    flatList: {
+        // backgroundColor: 'pink',
         marginHorizontal: 32,
+        marginTop: 0,
+        zIndex: 0,
     },
-
 });
 
 export default DealsList;

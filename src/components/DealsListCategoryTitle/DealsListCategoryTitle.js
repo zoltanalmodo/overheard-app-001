@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         marginTop: 4,
         marginBottom: 4,
+        marginHorizontal: 32,
     },
 
 });
