@@ -11,6 +11,9 @@ import RecoverPasswordScreen from './src/screens/RecoverPasswordScreen/RecoverPa
 import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
 import RepLoginScreen from './src/screens/RepLoginScreen/RepLoginScreen';
 import RepPlatformScreen from './src/screens/RepPlatformScreen/RepPlatformScreen';
+import RepPlatformConfirmScreen from './src/screens/RepPlatformConfirmScreen/RepPlatformConfirmScreen';
+
+
 import DealBuyOnlineScreen from './src/screens/DealBuyOnlineScreen/DealBuyOnlineScreen';
 import DealsBuyInStoreScreen from './src/screens/DealsBuyInStoreScreen/DealsBuyInStoreScreen';
 import DealsQRCodeScreen from './src/screens/DealsQRCodeScreen/DealsQRCodeScreen';
@@ -21,7 +24,9 @@ import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
 
 import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
-import RepPlatformConfirmScreen from './src/screens/RepPlatformConfirmScreen/RepPlatformConfirmScreen';
+
+
+import BottomDrawerTest from './src/screens/TestTest/BottomDrawerTest';
 
 
 
@@ -31,6 +36,13 @@ const switchNavigator = createSwitchNavigator ({
     loginFlow: createStackNavigator({
 
       // LoadingScreen: LoadingScreen,
+
+      //===========================================test
+
+      // BottomDrawerTest: BottomDrawerTest,
+
+      //===========================================test
+      
 
       // LoginScreen: LoginScreen,
       RecoverPasswordScreen: RecoverPasswordScreen,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import axios from 'axios';
 
 
@@ -37,7 +37,7 @@ class DealsList extends Component {
                 columnWrapperStyle
                 keyExtractor = {item => item._id}
                 renderItem = {(deal) => {
-                    // deal === { item: { name: 'Friend #1 }, index: 0 }
+                    
                     return (
                         <DealCard 
                             key={deal.item.order}
@@ -62,8 +62,6 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        // backgroundColor: 'pink',
-        marginTop: 0,
         marginHorizontal: 32,
     },
 

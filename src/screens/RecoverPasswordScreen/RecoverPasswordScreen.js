@@ -1,11 +1,16 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
-import backimage from '../../img/newbg.png'
-import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
+import BottomDrawer from 'rn-bottom-drawer';
+
+import backimage from '../../img/newbg.png';
+import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
+
 
 const RecoverPasswordScreen = ({navigation}) => {
+
     return (
+
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
@@ -26,12 +31,26 @@ const RecoverPasswordScreen = ({navigation}) => {
 
         <View style={styles.recoverPasswordButtonPosition}>
             <View style={styles.recoverPasswordButton}>                    
-                <Button title='Recover password' onPress={() => navigation.navigate('RecoverPasswordConfirmScreen')} />
+                <Button
+                    title='Recover password'
+                    onPress={() => navigation.navigate('RecoverPasswordConfirmScreen')}
+                />
             </View>
         </View>
 
         
+        <BottomDrawer
+            containerHeight={70}
+            backgroundColor='darkblue'
+            shadow={true}
+            startUp={true}
+        >       
+            <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
+        </BottomDrawer>
+        
+
     </ImageBackground>
+
     )
 };
 

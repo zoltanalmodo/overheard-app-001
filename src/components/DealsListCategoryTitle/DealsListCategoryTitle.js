@@ -11,8 +11,6 @@ const DealsListCategoryTitle = (props) => {
 const styles = StyleSheet.create({
 
     dealsListCategoryTitle: {
-        // backgroundColor: 'cyan',
-        // fontFamily: 'roboto-bold',
         fontSize: 16,
         fontWeight: '800',
         marginTop: 4,

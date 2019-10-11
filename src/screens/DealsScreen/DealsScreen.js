@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
+
+import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png'
 import Header from '../../components/Header/Header.js'
@@ -11,6 +13,15 @@ const DealsScreen = () => {
         
         <Header />
         <DealsList />
+
+        <BottomDrawer
+            containerHeight={70}
+            backgroundColor='darkblue'
+            shadow={true}
+            startUp={true}
+        >       
+            <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
+        </BottomDrawer>
         
     </ImageBackground>
     )
