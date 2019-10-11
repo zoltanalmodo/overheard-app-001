@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
+
 import ModalDropdown from 'react-native-modal-dropdown';
+import BottomDrawer from 'rn-bottom-drawer';
 
 
 import backimage from '../../img/newbg.png'
@@ -88,10 +90,19 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.signUpButtonPosition}>
                         <View style={styles.signUpButton}>                    
-                            <Button title='Sig Up' onPress={() => navigation.navigate('DealsScreen')} />
+                            <Button title='Sig Up' onPress={() => navigation.navigate('RepPlatformScreen')} />
                         </View>
                 </View>
 
+
+                <BottomDrawer
+                    containerHeight={70}
+                    backgroundColor='darkblue'
+                    shadow={true}
+                    startUp={true}
+                >       
+                    <Button title="<<< baaack" onPress={() => navigation.navigate('RepLoginScreen')} />
+                </BottomDrawer>
                 
             </ImageBackground>
 

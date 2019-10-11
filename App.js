@@ -46,14 +46,10 @@ const switchNavigator = createSwitchNavigator ({
 
       LoginScreen: LoginScreen,
       RecoverPasswordScreen: RecoverPasswordScreen,
-      RecoverPasswordConfirmScreen: RecoverPasswordConfirmScreen,
-
-
+      
       RepLoginScreen: RepLoginScreen,
       RepSignUpScreen: RepSignUpScreen,
       RepPlatformScreen: RepPlatformScreen,
-
-      RepPlatformConfirmScreen: RepPlatformConfirmScreen,
 
     }),
 
@@ -72,6 +68,9 @@ const switchNavigator = createSwitchNavigator ({
 
       ProfileScreen: ProfileScreen,
       ProfileWarningScreen: ProfileWarningScreen,
+
+      RecoverPasswordConfirmScreen: RecoverPasswordConfirmScreen,
+      RepPlatformConfirmScreen: RepPlatformConfirmScreen,
 
     })
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
+import BottomDrawer from 'rn-bottom-drawer';
+
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
@@ -32,6 +34,15 @@ const RepLoginScreen = ({navigation}) => {
                             <Button title='Continue' onPress={() => navigation.navigate('RepSignUpScreen')} />
                         </View>
                 </View>
+
+                <BottomDrawer
+                    containerHeight={70}
+                    backgroundColor='darkblue'
+                    shadow={true}
+                    startUp={true}
+                >       
+                    <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
+                </BottomDrawer>
                 
             </ImageBackground>
 

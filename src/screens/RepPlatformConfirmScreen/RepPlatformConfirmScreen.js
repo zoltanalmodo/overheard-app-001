@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
+import BottomDrawer from 'rn-bottom-drawer';
+
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
@@ -53,6 +55,15 @@ const RepPlatformConfirmScreen = ({navigation}) => {
                 <Text style={styles.repLinkCopiedButtonText}>Rep link copied</Text>
             </View>
         </View>
+
+        <BottomDrawer
+            containerHeight={70}
+            backgroundColor='darkblue'
+            shadow={true}
+            startUp={true}
+        >       
+            <Button title="<<< log out >>>" onPress={() => navigation.navigate('LoginScreen')} />
+        </BottomDrawer>
 
         
     </ImageBackground>
