@@ -5,7 +5,7 @@ import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png'
 
-const DealBuyOnlineScreen = () => {
+const DealBuyOnlineScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
