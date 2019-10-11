@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderWidth: 2,
         borderColor: 'black',
-
     },
 
 });

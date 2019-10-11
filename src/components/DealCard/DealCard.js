@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Button } from 'react-native';
 
 
 const DealCard = (props) => {
@@ -18,7 +18,15 @@ const DealCard = (props) => {
                     <Text style={styles.cardTextMainOffer}>{props.mainOffer}</Text>
                     <Text style={styles.cardTextOfferSmall}>{props.offerSmall}</Text>
                     
+                    
+                    <View style={styles.cardButtonPosition}>
+                        <View style={styles.cardButton}>     
+                            <Text style={styles.cardButtonText}>{props.buttonText}</Text>
+                        </View>
+                    </View>
+
                 </View>
+                
 
             </View>
     )
@@ -87,6 +95,23 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     
+
+    cardButtonPosition: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    cardButton: {
+        width: '85%',
+        height: 25,
+        backgroundColor: 'black',
+    },
+    cardButtonText: {
+        paddingTop: 4,
+        fontSize: 12,
+        textAlign: 'center',
+        color: 'white',
+        fontWeight: '800',
+    },
     
 });
 

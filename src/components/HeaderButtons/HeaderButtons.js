@@ -25,8 +25,6 @@ const HeaderButtons = () => {
                     textStyle={styles.modalButtonText}
 
                     dropdownStyle={styles.modalDropdownDropdownBox}
-
-                    renderSeparator={undefined}
                     dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
                     dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
                 />
@@ -75,7 +73,7 @@ const styles = StyleSheet.create({
 
     modalDropdownDropdownBox: {
         width: 252,
-        height: 'auto',
+        height: 500,
         borderColor: 'black',
         backgroundColor: 'hsla(157, 70%, 84%, 0.89)',
         borderWidth: 2,
@@ -90,7 +88,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(157, 70%, 84%, 0.01)',
         fontWeight: '800',
         color: 'black',
-        left: -2,
+        
     },
 
     dropdownTextHighlightStyle: {
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         color: 'white',
         backgroundColor: 'black',
-        left: -2,
+        
     },
 
 

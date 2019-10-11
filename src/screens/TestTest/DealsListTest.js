@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import axios from 'axios';
 
 
-import DealCard from '../DealCard/DealCard'
-
+import DealCard from '../../components/DealCard/DealCard'
 
 class DealsList extends Component {
 
@@ -25,17 +24,16 @@ class DealsList extends Component {
         
         return (
             
-            <SafeAreaView style={styles.styleSafeAreaView}>
-
             <FlatList
+                style={styles.flatList}
                 data={this.state.deals}
                 // horizontal={false}
                 centerContent = {true}
                 numColumns = {2}
-                columnWrapperStyle
+
                 keyExtractor = {item => item._id}
                 renderItem = {(deal) => {
-                    // deal === { item: { name: 'Friend #1 }, index: 0 }
+                    
                     return (
                         <DealCard 
                             key={deal.item.order}
@@ -51,7 +49,6 @@ class DealsList extends Component {
                     )
                 }}
             />
-            </SafeAreaView>
 
         );
     }
@@ -60,12 +57,16 @@ class DealsList extends Component {
 
 const styles = StyleSheet.create({
 
-    styleSafeAreaView: {
+    flatList: {
         // backgroundColor: 'pink',
-        marginTop: 0,
         marginHorizontal: 32,
+        zIndex: 0,
+        flex: 1,
+        flexDirection: 'row',
+        // remove width and height to override fixed static size
+        width: null,
+        height: null,
     },
-
 });
 
 export default DealsList;

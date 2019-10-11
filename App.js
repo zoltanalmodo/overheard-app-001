@@ -26,8 +26,9 @@ import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarn
 import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
 
 
-
-
+//===========================================test
+import DealsListTest from './src/screens/TestTest/DealsListTest.js'
+//===========================================test
 
 
 const switchNavigator = createSwitchNavigator ({
@@ -40,10 +41,12 @@ const switchNavigator = createSwitchNavigator ({
 
       // BottomDrawerTest: BottomDrawerTest,
 
+      // DealsListTest: DealsListTest,
+
       //===========================================test
 
       //==========================================build
-      
+
       DealsScreen: DealsScreen,
 
       DealBuyOnlineScreen: DealBuyOnlineScreen,
