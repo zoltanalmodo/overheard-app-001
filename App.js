@@ -44,7 +44,7 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
       
 
-      // LoginScreen: LoginScreen,
+      LoginScreen: LoginScreen,
       RecoverPasswordScreen: RecoverPasswordScreen,
       RecoverPasswordConfirmScreen: RecoverPasswordConfirmScreen,
 

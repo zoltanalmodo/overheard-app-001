@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ImageBackground } from 'react-native';
+import { Button, StyleSheet, ImageBackground } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
@@ -7,7 +7,7 @@ import backimage from '../../img/newbg.png'
 import Header from '../../components/Header/Header.js'
 import DealsList from '../../components/DealsList/DealsList'
 
-const DealsScreen = () => {
+const DealsScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
