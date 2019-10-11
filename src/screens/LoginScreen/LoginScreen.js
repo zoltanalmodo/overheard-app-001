@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
 const LoginScreen = ({navigation}) => {
-    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     
         return (
 
@@ -16,6 +17,11 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.emailTextInputPosition}>
                     <TextInput
+                        value={email}
+                        onChangeText = {(newEmail) => setEmail(newEmail)}
+
+                        autoCapitalize='none'
+                        autoCorrect={false}
                         style={styles.emailTextInput}
                         label='email'
                         placeholder='email'
@@ -24,11 +30,17 @@ const LoginScreen = ({navigation}) => {
                         keyboardType='email-address'
                         returnKeyType='done'
                         clearTextOnFocus={true}
+
                     />
                 </View>
                 
                 <View style={styles.passwordTextInputPosition}>
                     <TextInput
+                        value={password}
+                        onChangeText = {setPassword}
+
+                        autoCapitalize='none'
+                        autoCorrect={false}
                         style={styles.passwordTextInput}
                         label='password'
                         placeholder='password'
