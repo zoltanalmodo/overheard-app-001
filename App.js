@@ -43,8 +43,10 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
       //==========================================build
-
+      
       DealsScreen: DealsScreen,
+
+      DealBuyOnlineScreen: DealBuyOnlineScreen,
 
       //==========================================build
       

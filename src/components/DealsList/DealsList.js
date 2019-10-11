@@ -24,8 +24,6 @@ class DealsList extends Component {
         
         return (
             
-            
-
             <FlatList
                 style={styles.flatList}
                 data={this.state.deals}
