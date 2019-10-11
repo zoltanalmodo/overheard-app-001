@@ -17,7 +17,7 @@ import RepPlatformConfirmScreen from './src/screens/RepPlatformConfirmScreen/Rep
 import DealBuyOnlineScreen from './src/screens/DealBuyOnlineScreen/DealBuyOnlineScreen';
 import DealsBuyInStoreScreen from './src/screens/DealsBuyInStoreScreen/DealsBuyInStoreScreen';
 import DealsQRCodeScreen from './src/screens/DealsQRCodeScreen/DealsQRCodeScreen';
-import CategoriesScreen from './src/screens/CategoriesScreen/CategoriesScreen';
+
 import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCenteredScreen';
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
@@ -26,7 +26,6 @@ import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarn
 import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
 
 
-import BottomDrawerTest from './src/screens/TestTest/BottomDrawerTest';
 
 
 
@@ -66,8 +65,6 @@ const switchNavigator = createSwitchNavigator ({
       DealBuyOnlineScreen: DealBuyOnlineScreen,
       DealsBuyInStoreScreen: DealsBuyInStoreScreen,
       DealsQRCodeScreen: DealsQRCodeScreen,
-
-      CategoriesScreen: CategoriesScreen,
 
       MapUserCenteredScreen: MapUserCenteredScreen,
       MapDealCenteredScreen: MapDealCenteredScreen,
