@@ -4,7 +4,13 @@ import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-nati
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
+
+// login backend
+import { Context as AuthContext } from '../../context/AuthContext';
+//
+
 const LoginScreen = ({navigation}) => {
+    const { state, signup } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -55,7 +61,7 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.loginButtonPosition}>
                         <View style={styles.loginButton}>                    
-                            <Button title='Login' onPress={() => navigation.navigate('DealsScreen')} />
+                            <Button title='Login' onPress={() => signup({ email, password })} />
                         </View>
                 </View>
 

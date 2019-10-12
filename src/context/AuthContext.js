@@ -10,12 +10,15 @@ const authReducer = (state, action) => {
 
 
 const signin = (dispatch) => {
-    return ({ email, password }) => {
-        // make API request to signin with email and password
-
-        // success => update the state...
-
-        // if signup fails => display an error message
+    return async ({ email, password }) => {
+        
+        try {
+            const response = await trackerApi.post('/login', { email, password });
+            console.log(response.data);
+        } catch (err) {
+            console.log(err.message);
+        }
+        
     }; 
 };
 

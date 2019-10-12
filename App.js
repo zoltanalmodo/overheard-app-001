@@ -51,14 +51,14 @@ const switchNavigator = createSwitchNavigator ({
 
       //==========================================build
 
-      LoginScreen: LoginScreen,
 
-      DealBuyOnlineScreen: DealBuyOnlineScreen,
+
+      // DealBuyOnlineScreen: DealBuyOnlineScreen,
 
       //==========================================build
       
 
-      LoginScreen: LoginScreen,
+      // LoginScreen: LoginScreen,
       RecoverPasswordScreen: RecoverPasswordScreen,
       
       RepLoginScreen: RepLoginScreen,
