@@ -6,12 +6,20 @@ import ModalDropdown from 'react-native-modal-dropdown';
 import BottomDrawer from 'rn-bottom-drawer';
 
 
+// signup backend
+import { Context as AuthContext } from '../../context/AuthContext';
+//
+
+
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
 const RepSigUpScreen = ({navigation}) => {
     
-    
+    const { state, signup } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
         return (
 
             <ImageBackground source={backimage} style={styles.container}>
@@ -90,7 +98,7 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.signUpButtonPosition}>
                         <View style={styles.signUpButton}>                    
-                            <Button title='Sig Up' onPress={() => navigation.navigate('RepPlatformScreen')} />
+                            <Button title='Sign Up' onPress={() => signup({ email, password })} />
                         </View>
                 </View>
 
