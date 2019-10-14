@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
 import backimage from '../../img/newbg.png'
@@ -10,7 +10,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 //
 
 const LoginScreen = ({navigation}) => {
-    const { state, signup } = useContext(AuthContext);
+    const { state, signin } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -61,7 +61,7 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.loginButtonPosition}>
                         <View style={styles.loginButton}>                    
-                            <Button title='Login' onPress={() => signup({ email, password })} />
+                            <Button title='Login' onPress={() => signin({ email, password })} />
                         </View>
                 </View>
 

@@ -16,7 +16,7 @@ const signin = (dispatch) => {
             const response = await trackerApi.post('/login', { email, password });
             console.log(response.data);
         } catch (err) {
-            console.log(err.message);
+            console.log(err.response.data);
         }
         
     }; 

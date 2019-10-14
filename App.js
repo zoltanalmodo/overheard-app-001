@@ -58,7 +58,7 @@ const switchNavigator = createSwitchNavigator ({
       //==========================================build
       
 
-      // LoginScreen: LoginScreen,
+      LoginScreen: LoginScreen,
       RecoverPasswordScreen: RecoverPasswordScreen,
       
       RepLoginScreen: RepLoginScreen,
