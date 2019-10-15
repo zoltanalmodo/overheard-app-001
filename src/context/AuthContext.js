@@ -18,7 +18,7 @@ const signin = (dispatch) => {
         } catch (err) {
             console.log(err.response.data);
         }
-        
+
     }; 
 };
 
@@ -40,7 +40,6 @@ const signup = (dispatch) => {
         }
     }; 
 };
-
 
 export const { Provider, Context } = createDataContext(
     authReducer,
