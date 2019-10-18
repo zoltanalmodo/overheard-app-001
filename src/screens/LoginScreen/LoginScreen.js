@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
@@ -13,7 +13,8 @@ const LoginScreen = ({navigation}) => {
     const { state, signin } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
+
+       
         return (
 
             <ImageBackground source={backimage} style={styles.container}>
@@ -58,6 +59,8 @@ const LoginScreen = ({navigation}) => {
                         secureTextEntry={true}
                     />
                 </View>
+
+                {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
 
                 <View style={styles.loginButtonPosition}>
                         <View style={styles.loginButton}>                    
@@ -140,6 +143,13 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         backgroundColor: '#ECECEC',
+    },
+
+    errorMessage: {
+        paddingTop: 20,
+        textAlign: 'center',
+        fontSize: 18,
+        color: 'red',
     },
     
     loginButtonPosition: {
