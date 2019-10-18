@@ -1,6 +1,7 @@
 import createDataContext from './createDataContext';
 import trackerApi from '../api/tracker';
 import { AsyncStorage } from 'react-native';
+import { navigate } from '../navigationRef';
 
 const authReducer = (state, action) => {
     switch (action.type) {
@@ -21,6 +22,9 @@ const signin = (dispatch) => async ({ email, password }) => {
         // console.log(response.data);
         await AsyncStorage.setItem('token', response.data.token);
         dispatch({ type: 'login', payload: response.data.token });
+
+        navigate('DealsScreen');
+
     } catch (err) {
         dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'})
     }
