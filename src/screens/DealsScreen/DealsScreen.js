@@ -9,6 +9,7 @@ import { createKeyboardAwareNavigator } from 'react-navigation';
 const DealsScreen = () => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
+
         <Header />
         <DealsList />
         
