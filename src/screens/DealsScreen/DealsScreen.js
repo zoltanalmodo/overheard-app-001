@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header.js'
 import DealsList from '../../components/DealsList/DealsList'
 import { createKeyboardAwareNavigator } from 'react-navigation';
 
-const DealsScreen = () => {
+const DealsScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
 

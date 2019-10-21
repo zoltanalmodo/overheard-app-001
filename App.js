@@ -15,6 +15,7 @@ import RepLoginScreen from './src/screens/RepLoginScreen/RepLoginScreen';
 import RepPlatformScreen from './src/screens/RepPlatformScreen/RepPlatformScreen';
 import RepPlatformConfirmScreen from './src/screens/RepPlatformConfirmScreen/RepPlatformConfirmScreen';
 
+import DealCardPopUpScreen from './src/screens/DealCardPopUpScreen/DealCardPopUpScreen';
 
 import DealBuyOnlineScreen from './src/screens/DealBuyOnlineScreen/DealBuyOnlineScreen';
 import DealsBuyInStoreScreen from './src/screens/DealsBuyInStoreScreen/DealsBuyInStoreScreen';
@@ -54,7 +55,7 @@ const switchNavigator = createSwitchNavigator ({
       //==========================================build
 
 
-      // DealsScreen: DealsScreen,
+      DealsScreen: DealsScreen,
 
 
       DealBuyOnlineScreen: DealBuyOnlineScreen,
@@ -75,6 +76,8 @@ const switchNavigator = createSwitchNavigator ({
         
       DealsScreen: DealsScreen,
       
+      DealCardPopUpScreen: DealCardPopUpScreen,
+
       DealBuyOnlineScreen: DealBuyOnlineScreen,
       DealsBuyInStoreScreen: DealsBuyInStoreScreen,
       DealsQRCodeScreen: DealsQRCodeScreen,

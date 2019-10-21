@@ -53,7 +53,7 @@ class DealsList extends Component {
                     }}
                 />
             </View>
-            
+
             </SafeAreaView>
 
         );

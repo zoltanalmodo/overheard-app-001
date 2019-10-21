@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
 
 
 const DealCard = (props) => {
@@ -18,9 +18,12 @@ const DealCard = (props) => {
                     
                     <View style={styles.cardButtonPosition}>
 
-                        <View style={styles.cardButton}>     
-                            <Text style={styles.cardButtonText}>{props.buttonText}</Text>
-                        </View>
+                        <TouchableOpacity onPress={ () => navigation.navigate('DealCardPopUpScreen') }>
+                            <View style={styles.cardButton}>     
+                                <Text style={styles.cardButtonText}>{props.buttonText}</Text>
+                            </View>
+                        </TouchableOpacity>
+
                         
                     </View>
 
