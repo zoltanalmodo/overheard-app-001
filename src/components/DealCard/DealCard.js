@@ -17,9 +17,11 @@ const DealCard = (props) => {
                     
                     
                     <View style={styles.cardButtonPosition}>
+
                         <View style={styles.cardButton}>     
                             <Text style={styles.cardButtonText}>{props.buttonText}</Text>
                         </View>
+                        
                     </View>
 
                 </View>

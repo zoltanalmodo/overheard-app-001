@@ -62,7 +62,7 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        backgroundColor: 'pink',
+        // backgroundColor: 'pink',
         marginTop: 0,
         flex: 1,
         width: null,
