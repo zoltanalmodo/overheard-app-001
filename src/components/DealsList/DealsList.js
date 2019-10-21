@@ -26,6 +26,7 @@ class DealsList extends Component {
         return (
             
             <SafeAreaView style={styles.styleSafeAreaView}>
+
             <View>
                 <FlatList
                     data={this.state.deals}
@@ -52,6 +53,7 @@ class DealsList extends Component {
                     }}
                 />
             </View>
+            
             </SafeAreaView>
 
         );
