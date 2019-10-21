@@ -54,7 +54,7 @@ const switchNavigator = createSwitchNavigator ({
       //==========================================build
 
 
-      DealsScreen: DealsScreen,
+      // DealsScreen: DealsScreen,
 
 
       DealBuyOnlineScreen: DealBuyOnlineScreen,
