@@ -12,9 +12,6 @@ const DealCard = (props) => {
                 </View>
                 <View style={styles.cardTextContainer}>
                     <Text style={styles.cardTextName}>{props.name}</Text>
-                    {/* <Text style={styles.cardTextLineOne}>{props.lineOne}</Text>
-                    <Text style={styles.cardTextLineTwo}>{props.lineTwo}</Text>
-                    <Text style={styles.cardTextLineThree}>{props.lineThree}</Text> */}
                     <Text style={styles.cardTextMainOffer}>{props.mainOffer}</Text>
                     <Text style={styles.cardTextOfferSmall}>{props.offerSmall}</Text>
                     

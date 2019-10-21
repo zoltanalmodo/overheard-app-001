@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import axios from 'axios';
 
 
@@ -26,31 +26,32 @@ class DealsList extends Component {
         return (
             
             <SafeAreaView style={styles.styleSafeAreaView}>
-
-            <FlatList
-                data={this.state.deals}
-                // horizontal={false}
-                centerContent = {true}
-                numColumns = {2}
-                columnWrapperStyle
-                keyExtractor = {item => item._id}
-                renderItem = {(deal) => {
-                    // deal === { item: { name: 'Friend #1 }, index: 0 }
-                    return (
-                        <DealCard 
-                            key={deal.item.order}
-                            name={deal.item.name}
-                            img={deal.item.img}
-                            lineOne={deal.item.lineOne}
-                            lineTwo={deal.item.lineTwo}
-                            lineThree={deal.item.lineThree}
-                            mainOffer={deal.item.mainOffer}
-                            offerSmall={deal.item.offerSmall}
-                            buttonText={deal.item.buttonText}
-                        />
-                    )
-                }}
-            />
+            <View>
+                <FlatList
+                    data={this.state.deals}
+                    // horizontal={false}
+                    centerContent = {true}
+                    numColumns = {2}
+                    columnWrapperStyle
+                    keyExtractor = {item => item._id}
+                    renderItem = {(deal) => {
+                        // deal === { item: { name: 'Friend #1 }, index: 0 }
+                        return (
+                            <DealCard 
+                                key={deal.item.order}
+                                name={deal.item.name}
+                                img={deal.item.img}
+                                lineOne={deal.item.lineOne}
+                                lineTwo={deal.item.lineTwo}
+                                lineThree={deal.item.lineThree}
+                                mainOffer={deal.item.mainOffer}
+                                offerSmall={deal.item.offerSmall}
+                                buttonText={deal.item.buttonText}
+                            />
+                        )
+                    }}
+                />
+            </View>
             </SafeAreaView>
 
         );
@@ -61,9 +62,14 @@ class DealsList extends Component {
 const styles = StyleSheet.create({
 
     styleSafeAreaView: {
-        // backgroundColor: 'pink',
+        backgroundColor: 'pink',
         marginTop: 0,
-        marginHorizontal: 32,
+        flex: 1,
+        width: null,
+        height: null,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        
     },
 
 });
