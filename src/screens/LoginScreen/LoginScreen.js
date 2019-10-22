@@ -90,7 +90,6 @@ const LoginScreen = ({navigation}) => {
 
         );
 
-    
 };
 
 LoginScreen.navigationOptions = () => {

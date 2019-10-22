@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { navigate } from '../../navigationRef';
 
 
 const DealCard = (props) => {
@@ -18,7 +19,7 @@ const DealCard = (props) => {
                     
                     <View style={styles.cardButtonPosition}>
 
-                        <TouchableOpacity onPress={ () => navigation.navigate('DealCardPopUpScreen') }>
+                        <TouchableOpacity style={styles.touchableOpacity} onPress={ () => navigate('DealCardPopUpScreen') }>
                             <View style={styles.cardButton}>     
                                 <Text style={styles.cardButtonText}>{props.buttonText}</Text>
                             </View>
@@ -102,6 +103,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
     },
+
+    touchableOpacity: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '85%',
+        height: 25,
+        backgroundColor: 'black',
+        textAlign: 'center',
+    },
+
     cardButton: {
         width: '85%',
         height: 25,

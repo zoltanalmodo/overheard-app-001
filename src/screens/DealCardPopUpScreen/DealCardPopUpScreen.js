@@ -22,7 +22,7 @@ const DealCardPopUpScreen = ({navigation}) => {
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('DealScreen')} />
+            <Button title="<<< baaack" onPress={() => navigation.navigate('DealsScreen')} />
         </BottomDrawer>
         
     </ImageBackground>

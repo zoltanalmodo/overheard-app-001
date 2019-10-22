@@ -28,10 +28,29 @@ const RepLoginScreen = ({navigation}) => {
                         clearTextOnFocus={true}
                     />
                 </View>
+
+                <View style={styles.passwordTextInputPosition}>
+                    <TextInput
+                        value={password}
+                        onChangeText = {setPassword}
+
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        style={styles.passwordTextInput}
+                        label='password'
+                        placeholder='password'
+                        placeholderTextColor='black'
+                        keyboardAppearance='dark'
+                        keyboardType='default'
+                        returnKeyType='done'
+                        clearTextOnFocus={true}
+                        secureTextEntry={true}
+                    />
+                </View>
                 
                 <View style={styles.loginButtonStylePosition}>
                         <View style={styles.loginButtonStyle}>                    
-                            <Button title='Continue' onPress={() => navigation.navigate('RepSignUpScreen')} />
+                            <Button title='Become a rep' onPress={() => navigation.navigate('RepSignUpScreen')} />
                         </View>
                 </View>
 
@@ -87,12 +106,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECECEC',
     },
 
-    passwordTextInputStylePosition: {
+    passwordTextInputPosition: {
         marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    passwordTextInputSyle: {
+    passwordTextInput: {
         textAlign: 'center',
         fontSize: 16,
         color:  'black',
