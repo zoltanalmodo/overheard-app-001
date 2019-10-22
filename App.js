@@ -5,15 +5,21 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { setNavigator } from './src/navigationRef';
 
 
-
-import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen';
+
 import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 import RecoverPasswordScreen from './src/screens/RecoverPasswordScreen/RecoverPasswordScreen';
-import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
+import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
+
+
 import RepLoginScreen from './src/screens/RepLoginScreen/RepLoginScreen';
+import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
 import RepPlatformScreen from './src/screens/RepPlatformScreen/RepPlatformScreen';
 import RepPlatformConfirmScreen from './src/screens/RepPlatformConfirmScreen/RepPlatformConfirmScreen';
+
+
+import DealsScreen from './src/screens/DealsScreen/DealsScreen';
+
 
 import DealCardPopUpScreen from './src/screens/DealCardPopUpScreen/DealCardPopUpScreen';
 
@@ -23,14 +29,15 @@ import DealsQRCodeScreen from './src/screens/DealsQRCodeScreen/DealsQRCodeScreen
 
 import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCenteredScreen';
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
+
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
 
-import RecoverPasswordConfirmScreen from './src/screens/RecoverPasswordConfirmScreen/RecoverPasswordConfirmScreen';
+
 
 
 //===========================================test
-import DealsListTest from './src/screens/TestTest/DealsListTest.js'
+
 //===========================================test
 
 
@@ -63,9 +70,10 @@ const switchNavigator = createSwitchNavigator ({
       
 
       // LoginScreen: LoginScreen,
-      // RecoverPasswordScreen: RecoverPasswordScreen,
+      RecoverPasswordScreen: RecoverPasswordScreen,
       
       RepLoginScreen: RepLoginScreen,
+      // ResetRepPasswordScreen: ResetRepPasswordScreen,
       // RepSignUpScreen: RepSignUpScreen,
       // RepPlatformScreen: RepPlatformScreen,
 

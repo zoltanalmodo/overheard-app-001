@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
@@ -6,8 +6,14 @@ import BottomDrawer from 'rn-bottom-drawer';
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
+// login backend
+import { Context as AuthContext } from '../../context/AuthContext';
+//
+
 const RepLoginScreen = ({navigation}) => {
-    
+    const { state, repsignin } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     
         return (
 
@@ -16,9 +22,14 @@ const RepLoginScreen = ({navigation}) => {
                     <OverheardDealsLogo />
                 </View>
 
-                <View style={styles.emailTextInputStylePosition}>
+                <View style={styles.emailTextInputPosition}>
                     <TextInput
-                        style={styles.emailTextInputSyle}
+                        value={email}
+                        onChangeText = {(newEmail) => setEmail(newEmail)}
+
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        style={styles.emailTextInput}
                         label='email'
                         placeholder='email'
                         placeholderTextColor='black'
@@ -26,9 +37,10 @@ const RepLoginScreen = ({navigation}) => {
                         keyboardType='email-address'
                         returnKeyType='done'
                         clearTextOnFocus={true}
+
                     />
                 </View>
-
+                
                 <View style={styles.passwordTextInputPosition}>
                     <TextInput
                         value={password}
@@ -47,10 +59,24 @@ const RepLoginScreen = ({navigation}) => {
                         secureTextEntry={true}
                     />
                 </View>
+
+                {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
                 
-                <View style={styles.loginButtonStylePosition}>
-                        <View style={styles.loginButtonStyle}>                    
-                            <Button title='Become a rep' onPress={() => navigation.navigate('RepSignUpScreen')} />
+                <View style={styles.repLoginButtonPosition}>
+                        <View style={styles.repLoginButton}>                    
+                            <Button title='Rep login' onPress={() => repsignin({ email, password })} />
+                        </View>
+                </View>
+
+                <View style={styles.forgotPasswordPosition}>
+                        <View style={styles.forgotPassword}>                    
+                            <Button title='forgot password' onPress={() => navigation.navigate('RecoverPasswordScreen')} />
+                        </View>
+                </View>
+
+                <View style={styles.becomeARepPosition}>
+                        <View style={styles.becomeARep}>                    
+                            <Button title='become a rep' onPress={() => navigation.navigate('RepSignUpScreen')} />
                         </View>
                 </View>
 
@@ -90,12 +116,12 @@ const styles = StyleSheet.create({
         marginTop: 52,
       },
 
-    emailTextInputStylePosition: {
-        marginTop: 122,
+    emailTextInputPosition: {
+        marginTop: 52,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    emailTextInputSyle: {
+    emailTextInput: {
         textAlign: 'center',
         fontSize: 16,
         color:  'black',
@@ -121,48 +147,16 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         backgroundColor: '#ECECEC',
     },
-    
-    loginButtonStylePosition: {
-        marginTop: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    loginButtonStyle: {
+
+    errorMessage: {
+        paddingTop: 20,
         textAlign: 'center',
-        fontSize: 24,
-        fontWeight: 'bold',
-        color:  'white',
-        height: 50,
-        width: 270,
-        borderColor: 'black',
-        borderWidth: 2,
-        backgroundColor: 'black',
-        
-        shadowColor: '#ababab',
-        shadowOffset: {width: 4, height: 4},
-        shadowOpacity: 1,
-        shadowRadius: 0,
+        fontSize: 18,
+        color: 'red',
     },
-
-    forgotPasswordStylePosition: {
-        marginTop: 15,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    forgotPasswordStyle: {
-    },
-
-    newUserStylePosition: {
-        marginTop: 5,
-        flexDirection: 'row',
-        justifyContent: 'center',
-
-    },
-    newUserStyle: {
-    },
-
+    
     repLoginButtonPosition: {
-        marginTop: 15,
+        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },
@@ -173,14 +167,35 @@ const styles = StyleSheet.create({
         color:  'white',
         height: 50,
         width: 270,
-        borderColor: '#ECECEC',
+        borderColor: 'black',
         borderWidth: 2,
-        backgroundColor: '#ECECEC',
+        backgroundColor: 'black',
+
         shadowColor: '#ababab',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
+
     },
+
+    forgotPasswordPosition: {
+        marginTop: 15,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    forgotPassword: {
+    },
+
+    becomeARepPosition: {
+        marginTop: 5,
+        flexDirection: 'row',
+        justifyContent: 'center',
+
+    },
+    becomeARep: {
+    },
+
+    
 
 });
 

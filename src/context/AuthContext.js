@@ -8,7 +8,9 @@ const authReducer = (state, action) => {
         case 'add_error':
             return { ...state, errorMessage: action.payload }
         case 'login':
-                    return { errorMessage: '', token: action.payload }
+            return { errorMessage: '', token: action.payload }
+        case 'replogin':
+            return { errorMessage: '', reptoken: action.payload }
         default:
             return state;
     }
@@ -29,7 +31,24 @@ const signin = (dispatch) => async ({ email, password }) => {
         dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'})
     }
 
-}; 
+};
+
+
+const repsignin = (dispatch) => async ({ email, password }) => {
+        
+    try {
+        const response = await trackerApi.post('/replogin', { email, password });
+        console.log(response.data);
+        await AsyncStorage.setItem('token', response.data.reptoken);
+        dispatch({ type: 'replogin', payload: response.data.reptoken });
+
+        navigate('RepPlatformScreen');
+
+    } catch (err) {
+        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'})
+    }
+
+};
 
 
 const signout = (dispatch) => {
@@ -53,7 +72,7 @@ const signup = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signin, signout, signup },
+    { signin, repsignin, signout, signup },
     { token: null, errorMessage: '' }
 
 );
