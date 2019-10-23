@@ -6,7 +6,7 @@ import BottomDrawer from 'rn-bottom-drawer';
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-const RepPlatformConfirmScreen = ({navigation}) => {
+const ConfirmRepPlatformScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
@@ -70,7 +70,7 @@ const RepPlatformConfirmScreen = ({navigation}) => {
     )
 };
 
-RepPlatformConfirmScreen.navigationOptions = () => {
+ConfirmRepPlatformScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -214,4 +214,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default RepPlatformConfirmScreen;
+export default ConfirmRepPlatformScreen;

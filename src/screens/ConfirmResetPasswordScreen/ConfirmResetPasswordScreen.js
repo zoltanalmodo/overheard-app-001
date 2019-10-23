@@ -4,7 +4,7 @@ import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'reac
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-const ConfirmRecoverPasswordScreen = ({navigation}) => {
+const ConfirmResetPasswordScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
@@ -17,19 +17,19 @@ const ConfirmRecoverPasswordScreen = ({navigation}) => {
             </View>
         </View>
         
-        <View style={styles.confirmRecoverTextBoxPosition}>
-            <View style={styles.confirmRecoverTextBox}>
-                <Text style={styles.confirmRecoverTextTop}>A link to reset your password</Text>
-                <Text style={styles.confirmRecoverText} >has been</Text>
-                <Text style={styles.confirmRecoverText} >SENT to</Text>
-                <Text style={styles.confirmRecoverTextEmail} >`$(email)`</Text>
+        <View style={styles.confirmResetTextBoxPosition}>
+            <View style={styles.confirmResetTextBox}>
+                <Text style={styles.confirmResetTextBoxTop}>A link to reset your password</Text>
+                <Text style={styles.confirmResetText} >has been</Text>
+                <Text style={styles.confirmResetText} >SENT to</Text>
+                <Text style={styles.confirmResetTextEmail} >`$(email)`</Text>
             </View>   
         </View>
 
 
 
-        <View style={styles.confirmRecoverOkButtonPosition}>
-            <View style={styles.confirmRecoverOkButton}>                    
+        <View style={styles.confirmResetOkButtonPosition}>
+            <View style={styles.confirmResetOkButton}>                    
                 <Button title='Ok' onPress={() => navigation.navigate('LoginScreen')} />
             </View>
         </View>
@@ -39,7 +39,7 @@ const ConfirmRecoverPasswordScreen = ({navigation}) => {
     )
 };
 
-ConfirmRecoverPasswordScreen.navigationOptions = () => {
+ConfirmResetPasswordScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -80,19 +80,19 @@ const styles = StyleSheet.create({
         color: 'black',
     },
     
-    confirmRecoverTextBoxPosition: {
+    confirmResetTextBoxPosition: {
         marginTop: -25,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    confirmRecoverTextBox: {
+    confirmResetTextBox: {
         width: 355,
         height: 270,
         backgroundColor: '#B8F3DC',
         borderWidth: 2,
         borderColor: 'black',
     },
-    confirmRecoverTextTop: {
+    confirmResetTextBoxTop: {
         paddingTop: 52,
         paddingLeft: 20,
         paddingRight: 20,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    confirmRecoverText: {
+    confirmResetText: {
         paddingTop: 20,
         paddingLeft: 20,
         paddingRight: 20,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    confirmRecoverTextEmail: {
+    confirmResetTextEmail: {
         paddingTop: 20,
         paddingLeft: 20,
         paddingRight: 20,
@@ -120,12 +120,12 @@ const styles = StyleSheet.create({
         color: 'blue',
     },
 
-    confirmRecoverOkButtonPosition: {
+    confirmResetOkButtonPosition: {
         marginTop: -26,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    confirmRecoverOkButton: {
+    confirmResetOkButton: {
         textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
@@ -144,4 +144,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default ConfirmRecoverPasswordScreen;
+export default ConfirmResetPasswordScreen;

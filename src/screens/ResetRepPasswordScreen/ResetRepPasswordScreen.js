@@ -7,7 +7,7 @@ import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
 
-const RecoverPasswordScreen = ({navigation}) => {
+const ResetRepPasswordScreen = ({navigation}) => {
 
     return (
 
@@ -16,9 +16,9 @@ const RecoverPasswordScreen = ({navigation}) => {
             <OverheardDealsLogo />
         </View>
         
-        <View style={styles.emailTextInputStylePosition}>
+        <View style={styles.emailTextInputPosition}>
             <TextInput
-                style={styles.emailTextInputSyle}
+                style={styles.emailTextInput}
                 label='email'
                 placeholder='email'
                 placeholderTextColor='black'
@@ -29,11 +29,11 @@ const RecoverPasswordScreen = ({navigation}) => {
             />
         </View>
 
-        <View style={styles.recoverPasswordButtonPosition}>
-            <View style={styles.recoverPasswordButton}>                    
+        <View style={styles.resetRepPasswordButtonPosition}>
+            <View style={styles.resetRepPasswordButton}>                    
                 <Button
-                    title='Recover password'
-                    onPress={() => navigation.navigate('RecoverPasswordConfirmScreen')}
+                    title='Reset rep password'
+                    onPress={() => navigation.navigate('ConfirmResetRepPasswordScreen')}
                 />
             </View>
         </View>
@@ -45,7 +45,7 @@ const RecoverPasswordScreen = ({navigation}) => {
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
+            <Button title="<<< baaack" onPress={() => navigation.navigate('RepLoginScreen')} />
         </BottomDrawer>
         
 
@@ -54,7 +54,7 @@ const RecoverPasswordScreen = ({navigation}) => {
     )
 };
 
-RecoverPasswordScreen.navigationOptions = () => {
+ResetRepPasswordScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -73,12 +73,12 @@ const styles = StyleSheet.create({
         marginTop: 52,
       },
     
-    emailTextInputStylePosition: {
+    emailTextInputPosition: {
         marginTop: 122,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    emailTextInputSyle: {
+    emailTextInput: {
         textAlign: 'center',
         fontSize: 16,
         color:  'black',
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECECEC',
     },
 
-    recoverPasswordButtonPosition: {
+    resetRepPasswordButtonPosition: {
         marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    recoverPasswordButton: {
+    resetRepPasswordButton: {
         textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default RecoverPasswordScreen;
+export default ResetRepPasswordScreen;
