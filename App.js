@@ -57,13 +57,13 @@ const switchNavigator = createSwitchNavigator ({
 
       //===========================================test
 
-
+      
 
       //===========================================test
 
       //==========================================build
 
-      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
+      
 
       //==========================================build
       
@@ -74,8 +74,8 @@ const switchNavigator = createSwitchNavigator ({
       // RepLoginScreen: RepLoginScreen,
       // ResetRepPasswordScreen: ResetRepPasswordScreen,
       
-
-      // RepSignUpScreen: RepSignUpScreen,
+      RepSignUpScreen: RepSignUpScreen,
+      
       // RepPlatformScreen: RepPlatformScreen,
 
     }),
@@ -97,11 +97,9 @@ const switchNavigator = createSwitchNavigator ({
       ProfileWarningScreen: ProfileWarningScreen,
 
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
-
-
       
 
-
+      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
 
     })

@@ -69,18 +69,24 @@ const RepSigUpScreen = ({navigation}) => {
                     />
                 </View>
 
-                <View style={styles.modalDropdownPosition}>
-                    <ModalDropdown
-                        defaultValue={'select your uni'}
-                        options={['Cardiff', 'option 1', 'option 2', 'option 3']}
-                        style={styles.modalDropdown}
-                        textStyle={styles.modalDropdownText}
-                        dropdownStyle={styles.modalDropdownDropdownBox}
-                        dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
-                        dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
+                <View style={styles.passwordTextInputPosition}>
+                    <TextInput
+                        value={password}
+                        onChangeText = {setPassword}
+
+                        autoCapitalize='none'
+                        autoCorrect={false}
+                        style={styles.passwordTextInput}
+                        label='password'
+                        placeholder='password'
+                        placeholderTextColor='black'
+                        keyboardAppearance='dark'
+                        keyboardType='default'
+                        returnKeyType='done'
+                        clearTextOnFocus={true}
+                        secureTextEntry={true}
                     />
                 </View>
-                
                 
                 <View style={styles.phoneTextInputPosition}>
                     <TextInput
@@ -95,10 +101,22 @@ const RepSigUpScreen = ({navigation}) => {
                     />
                 </View>
 
+                <View style={styles.modalDropdownPosition}>
+                    <ModalDropdown
+                        defaultValue={'select your uni'}
+                        options={['Cardiff', 'option 1', 'option 2', 'option 3']}
+                        style={styles.modalDropdown}
+                        textStyle={styles.modalDropdownText}
+                        dropdownStyle={styles.modalDropdownDropdownBox}
+                        dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
+                        dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
+                    />
+                </View>
+
 
                 <View style={styles.signUpButtonPosition}>
                         <View style={styles.signUpButton}>                    
-                            <Button title='Sign Up' onPress={() => signup({ email, password })} />
+                            <Button title='Become a rep' onPress={() => signup({ email, password })} />
                         </View>
                 </View>
 
@@ -186,6 +204,38 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECECEC',
     },
 
+    passwordTextInputPosition: {
+        marginTop: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    passwordTextInput: {
+        textAlign: 'center',
+        fontSize: 16,
+        color:  'black',
+        height: 50,
+        width: 270,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: '#ECECEC',
+    },
+
+    phoneTextInputPosition: {
+        marginTop: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    phoneTextInput: {
+        textAlign: 'center',
+        fontSize: 16,
+        color:  'black',
+        height: 50,
+        width: 270,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: '#ECECEC',
+    },
+
     modalDropdownPosition: {
         marginTop: 10,
         flexDirection: 'row',
@@ -227,21 +277,6 @@ const styles = StyleSheet.create({
         left: -2,
     },
 
-    phoneTextInputPosition: {
-        marginTop: 10,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    phoneTextInput: {
-        textAlign: 'center',
-        fontSize: 16,
-        color:  'black',
-        height: 50,
-        width: 270,
-        borderColor: 'black',
-        borderWidth: 2,
-        backgroundColor: '#ECECEC',
-    },
     
     signUpButtonPosition: {
         marginTop: 20,
@@ -263,9 +298,7 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
-
     },
-
       
 });
 

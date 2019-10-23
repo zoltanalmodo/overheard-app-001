@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     confirmResetTextBox: {
         width: 355,
         height: 270,
-        backgroundColor: '#B8F3DC',
+        backgroundColor: '#C3E1FD',
         borderWidth: 2,
         borderColor: 'black',
     },
