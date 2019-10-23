@@ -10,7 +10,7 @@ const authReducer = (state, action) => {
         case 'login':
             return { errorMessage: '', token: action.payload }
         case 'replogin':
-            return { errorMessage: '', reptoken: action.payload }
+            return { errorMessage: '', token: action.payload }
         default:
             return state;
     }
@@ -37,10 +37,10 @@ const signin = (dispatch) => async ({ email, password }) => {
 const repsignin = (dispatch) => async ({ email, password }) => {
         
     try {
-        const response = await trackerApi.post('/replogin', { email, password });
+        const response = await trackerApi.post('/reps/login', { email, password });
         console.log(response.data);
-        await AsyncStorage.setItem('token', response.data.reptoken);
-        dispatch({ type: 'replogin', payload: response.data.reptoken });
+        await AsyncStorage.setItem('token', response.data.token);
+        dispatch({ type: 'replogin', payload: response.data.token });
 
         navigate('RepPlatformScreen');
 
@@ -62,7 +62,7 @@ const signup = (dispatch) => {
     return async ({ email, password }) => {
         
         try {
-            const response = await trackerApi.post('/signup', { email, password });
+            const response = await trackerApi.post('/reps/register', { email, password });
             console.log(response.data);
         } catch (err) {
             console.log(err.message);

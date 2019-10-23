@@ -3,7 +3,7 @@ import axios from 'axios';
 export default axios.create ({
 
     // =============================================== NOOOO ngrok
-    baseURL:'http://206.189.28.178:5000/api/auth'
+    baseURL:'http://178.128.167.170:8080/api'
     // =============================================== NOOOO ngrok
     
 });

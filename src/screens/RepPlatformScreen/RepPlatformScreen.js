@@ -52,7 +52,7 @@ const RepPlatformScreen = ({navigation}) => {
 
         <View style={styles.copyRepLinkButtonPosition}>
             <View style={styles.copyRepLinkButton}>                    
-                <Button title='Copy Rep link' onPress={() => navigation.navigate('RepPlatformConfirmScreen')} />
+                <Button title='Copy Rep link' onPress={() => navigation.navigate('ConfirmRepPlatformScreen')} />
             </View>
         </View>
 
