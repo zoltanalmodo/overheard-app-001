@@ -14,6 +14,7 @@ import ConfirmResetPasswordScreen from './src/screens/ConfirmResetPasswordScreen
 
 import RepLoginScreen from './src/screens/RepLoginScreen/RepLoginScreen';
 import ResetRepPasswordScreen from './src/screens/ResetRepPasswordScreen/ResetRepPasswordScreen';
+import ConfirmResetRepPasswordScreen from './src/screens/ConfirmResetRepPasswordScreen/ConfirmResetRepPasswordScreen'
 
 
 import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
@@ -62,7 +63,7 @@ const switchNavigator = createSwitchNavigator ({
 
       //==========================================build
 
-      
+      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
 
       //==========================================build
       
@@ -71,7 +72,9 @@ const switchNavigator = createSwitchNavigator ({
       // ResetPasswordScreen: ResetPasswordScreen,
       
       // RepLoginScreen: RepLoginScreen,
-      ResetRepPasswordScreen: ResetRepPasswordScreen,
+      // ResetRepPasswordScreen: ResetRepPasswordScreen,
+      
+
       // RepSignUpScreen: RepSignUpScreen,
       // RepPlatformScreen: RepPlatformScreen,
 
@@ -94,6 +97,10 @@ const switchNavigator = createSwitchNavigator ({
       ProfileWarningScreen: ProfileWarningScreen,
 
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
+
+
+      
+
 
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
 
