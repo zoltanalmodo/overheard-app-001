@@ -5,11 +5,11 @@ import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
 
-// login backend
 import { Context as AuthContext } from '../../context/AuthContext';
-//
+
 
 const LoginScreen = ({navigation}) => {
+
     const { state, signin } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

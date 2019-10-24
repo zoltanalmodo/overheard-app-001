@@ -35,15 +35,35 @@ const signin = (dispatch) => async ({ email, password }) => {
         
     try {
         const response = await trackerApi.post('/login', { email, password });
-        console.log(response.data);
+
+        // console.log(response.data);
+
         await AsyncStorage.setItem('token', response.data.token);
+
         const userObject = jwt_decode(response.data.token)
+
         dispatch({ type: 'login', payload: {token: response.data.token, userObject} });
 
         navigate('DealsScreen');
 
     } catch (err) {
         dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'})
+    }
+
+};
+
+
+const resetPassword = (dispatch) => async ({ email }) => {
+        
+    try {
+        await trackerApi.post('/forgot', { email });
+
+        // dispatch({ type: 'add_success', payload: `email sent successsfully to ${ email }` });
+
+        navigate('ConfirmResetPasswordScreen');
+
+    } catch (err) {
+        dispatch({ type: 'add_error', payload: `there is no account associated with the email address: ${email}. Please ensure you have typed it in correctly.`})
     }
 
 };
@@ -87,7 +107,7 @@ const signup = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signin, repsignin, signout, signup },
+    { signin, resetPassword, repsignin, signout, signup },
     { token: null, errorMessage: '', userObject: {} }
 
 );
