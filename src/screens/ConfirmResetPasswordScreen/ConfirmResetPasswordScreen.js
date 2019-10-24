@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
+
+import { Context as AuthContext } from '../../context/AuthContext';
 
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
 const ConfirmResetPasswordScreen = ({navigation}) => {
+
+    const { state } = useContext(AuthContext);
+
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
@@ -22,7 +27,7 @@ const ConfirmResetPasswordScreen = ({navigation}) => {
                 <Text style={styles.confirmResetTextBoxTop}>A link to reset your password</Text>
                 <Text style={styles.confirmResetText} >has been</Text>
                 <Text style={styles.confirmResetText} >SENT to</Text>
-                <Text style={styles.confirmResetTextEmail} >`$(email)`</Text>
+                <Text style={styles.confirmResetTextEmail} >{JSON.stringify(navigation.getParam('email'))}</Text>
             </View>   
         </View>
 
