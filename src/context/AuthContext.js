@@ -52,7 +52,6 @@ const signin = (dispatch) => async ({ email, password }) => {
 
 };
 
-
 const resetPassword = (dispatch) => async ({ email }) => {
         
     try {
@@ -63,7 +62,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
         navigate('ConfirmResetPasswordScreen');
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: `there is no account associated with the email address: ${email}. Please ensure you have typed it in correctly.`})
+        dispatch({ type: 'add_error', payload: 'No Account with that email' });
     }
 
 };

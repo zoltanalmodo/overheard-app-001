@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
@@ -21,6 +21,8 @@ const ResetPasswordScreen = ({navigation}) => {
             <OverheardDealsLogo />
         </View>
         
+        {/* {console.log(state)}; */}
+
         <View style={styles.emailTextInputStylePosition}>
             <TextInput
                 value={email}
@@ -37,13 +39,22 @@ const ResetPasswordScreen = ({navigation}) => {
             />
         </View>
 
-        {state.errorMessage ?
-                
-            <Text style={styles.errorMessage}>
-            
-                {state.errorMessage}
+        
+            {/* <Text style={styles.errorMessage}>
+            { state.errorMessage ? 'hgyftdrsdftgy' : null }
+            </Text>
+            {console.log(state)} */}
 
-            </Text> : null}
+
+            {state.errorMessage ?
+                
+                <Text style={styles.errorMessage}>
+                
+                    {state.errorMessage}
+
+                </Text> : null}
+
+
 
 
         <View style={styles.resetPasswordButtonPosition}>
@@ -51,7 +62,6 @@ const ResetPasswordScreen = ({navigation}) => {
                 <Button
                     title='Reset password'
                     onPress={ () => resetPassword( { email } ) }
-                    // onPress={() => navigation.navigate('RecoverPasswordConfirmScreen')}
                 />
             </View>
         </View>
