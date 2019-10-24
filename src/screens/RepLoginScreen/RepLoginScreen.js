@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 

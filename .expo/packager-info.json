@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 22030,
+  "packagerPid": 5048,
   "expoServerNgrokUrl": "https://zf-k8s.anonymous.overheard-app-001.exp.direct",
-  "packagerNgrokUrl": "https://packager.zf-k8s.anonymous.overheard-app-001.exp.direct",
-  "ngrokPid": 22040,
+  "packagerNgrokUrl": "https://packager.ng-tss.anonymous.overheard-app-001.exp.direct",
+  "ngrokPid": 5063,
   "webpackServerPort": null
 }
