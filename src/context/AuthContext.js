@@ -92,7 +92,7 @@ const signout = (dispatch) => {
     }; 
 };
 
-const signup = (dispatch) => {
+const repRegister = (dispatch) => {
     return async ({ email, password }) => {
         
         try {
@@ -106,7 +106,7 @@ const signup = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signin, resetPassword, repsignin, signout, signup },
+    { signin, resetPassword, repsignin, signout, repRegister },
     { token: null, errorMessage: '', userObject: {} }
 
 );

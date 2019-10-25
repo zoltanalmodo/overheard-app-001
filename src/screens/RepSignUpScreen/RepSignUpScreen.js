@@ -6,9 +6,7 @@ import ModalDropdown from 'react-native-modal-dropdown';
 import BottomDrawer from 'rn-bottom-drawer';
 
 
-// signup backend
 import { Context as AuthContext } from '../../context/AuthContext';
-//
 
 
 import backimage from '../../img/newbg.png'
@@ -16,9 +14,14 @@ import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDea
 
 const RepSigUpScreen = ({navigation}) => {
     
-    const { state, signup } = useContext(AuthContext);
+    const { state, repRegister } = useContext(AuthContext);
+    const [first, setFirst] = useState('');
+    const [last, setLast] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    const [university, setUniversity] = useState('');
+
 
         return (
 
@@ -30,6 +33,9 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.firstNameTextInputPosition}>
                     <TextInput
+                        value={first}
+                        onChangeText = {setFirst}
+
                         style={styles.firstNameTextInput}
                         label='first name'
                         placeholder='first name'
@@ -44,6 +50,9 @@ const RepSigUpScreen = ({navigation}) => {
                 
                 <View style={styles.lastNameTextInputPosition}>
                     <TextInput
+                        value={last}
+                        onChangeText = {setLast}
+
                         style={styles.lastNameTextInput}
                         label='last name'
                         placeholder='last name'
@@ -58,6 +67,9 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.emailTextInputPosition}>
                     <TextInput
+                        value={email}
+                        onChangeText = {setEmail}
+
                         style={styles.emailTextInput}
                         label='email'
                         placeholder='email'
@@ -90,6 +102,9 @@ const RepSigUpScreen = ({navigation}) => {
                 
                 <View style={styles.phoneTextInputPosition}>
                     <TextInput
+                        value={phone}
+                        onChangeText = {setPhone}
+
                         style={styles.phoneTextInput}
                         label='phone'
                         placeholder='phone'
@@ -103,6 +118,9 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.modalDropdownPosition}>
                     <ModalDropdown
+                        value = {university}
+                        onSelect = {setUniversity}
+
                         defaultValue={'select your uni'}
                         options={['Cardiff', 'option 1', 'option 2', 'option 3']}
                         style={styles.modalDropdown}
@@ -116,7 +134,7 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.signUpButtonPosition}>
                         <View style={styles.signUpButton}>                    
-                            <Button title='Become a rep' onPress={() => signup({ email, password })} />
+                            <Button title='Become a rep' onPress={() => repRegister({ email, password })} />
                         </View>
                 </View>
 
@@ -153,7 +171,7 @@ const styles = StyleSheet.create({
       },
 
     logoPosition: {
-        marginTop: 52,
+        marginTop: 0,
       },
 
     firstNameTextInputPosition: {
