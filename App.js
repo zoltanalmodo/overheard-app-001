@@ -39,7 +39,6 @@ import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarn
 
 
 
-
 //===========================================test
 
 //===========================================test
@@ -71,10 +70,10 @@ const switchNavigator = createSwitchNavigator ({
       // LoginScreen: LoginScreen,
       // ResetPasswordScreen: ResetPasswordScreen,
       
-      // RepLoginScreen: RepLoginScreen,
+      RepLoginScreen: RepLoginScreen,
       // ResetRepPasswordScreen: ResetRepPasswordScreen,
       
-      RepSignUpScreen: RepSignUpScreen,
+      // RepSignUpScreen: RepSignUpScreen,                                        // ERROR !!!
       
       // RepPlatformScreen: RepPlatformScreen,
 

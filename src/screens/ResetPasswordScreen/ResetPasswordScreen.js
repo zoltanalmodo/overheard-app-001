@@ -39,11 +39,6 @@ const ResetPasswordScreen = ({navigation}) => {
             />
         </View>
 
-        
-            {/* <Text style={styles.errorMessage}>
-            { state.errorMessage ? 'hgyftdrsdftgy' : null }
-            </Text>
-            {console.log(state)} */}
 
 
             {state.errorMessage ?

@@ -77,7 +77,7 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.forgotPasswordPosition}>
                         <View style={styles.forgotPassword}>                    
-                            <Button title='forgot password' onPress={() => navigation.navigate('RecoverPasswordScreen')} />
+                            <Button title='forgot password' onPress={() => navigation.navigate('ResetPasswordScreen')} />
                         </View>
                 </View>
 

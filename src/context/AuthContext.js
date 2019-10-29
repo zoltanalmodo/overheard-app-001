@@ -25,6 +25,8 @@ const authReducer = (state, action) => {
             return { ...state, errorMessage: '', token: action.payload.token, userObject: action.payload.userObject };
         case 'replogin':
             return { ...state, errorMessage: '', token: action.payload };
+        case 'repRegister':
+            return { ...state, errorMessage: '', token: action.payload };
         default:
             return state;
     }
@@ -59,7 +61,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
 
         // dispatch({ type: 'add_success', payload: `email sent successsfully to ${ email }` });
 
-        navigate( 'ConfirmResetPasswordScreen', {email} );
+        navigate( 'ConfirmResetPasswordScreen', { email } );
 
     } catch (err) {
         dispatch({ type: 'add_error', payload: 'No Account with that email' });
@@ -68,45 +70,50 @@ const resetPassword = (dispatch) => async ({ email }) => {
 };
 
 
-const repsignin = (dispatch) => async ({ email, password }) => {
+const repsignin = (dispatch) => {
+    return async ({ email, password }) => {
         
-    try {
-        const response = await trackerApi.post('/reps/login', { email, password });
-        console.log(response.data);
-        await AsyncStorage.setItem('token', response.data.token);
-        dispatch({ type: 'replogin', payload: response.data.token });
-
-        navigate('RepPlatformScreen');
-
-    } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'})
-    }
-
+        try {
+            const response = await trackerApi.post('/reps/register', { email, password });
+            // console.log(response.data);
+        } catch (err) {
+            // console.log(err.message);
+        }
+    }; 
 };
 
 
-const signout = (dispatch) => {
+const signOut = (dispatch) => {
     return () => {
 
         // sign out !
     }; 
 };
 
-const repRegister = (dispatch) => {
-    return async ({ email, password }) => {
+const repRegister = (dispatch) => async ({ first, last, email, password, phone, university }) => {
         
-        try {
-            const response = await trackerApi.post('/reps/register', { email, password });
-            console.log(response.data);
-        } catch (err) {
-            console.log(err.message);
-        }
-    }; 
+    try {
+        const response = await trackerApi.post('/reps/login', { first, last, email, password, phone, university });
+
+        // console.log(response.data);
+
+        await AsyncStorage.setItem('token', response.data.token);
+
+        dispatch({ type: 'repRegister', payload: response.data.token });
+
+        navigate('RepPlatformScreen');
+
+    } catch (err) {
+        dispatch({ type: 'add_error', payload: 'This email is already in use. Use another or press back to sign in.'})
+    }
+
 };
+
+
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { signin, resetPassword, repsignin, signout, repRegister },
+    { signin, resetPassword, repsignin, signOut, repRegister },
     { token: null, errorMessage: '', userObject: {} }
 
 );

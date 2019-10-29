@@ -1,5 +1,5 @@
 import React, { useState, useContext }  from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -35,6 +35,7 @@ const RepSigUpScreen = ({navigation}) => {
                     <TextInput
                         value={first}
                         onChangeText = {setFirst}
+                        
 
                         style={styles.firstNameTextInput}
                         label='first name'
@@ -132,9 +133,26 @@ const RepSigUpScreen = ({navigation}) => {
                 </View>
 
 
+                {state.errorMessage ?
+                <View style={styles.errorMessagePosition}>
+                    <Text style={styles.errorMessage}>
+                    
+                        {state.errorMessage}
+
+                    </Text>
+                </View> : null}
+
+
                 <View style={styles.signUpButtonPosition}>
                         <View style={styles.signUpButton}>                    
-                            <Button title='Become a rep' onPress={() => repRegister({ email, password })} />
+                            <Button title='Become a rep' onPress={() => repRegister({
+                                first,
+                                last,
+                                email,
+                                password,
+                                phone,
+                                university
+                            })} />
                         </View>
                 </View>
 
@@ -175,7 +193,7 @@ const styles = StyleSheet.create({
       },
 
     firstNameTextInputPosition: {
-        marginTop: 37,
+        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },
@@ -292,9 +310,20 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         color: 'white',
         backgroundColor: 'black',
-        left: -2,
+        left: 0,
     },
 
+    errorMessagePosition: {
+        marginTop: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    errorMessage: {
+        width: 270,
+        textAlign: 'center',
+        fontSize: 18,
+        color: 'red',
+    },
     
     signUpButtonPosition: {
         marginTop: 20,
