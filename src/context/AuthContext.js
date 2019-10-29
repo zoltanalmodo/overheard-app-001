@@ -18,6 +18,7 @@ import jwt_decode from 'jwt-decode';
 
 
 const authReducer = (state, action) => {
+
     switch (action.type) {
         case 'add_error':
             return { ...state, errorMessage: action.payload };
@@ -30,6 +31,7 @@ const authReducer = (state, action) => {
         default:
             return state;
     }
+
 };
 
 
@@ -42,17 +44,18 @@ const login = (dispatch) => async ({ email, password }) => {
 
         await AsyncStorage.setItem('token', response.data.token);
 
-        const userObject = jwt_decode(response.data.token)
+        const userObject = jwt_decode(response.data.token);
 
         dispatch({ type: 'login', payload: {token: response.data.token, userObject} });
 
         navigate('DealsScreen');
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'})
+        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'});
     }
 
 };
+
 
 const resetPassword = (dispatch) => async ({ email }) => {
         
@@ -70,25 +73,31 @@ const resetPassword = (dispatch) => async ({ email }) => {
 };
 
 
-const repLogin = (dispatch) => {
-    return async ({ email, password }) => {
+const repLogin = (dispatch) => async ({ email, password }) => {
         
-        try {
-            const response = await trackerApi.post('/reps/login', { email, password });
-            // console.log(response.data);
-        } catch (err) {
-            // console.log(err.message);
-        }
-    }; 
+    try {
+        const response = await trackerApi.post('/reps/login', { email, password });
+
+        // console.log(response.data);
+
+        await AsyncStorage.setItem('token', response.data.token);
+
+        const userObject = jwt_decode(response.data.token);
+
+        dispatch({ type: 'login', payload: { token: response.data.token, userObject } });
+
+        navigate('RepPlatformScreen');
+
+    } catch (err) {
+
+        // console.log(err.message);
+
+        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'});
+    }
+    
 };
 
 
-const signOut = (dispatch) => {
-    return () => {
-
-        // sign out !
-    }; 
-};
 
 const repRegister = (dispatch) => async ({ first, last, email, password, phone, university }) => {
         
@@ -104,9 +113,20 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
         navigate('RepPlatformScreen');
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'This email is already in use. Use another or press back to sign in.'})
+
+        dispatch({ type: 'add_error', payload: 'This email is already in use. Use another or press back to sign in.'});
+        
     }
 
+};
+
+
+
+const signOut = (dispatch) => {
+    return () => {
+
+        // sign out !
+    }; 
 };
 
 

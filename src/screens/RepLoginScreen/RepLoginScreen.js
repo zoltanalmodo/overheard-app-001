@@ -6,9 +6,9 @@ import BottomDrawer from 'rn-bottom-drawer';
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
-// login backend
+
 import { Context as AuthContext } from '../../context/AuthContext';
-//
+
 
 const RepLoginScreen = ({navigation}) => {
 
@@ -59,26 +59,25 @@ const RepLoginScreen = ({navigation}) => {
                         returnKeyType='done'
                         clearTextOnFocus={true}
                         secureTextEntry={true}
-
                     />
                 </View>
 
                 {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
                 
                 <View style={styles.repLoginButtonPosition}>
-                        <View style={styles.repLoginButton}>                    
+                        <View style={styles.repLoginButton}>
                             <Button title='Rep login' onPress={() => repLogin({ email, password })} />
                         </View>
                 </View>
 
                 <View style={styles.forgotPasswordPosition}>
-                        <View style={styles.forgotPassword}>                    
-                            <Button title='forgot rep password' onPress={() => navigation.navigate('RecoverPasswordScreen')} />
+                        <View style={styles.forgotPassword}>
+                            <Button title='forgot rep password' onPress={() => navigation.navigate('ResetRepPasswordScreen')} />
                         </View>
                 </View>
 
                 <View style={styles.becomeARepPosition}>
-                        <View style={styles.becomeARep}>                    
+                        <View style={styles.becomeARep}>
                             <Button title='become a rep' onPress={() => navigation.navigate('RepSignUpScreen')} />
                         </View>
                 </View>
@@ -88,8 +87,7 @@ const RepLoginScreen = ({navigation}) => {
                     backgroundColor='darkblue'
                     shadow={true}
                     startUp={true}
-
-                >       
+                >
                     <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
                 </BottomDrawer>
                 
@@ -97,7 +95,6 @@ const RepLoginScreen = ({navigation}) => {
 
         );
 
-    
 };
 
 RepLoginScreen.navigationOptions = () => {

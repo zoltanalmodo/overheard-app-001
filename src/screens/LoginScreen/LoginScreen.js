@@ -11,11 +11,10 @@ import { Context as AuthContext } from '../../context/AuthContext';
 const LoginScreen = ({navigation}) => {
 
     const { state, login } = useContext(AuthContext);
-    
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-       
         return (
 
             <ImageBackground source={backimage} style={styles.container}>
@@ -61,14 +60,7 @@ const LoginScreen = ({navigation}) => {
                     />
                 </View>
 
-                {state.errorMessage ?
-                
-                    <Text style={styles.errorMessage}>
-                    
-                        {state.errorMessage}
-
-                    </Text> : null}
-                    
+                {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
 
                 <View style={styles.loginButtonPosition}>
                         <View style={styles.loginButton}>                    

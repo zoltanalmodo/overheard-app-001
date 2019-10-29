@@ -71,11 +71,11 @@ const switchNavigator = createSwitchNavigator ({
       // ResetPasswordScreen: ResetPasswordScreen,
       
       RepLoginScreen: RepLoginScreen,
-      // ResetRepPasswordScreen: ResetRepPasswordScreen,
+      ResetRepPasswordScreen: ResetRepPasswordScreen,
       
-      // RepSignUpScreen: RepSignUpScreen,                                  // ERROR !!!
+      RepSignUpScreen: RepSignUpScreen,                                  // ERROR !!!
       
-      // RepPlatformScreen: RepPlatformScreen,
+      RepPlatformScreen: RepPlatformScreen,
 
     }),
 
