@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
-import backimage from '../../img/newbg.png'
-import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
+import backimage from '../../img/newbg.png';
+import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
+
+
+
+
+
+
 
 const RepPlatformScreen = ({navigation}) => {
     return (
@@ -37,13 +43,13 @@ const RepPlatformScreen = ({navigation}) => {
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>
-                        <Text style={styles.statsTextRight} >£ 12.50</Text>
+                        <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
                     </View>
                 </View>
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* display unique rep link *</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >* { state.repObject.linkId } *</Text>
                 </View>
             </View>   
         </View>

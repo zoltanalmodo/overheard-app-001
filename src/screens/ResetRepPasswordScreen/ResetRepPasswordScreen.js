@@ -1,13 +1,18 @@
-import React from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
+import { Context as AuthContext } from '../../context/AuthContext';
+
 
 const ResetRepPasswordScreen = ({navigation}) => {
+
+    const { state, resetPassword } = useContext(AuthContext);
+    const [email, setEmail] = useState('');
 
     return (
 
@@ -18,6 +23,9 @@ const ResetRepPasswordScreen = ({navigation}) => {
         
         <View style={styles.emailTextInputPosition}>
             <TextInput
+                value={email}
+                onChangeText = {(newEmail) => setEmail(newEmail)}
+
                 style={styles.emailTextInput}
                 label='email'
                 placeholder='email'
@@ -29,11 +37,22 @@ const ResetRepPasswordScreen = ({navigation}) => {
             />
         </View>
 
+
+        {state.errorMessage ?
+                
+            <Text style={styles.errorMessage}>
+            
+                {state.errorMessage}
+
+            </Text> : null}
+
+
+
         <View style={styles.resetRepPasswordButtonPosition}>
             <View style={styles.resetRepPasswordButton}>                    
                 <Button
                     title='Reset rep password'
-                    onPress={() => navigation.navigate('ConfirmResetRepPasswordScreen')}
+                    onPress={ () => resetPassword( { email } ) }
                 />
             </View>
         </View>
@@ -87,6 +106,13 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         backgroundColor: '#ECECEC',
+    },
+
+    errorMessage: {
+        paddingTop: 20,
+        textAlign: 'center',
+        fontSize: 18,
+        color: 'red',
     },
 
     resetRepPasswordButtonPosition: {

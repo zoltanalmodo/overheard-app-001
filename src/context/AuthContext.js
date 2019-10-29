@@ -25,7 +25,7 @@ const authReducer = (state, action) => {
         case 'login':
             return { ...state, errorMessage: '', token: action.payload.token, userObject: action.payload.userObject };
         case 'repLogIn':
-            return { ...state, errorMessage: '', token: action.payload };
+            return { ...state, errorMessage: '', token: action.payload.token, repObject: action.payload.repObject };
         case 'repRegister':
             return { ...state, errorMessage: '', token: action.payload };
         default:
@@ -44,7 +44,7 @@ const login = (dispatch) => async ({ email, password }) => {
 
         await AsyncStorage.setItem('token', response.data.token);
 
-        const userObject = jwt_decode(response.data.token);
+        const userObject = jwt_decode(response.data.token); //same logic for the RepLoginScreen === const repObject = jwt
 
         dispatch({ type: 'login', payload: {token: response.data.token, userObject} });
 
@@ -78,21 +78,23 @@ const repLogin = (dispatch) => async ({ email, password }) => {
     try {
         const response = await trackerApi.post('/reps/login', { email, password });
 
-        // console.log(response.data);
+        console.log(response.data);
 
         await AsyncStorage.setItem('token', response.data.token);
 
-        const userObject = jwt_decode(response.data.token);
+        const repObject = jwt_decode(response.data.token);
 
-        dispatch({ type: 'login', payload: { token: response.data.token, userObject } });
+        dispatch({ type: 'login', payload: { token: response.data.token, repObject } });
+
+        console.log( repObject );  // OK !!!
 
         navigate('RepPlatformScreen');
 
     } catch (err) {
 
-        // console.log(err.message);
+        console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'});
+        dispatch({ type: 'add_error', payload: 'Say something funny!'});
     }
     
 };

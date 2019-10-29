@@ -40,15 +40,13 @@ const ResetPasswordScreen = ({navigation}) => {
         </View>
 
 
+        {state.errorMessage ?
+            
+            <Text style={styles.errorMessage}>
+            
+                {state.errorMessage}
 
-            {state.errorMessage ?
-                
-                <Text style={styles.errorMessage}>
-                
-                    {state.errorMessage}
-
-                </Text> : null}
-
+            </Text> : null}
 
 
 
@@ -60,6 +58,8 @@ const ResetPasswordScreen = ({navigation}) => {
                 />
             </View>
         </View>
+
+        
 
         
         <BottomDrawer
