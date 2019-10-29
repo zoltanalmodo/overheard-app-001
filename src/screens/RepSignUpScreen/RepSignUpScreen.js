@@ -15,6 +15,7 @@ import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDea
 const RepSigUpScreen = ({navigation}) => {
     
     const { state, repRegister } = useContext(AuthContext);
+    
     const [first, setFirst] = useState('');
     const [last, setLast] = useState('');
     const [email, setEmail] = useState('');

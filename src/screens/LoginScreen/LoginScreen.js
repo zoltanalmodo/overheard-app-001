@@ -10,7 +10,8 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const LoginScreen = ({navigation}) => {
 
-    const { state, signin } = useContext(AuthContext);
+    const { state, login } = useContext(AuthContext);
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -71,7 +72,7 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.loginButtonPosition}>
                         <View style={styles.loginButton}>                    
-                            <Button title='Login' onPress={() => signin({ email, password })} />
+                            <Button title='Login' onPress={() => login({ email, password })} />
                         </View>
                 </View>
 

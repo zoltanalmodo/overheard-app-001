@@ -11,7 +11,9 @@ import { Context as AuthContext } from '../../context/AuthContext';
 //
 
 const RepLoginScreen = ({navigation}) => {
-    const { state, repsignin } = useContext(AuthContext);
+
+    const { state, repLogin } = useContext(AuthContext);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -57,6 +59,7 @@ const RepLoginScreen = ({navigation}) => {
                         returnKeyType='done'
                         clearTextOnFocus={true}
                         secureTextEntry={true}
+
                     />
                 </View>
 
@@ -64,13 +67,13 @@ const RepLoginScreen = ({navigation}) => {
                 
                 <View style={styles.repLoginButtonPosition}>
                         <View style={styles.repLoginButton}>                    
-                            <Button title='Rep login' onPress={() => repsignin({ email, password })} />
+                            <Button title='Rep login' onPress={() => repLogin({ email, password })} />
                         </View>
                 </View>
 
                 <View style={styles.forgotPasswordPosition}>
                         <View style={styles.forgotPassword}>                    
-                            <Button title='forgot password' onPress={() => navigation.navigate('RecoverPasswordScreen')} />
+                            <Button title='forgot rep password' onPress={() => navigation.navigate('RecoverPasswordScreen')} />
                         </View>
                 </View>
 
@@ -85,6 +88,7 @@ const RepLoginScreen = ({navigation}) => {
                     backgroundColor='darkblue'
                     shadow={true}
                     startUp={true}
+
                 >       
                     <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
                 </BottomDrawer>
