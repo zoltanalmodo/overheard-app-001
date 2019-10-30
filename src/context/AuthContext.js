@@ -137,9 +137,11 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 const repPlatform = (dispatch) => async ({ email, password }) => {
         
     try {
-        const response = await trackerApi.post('/reps/login', { email, password });
+        const response = 
+        
+        await trackerApi.post('/reps/login', { email, password });
 
-        console.log(response.data);
+        // console.log(response.data);
 
         await AsyncStorage.setItem('token', response.data.token);
 
@@ -147,7 +149,7 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 
         dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
 
-        console.log( repObject );  // OK ???
+        console.log( repObject );  // +++OK+++
 
         navigate('ConfirmRepPlatformScreen');
 

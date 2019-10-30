@@ -106,7 +106,8 @@ const switchNavigator = createSwitchNavigator ({
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
       
 
-      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,   // error ?
+      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,   // works
+      // === ERROR === state displays an error ('No Account with that email')
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,   // error ?
 

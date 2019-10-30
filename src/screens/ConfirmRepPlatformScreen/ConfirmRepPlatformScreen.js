@@ -33,7 +33,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                 <View style={styles.repPlatformStatsPosition}>
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.referrals *20}</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.university}</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
@@ -43,7 +43,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>
-                        <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
+                        <Text style={styles.statsTextRight} >£ { state.repObject.university }</Text>
                     </View>
                 </View>
                 

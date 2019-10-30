@@ -13,6 +13,8 @@ const ConfirmResetPasswordScreen = ({navigation}) => {
     const { state, repPlatform } = useContext(AuthContext);
 
 
+
+
     return (
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
@@ -30,7 +32,10 @@ const ConfirmResetPasswordScreen = ({navigation}) => {
                 <Text style={styles.confirmResetTextBoxTop}>A link to reset your password</Text>
                 <Text style={styles.confirmResetText} >has been</Text>
                 <Text style={styles.confirmResetText} >SENT to</Text>
-                <Text style={styles.confirmResetTextEmail} >{JSON.stringify(navigation.getParam('email'))}</Text>
+                <Text style={styles.confirmResetTextEmail} >
+                    {JSON.stringify(navigation.getParam('email'))}
+                    {/* { state.repObject.email } */}
+                </Text>
             </View>   
         </View>
 
