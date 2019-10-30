@@ -39,23 +39,23 @@ const RepPlatformScreen = ({navigation}) => {
                 <View style={styles.repPlatformStatsPosition}>
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >5</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.first }</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >45</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.last }</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>
-                        <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
+                        <Text style={styles.statsTextRight} >£ { state.repObject.linkId }</Text>
                     </View>
                 </View>
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* { state.repObject.first } *</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >* { state.repObject.university } *</Text>
                 </View>
             </View>   
         </View>
@@ -64,7 +64,7 @@ const RepPlatformScreen = ({navigation}) => {
 
         <View style={styles.copyRepLinkButtonPosition}>
             <View style={styles.copyRepLinkButton}>
-                <Button title='Copy Rep link' onPress={() =>  repPlatform({ repObject })} />
+                <Button title='Copy Rep link' onPress={() => navigation.navigate('ConfirmRepPlatformScreen')} />
             </View>
         </View>
 

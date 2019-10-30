@@ -120,7 +120,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         dispatch({ type: 'repLogin', payload: { token: response.data.token, repObject } });
 
-        console.log( repObject );  // OK !!!
+        console.log( repObject );  // OK = *** party ***
 
         navigate('RepPlatformScreen');
 
@@ -143,7 +143,7 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 
         await AsyncStorage.setItem('token', response.data.token);
 
-        const repPlatform = jwt_decode(response.data.token);
+        const repObject = jwt_decode(response.data.token);
 
         dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
 

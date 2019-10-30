@@ -67,8 +67,8 @@ const switchNavigator = createSwitchNavigator ({
       //==========================================build
       
 
-      // LoginScreen: LoginScreen,
-      // ResetPasswordScreen: ResetPasswordScreen,
+      LoginScreen: LoginScreen,
+      ResetPasswordScreen: ResetPasswordScreen,
       
       RepLoginScreen: RepLoginScreen,    // ===OK===
 
@@ -80,7 +80,7 @@ const switchNavigator = createSwitchNavigator ({
       RepSignUpScreen: RepSignUpScreen,                                  // ERROR !!!
       
 
-      //--------RepPlatformScreen--------//---navigate to ===ConfirmRepPlatformScreen
+      //--------RepPlatformScreen--------//---navigation WORKING !!! ===OK===
       RepPlatformScreen: RepPlatformScreen, // fixing ===copy unique rep ID !!!
       
       

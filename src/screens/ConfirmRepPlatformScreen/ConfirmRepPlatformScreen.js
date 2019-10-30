@@ -33,12 +33,12 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                 <View style={styles.repPlatformStatsPosition}>
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >5</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.referrals *20}</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject }</Text>
+                        <Text style={styles.statsTextRight} >45</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
@@ -49,7 +49,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* === COPIED === *</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >*** PARTY ***</Text>
                 </View>
             </View>   
         </View>
@@ -59,8 +59,8 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
         <View style={styles.repLinkCopiedButtonPosition}>
             <View style={styles.repLinkCopiedButton}>                    
                 {/* <Text style={styles.repLinkCopiedButtonText}>Rep link copied</Text> */}
-                <Button title="* === OK === *" onPress={() => navigation.navigate('RepLoginScreen')} />
-                <Button title=" <<< back to Login" onPress={() => repLogin({ repObject })}/>
+                
+                <Button title=" <<< back to Login" onPress={() => navigation.navigate('RepLoginScreen')} />
 
 {/* kok -navigate to LoginScreen clear state.errorMessage:'' */}               
                 
