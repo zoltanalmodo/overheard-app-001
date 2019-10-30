@@ -189,9 +189,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
 
     },
-    newUser: {
+    
+    // newUser: {
 
-    },
+    // },
 
     repLoginButtonPosition: {
         marginTop: 15,

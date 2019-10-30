@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
@@ -6,8 +6,14 @@ import BottomDrawer from 'rn-bottom-drawer';
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
+import { Context as AuthContext } from '../../context/AuthContext';
+
 const ConfirmRepPlatformScreen = ({navigation}) => {
+
+    const { state, repPlatform } = useContext(AuthContext);
+
     return (
+
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
@@ -32,27 +38,32 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >45</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject }</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>
-                        <Text style={styles.statsTextRight} >£ 12.50</Text>
+                        <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
                     </View>
                 </View>
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* display unique rep link *</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >* === COPIED === *</Text>
                 </View>
             </View>   
         </View>
 
-
+{/* kok */}
 
         <View style={styles.repLinkCopiedButtonPosition}>
             <View style={styles.repLinkCopiedButton}>                    
-                <Text style={styles.repLinkCopiedButtonText}>Rep link copied</Text>
+                {/* <Text style={styles.repLinkCopiedButtonText}>Rep link copied</Text> */}
+                <Button title="* === OK === *" onPress={() => navigation.navigate('RepLoginScreen')} />
+                <Button title=" <<< back to Login" onPress={() => repLogin({ repObject })}/>
+
+{/* kok -navigate to LoginScreen clear state.errorMessage:'' */}               
+                
             </View>
         </View>
 
@@ -62,11 +73,12 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< log out >>>" onPress={() => navigation.navigate('LoginScreen')} />
+            <Button title="<<< log out >>>" onPress={() => navigation.navigate('#')} />
         </BottomDrawer>
 
         
     </ImageBackground>
+
     )
 };
 

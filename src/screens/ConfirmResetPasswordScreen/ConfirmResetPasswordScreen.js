@@ -1,14 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
-import { Context as AuthContext } from '../../context/AuthContext';
-
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
+import { Context as AuthContext } from '../../context/AuthContext';
+
+
 const ConfirmResetPasswordScreen = ({navigation}) => {
 
-    const { state } = useContext(AuthContext);
+
+    const { state, repPlatform } = useContext(AuthContext);
+
 
     return (
     <ImageBackground source={backimage} style={styles.container}>

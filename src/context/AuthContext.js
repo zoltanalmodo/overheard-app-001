@@ -20,14 +20,48 @@ import jwt_decode from 'jwt-decode';
 const authReducer = (state, action) => {
 
     switch (action.type) {
+        
         case 'add_error':
-            return { ...state, errorMessage: action.payload };
+            return {
+                ...state,
+                errorMessage:
+                action.payload
+            };
+
         case 'login':
-            return { ...state, errorMessage: '', token: action.payload.token, userObject: action.payload.userObject };
-        case 'repLogIn':
-            return { ...state, errorMessage: '', token: action.payload.token, repObject: action.payload.repObject };
+            return {
+                ...state,
+                errorMessage: '',
+                token: action.payload.token,
+                userObject: action.payload.userObject
+            };
+
+    
+        case 'repLogin':
+            return {
+                ...state,
+                errorMessage: '',
+                token: action.payload.token,
+                repObject: action.payload.repObject
+            };
+
+            // === OK ===
+
+    
+    // testing on RepPlatformScreen
+        case 'repPlatform':
+            return {
+                repObject: action.payload.repObject
+            };
+        
+                // OK ???
+
         case 'repRegister':
-            return { ...state, errorMessage: '', token: action.payload };
+            return {
+                ...state,
+                errorMessage: '',
+                token: action.payload
+            };
         default:
             return state;
     }
@@ -84,7 +118,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         const repObject = jwt_decode(response.data.token);
 
-        dispatch({ type: 'login', payload: { token: response.data.token, repObject } });
+        dispatch({ type: 'repLogin', payload: { token: response.data.token, repObject } });
 
         console.log( repObject );  // OK !!!
 
@@ -92,13 +126,41 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
     } catch (err) {
 
-        console.log(err.message);
+        // console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: 'Say something funny!'});
+        dispatch({ type: 'add_error', payload: `it’s not funny!` });
     }
     
 };
 
+
+const repPlatform = (dispatch) => async ({ email, password }) => {
+        
+    try {
+        const response = await trackerApi.post('/reps/login', { email, password });
+
+        console.log(response.data);
+
+        await AsyncStorage.setItem('token', response.data.token);
+
+        const repPlatform = jwt_decode(response.data.token);
+
+        dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
+
+        console.log( repObject );  // OK ???
+
+        navigate('ConfirmRepPlatformScreen');
+
+        // *** COPY UNIQUE REP LINK ***  >>> to >>>  < Operation System Clipboard > !!!  
+
+    } catch (err) {
+
+        console.log(err.message);
+
+        dispatch({ type: 'add_error', payload: 'California Sunshine !!! Here we come !!! '});
+    }
+    
+};
 
 
 const repRegister = (dispatch) => async ({ first, last, email, password, phone, university }) => {
@@ -135,7 +197,7 @@ const signOut = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister },
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform },
     { token: null, errorMessage: '', userObject: {} }
 
 );

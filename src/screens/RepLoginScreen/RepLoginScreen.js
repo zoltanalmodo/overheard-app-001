@@ -62,7 +62,15 @@ const RepLoginScreen = ({navigation}) => {
                     />
                 </View>
 
-                {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
+                { state.errorMessage ? 
+                
+                    <Text style={ styles.errorMessage }>{ state.errorMessage }</Text>
+                    
+                    : null
+                
+                }
+
+
                 
                 <View style={styles.repLoginButtonPosition}>
                         <View style={styles.repLoginButton}>

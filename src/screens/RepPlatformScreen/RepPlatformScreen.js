@@ -7,13 +7,19 @@ import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
 
+import { Context as AuthContext } from '../../context/AuthContext';
 
 
-
-
+// repObject: action.payload.repObject
 
 const RepPlatformScreen = ({navigation}) => {
+
+    const { state, repPlatform } = useContext(AuthContext);
+
+    
+
     return (
+
     <ImageBackground source={backimage} style={styles.container}>
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
@@ -49,7 +55,7 @@ const RepPlatformScreen = ({navigation}) => {
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* { state.repObject.linkId } *</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >* { state.repObject.first } *</Text>
                 </View>
             </View>   
         </View>
@@ -57,8 +63,8 @@ const RepPlatformScreen = ({navigation}) => {
 
 
         <View style={styles.copyRepLinkButtonPosition}>
-            <View style={styles.copyRepLinkButton}>                    
-                <Button title='Copy Rep link' onPress={() => navigation.navigate('ConfirmRepPlatformScreen')} />
+            <View style={styles.copyRepLinkButton}>
+                <Button title='Copy Rep link' onPress={() =>  repPlatform({ repObject })} />
             </View>
         </View>
 
@@ -67,7 +73,7 @@ const RepPlatformScreen = ({navigation}) => {
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
-        >       
+        >
             <Button title="<<< log out >>>" onPress={() => navigation.navigate('LoginScreen')} />
         </BottomDrawer>
 

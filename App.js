@@ -70,12 +70,20 @@ const switchNavigator = createSwitchNavigator ({
       // LoginScreen: LoginScreen,
       // ResetPasswordScreen: ResetPasswordScreen,
       
-      RepLoginScreen: RepLoginScreen,    // error ?
-      ResetRepPasswordScreen: ResetRepPasswordScreen,
+      RepLoginScreen: RepLoginScreen,    // ===OK===
+
+
+
+      ResetRepPasswordScreen: ResetRepPasswordScreen, // errorr ???
       
+      //------------RepSignUpScreen------------//---navigate to ===RepPlatformScreen
       RepSignUpScreen: RepSignUpScreen,                                  // ERROR !!!
       
-      RepPlatformScreen: RepPlatformScreen,
+
+      //--------RepPlatformScreen--------//---navigate to ===ConfirmRepPlatformScreen
+      RepPlatformScreen: RepPlatformScreen, // fixing ===copy unique rep ID !!!
+      
+      
 
     }),
 
@@ -98,9 +106,9 @@ const switchNavigator = createSwitchNavigator ({
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
       
 
-      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen, // error ?
+      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,   // error ?
       
-      ConfirmRepPlatformScreen: ConfirmRepPlatformScreen, // error ?
+      ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,   // error ?
 
     })
 
