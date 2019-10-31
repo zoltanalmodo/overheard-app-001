@@ -11,7 +11,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const ResetRepPasswordScreen = ({navigation}) => {
 
-    const { state, resetPassword } = useContext(AuthContext);
+    const { state, resetRepPassword } = useContext(AuthContext);
     const [email, setEmail] = useState('');
 
     return (
@@ -52,7 +52,7 @@ const ResetRepPasswordScreen = ({navigation}) => {
             <View style={styles.resetRepPasswordButton}>                    
                 <Button
                     title='Reset rep password'
-                    onPress={ () => resetPassword( { email } ) }
+                    onPress={ () => resetRepPassword ( { email } ) }
                 />
             </View>
         </View>

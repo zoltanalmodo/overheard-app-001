@@ -101,7 +101,23 @@ const resetPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'No Account with that email' });
+        dispatch({ type: 'add_error', payload: 'No account with that email' });
+    }
+
+};
+
+
+const resetRepPassword = (dispatch) => async ({ email }) => {
+        
+    try {
+        await trackerApi.post('/forgot', { email } );
+
+        // dispatch({ type: 'add_success', payload: `email sent successsfully to ${ email }` });
+
+        navigate( 'ConfirmResetRepPasswordScreen', { email } );
+
+    } catch (err) {
+        dispatch({ type: 'add_error', payload: 'ResetRepPasswordScreen =error=' });
     }
 
 };
@@ -199,7 +215,7 @@ const signOut = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform },
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword },
     { token: null, errorMessage: '', userObject: {} }
 
 );

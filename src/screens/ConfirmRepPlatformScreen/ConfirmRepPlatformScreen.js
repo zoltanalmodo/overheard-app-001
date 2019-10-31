@@ -43,7 +43,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>
-                        <Text style={styles.statsTextRight} >£ { state.repObject.university }</Text>
+                        <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
                     </View>
                 </View>
                 
@@ -58,11 +58,10 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
 
         <View style={styles.repLinkCopiedButtonPosition}>
             <View style={styles.repLinkCopiedButton}>                    
-                {/* <Text style={styles.repLinkCopiedButtonText}>Rep link copied</Text> */}
-                
+                               
                 <Button title=" <<< back to Login" onPress={() => navigation.navigate('RepLoginScreen')} />
 
-{/* kok -navigate to LoginScreen clear state.errorMessage:'' */}               
+{/* kok - state.errorMessage:'' */}               
                 
             </View>
         </View>
