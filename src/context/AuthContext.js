@@ -51,10 +51,22 @@ const authReducer = (state, action) => {
     // testing on RepPlatformScreen
         case 'repPlatform':
             return {
+                ...state,
+                errorMessage: '',
+                token: action.payload.token,
                 repObject: action.payload.repObject
             };
         
                 // OK ???
+
+        case 'add_success':
+            return {
+                ...state,
+                errorMessage: '',
+                token: action.payload.token,
+                repObject: action.payload.repObject
+            };
+
 
         case 'repRegister':
             return {
@@ -153,9 +165,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 const repPlatform = (dispatch) => async ({ email, password }) => {
         
     try {
-        const response = 
-        
-        await trackerApi.post('/reps/login', { email, password });
+        const response = await trackerApi.post('/reps/login', { email, password });
 
         // console.log(response.data);
 
@@ -184,15 +194,20 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 const repRegister = (dispatch) => async ({ first, last, email, password, phone, university }) => {
         
     try {
-        const response = await trackerApi.post('/reps/register', { first, last, email, password, phone, university });
-
-        // console.log(response.data);
+        await trackerApi.post('/reps/register', { first, last, email, password, phone, university });
+        const response = await trackerApi.post('/reps/login', { email, password });
 
         await AsyncStorage.setItem('token', response.data.token);
 
-        dispatch({ type: 'repRegister', payload: response.data.token });
+        const repObject = jwt_decode(response.data.token);
 
+        dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
+
+        // dispatch({ type: 'repRegister', payload: response.data.token });
+        // const {referrals, linkId} = repObject;
         navigate('RepPlatformScreen');
+
+        // navigate('RepPlatformScreen');
 
     } catch (err) {
 
