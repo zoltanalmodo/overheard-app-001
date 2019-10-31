@@ -33,12 +33,12 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                 <View style={styles.repPlatformStatsPosition}>
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.university}</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.referrals}</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >45</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.first}</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>

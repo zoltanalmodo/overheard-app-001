@@ -122,7 +122,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
 const resetRepPassword = (dispatch) => async ({ email }) => {
         
     try {
-        await trackerApi.post('/forgot', { email } );
+        await trackerApi.post('/reps/forgot', { email } );
 
         // dispatch({ type: 'add_success', payload: `email sent successsfully to ${ email }` });
 
