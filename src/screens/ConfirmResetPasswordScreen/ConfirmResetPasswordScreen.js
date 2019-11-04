@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     confirmTitleBox: {
         width: 270,
         height: 50,
-        backgroundColor: 'white',
+        backgroundColor: 'yellow',
         borderWidth: 2,
         borderColor: 'black',
         
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     confirmResetTextBox: {
         width: 355,
         height: 270,
+        // backgroundColor: '#B8F3DC',
         backgroundColor: '#B8F3DC',
         borderWidth: 2,
         borderColor: 'black',
