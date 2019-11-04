@@ -74,6 +74,13 @@ const authReducer = (state, action) => {
                 errorMessage: '',
                 token: action.payload
             };
+
+        case 'clearErrors':
+            return {
+                ...state,
+                errorMessage: ''
+            };
+
         default:
             return state;
     }
@@ -101,6 +108,9 @@ const login = (dispatch) => async ({ email, password }) => {
     }
 
 };
+
+const clearErrors = () => dispatch({ type: 'clearErrors' });
+  
 
 
 const resetPassword = (dispatch) => async ({ email }) => {
@@ -230,7 +240,7 @@ const signOut = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword },
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, clearErrors },
     { token: null, errorMessage: '', userObject: {} }
 
 );

@@ -5,7 +5,8 @@ import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
 
-import { Context as AuthContext } from '../../context/AuthContext';
+import { Context as AuthContext, clearErrors } from '../../context/AuthContext';
+
 
 
 const LoginScreen = ({navigation}) => {
@@ -70,7 +71,7 @@ const LoginScreen = ({navigation}) => {
 
                 <View style={styles.forgotPasswordPosition}>
                         <View style={styles.forgotPassword}>                    
-                            <Button title='forgot password' onPress={() => navigation.navigate('ResetPasswordScreen')} />
+                            <Button title='forgot password' onPress={() => navigation.navigate('ResetPasswordScreen', {clearErrors})} />
                         </View>
                 </View>
 

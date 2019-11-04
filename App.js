@@ -73,7 +73,6 @@ const switchNavigator = createSwitchNavigator ({
       RepLoginScreen: RepLoginScreen,    // ===OK===
 
 
-
       ResetRepPasswordScreen: ResetRepPasswordScreen, // error ???
       
       
@@ -107,8 +106,11 @@ const switchNavigator = createSwitchNavigator ({
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
       
 
-      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,   // ERROR !!!
+      ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
+      
+        // ERROR !!!
         // === ERROR === state displays an error ('No Account with that email')
+        // === no error state handling.
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen, // +++OK+++
         // ADD =COPY= unique rep number to =MEMORY= =CLIPBOARD=
