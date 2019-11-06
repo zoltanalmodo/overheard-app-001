@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useState, useContext }  from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import ModalDropdown from 'react-native-modal-dropdown';
 
-const HeaderButtons = () => {
+import { Context as AuthContext } from '../../context/AuthContext';
+
+
+
+const HeaderButtons = ({navigation}) => {
+
+    const { state, setCategory } = useContext(AuthContext);
+    
+    // const [Categories, setCategories] = useState('');
+
+
     return (
         <View style={styles.topNavBar}>
 
             <View style={styles.categoriesButton}>
                 <ModalDropdown
-                    defaultValue={'Categories'}
+                    defaultValue={'Lifestyle'}
+
+                    onSelect = {(newCategories) => setCategory(
+                        newCategories === '0' ? 'All Deals' :
+                        newCategories === '1' ? 'Alcohol' :
+                        newCategories === '2' ? 'Events & Festivals' :
+                        newCategories === '3' ? 'Fashion & Shopping' :
+                        newCategories === '4' ? 'Food & Drink' :
+                        newCategories === '5' ? 'Hair & Beauty' :
+                        newCategories === '6' ? 'Health & Fitness' :
+                        newCategories === '7' ? 'Lifestyle' :
+                        newCategories === '8' ? 'Taxis & Cars' :
+                        newCategories === '9' ? 'Technology' :
+                        'error setCategories'
+                    )}
+
+
                     options={[
                         'All deals',
                         'Alcohol',
@@ -22,8 +48,9 @@ const HeaderButtons = () => {
                         'Taxis & Cars',
                         'Technology',
                     ]}
+                    
                     textStyle={styles.modalButtonText}
-
+                    
                     dropdownStyle={styles.modalDropdownDropdownBox}
                     dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
                     dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}

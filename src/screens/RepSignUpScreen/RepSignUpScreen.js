@@ -35,7 +35,8 @@ const RepSigUpScreen = ({navigation}) => {
                 <View style={styles.firstNameTextInputPosition}>
                     <TextInput
                         value={first}
-                        onChangeText = {setFirst}
+                        onChangeText = {(newFirst) => setFirst(newFirst)}
+                        
                         
 
                         style={styles.firstNameTextInput}
@@ -121,10 +122,17 @@ const RepSigUpScreen = ({navigation}) => {
                 <View style={styles.modalDropdownPosition}>
                     <ModalDropdown
                         value = {university}
-                        onSelect = {setUniversity}
+                        onSelect = {(newUniversity) => setUniversity(
+                            newUniversity === '0' ? 'Cardiff' :
+                            newUniversity === '1' ? 'Option 1' :
+                            newUniversity === '2' ? 'Option 2' :
+                            newUniversity === '3' ? 'Option 3' :
+                            'error setUniversity'
+                            )}
+                        
 
                         defaultValue={'select your uni'}
-                        options={['Cardiff', 'option 1', 'option 2', 'option 3']}
+                        options={['Cardiff', 'Option 1', 'Option 2', 'Option 3']}
                         style={styles.modalDropdown}
                         textStyle={styles.modalDropdownText}
                         dropdownStyle={styles.modalDropdownDropdownBox}

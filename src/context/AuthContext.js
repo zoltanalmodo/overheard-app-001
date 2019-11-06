@@ -80,7 +80,11 @@ const authReducer = (state, action) => {
                 ...state,
                 errorMessage: ''
             };
-
+        case 'SET_CATEGORY':
+            return {
+                ...state,
+                category: action.payload
+            }
         default:
             return state;
     }
@@ -109,7 +113,8 @@ const login = (dispatch) => async ({ email, password }) => {
 
 };
 
-const clearErrors = () => dispatch({ type: 'clearErrors' });
+// ERROR ===
+// const clearErrors = () => dispatch({ type: 'clearErrors' });
   
 
 
@@ -213,11 +218,10 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
 
         dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
 
-        // dispatch({ type: 'repRegister', payload: response.data.token });
-        // const {referrals, linkId} = repObject;
+        // console.log( repObject )
+
         navigate('RepPlatformScreen');
 
-        // navigate('RepPlatformScreen');
 
     } catch (err) {
 
@@ -236,11 +240,17 @@ const signOut = (dispatch) => {
     }; 
 };
 
+const setCategory = dispatch => category => {
+    dispatch({
+        type: 'SET_CATEGORY',
+    payload: category
+    });
+};
 
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, clearErrors },
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, setCategory },
     { token: null, errorMessage: '', userObject: {} }
 
 );

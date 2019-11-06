@@ -62,27 +62,23 @@ const switchNavigator = createSwitchNavigator ({
 
       //==========================================build
 
-      
+      //===BUILD=== <<< log out >>>
+
+      DealsScreen: DealsScreen,
 
       //==========================================build
       
 
-      LoginScreen: LoginScreen,
-      ResetPasswordScreen: ResetPasswordScreen,
-      
-      RepLoginScreen: RepLoginScreen,    // ===OK===
-
-
-      ResetRepPasswordScreen: ResetRepPasswordScreen, // error ???
-      
-      
-      //------------RepSignUpScreen------------//---navigate to ===RepPlatformScreen
-      RepSignUpScreen: RepSignUpScreen,                                  // ERROR !!!
+      // LoginScreen: LoginScreen,
+      // ResetPasswordScreen: ResetPasswordScreen,
+      // RepLoginScreen: RepLoginScreen,
+      // ResetRepPasswordScreen: ResetRepPasswordScreen,
+      // RepSignUpScreen: RepSignUpScreen,                               
       
 
-      //--------RepPlatformScreen--------//---navigation WORKING !!! ===OK===
-      RepPlatformScreen: RepPlatformScreen, // ===copy unique rep ID === SUCCESS ===
-      
+      // ===copy unique rep ID === SUCCESS ===
+      // RepPlatformScreen: RepPlatformScreen, // ===copy unique rep ID === SUCCESS ===
+      // ===copy unique rep ID === SUCCESS ===
       
 
     }),
@@ -114,6 +110,7 @@ const switchNavigator = createSwitchNavigator ({
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen, // +++OK+++
         // ADD =COPY= unique rep number to =MEMORY= =CLIPBOARD=
+
 
     })
 

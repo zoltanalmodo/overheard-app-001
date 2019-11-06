@@ -1,27 +1,36 @@
-import React, { Component } from 'react';
+import React, { useState, useContext, useEffect }  from 'react';
 import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import axios from 'axios';
 
 
 import DealCard from '../DealCard/DealCard'
 
+import { Context as AuthContext } from '../../context/AuthContext';
 
-class DealsList extends Component {
 
-    state = { deals: [] }; 
 
-    async componentDidMount() {
-        const deals = await axios.get('https://overheard.co.uk/card/all-ajax');
-        this.setState({
-            deals: deals.data
-        });
-    };
+const DealsList = ({navigation} ) => {
 
+    const { state, setCategory } = useContext(AuthContext);
+
+    const [deals, setDeals] = useState([]);
+
+    async function fetchMyAPI() {
+        // var is used to shadow the global variable, DO NOT change it to const or let
+        var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
+        setDeals(deals.data);
+        setCategory('Lifestyle');
+      }
+  
+      useEffect(() => {
+        fetchMyAPI();
+      }, []);
     
-    render() {
-        
-        // this.state.deals.forEach(deal => console.log(deal));
-        
+    
+
+    // this.state.deals.forEach(deal => console.log(deal));
+    
+    const currentDeals = deals.filter(deal => deal.category.includes(state.category))
         
         return (
             
@@ -29,8 +38,7 @@ class DealsList extends Component {
 
             <View>
                 <FlatList
-                    data={this.state.deals}
-                    // horizontal={false}
+                    data={currentDeals}
                     centerContent = {true}
                     numColumns = {2}
                     columnWrapperStyle
@@ -48,6 +56,7 @@ class DealsList extends Component {
                                 mainOffer={deal.item.mainOffer}
                                 offerSmall={deal.item.offerSmall}
                                 buttonText={deal.item.buttonText}
+                                categories={deal.item.category}
                             />
                         )
                     }}
@@ -57,9 +66,9 @@ class DealsList extends Component {
             </SafeAreaView>
 
         );
-    }
+    
 
-}
+};
 
 const styles = StyleSheet.create({
 

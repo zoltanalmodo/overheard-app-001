@@ -10,6 +10,7 @@ const DealsScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
 
+        
         <Header />
         <DealsList />
         

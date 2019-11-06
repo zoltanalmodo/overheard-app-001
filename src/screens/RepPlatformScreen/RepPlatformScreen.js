@@ -39,12 +39,12 @@ const RepPlatformScreen = ({navigation}) => {
                 <View style={styles.repPlatformStatsPosition}>
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.referrals }</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.first }</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.first }</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.university }</Text>
                     </View>
 
                     <View style={styles.repPlatformStats}>
