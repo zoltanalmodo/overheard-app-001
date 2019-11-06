@@ -19,7 +19,7 @@ const DealsList = ({navigation} ) => {
         // var is used to shadow the global variable, DO NOT change it to const or let
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
         setDeals(deals.data);
-        setCategory('Lifestyle');
+        setCategory('All Deals');
       }
   
       useEffect(() => {
