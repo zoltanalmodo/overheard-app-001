@@ -5,15 +5,24 @@ import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png'
 
-const DealCardPopUpScreen = ({navigation}) => {
+const DealCardPopUpScreen = ({navigation}, props) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
         <View style={styles.dealImagePosition}>
-            <View style={styles.dealImage}></View>
+            <View style={styles.dealImage}>
+
+                {/* // image */}
+
+            </View>
         </View>
         <View style={styles.dealDescriptionPosition}>
-            <View style={styles.dealDescription}></View>
+            <View style={styles.dealDescription}>
+
+                {/* description */}
+                {/* coming from cardObject */}
+            
+            </View>
         </View>
 
         <BottomDrawer

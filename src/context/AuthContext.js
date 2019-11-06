@@ -45,10 +45,9 @@ const authReducer = (state, action) => {
                 repObject: action.payload.repObject
             };
 
-            // === OK ===
+        // === OK ===
 
     
-    // testing on RepPlatformScreen
         case 'repPlatform':
             return {
                 ...state,
@@ -56,8 +55,8 @@ const authReducer = (state, action) => {
                 token: action.payload.token,
                 repObject: action.payload.repObject
             };
-        
-                // OK ???
+        // === OK ===
+
 
         case 'add_success':
             return {
@@ -80,11 +79,20 @@ const authReducer = (state, action) => {
                 ...state,
                 errorMessage: ''
             };
+
         case 'SET_CATEGORY':
             return {
                 ...state,
                 category: action.payload
+            };
+
+        case 'cardObject':
+            return {
+                ...state,
+                token: action.payload.token,
+                cardObject: action.payload.cardObject
             }
+
         default:
             return state;
     }
@@ -113,6 +121,31 @@ const login = (dispatch) => async ({ email, password }) => {
 
 };
 
+
+// cardObject === start
+const cardObject = (dispatch) => async ({ email, password }) => {
+
+    try {
+        const response = await trackerApi.post('/login', { email, password });
+
+        // console.log(response.data);
+
+        await AsyncStorage.setItem('token', response.data.token);
+
+        const cardObject = jwt_decode(response.data.token);
+        //same logic for the RepLoginScreen === const repObject = jwt
+
+        dispatch({ type: 'cardObject', payload: {token: response.data.token, cardObject} });
+
+        // navigate('DealsScreen');
+
+    } catch (err) {
+        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'});
+    }
+
+};
+
+
 // ERROR ===
 // const clearErrors = () => dispatch({ type: 'clearErrors' });
   
@@ -122,8 +155,6 @@ const resetPassword = (dispatch) => async ({ email }) => {
         
     try {
         await trackerApi.post('/forgot', { email });
-
-        // dispatch({ type: 'add_success', payload: `email sent successsfully to ${ email }` });
 
         navigate( 'ConfirmResetPasswordScreen', { email } );
 
@@ -163,7 +194,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         dispatch({ type: 'repLogin', payload: { token: response.data.token, repObject } });
 
-        console.log( repObject );  // OK = *** party ***
+        // console.log( repObject );
 
         navigate('RepPlatformScreen');
 
@@ -190,7 +221,7 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 
         dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
 
-        console.log( repObject );  // +++OK+++
+        // console.log( repObject );  // +++OK+++
 
         navigate('ConfirmRepPlatformScreen');
 
@@ -200,7 +231,7 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 
         console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: 'California Sunshine !!! Here we come !!! '});
+        dispatch({ type: 'add_error', payload: 'RepPlatform =error='});
     }
     
 };
@@ -250,7 +281,7 @@ const setCategory = dispatch => category => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, setCategory },
-    { token: null, errorMessage: '', userObject: {} }
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, setCategory, cardObject },
+    { token: null, errorMessage: '', userObject: {}, repObject: {} }
 
 );

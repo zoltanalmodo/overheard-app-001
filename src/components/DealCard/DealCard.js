@@ -22,7 +22,7 @@ const DealCard = (props) => {
                     
                     <View style={styles.cardButtonPosition}>
 
-                        <TouchableOpacity style={styles.touchableOpacity} onPress={ () => navigate('DealCardPopUpScreen') }>
+                        <TouchableOpacity style={styles.touchableOpacity} onPress={ () => navigate('DealCardPopUpScreen', ) }>
                             <View style={styles.cardButton}>     
                                 <Text style={styles.cardButtonText}>{props.buttonText}</Text>
                             </View>
