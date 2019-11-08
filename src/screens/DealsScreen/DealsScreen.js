@@ -6,7 +6,6 @@ import Header from '../../components/Header/Header.js'
 import DealsList from '../../components/DealsList/DealsList'
 import { createKeyboardAwareNavigator } from 'react-navigation';
 
-import Overlay from 'react-native-modal-overlay';
 
 const DealsScreen = ({navigation}) => {
     return (
@@ -15,16 +14,7 @@ const DealsScreen = ({navigation}) => {
         
         <Header />
 
-        <Overlay visible={false} closeOnTouchOutside>
-          <Text>Contact details:</Text>
-
-          <Text>City:</Text>
-          <Text>Email address:</Text>
-          {/* <Text>Subscription type:</Text> */}
-          <Text>Renewal date:</Text>
-          <Text>Cancel Subscription:</Text>
-        </Overlay>
-
+    
         <DealsList />
         
         
@@ -46,7 +36,15 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      }
+      },
+    
+    overlayPanelPosition: {
+        height: 500,
+        width: 252,
+        backgroundColor: 'cyan',
+        textAlign: 'left',
+    },
+
 });
 
 export default DealsScreen;

@@ -74,7 +74,7 @@ const authReducer = (state, action) => {
                 token: action.payload
             };
 
-        case 'clearErrors':
+        case 'CLEAR_ERRORS':
             return {
                 ...state,
                 errorMessage: ''
@@ -90,7 +90,13 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 cardObject: action.payload
-            }
+            };
+
+        case 'TOGGLE_PROFILE':
+                return {
+                    ...state,
+                    diplayProfilePanel: Boolean(!state.displayProfilePanel)
+                };
 
         default:
             return state;
@@ -147,7 +153,7 @@ const cardObject = ( dispatch ) => ( dealObject ) => {
 
 
 // ERROR ===
-// const clearErrors = () => dispatch({ type: 'clearErrors' });
+// const clearErrors = () => dispatch({ type: 'CLEAR_ERRORS' });
   
 
 
@@ -274,14 +280,21 @@ const signOut = (dispatch) => {
 const setCategory = dispatch => category => {
     dispatch({
         type: 'SET_CATEGORY',
-    payload: category
+        payload: category
     });
 };
+
+const displayProfile = dispatch => () => {
+    dispatch({
+        type: 'TOGGLE_PROFILE',
+
+    })
+}
 
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, setCategory, cardObject },
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, setCategory, cardObject, displayProfile },
     { token: null, errorMessage: '', userObject: {}, repObject: {} }
 
 );
