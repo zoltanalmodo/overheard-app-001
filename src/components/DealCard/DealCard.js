@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { navigate } from '../../navigationRef';
 
 
+import { Context as AuthContext } from '../../context/AuthContext';
+
+
 const DealCard = (props) => {
+
+    const { state, cardObject } = useContext(AuthContext);
+
+
     return (
         
             <View style={styles.cardContainer}>
@@ -22,13 +29,42 @@ const DealCard = (props) => {
                     
                     <View style={styles.cardButtonPosition}>
 
-                        <TouchableOpacity style={styles.touchableOpacity} onPress={ () => navigate('DealCardPopUpScreen', ) }>
+                        <TouchableOpacity style={styles.touchableOpacity}
+            
+
+                            onPress={ () => { cardObject({
+
+                                id: props._id,
+                                img: props.img,
+                                name: props.name,
+                                lineOne: props.lineOne,
+                                lineTwo: props.lineTwo,
+                                lineThree: props.lineThree,
+                                mainOffer: props.mainOffer,
+                                offerSmall: props.offerSmall,
+                                categories: props.categories,
+                                buttonText: props.buttonText,
+                                tags: props.tags,
+                                location: props.location,
+                                availability: props.availability,
+                                link: props.link,
+
+                                offline: props.offline,
+
+                            });
+
+                                navigate('DealCardPopUpScreen')
+                            }}
+                        >
+
+                                
+
                             <View style={styles.cardButton}>     
                                 <Text style={styles.cardButtonText}>{props.buttonText}</Text>
                             </View>
                         </TouchableOpacity>
 
-                        
+            
                     </View>
 
                 </View>

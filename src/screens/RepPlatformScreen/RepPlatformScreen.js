@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
+import { View, StyleSheet, ImageBackground, Button, Text, Clipboard } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
@@ -15,8 +15,6 @@ import { Context as AuthContext } from '../../context/AuthContext';
 const RepPlatformScreen = ({navigation}) => {
 
     const { state, repPlatform } = useContext(AuthContext);
-
-    
 
     return (
 
@@ -39,23 +37,23 @@ const RepPlatformScreen = ({navigation}) => {
                 <View style={styles.repPlatformStatsPosition}>
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.first }</Text>
+                        <Text style={styles.statsTextRight} >{ state.repObject.referrals }</Text>
                     </View>
 
-                    <View style={styles.repPlatformStats}>
+                    {/* <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
                         <Text style={styles.statsTextRight} >{ state.repObject.university }</Text>
-                    </View>
+                    </View> */}
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>
-                        <Text style={styles.statsTextRight} >£ { state.repObject.referrals }</Text>
+                        <Text style={styles.statsTextRight} >£{ (state.repObject.referrals * 2.5).toFixed(2) }</Text>
                     </View>
                 </View>
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >* { state.repObject.linkId } *</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >https://overheard.co.uk/deals/{ state.repObject.linkId }</Text>
                 </View>
             </View>   
         </View>
@@ -64,7 +62,10 @@ const RepPlatformScreen = ({navigation}) => {
 
         <View style={styles.copyRepLinkButtonPosition}>
             <View style={styles.copyRepLinkButton}>
-                <Button title='Copy Rep link' onPress={() => navigation.navigate('ConfirmRepPlatformScreen')} />
+                <Button title='Copy Rep link' onPress={() => {
+                    navigation.navigate('ConfirmRepPlatformScreen');
+                    Clipboard.setString(`https://overheard.co.uk/deals/${ state.repObject.linkId }`)}
+                } />
             </View>
         </View>
 

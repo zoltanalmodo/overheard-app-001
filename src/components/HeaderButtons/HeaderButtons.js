@@ -1,10 +1,11 @@
 import React, { useState, useContext }  from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import ModalDropdown from 'react-native-modal-dropdown';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
+import { navigate } from '../../navigationRef';
 
 
 const HeaderButtons = ({navigation}) => {
@@ -19,7 +20,7 @@ const HeaderButtons = ({navigation}) => {
 
             <View style={styles.categoriesButton}>
                 <ModalDropdown
-                    defaultValue={'Lifestyle'}
+                    defaultValue={'All Deals'}
 
                     onSelect = {(newCategories) => setCategory(
                         newCategories === '0' ? 'All Deals' :
@@ -57,13 +58,25 @@ const HeaderButtons = ({navigation}) => {
                 />
             </View>
 
-            <View style={styles.buttonBox}>
+            {/* <View style={styles.buttonBox}>
                 <Text style={styles.buttonText}>Deals Map</Text>
-            </View>
+            </View> */}
 
-            <View style={styles.buttonBox}>
-                <Text style={styles.buttonText}>Profile</Text>
-            </View>
+            
+            
+            <TouchableOpacity style={styles.touchableOpacity}
+                            
+                onPress={ () => navigate('ProfileScreen')}
+            
+            >
+
+                    
+                    <View style={styles.buttonBox}>
+                    <Text style={styles.buttonText}>Profile</Text>
+
+                </View>
+
+            </TouchableOpacity>
 
         </View>
     )
@@ -74,7 +87,7 @@ const styles = StyleSheet.create({
         height: 36,
         backgroundColor: 'white',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
         borderBottomWidth: 2,
         borderColor: 'black',

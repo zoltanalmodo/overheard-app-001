@@ -86,11 +86,10 @@ const authReducer = (state, action) => {
                 category: action.payload
             };
 
-        case 'cardObject':
+        case 'SET_CARD_OBJECT':
             return {
                 ...state,
-                token: action.payload.token,
-                cardObject: action.payload.cardObject
+                cardObject: action.payload
             }
 
         default:
@@ -122,25 +121,26 @@ const login = (dispatch) => async ({ email, password }) => {
 };
 
 
-// cardObject === start
-const cardObject = (dispatch) => async ({ email, password }) => {
+// // cardObject === start ===
+
+// const cardObject = dispatch => category => {
+//     dispatch({
+//         type: 'SET_CATEGORY',
+//     payload: category
+//     });
+// };
+
+
+const cardObject = ( dispatch ) => ( dealObject ) => {
 
     try {
-        const response = await trackerApi.post('/login', { email, password });
-
-        // console.log(response.data);
-
-        await AsyncStorage.setItem('token', response.data.token);
-
-        const cardObject = jwt_decode(response.data.token);
-        //same logic for the RepLoginScreen === const repObject = jwt
-
-        dispatch({ type: 'cardObject', payload: {token: response.data.token, cardObject} });
+        
+        dispatch({ type: 'SET_CARD_OBJECT', payload: dealObject });
 
         // navigate('DealsScreen');
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'});
+        dispatch({ type: 'add_error', payload: 'carObject =error='});
     }
 
 };

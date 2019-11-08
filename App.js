@@ -36,7 +36,7 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
-
+import DealCardQRPopUpScreen from './src/screens/DealCardQRPopUpScreen/DealCardQRPopUpScreen';
 
 
 //===========================================test
@@ -75,10 +75,7 @@ const switchNavigator = createSwitchNavigator ({
       // ResetRepPasswordScreen: ResetRepPasswordScreen,
       // RepSignUpScreen: RepSignUpScreen,                               
       
-
-      // ===copy unique rep ID === SUCCESS ===
-      // RepPlatformScreen: RepPlatformScreen, // ===copy unique rep ID === SUCCESS ===
-      // ===copy unique rep ID === SUCCESS ===
+      // RepPlatformScreen: RepPlatformScreen,
       
 
     }),
@@ -92,6 +89,8 @@ const switchNavigator = createSwitchNavigator ({
       DealBuyOnlineScreen: DealBuyOnlineScreen,
       DealsBuyInStoreScreen: DealsBuyInStoreScreen,
       DealsQRCodeScreen: DealsQRCodeScreen,
+
+      DealCardQRPopUpScreen: DealCardQRPopUpScreen,
 
       MapUserCenteredScreen: MapUserCenteredScreen,
       MapDealCenteredScreen: MapDealCenteredScreen,

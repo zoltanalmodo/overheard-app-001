@@ -36,10 +36,10 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                         <Text style={styles.statsTextRight} >{ state.repObject.referrals}</Text>
                     </View>
 
-                    <View style={styles.repPlatformStats}>
+                    {/* <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Link click:</Text>
                         <Text style={styles.statsTextRight} >{ state.repObject.first}</Text>
-                    </View>
+                    </View> */}
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>

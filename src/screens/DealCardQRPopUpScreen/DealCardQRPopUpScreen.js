@@ -11,48 +11,11 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 import { navigate } from '../../navigationRef';
 
-
-
-const DealCardPopUpScreen = ({navigation}, props) => {
+const DealCardQRPopUpScreen = ({navigation}, props) => {
 
     const { state, repPlatform } = useContext(AuthContext);
 
-
-
-    const renderDealButton = () => state.cardObject.offline ?
-        
-        <TouchableOpacity style={styles.touchableOpacity}
-                        
-            onPress={ () => navigate('DealCardQRPopUpScreen')} >
-
-            <View style={styles.cardButton}>     
-                <Text style={styles.cardButtonText}>Claim</Text>
-            </View>
-
-        </TouchableOpacity>
-
-        :
-
-        <TouchableOpacity style={styles.touchableOpacity}
-                            
-            onPress={ () => Linking.openURL(state.cardObject.link)} >
-
-            <View style={styles.cardButton}>     
-                <Text style={styles.cardButtonText}>{state.cardObject.buttonText}</Text>
-            </View>
-
-        </TouchableOpacity>
-        ;
-        
-        
-
-    
-
-
-
-
     return (
-
     <ImageBackground source={backimage} style={styles.container}>
         
         <View style={styles.dealImagePosition}>
@@ -62,20 +25,18 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
                 <View style={styles.cardImageContainer}>
 
-                    <View>
-                    {/* <View style={styles.dealImage}> */}
+                    <View style={styles.dealImage}>
                         {/* <Text style={styles.cardTextMainOffer}>{state.userObject.id}</Text> */}
 
-                        {/* <QRCode
+                        <QRCode
                             value={state.userObject.id}
                             size={276}
                             color="black"
                             backgroundColor="white"
-                        /> */}
+                        />
                         
-                        <Image
-                            style={styles.dealImage}
-                            source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
+
+
                     </View>
                 </View>
 
@@ -84,57 +45,21 @@ const DealCardPopUpScreen = ({navigation}, props) => {
         <View style={styles.dealDescriptionPosition}>
             <View style={styles.dealDescription}>
 
-            
-
-                <Text style={styles.cardTextName} >{state.cardObject.name}</Text>
-                <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
-                <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
-
-                <Text style={styles.cardTextOfferSmall}>{state.cardObject.categories}</Text>
-                
-
-                <View style={styles.cardButtonPosition}>
-
-
-                                    
-                        {renderDealButton()}
+                <View style={styles.instructionsPosition}>
+                    <Text style={styles.instructions}>
+                        
+                        'please present
+                        this code
+                        to the merchant
+                        to scan'
                     
+                    </Text>
                 </View>
 
 
-                {/* <View style={styles.cardButtonPosition}>
-
-
-                                    
-                        <TouchableOpacity style={styles.touchableOpacity}
-                    
-                            onPress={ () => Linking.openURL(state.cardObject.link)} >
-
-                            <View style={styles.cardButton}>     
-                                <Text style={styles.cardButtonText}>{state.cardObject.buttonText}</Text>
-                            </View>
-
-                        </TouchableOpacity>
-                    
-                </View> */}
                 
-                {/* <View style={styles.cardButtonPosition}>
-
-                        <TouchableOpacity style={styles.touchableOpacity}
-            
-                            onPress={ () => navigate('DealCardQRPopUpScreen')} >
-
-                            <View style={styles.cardButton}>     
-                                <Text style={styles.cardButtonText}>Claim</Text>
-                            </View>
-
-                        </TouchableOpacity>
 
 
-                        
-                        
-
-                </View> */}
 
                 
             </View>
@@ -153,7 +78,7 @@ const DealCardPopUpScreen = ({navigation}, props) => {
     )
 };
 
-DealCardPopUpScreen.navigationOptions = () => {
+DealCardQRPopUpScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -244,6 +169,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
+
+    instructionsPosition: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    instructions: {
+        fontSize: 24,
+        textAlign: 'center',
+        color: 'black',
+        fontWeight: '800',
+    },
+
 });
 
-export default DealCardPopUpScreen;
+export default DealCardQRPopUpScreen;

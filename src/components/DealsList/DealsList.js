@@ -44,9 +44,10 @@ const DealsList = ({navigation} ) => {
                     columnWrapperStyle
                     keyExtractor = {item => item._id}
                     renderItem = {(deal) => {
-                        // deal === { item: { name: 'Friend #1 }, index: 0 }
+
                         return (
                             <DealCard 
+                                _id={deal.item._id}
                                 key={deal.item.order}
                                 name={deal.item.name}
                                 img={deal.item.img}
@@ -57,8 +58,15 @@ const DealsList = ({navigation} ) => {
                                 offerSmall={deal.item.offerSmall}
                                 buttonText={deal.item.buttonText}
                                 categories={deal.item.category}
+                                tags={deal.item.tags}
+                                location={deal.item.location}
+                                availability={deal.item.availability}
+                                link={deal.item.link}
+
+                                offline={!deal.item.online}
                             />
                         )
+
                     }}
                 />
             </View>
