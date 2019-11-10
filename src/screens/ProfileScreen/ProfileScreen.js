@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { View, StyleSheet, ImageBackground, Button, Text, Clipboard } from 'react-native';
 
 import backimage from '../../img/newbg.png'
-import Header from '../../components/Header/Header.js'
+import HeaderProfile from '../../components/Header/HeaderProfile/HeaderProfile'
 
 import BottomDrawer from 'rn-bottom-drawer';
 
@@ -18,7 +18,7 @@ const ProfileScreen = ({navigation}) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
-        <Header />
+        <HeaderProfile />
         <View style={styles.infoBoxPosition}>
 
             <View style={styles.infoBox}>
