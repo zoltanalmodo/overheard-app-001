@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import ModalDropdown from 'react-native-modal-dropdown';
 
-import { Context as AuthContext } from '../../context/AuthContext';
+import { Context as AuthContext } from '../../../context/AuthContext';
 
-import { navigate } from '../../navigationRef';
+import { navigate } from '../../../navigationRef';
 
 
 const HeaderButtonsProfile = ({navigation}) => {
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         height: 36,
         backgroundColor: 'white',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         alignItems: 'center',
         borderBottomWidth: 2,
         borderColor: 'black',

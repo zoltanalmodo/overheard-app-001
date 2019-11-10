@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
 import HeaderButtonsProfile from '../HeaderButtonsProfile/HeaderButtonsProfile'
-import HeaderLogo from '../HeaderLogo/HeaderLogo'
+import HeaderLogo from '../../HeaderLogo/HeaderLogo'
 
 const HeaderProfile = () => {
     return (
