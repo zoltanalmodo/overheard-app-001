@@ -11,9 +11,10 @@ import { navigate } from '../../navigationRef';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
-const ProfileWarningScreen = ({navigation}) => {
+const ConfirmProfileResetPasswordScreen = ({navigation}) => {
 
-    const { state, repPlatform } = useContext(AuthContext);
+    const { state } = useContext(AuthContext);
+
 
     return (
     <ImageBackground source={backimage} style={styles.container}>
@@ -22,24 +23,21 @@ const ProfileWarningScreen = ({navigation}) => {
         <View style={styles.infoBoxPosition}>
 
             <View style={styles.infoBox}>
-
                 
-                <View style={styles.profilePanelTextBoxPosition}>
-                    
-                    
-                </View>
                 <Text style={styles.profileValues}>
-                    To cancel your subscription from the next renewal date please email us at:
+                    A link to reset
                 </Text>
                 <Text style={styles.profileValues}>
-                    memberships@overheard.co.uk
+                    your password
                 </Text>
                 <Text style={styles.profileValues}>
-                    with the email you used to sign up.
+                    has been
+                </Text>
+                <Text style={styles.profileValues}>
+                    SENT to:
                 </Text>
 
-
-
+                <Text style={styles.profileValues}>{ state.userObject.email }</Text>
 
                 <TouchableOpacity style={styles.touchableOpacity}
                     onPress={ () => navigate('ProfileScreen')}
@@ -49,7 +47,8 @@ const ProfileWarningScreen = ({navigation}) => {
                     </View>
                 </TouchableOpacity>
 
-                
+
+
             </View>
 
         </View>
@@ -68,7 +67,7 @@ const ProfileWarningScreen = ({navigation}) => {
     )
 };
 
-ProfileWarningScreen.navigationOptions = () => {
+ConfirmProfileResetPasswordScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -93,6 +92,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     infoBox: {
+        paddingTop: 120,
         width: 252,
         height: 454,
         fontSize: 24,
@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         fontSize: 18,
         fontWeight: '400',
-        color: 'red',
+        color: 'blue',
+        textAlign: 'center',
     },
 
 
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
 
     okButtonPosition: {
         paddingTop: 0,
-        marginTop: 20,
+        marginTop: 120,
         marginLeft: 10,
         textAlign: 'center',
         height: 30,
@@ -168,8 +169,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-
-
 });
 
-export default ProfileWarningScreen;
+export default ConfirmProfileResetPasswordScreen;

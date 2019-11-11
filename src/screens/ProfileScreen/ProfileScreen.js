@@ -13,7 +13,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const ProfileScreen = ({navigation}) => {
 
-    const { state, repPlatform } = useContext(AuthContext);
+    const { state, resetPassword } = useContext(AuthContext);
 
     return (
     <ImageBackground source={backimage} style={styles.container}>
@@ -24,50 +24,41 @@ const ProfileScreen = ({navigation}) => {
             <View style={styles.infoBox}>
 
                 <Text style={styles.profileInitials}>Contact details:</Text>
-                <Text style={styles.profileValues}>City:</Text>
+                <Text style={styles.profileValues}>First name:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
-                    <Text style={styles.profilePanelTextBox} >city{ state.userObject.postCode }</Text>
+                    <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
                 </View>
                 <Text style={styles.profileValues}>E-mail address:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
-                    <Text style={styles.profilePanelTextBox} >email{ state.userObject.email }</Text>
+                    <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
                 </View>
-                <Text style={styles.profileInitials}>Renewal date:</Text>
+                <Text style={styles.profileValues}>Renewal date:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
-                    <Text style={styles.profilePanelTextBox} >renewal{ state.userObject.expiryDate }</Text>
+                    <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
                 </View>
 
 
 
 
                 <TouchableOpacity style={styles.touchableOpacity}
-                            
-                    onPress={ () => navigate('ProfileWarningScreen')}
-            
-                >
-
+                    onPress={ () => navigate('ConfirmProfileResetPasswordScreen')}
                     
+                >                    
                     <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileButton}>Change password ***</Text>
+                        <Text style={styles.profileButton}>Reset password [***]</Text>
 
                     </View>
-
                 </TouchableOpacity>
 
 
 
                 <TouchableOpacity style={styles.touchableOpacity}
-                            
                     onPress={ () => navigate('ProfileWarningScreen')}
-            
-                >
-
-                    
+                >                    
                     <View style={styles.profileButtonPosition}>
                         <Text style={styles.profileButton}>Cancel subscription [x]</Text>
 
                     </View>
-
                 </TouchableOpacity>
 
 
@@ -120,7 +111,7 @@ const styles = StyleSheet.create({
     },
     infoBox: {
         width: 252,
-        height: 500,
+        height: 454,
         fontSize: 24,
         backgroundColor: '#FEF3BA',
         borderWidth: 2,

@@ -37,7 +37,7 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
 import DealCardQRPopUpScreen from './src/screens/DealCardQRPopUpScreen/DealCardQRPopUpScreen';
-
+import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileResetPasswordScreen/ConfirmProfileResetPasswordScreen';
 
 //===========================================test
 
@@ -64,18 +64,20 @@ const switchNavigator = createSwitchNavigator ({
 
       //===BUILD=== <<< log out >>>
 
-      ProfileScreen: ProfileScreen,
+      // ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
+      // ProfileScreen: ProfileScreen,
+      // ProfileWarningScreen: ProfileWarningScreen,
 
       //==========================================build
       
 
-      // LoginScreen: LoginScreen,
-      // ResetPasswordScreen: ResetPasswordScreen,
-      // RepLoginScreen: RepLoginScreen,
-      // ResetRepPasswordScreen: ResetRepPasswordScreen,
-      // RepSignUpScreen: RepSignUpScreen,                               
+      LoginScreen: LoginScreen,
+      ResetPasswordScreen: ResetPasswordScreen,
+      RepLoginScreen: RepLoginScreen,
+      ResetRepPasswordScreen: ResetRepPasswordScreen,
+      RepSignUpScreen: RepSignUpScreen,                               
       
-      // RepPlatformScreen: RepPlatformScreen,
+      RepPlatformScreen: RepPlatformScreen,
       
 
     }),
@@ -107,6 +109,7 @@ const switchNavigator = createSwitchNavigator ({
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
 
+      ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
 
     })
 

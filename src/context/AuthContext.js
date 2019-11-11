@@ -165,7 +165,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'No account with that email' });
+        dispatch({ type: 'add_error', payload: 'resetPassword =error=' });
     }
 
 };

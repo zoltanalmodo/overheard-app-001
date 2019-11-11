@@ -40,10 +40,7 @@ const RepPlatformScreen = ({navigation}) => {
                         <Text style={styles.statsTextRight} >{ state.repObject.referrals }</Text>
                     </View>
 
-                    {/* <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.university }</Text>
-                    </View> */}
+                    
 
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission earned:</Text>

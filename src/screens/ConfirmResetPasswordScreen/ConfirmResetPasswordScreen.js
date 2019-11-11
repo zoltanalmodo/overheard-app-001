@@ -34,7 +34,7 @@ const ConfirmResetPasswordScreen = ({navigation}) => {
                 <Text style={styles.confirmResetText} >SENT to</Text>
                 <Text style={styles.confirmResetTextEmail} >
                     {JSON.stringify(navigation.getParam('email'))}
-                    {/* { state.repObject.email } */}
+                
                 </Text>
             </View>   
         </View>
