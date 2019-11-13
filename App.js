@@ -5,7 +5,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { setNavigator } from './src/navigationRef';
 
 
-import LoadingScreen from './src/screens/LoadingScreen/LoadingScreen';
 
 import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen/ResetPasswordScreen';
@@ -53,8 +52,6 @@ const switchNavigator = createSwitchNavigator ({
 
     loginFlow: createStackNavigator({
 
-      // LoadingScreen: LoadingScreen,
-
       //===========================================test
 
       // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
@@ -81,7 +78,6 @@ const switchNavigator = createSwitchNavigator ({
       
       RepPlatformScreen: RepPlatformScreen,
       
-
     }),
 
     mainFlow: createSwitchNavigator({
@@ -110,7 +106,6 @@ const switchNavigator = createSwitchNavigator ({
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
 
       
-
     })
 
   });

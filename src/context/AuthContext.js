@@ -165,7 +165,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'resetPassword =error=' });
+        dispatch({ type: 'add_error', payload: 'incorrect email' });
     }
 
 };
@@ -181,7 +181,7 @@ const resetRepPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetRepPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'ResetRepPasswordScreen =error=' });
+        dispatch({ type: 'add_error', payload: 'incorrect email' });
     }
 
 };
@@ -208,7 +208,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         // console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: `incorrect password` });
+        dispatch({ type: 'add_error', payload: `incorrect login details` });
     }
     
 };

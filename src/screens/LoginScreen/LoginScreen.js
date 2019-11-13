@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
@@ -63,29 +63,43 @@ const LoginScreen = ({navigation}) => {
 
                 {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
 
-                <View style={styles.loginButtonPosition}>
-                        <View style={styles.loginButton}>                    
-                            <Button title='Login' onPress={() => login({ email, password })} />
-                        </View>
-                </View>
+                <TouchableOpacity
+                    onPress={() => login({ email, password })} 
+                    
+                >                    
+                    <View style={styles.loginButtonPosition}>
+                        <Text style={styles.loginButton}>Login</Text>
 
-                <View style={styles.forgotPasswordPosition}>
-                        <View style={styles.forgotPassword}>                    
-                            <Button title='forgot password' onPress={() => navigation.navigate('ResetPasswordScreen', {clearErrors})} />
-                        </View>
-                </View>
+                    </View>
+                </TouchableOpacity>
 
-                <View style={styles.newUserPosition}>
-                        <View style={styles.newUser}>                    
-                            <Button title='I am a new user' onPress={() => navigation.navigate('#')} />
-                        </View>
-                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('ResetPasswordScreen', {clearErrors})} >
+                    <View style={styles.forgotPasswordPosition}>
+                            <View style={styles.forgotPassword}>
+                                <Text style={styles.forgotPasswordText}>forgot password</Text>
+                            </View>
+                    </View>
+                </TouchableOpacity>
 
-                <View style={styles.repLoginButtonPosition}>
-                        <View style={styles.repLoginButton}>                    
-                            <Button title='Rep' onPress={() => navigation.navigate('RepLoginScreen')} />
-                        </View>
-                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('#')} >
+                    <View style={styles.forgotPasswordPosition}>
+                            <View style={styles.forgotPassword}>
+                                <Text style={styles.newUserText }>I am a new user</Text>
+                            </View>
+                    </View>
+                </TouchableOpacity>
+                
+                
+
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('RepLoginScreen')}
+                    
+                >                    
+                    <View style={styles.loginButtonPosition}>
+                        <Text style={styles.loginButton}>Rep</Text>
+
+                    </View>
+                </TouchableOpacity>
                 
             </ImageBackground>
 
@@ -159,16 +173,17 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         textAlign: 'center',
+        paddingTop: 8,
         fontSize: 24,
         fontWeight: 'bold',
-        color:  'white',
+        color:  'black',
         height: 50,
         width: 270,
-        borderColor: 'black',
+        borderColor: '#FF8D4F',
         borderWidth: 2,
-        backgroundColor: 'black',
+        backgroundColor: '#FF8D4F',
 
-        shadowColor: '#ababab',
+        shadowColor: 'black',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
@@ -180,15 +195,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    forgotPassword: {
-
+    forgotPasswordText: {
+        textAlign: 'center',
+        fontSize: 18,
     },
 
     newUserPosition: {
         marginTop: 5,
         flexDirection: 'row',
         justifyContent: 'center',
-
+    },
+    newUserText: {
+        textAlign: 'center',
+        fontSize: 18,
     },
     
     // newUser: {
@@ -203,16 +222,17 @@ const styles = StyleSheet.create({
     },
     repLoginButton: {
         textAlign: 'center',
+        paddingTop: 8,
         fontSize: 24,
         fontWeight: 'bold',
         color:  'white',
         height: 50,
         width: 270,
-        borderColor: '#ECECEC',
+        borderColor: '#FF9960',
         borderWidth: 2,
-        backgroundColor: '#ECECEC',
+        backgroundColor: '#FF9960',
 
-        shadowColor: '#ababab',
+        shadowColor: 'black',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
