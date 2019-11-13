@@ -38,6 +38,7 @@ const DealsList = ({navigation} ) => {
 
             <View>
                 <FlatList
+                    showsVerticalScrollIndicator= {false}
                     data={currentDeals}
                     centerContent = {true}
                     numColumns = {2}
@@ -88,7 +89,6 @@ const styles = StyleSheet.create({
         height: null,
         flexDirection: 'row',
         justifyContent: 'center',
-        
     },
 
 });

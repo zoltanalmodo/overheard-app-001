@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
+import RNPreventScreenshot from 'react-native-prevent-screenshot';
+
 import backimage from '../../img/newbg.png'
 
 const DealsQRCodeScreen = () => {
@@ -36,4 +38,8 @@ const styles = StyleSheet.create({
     }
 });
 
+
+
 export default DealsQRCodeScreen;
+
+RNPreventScreenshot;

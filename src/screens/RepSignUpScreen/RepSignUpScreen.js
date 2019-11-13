@@ -123,16 +123,15 @@ const RepSigUpScreen = ({navigation}) => {
                     <ModalDropdown
                         value = {university}
                         onSelect = {(newUniversity) => setUniversity(
-                            newUniversity === '0' ? 'Cardiff' :
-                            newUniversity === '1' ? 'Option 1' :
-                            newUniversity === '2' ? 'Option 2' :
-                            newUniversity === '3' ? 'Option 3' :
+                            newUniversity === '0' ? 'University of Cardiff' :
+                            newUniversity === '1' ? 'University of South Wales' :
+                            newUniversity === '2' ? 'Cardiff Metropolitan University' :
                             'error setUniversity'
                             )}
                         
 
                         defaultValue={'select your uni'}
-                        options={['Cardiff', 'Option 1', 'Option 2', 'Option 3']}
+                        options={['University of Cardiff', 'University of South Wales', 'Cardiff Metropolitan University']}
                         style={styles.modalDropdown}
                         textStyle={styles.modalDropdownText}
                         dropdownStyle={styles.modalDropdownDropdownBox}
@@ -172,7 +171,7 @@ const RepSigUpScreen = ({navigation}) => {
                     shadow={true}
                     startUp={true}
                 >       
-                    <Button title="<<< baaack" onPress={() => navigation.navigate('RepLoginScreen')} />
+                    <Button title="<<< back" onPress={() => navigation.navigate('RepLoginScreen')} />
                 </BottomDrawer>
                 
             </ImageBackground>

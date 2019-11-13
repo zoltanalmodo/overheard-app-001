@@ -40,7 +40,8 @@ import DealCardQRPopUpScreen from './src/screens/DealCardQRPopUpScreen/DealCardQ
 import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileResetPasswordScreen/ConfirmProfileResetPasswordScreen';
 
 //===========================================test
-
+import ReactNativeCarouselControl from './src/screens/TestTest/ReactNativeCarouselControl'
+import ReactNativeLoopedCarousel from './src/screens/TestTest/ReactNativeLoopedCarousel'
 //===========================================test
 
 
@@ -56,7 +57,9 @@ const switchNavigator = createSwitchNavigator ({
 
       //===========================================test
 
-      
+      // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
+
+      // DealsScreen: DealsScreen,
 
       //===========================================test
 
@@ -64,9 +67,8 @@ const switchNavigator = createSwitchNavigator ({
 
       //===BUILD=== <<< log out >>>
 
-      // ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
-      // ProfileScreen: ProfileScreen,
-      // ProfileWarningScreen: ProfileWarningScreen,
+    
+      
 
       //==========================================build
       
@@ -102,14 +104,12 @@ const switchNavigator = createSwitchNavigator ({
 
 
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
-      
-
       ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
-      
+      ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
 
-      ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
+      
 
     })
 

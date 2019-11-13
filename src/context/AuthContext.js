@@ -208,7 +208,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         // console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: `it’s not funny!` });
+        dispatch({ type: 'add_error', payload: `incorrect password` });
     }
     
 };

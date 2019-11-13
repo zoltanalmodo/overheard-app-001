@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 5786,
-  "expoServerNgrokUrl": "https://wi-ntt.anonymous.overheard-app-001.exp.direct",
-  "packagerNgrokUrl": "https://packager.wi-ntt.anonymous.overheard-app-001.exp.direct",
-  "ngrokPid": 5796,
+  "packagerPid": 41520,
+  "expoServerNgrokUrl": "https://kv-za4.zoltanalmodo.overheard-app-001.exp.direct",
+  "packagerNgrokUrl": "https://packager.kv-za4.zoltanalmodo.overheard-app-001.exp.direct",
+  "ngrokPid": 41532,
   "webpackServerPort": null
 }

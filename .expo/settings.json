@@ -1,8 +1,8 @@
 {
   "hostType": "tunnel",
   "lanType": "ip",
-  "dev": true,
-  "minify": false,
-  "urlRandomness": "wi-ntt",
+  "dev": false,
+  "minify": true,
+  "urlRandomness": "kv-za4",
   "https": false
 }
