@@ -114,11 +114,11 @@ const styles = StyleSheet.create({
 
     cardImageContainer: {
         backgroundColor: 'white',
-        width: 139,
-        height: 139,
+        width: 137,
+        height: 137,
 
-        borderWidth: 2,
-        borderColor: 'black',
+        borderWidth: 1,
+        borderColor: '#dfdfdf',
     },
 
     
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     cardTextDescription: {
         flexDirection: 'column',
         justifyContent: 'space-evenly',
-        width: 139,
+        width: 137,
         height: 101,
     },
 
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
 
 
     touchableOpacity: {
-        width: 129,
+        width: 128,
         height: 25,
         backgroundColor: '#FF8D4F',
         // position: 'absolute',
@@ -223,14 +223,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     dealDescriptionGreen: {
-        width: 139,
+        width: 137,
         height: 129,
         backgroundColor: 'white',
         textAlign: 'center',
         
         borderWidth: 1,
-        borderColor: 'grey',
-        
+        borderColor: '#dfdfdf',
     },
 
     cardTextContainerOrange: {
@@ -240,7 +239,7 @@ const styles = StyleSheet.create({
         
         borderRadius: 0,
         backgroundColor: 'white',
-        width: 135,
+        width: 133,
         height: 82,
 
     },
@@ -252,7 +251,7 @@ const styles = StyleSheet.create({
 
         position: 'absolute',
         bottom: 2,
-        width: 135,
+        width: 133,
         height: 40,
         textAlign: 'center',
 

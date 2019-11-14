@@ -66,7 +66,7 @@ const switchNavigator = createSwitchNavigator ({
       //===BUILD=== <<< log out >>>
 
     
-      
+      DealsScreen: DealsScreen,
       
 
       //==========================================build
