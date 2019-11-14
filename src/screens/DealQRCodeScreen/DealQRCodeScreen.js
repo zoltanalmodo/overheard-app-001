@@ -17,12 +17,12 @@ const DealQRCodeScreen = ({navigation}) => {
         </View>
 
         <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('DealScreen')} />
+            <Button title="<<< back" onPress={() => navigation.navigate('DealScreen')} />
         </BottomDrawer>
         
     </ImageBackground>

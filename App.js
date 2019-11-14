@@ -54,9 +54,10 @@ const switchNavigator = createSwitchNavigator ({
 
       //===========================================test
 
+
       // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
 
-      // DealsScreen: DealsScreen,
+      
 
       //===========================================test
 
@@ -65,6 +66,7 @@ const switchNavigator = createSwitchNavigator ({
       //===BUILD=== <<< log out >>>
 
     
+      
       
 
       //==========================================build

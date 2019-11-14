@@ -24,19 +24,26 @@ const ProfileScreen = ({navigation}) => {
             <View style={styles.infoBox}>
 
                 <Text style={styles.profileInitials}>Contact details:</Text>
+
                 <Text style={styles.profileValues}>First name:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
                 </View>
+
+                <Text style={styles.profileValues}>Surname:</Text>
+                <View style={styles.profilePanelTextBoxPosition}>
+                    <Text style={styles.profilePanelTextBox} >{ state.userObject.last }</Text>
+                </View>
+
                 <Text style={styles.profileValues}>E-mail address:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
                 </View>
+
                 <Text style={styles.profileValues}>Renewal date:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
                 </View>
-
 
 
 
@@ -45,7 +52,7 @@ const ProfileScreen = ({navigation}) => {
                     
                 >                    
                     <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileButton}>Reset password [***]</Text>
+                        <Text style={styles.profileButton}>Reset password</Text>
 
                     </View>
                 </TouchableOpacity>
@@ -56,7 +63,18 @@ const ProfileScreen = ({navigation}) => {
                     onPress={ () => navigate('ProfileWarningScreen')}
                 >                    
                     <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileButton}>Cancel subscription [x]</Text>
+                        <Text style={styles.profileButton}>Cancel subscription</Text>
+
+                    </View>
+                </TouchableOpacity>
+
+
+
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => navigate('LoginScreen')}
+                >                    
+                    <View style={styles.profileButtonPosition}>
+                        <Text style={styles.profileLogOutButton}>Log out</Text>
 
                     </View>
                 </TouchableOpacity>
@@ -73,12 +91,12 @@ const ProfileScreen = ({navigation}) => {
 
 
         <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigate('DealsScreen')} />
+            <Button title="<<< back" onPress={() => navigate('DealsScreen')} />
         </BottomDrawer>
         
     </ImageBackground>
@@ -126,15 +144,15 @@ const styles = StyleSheet.create({
         fontWeight: '800',
     },
     profileValues: {
-        marginTop: 10,
+        marginTop: 5,
         marginLeft: 10,
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: '400',
     },
 
 
     profilePanelTextBoxPosition: {
-        marginTop: 10,
+        marginTop: 5,
         flexDirection: 'row',
         justifyContent: 'center',
     },
@@ -161,6 +179,8 @@ const styles = StyleSheet.create({
     },
 
     profileButtonPosition: {
+        flexDirection: 'row',
+        justifyContent: 'center',
         paddingTop: 0,
         marginTop: 20,
         marginLeft: 10,
@@ -181,6 +201,15 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         fontWeight: '800',
+    },
+
+    profileLogOutButton: {
+        marginLeft: 10,
+        paddingTop: 3,
+        color: 'white',
+        fontSize: 18,
+        fontWeight: '800',
+
     },
 
 

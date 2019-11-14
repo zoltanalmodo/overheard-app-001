@@ -166,7 +166,7 @@ const RepSigUpScreen = ({navigation}) => {
 
 
                 <BottomDrawer
-                    containerHeight={70}
+                    containerHeight={90}
                     backgroundColor='darkblue'
                     shadow={true}
                     startUp={true}

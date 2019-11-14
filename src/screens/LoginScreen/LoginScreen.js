@@ -93,11 +93,17 @@ const LoginScreen = ({navigation}) => {
 
                 <TouchableOpacity
                     onPress={() => navigation.navigate('RepLoginScreen')}
-                    
                 >                    
                     <View style={styles.loginButtonPosition}>
-                        <Text style={styles.loginButton}>Rep</Text>
+                        <Text style={styles.repLoginButton}>Rep</Text>
+                    </View>
+                </TouchableOpacity>
 
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('#')}
+                >                    
+                    <View style={styles.loginButtonPosition}>
+                        <Text style={styles.merchantLoginButton}>Merchant Login</Text>
                     </View>
                 </TouchableOpacity>
                 
@@ -124,11 +130,11 @@ const styles = StyleSheet.create({
       },
 
     logoPosition: {
-        marginTop: 52,
+        marginTop: 42,
       },
 
     emailTextInputPosition: {
-        marginTop: 52,
+        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },
@@ -225,14 +231,32 @@ const styles = StyleSheet.create({
         paddingTop: 8,
         fontSize: 24,
         fontWeight: 'bold',
-        color:  'white',
+        color:  'black',
         height: 50,
         width: 270,
-        borderColor: '#FF9960',
+        borderColor: '#ECECEC',
         borderWidth: 2,
-        backgroundColor: '#FF9960',
+        backgroundColor: '#ECECEC',
 
-        shadowColor: 'black',
+        shadowColor: '#ababab',
+        shadowOffset: {width: 4, height: 4},
+        shadowOpacity: 1,
+        shadowRadius: 0,
+    },
+
+    merchantLoginButton: {
+        textAlign: 'center',
+        paddingTop: 8,
+        fontSize: 24,
+        fontWeight: 'bold',
+        color:  'black',
+        height: 50,
+        width: 270,
+        borderColor: '#ECECEC',
+        borderWidth: 2,
+        backgroundColor: '#ECECEC',
+
+        shadowColor: '#ababab',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,

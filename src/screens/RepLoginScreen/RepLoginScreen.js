@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
 
 import BottomDrawer from 'rn-bottom-drawer';
 
@@ -22,6 +22,13 @@ const RepLoginScreen = ({navigation}) => {
             <ImageBackground source={backimage} style={styles.container}>
                 <View style={styles.logoPosition}>
                     <OverheardDealsLogo />
+                </View>
+
+
+                <View style={styles.repTitlePosition}>
+                        
+                            <Text style={styles.repTitleText}>Rep login</Text>
+                        
                 </View>
 
                 <View style={styles.emailTextInputPosition}>
@@ -73,30 +80,45 @@ const RepLoginScreen = ({navigation}) => {
 
                 
                 <View style={styles.repLoginButtonPosition}>
-                        <View style={styles.repLoginButton}>
-                            <Button title='Rep login' onPress={() => repLogin({ email, password })} />
+                    <TouchableOpacity
+                        onPress={() => repLogin({ email, password })}
+                        
+                    >                    
+                        <View style={styles.loginButtonPosition}>
+                            <Text style={styles.repLoginButton}>Rep login</Text>
+
                         </View>
+                    </TouchableOpacity>
                 </View>
 
-                <View style={styles.forgotPasswordPosition}>
-                        <View style={styles.forgotPassword}>
-                            <Button title='forgot rep password' onPress={() => navigation.navigate('ResetRepPasswordScreen')} />
-                        </View>
-                </View>
 
-                <View style={styles.becomeARepPosition}>
-                        <View style={styles.becomeARep}>
-                            <Button title='become a rep' onPress={() => navigation.navigate('RepSignUpScreen')} />
-                        </View>
-                </View>
+
+                <TouchableOpacity onPress={() => navigation.navigate('ResetRepPasswordScreen')} >
+                    <View style={styles.forgotPasswordPosition}>
+                            <View style={styles.forgotPassword}>
+                                <Text style={styles.forgotPasswordText }>forgot rep password</Text>
+                            </View>
+                    </View>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity onPress={() => navigation.navigate('RepSignUpScreen')} >
+                    <View style={styles.becomeARepPosition}>
+                            <View style={styles.becomeARep}>
+                                <Text style={styles.becomeARepText }>become a rep</Text>
+                            </View>
+                    </View>
+                </TouchableOpacity>
+
+
 
                 <BottomDrawer
-                    containerHeight={70}
+                    containerHeight={90}
                     backgroundColor='darkblue'
                     shadow={true}
                     startUp={true}
                 >
-                    <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
+                    <Button title="<<< back" onPress={() => navigation.navigate('LoginScreen')} />
                 </BottomDrawer>
                 
             </ImageBackground>
@@ -119,14 +141,24 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      },
+    },
 
     logoPosition: {
         marginTop: 52,
-      },
+    },
+
+    repTitlePosition: {
+        marginTop: 42,
+    },
+    repTitleText: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'black',
+        fontSize: 32,
+    },
 
     emailTextInputPosition: {
-        marginTop: 52,
+        marginTop: 15,
         flexDirection: 'row',
         justifyContent: 'center',
     },
@@ -171,16 +203,17 @@ const styles = StyleSheet.create({
     },
     repLoginButton: {
         textAlign: 'center',
+        paddingTop: 8,
         fontSize: 24,
         fontWeight: 'bold',
-        color:  'white',
+        color:  'black',
         height: 50,
         width: 270,
-        borderColor: 'black',
+        borderColor: '#FF8D4F',
         borderWidth: 2,
-        backgroundColor: 'black',
+        backgroundColor: '#FF8D4F',
 
-        shadowColor: '#ababab',
+        shadowColor: 'black',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
@@ -192,16 +225,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    forgotPassword: {
+    forgotPasswordText: {
+        textAlign: 'center',
+        fontSize: 18,
     },
 
     becomeARepPosition: {
-        marginTop: 5,
+        marginTop: 15,
         flexDirection: 'row',
         justifyContent: 'center',
 
     },
-    becomeARep: {
+    becomeARepText: {
+        textAlign: 'center',
+        fontSize: 18,
     },
 
     

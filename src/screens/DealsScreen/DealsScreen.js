@@ -14,7 +14,6 @@ const DealsScreen = ({navigation}) => {
         
         <Header />
 
-    
         <DealsList />
         
         

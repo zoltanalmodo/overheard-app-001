@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect }  from 'react';
-import { View, StyleSheet, FlatList, SafeAreaView } from 'react-native';
+import { View, StyleSheet, FlatList, SafeAreaView, Text } from 'react-native';
 import axios from 'axios';
 
 
@@ -19,7 +19,7 @@ const DealsList = ({navigation} ) => {
         // var is used to shadow the global variable, DO NOT change it to const or let
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
         setDeals(deals.data);
-        setCategory('All Deals');
+        setCategory('Deals Menu');
       }
   
       useEffect(() => {
@@ -36,8 +36,12 @@ const DealsList = ({navigation} ) => {
             
             <SafeAreaView style={styles.styleSafeAreaView}>
 
-            <View>
+            <View >
+
+                 <Text style={styles.categoryText}>{state.category}</Text>
+
                 <FlatList
+                    style={styles.flatListPosition}
                     showsVerticalScrollIndicator= {false}
                     data={currentDeals}
                     centerContent = {true}
@@ -70,7 +74,8 @@ const DealsList = ({navigation} ) => {
 
                     }}
                 />
-            </View>
+
+            </View >
 
             </SafeAreaView>
 
@@ -89,6 +94,24 @@ const styles = StyleSheet.create({
         height: null,
         flexDirection: 'row',
         justifyContent: 'center',
+    },
+
+    categoryTextPosition: {
+    },
+
+    categoryText: {
+        marginTop: 5,
+        marginBottom: 3,
+        fontSize: 16,
+        fontWeight: '800',
+        textAlign: 'center',
+        // borderWidth: 2,
+        // borderColor: 'red',
+    },
+
+    flatListPosition: {
+        // borderWidth: 2,
+        // borderColor: 'orange',
     },
 
 });

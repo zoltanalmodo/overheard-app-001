@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AppRegistry, TextInput, View, Linking, Text, StyleSheet, ImageBackground, Button, Image, TouchableOpacity } from 'react-native';
 
-import QRCode from 'react-native-qrcode-svg';
-
 import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png'
@@ -12,6 +10,9 @@ import { Context as AuthContext } from '../../context/AuthContext';
 import { navigate } from '../../navigationRef';
 
 
+String.prototype.capitalize = function() {
+    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+};
 
 const DealCardPopUpScreen = ({navigation}, props) => {
 
@@ -26,23 +27,27 @@ const DealCardPopUpScreen = ({navigation}, props) => {
             onPress={ () => navigate('DealCardQRPopUpScreen')} >
 
             <View style={styles.cardButton}>     
-                <Text style={styles.cardButtonText}>Claim</Text>
+                <Text style={styles.cardButtonText}>CLAIM</Text>
             </View>
 
         </TouchableOpacity>
 
-        :
+    :   state.cardObject.name === 'Capital Cabs' ?
+
+        <Text></Text>
+
+    :
 
         <TouchableOpacity style={styles.touchableOpacity}
                             
             onPress={ () => Linking.openURL(state.cardObject.link)} >
 
             <View style={styles.cardButton}>     
-                <Text style={styles.cardButtonText}>{state.cardObject.buttonText}</Text>
+                <Text style={styles.cardButtonText}>{state.cardObject.buttonText.toUpperCase()}</Text>
             </View>
 
         </TouchableOpacity>
-        ;
+        
         
         
 
@@ -55,109 +60,76 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
     <ImageBackground source={backimage} style={styles.container}>
         
+        
         <View style={styles.dealImagePosition}>
             <View>
-
-                {/* QR code = state.userObject.id */}
-
                 <View style={styles.cardImageContainer}>
-
-                    <View>
-                    {/* <View style={styles.dealImage}> */}
-                        {/* <Text style={styles.cardTextMainOffer}>{state.userObject.id}</Text> */}
-
-                        {/* <QRCode
-                            value={state.userObject.id}
-                            size={276}
-                            color="black"
-                            backgroundColor="white"
-                        /> */}
-                        
+                    <View>                  
                         <Image
                             style={styles.dealImage}
                             source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
                     </View>
                 </View>
-
             </View>
         </View>
+
+
         <View style={styles.dealDescriptionPosition}>
-            <View style={styles.dealDescription}>
 
-            
+            <View style={styles.dealDescriptionGreen}>
 
-                <Text style={styles.cardTextName} >{state.cardObject.name}</Text>
-                <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
-                <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
+                <View style={styles.cardTextContainerOrange}>
 
-                <Text style={styles.cardTextOfferSmall}>{state.cardObject.categories}</Text>
-                
+                    <Text style={styles.cardTextName} >{state.cardObject.name.capitalize()}</Text>
+                    <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
 
-                <View style={styles.cardButtonPosition}>
-
-
-                                    
-                        {renderDealButton()}
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree}</Text>
                     
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability}</Text>
+        
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.location}</Text>
+                
                 </View>
 
-
-                {/* <View style={styles.cardButtonPosition}>
-
-
-                                    
-                        <TouchableOpacity style={styles.touchableOpacity}
-                    
-                            onPress={ () => Linking.openURL(state.cardObject.link)} >
-
-                            <View style={styles.cardButton}>     
-                                <Text style={styles.cardButtonText}>{state.cardObject.buttonText}</Text>
-                            </View>
-
-                        </TouchableOpacity>
-                    
-                </View> */}
-                
-                {/* <View style={styles.cardButtonPosition}>
-
-                        <TouchableOpacity style={styles.touchableOpacity}
             
-                            onPress={ () => navigate('DealCardQRPopUpScreen')} >
+                <View style={styles.cardButtonSectionRed}>
 
-                            <View style={styles.cardButton}>     
-                                <Text style={styles.cardButtonText}>Claim</Text>
-                            </View>
+                    <View style={styles.cardButtonPositionCyan}>
+                            {renderDealButton()}
+                    </View>
+                    <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
 
-                        </TouchableOpacity>
+                </View>
 
-
-                        
-                        
-
-                </View> */}
-
-                
             </View>
+
         </View>
 
+
         <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('DealsScreen')} />
+            <Button title="<<< back" onPress={() => navigation.navigate('DealsScreen')} />
         </BottomDrawer>
-        
+
+
     </ImageBackground>
-    )
+    );
 };
+
 
 DealCardPopUpScreen.navigationOptions = () => {
     return {
         header: null
     };
 };
+
 
 const styles = StyleSheet.create({
     container: {
@@ -167,12 +139,6 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-    },
-    dealBuyOnlineScreenText: {
-        textAlign: 'center',
-        marginTop: 50,
-        fontSize: 36,
-        color: 'salmon',
     },
     dealImagePosition: {
         marginTop: 10,
@@ -187,61 +153,93 @@ const styles = StyleSheet.create({
         borderColor: 'black',
     },
 
+
     dealDescriptionPosition: {
         marginTop: -2,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    dealDescription: {
+    dealDescriptionGreen: {
         width: 280,
         height: 280,
         backgroundColor: 'white',
+
         borderWidth: 2,
-        borderColor: 'black',
+        borderColor: 'green',
+
+        textAlign: 'center',
+    },
+
+    cardTextContainerOrange: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: 225,
+
+        borderWidth: 2,
+        borderColor: 'orange',
     },
 
     cardTextName: {
-        fontSize: 10,
+        fontSize: 16,
         textAlign: 'center',
+        fontWeight: '800',
     },
-
     cardTextMainOffer: {
-        fontSize: 14,
+        fontSize: 20,
         fontWeight: '800',
         textAlign: 'center',
     },
-
     cardTextOfferSmall: {
-        fontSize: 10,
+        fontSize: 12,
         textAlign: 'center',
     },
+    cardTextTags: {
+        fontSize: 12,
+        textAlign: 'center',
+        marginBottom: 3,
+    },
+    
+    cardButtonPositionCyan: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        position: 'relative',
+        textAlign: 'center',
 
+        borderWidth: 2,
+        borderColor: 'cyan',
+    },
+    cardButtonSectionRed: {
+        position: 'absolute',
+        bottom: -2,
+        width: 280,
+        height: 55,
+        textAlign: 'center',
 
+        borderWidth: 2,
+        borderColor: 'red',
+    },
     cardButton: {
         width: '85%',
         height: 25,
-        backgroundColor: 'black',
+        backgroundColor: '#FF8D4F',
     },
     cardButtonText: {
-        paddingTop: 4,
+        paddingTop: 5,
         fontSize: 12,
         textAlign: 'center',
-        color: 'white',
+        color: 'black',
         fontWeight: '800',
     },
-
-
-    cardButtonPosition: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
+    
     touchableOpacity: {
         flexDirection: 'row',
         justifyContent: 'center',
         width: '85%',
         height: 25,
-        backgroundColor: 'black',
+        backgroundColor: '#FF8D4F',
         textAlign: 'center',
+        marginTop: 5,
+        marginBottom: 3,
     },
 
 });

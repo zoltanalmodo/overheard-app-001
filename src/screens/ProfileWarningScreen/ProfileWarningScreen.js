@@ -56,12 +56,12 @@ const ProfileWarningScreen = ({navigation}) => {
 
 
         {/* <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigate('DealsScreen')} />
+            <Button title="<<< back" onPress={() => navigate('DealsScreen')} />
         </BottomDrawer> */}
         
     </ImageBackground>

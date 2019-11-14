@@ -59,12 +59,12 @@ const ResetRepPasswordScreen = ({navigation}) => {
 
         
         <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('RepLoginScreen')} />
+            <Button title="<<< back" onPress={() => navigation.navigate('RepLoginScreen')} />
         </BottomDrawer>
         
 

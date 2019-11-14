@@ -48,10 +48,10 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
                 <View style={styles.instructionsPosition}>
                     <Text style={styles.instructions}>
                         
-                        'please present
+                        Please present
                         this code
                         to the merchant
-                        to scan'
+                        to scan
                     
                     </Text>
                 </View>
@@ -66,12 +66,12 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
         </View>
 
         <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('DealsScreen')} />
+            <Button title="<<< back" onPress={() => navigation.navigate('DealsScreen')} />
         </BottomDrawer>
         
     </ImageBackground>
@@ -175,6 +175,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     instructions: {
+        marginTop: 90,
         fontSize: 24,
         textAlign: 'center',
         color: 'black',

@@ -63,12 +63,12 @@ const ResetPasswordScreen = ({navigation}) => {
 
         
         <BottomDrawer
-            containerHeight={70}
+            containerHeight={90}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
-            <Button title="<<< baaack" onPress={() => navigation.navigate('LoginScreen')} />
+            <Button title="<<< back" onPress={() => navigation.navigate('LoginScreen')} />
         </BottomDrawer>
         
 

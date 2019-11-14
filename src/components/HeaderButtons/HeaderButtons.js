@@ -18,12 +18,12 @@ const HeaderButtons = ({navigation}) => {
     return (
         <View style={styles.topNavBar}>
 
-            <View style={styles.categoriesButton}>
+            <View style={styles.categoriesButtonBox}>
                 <ModalDropdown
-                    defaultValue={'All Deals'}
+                    defaultValue={'Deals menu'}
 
                     onSelect = {(newCategories) => setCategory(
-                        newCategories === '0' ? 'All Deals' :
+                        newCategories === '0' ? 'Deals Menu' :
                         newCategories === '1' ? 'Alcohol' :
                         newCategories === '2' ? 'Events & Festivals' :
                         newCategories === '3' ? 'Fashion & Shopping' :
@@ -38,7 +38,7 @@ const HeaderButtons = ({navigation}) => {
 
 
                     options={[
-                        'All deals',
+                        'Deals Menu',
                         'Alcohol',
                         'Events & Festivals',
                         'Fashion & Shopping',
@@ -58,9 +58,7 @@ const HeaderButtons = ({navigation}) => {
                 />
             </View>
 
-            {/* <View style={styles.buttonBox}>
-                <Text style={styles.buttonText}>Deals Map</Text>
-            </View> */}
+            
 
             
             
@@ -71,7 +69,7 @@ const HeaderButtons = ({navigation}) => {
             >
 
                     
-                    <View style={styles.buttonBox}>
+                    <View style={styles.profileButtonBox}>
                     <Text style={styles.buttonText}>Profile</Text>
 
                 </View>
@@ -94,13 +92,18 @@ const styles = StyleSheet.create({
     },
     
 
-    categoriesButton: {
+    categoriesButtonBox: {
         height: 36,
-        width: 101,
+        width: 178,
         marginLeft: 10,
-        marginRight: 10,
-        borderWidth: 2,
+
+
+        borderRightWidth: 2,
+        borderLeftWidth: 2,
+        borderTopWidth: 2,
         borderColor: 'black',
+
+
         top: 1,
     },
 
@@ -142,13 +145,16 @@ const styles = StyleSheet.create({
     },
 
 
-    buttonBox: {
+    profileButtonBox: {
         height: 36,
-        width: 101,
-        marginLeft: 10,
+        width: 178,
         marginRight: 10,
-        borderWidth: 2,
+
+        borderRightWidth: 2,
+        borderLeftWidth: 0,
+        borderTopWidth: 2,
         borderColor: 'black',
+
         top: 1,
     },
 
