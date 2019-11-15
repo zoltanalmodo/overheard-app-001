@@ -41,6 +41,10 @@ import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileReset
 //===========================================test
 import ReactNativeCarouselControl from './src/screens/TestTest/ReactNativeCarouselControl'
 import ReactNativeLoopedCarousel from './src/screens/TestTest/ReactNativeLoopedCarousel'
+
+import BackButton from './src/screens/TestTest/BackButtonScreenTest'
+
+import BackButtonFirstTest from './src/screens/TestTest/BackButtonFirstTest'
 //===========================================test
 
 
@@ -55,9 +59,17 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
 
+
       // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
       ReactNativeCarouselControl: ReactNativeCarouselControl,
+
+
+      // BackButtonFirstTest: BackButtonFirstTest,
+
+      // BackButton: BackButton,
       
+
+
 
       //===========================================test
 
@@ -65,7 +77,8 @@ const switchNavigator = createSwitchNavigator ({
 
       //===BUILD=== <<< log out >>>
 
-    
+
+
       // DealsScreen: DealsScreen,
       
 

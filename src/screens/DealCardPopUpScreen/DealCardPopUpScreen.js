@@ -142,8 +142,9 @@ const styles = StyleSheet.create({
     dealImage: {
         width: 280,
         height: 280,
-        backgroundColor: 'pink',
-        borderWidth: 2,
+        backgroundColor: 'white',
+
+        borderWidth: 1,
         borderColor: 'black',
     },
 
@@ -158,8 +159,8 @@ const styles = StyleSheet.create({
         height: 280,
         backgroundColor: 'white',
 
-        borderWidth: 2,
-        borderColor: 'green',
+        borderWidth: 1,
+        borderColor: 'black',
 
         textAlign: 'center',
     },

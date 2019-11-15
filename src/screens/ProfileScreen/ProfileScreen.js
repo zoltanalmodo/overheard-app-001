@@ -45,6 +45,11 @@ const ProfileScreen = ({navigation}) => {
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
                 </View>
 
+                <Text style={styles.profileValues}>University:</Text>
+                <View style={styles.profilePanelTextBoxPosition}>
+                    <Text style={styles.profilePanelTextBox} >{ state.userObject.university }</Text>
+                </View>
+
 
 
                 <TouchableOpacity style={styles.touchableOpacity}
@@ -91,7 +96,7 @@ const ProfileScreen = ({navigation}) => {
 
 
         <BottomDrawer
-            containerHeight={90}
+            containerHeight={70}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
@@ -129,7 +134,7 @@ const styles = StyleSheet.create({
     },
     infoBox: {
         width: 252,
-        height: 454,
+        height: 500,
         fontSize: 24,
         backgroundColor: '#FEF3BA',
         borderWidth: 2,
@@ -138,30 +143,28 @@ const styles = StyleSheet.create({
     },
 
     profileInitials: {
-        marginTop: 10,
-        marginLeft: 10,
-        fontSize: 18,
-        fontWeight: '800',
-    },
-    profileValues: {
         marginTop: 5,
         marginLeft: 10,
         fontSize: 16,
+        fontWeight: '800',
+    },
+    profileValues: {
+        marginTop: 4,
+        marginLeft: 10,
+        fontSize: 14,
         fontWeight: '400',
     },
 
-
     profilePanelTextBoxPosition: {
-        marginTop: 5,
+        marginTop: 2,
         flexDirection: 'row',
         justifyContent: 'center',
     },
     profilePanelTextBox: {
-        paddingTop: 3,
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: 14,
         color:  '#ababab',
-        height: 32,
+        height: 30,
         width: 228,
         borderColor: 'black',
         borderWidth: 2,
@@ -182,7 +185,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         paddingTop: 0,
-        marginTop: 20,
+        marginTop: 15,
         marginLeft: 10,
         textAlign: 'center',
         height: 30,

@@ -36,11 +36,6 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                         <Text style={styles.statsTextRight} >{ state.repObject.referrals}</Text>
                     </View>
 
-                    {/* <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Link click:</Text>
-                        <Text style={styles.statsTextRight} >{ state.repObject.first}</Text>
-                    </View> */}
-
                     <View style={styles.repPlatformStats}>
                         <Text style={styles.statsTextLeft} >Commission Earned:</Text>
                         <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
@@ -49,7 +44,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                 
 
                 <View style={styles.uniqueRepLinkTextBoxPosition}>
-                    <Text style={styles.uniqueRepLinkTextBox} >*** PARTY ***</Text>
+                    <Text style={styles.uniqueRepLinkTextBox} >*** Link Copied ***</Text>
                 </View>
             </View>   
         </View>
@@ -59,21 +54,14 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
         <View style={styles.repLinkCopiedButtonPosition}>
             <View style={styles.repLinkCopiedButton}>                    
                                
-                <Button title=" <<< back to Login" onPress={() => navigation.navigate('RepLoginScreen')} />
+                <Button title= "<<< Log Out >>>" onPress={() => navigation.navigate('RepLoginScreen')} />
 
 {/* kok - state.errorMessage:'' */}               
                 
             </View>
         </View>
 
-        <BottomDrawer
-            containerHeight={90}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >       
-            <Button title="<<< log out >>>" onPress={() => navigation.navigate('#')} />
-        </BottomDrawer>
+        
 
         
     </ImageBackground>
@@ -209,7 +197,7 @@ const styles = StyleSheet.create({
         width: 270,
         borderColor: 'black',
         borderWidth: 2,
-        backgroundColor: '#B8F3DC',
+        backgroundColor: 'black',
 
         shadowColor: '#ababab',
         shadowOffset: {width: 4, height: 4},
