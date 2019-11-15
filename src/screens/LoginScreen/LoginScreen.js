@@ -76,7 +76,7 @@ const LoginScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => navigation.navigate('ResetPasswordScreen', {clearErrors})} >
                     <View style={styles.forgotPasswordPosition}>
                             <View style={styles.forgotPassword}>
-                                <Text style={styles.forgotPasswordText}>forgot password</Text>
+                                <Text style={styles.forgotPasswordText}>Forgot Password</Text>
                             </View>
                     </View>
                 </TouchableOpacity>
@@ -84,7 +84,7 @@ const LoginScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => navigation.navigate('#')} >
                     <View style={styles.forgotPasswordPosition}>
                             <View style={styles.forgotPassword}>
-                                <Text style={styles.newUserText }>I am a new user</Text>
+                                <Text style={styles.newUserText }>I Am A New User</Text>
                             </View>
                     </View>
                 </TouchableOpacity>

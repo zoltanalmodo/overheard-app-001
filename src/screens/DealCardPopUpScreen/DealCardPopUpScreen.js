@@ -47,13 +47,7 @@ const DealCardPopUpScreen = ({navigation}, props) => {
             </View>
 
         </TouchableOpacity>
-        
-        
-        
-
     
-
-
 
 
     return (
@@ -81,16 +75,16 @@ const DealCardPopUpScreen = ({navigation}, props) => {
                 <View style={styles.cardTextContainerOrange}>
 
                     <Text style={styles.cardTextName} >{state.cardObject.name.capitalize()}</Text>
-                    <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
+                    <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer.capitalize()}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall.capitalize()}</Text>
 
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne}</Text>
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo}</Text>
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne.capitalize()}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo.capitalize()}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree.capitalize()}</Text>
                     
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability.capitalize()}</Text>
         
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.location}</Text>
+                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.location.capitalize()}</Text>
                 
                 </View>
 
@@ -175,8 +169,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         height: 225,
 
-        borderWidth: 2,
-        borderColor: 'orange',
     },
 
     cardTextName: {
@@ -205,8 +197,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         textAlign: 'center',
 
-        borderWidth: 2,
-        borderColor: 'cyan',
     },
     cardButtonSectionRed: {
         position: 'absolute',
@@ -214,9 +204,6 @@ const styles = StyleSheet.create({
         width: 280,
         height: 55,
         textAlign: 'center',
-
-        borderWidth: 2,
-        borderColor: 'red',
     },
     cardButton: {
         width: '85%',

@@ -121,7 +121,7 @@ const login = (dispatch) => async ({ email, password }) => {
         navigate('DealsScreen');
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Something is wrong... Try again!'});
+        dispatch({ type: 'add_error', payload: 'Something Is Wrong... Try Again!'});
     }
 
 };
@@ -165,7 +165,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'incorrect email' });
+        dispatch({ type: 'add_error', payload: 'Incorrect Email' });
     }
 
 };
@@ -181,7 +181,7 @@ const resetRepPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetRepPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'incorrect email' });
+        dispatch({ type: 'add_error', payload: 'Incorrect Email' });
     }
 
 };
@@ -208,7 +208,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         // console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: `incorrect login details` });
+        dispatch({ type: 'add_error', payload: `Incorrect Login Details` });
     }
     
 };

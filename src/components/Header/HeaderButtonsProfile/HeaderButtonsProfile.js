@@ -18,51 +18,7 @@ const HeaderButtonsProfile = ({navigation}) => {
     return (
         <View style={styles.topNavBar}>
 
-            {/* <View style={styles.categoriesButton}>
-                <ModalDropdown
-                    defaultValue={'All Deals'}
-
-                    onSelect = {(newCategories) => setCategory(
-                        newCategories === '0' ? 'All Deals' :
-                        newCategories === '1' ? 'Alcohol' :
-                        newCategories === '2' ? 'Events & Festivals' :
-                        newCategories === '3' ? 'Fashion & Shopping' :
-                        newCategories === '4' ? 'Food & Drink' :
-                        newCategories === '5' ? 'Hair & Beauty' :
-                        newCategories === '6' ? 'Health & Fitness' :
-                        newCategories === '7' ? 'Lifestyle' :
-                        newCategories === '8' ? 'Taxis & Cars' :
-                        newCategories === '9' ? 'Technology' :
-                        'error setCategories'
-                    )}
-
-
-                    options={[
-                        'All deals',
-                        'Alcohol',
-                        'Events & Festivals',
-                        'Fashion & Shopping',
-                        'Food & Drink',
-                        'Hair & Beauty',
-                        'Health & Fitness',
-                        'Lifestyle',
-                        'Taxis & Cars',
-                        'Technology',
-                    ]}
                     
-                    textStyle={styles.modalButtonText}
-                    
-                    dropdownStyle={styles.modalDropdownDropdownBox}
-                    dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
-                    dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
-                />
-            </View> */}
-
-            {/* <View style={styles.buttonBox}>
-                <Text style={styles.buttonText}>Deals Map</Text>
-            </View> */}
-
-            
             
             <TouchableOpacity style={styles.touchableOpacity}
                             

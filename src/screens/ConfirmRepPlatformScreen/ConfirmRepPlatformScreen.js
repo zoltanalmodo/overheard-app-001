@@ -21,13 +21,13 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
 
         <View style={styles.repPlatformTitleBoxPosition}>
             <View style={styles.repPlatformTitleBox}>                    
-                <Text style={styles.repPlatformTitleText} >Rep platform</Text>
+                <Text style={styles.repPlatformTitleText} >Rep Platform</Text>
             </View>
         </View>
         
         <View style={styles.repPlatformTextBoxPosition}>
             <View style={styles.repPlatformTextBox}>
-                <Text style={styles.repPlatformTextTop}>Your sales stats</Text>
+                <Text style={styles.repPlatformTextTop}>Your Sales Stats</Text>
 
 
                 <View style={styles.repPlatformStatsPosition}>
@@ -42,7 +42,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
                     </View> */}
 
                     <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Commission earned:</Text>
+                        <Text style={styles.statsTextLeft} >Commission Earned:</Text>
                         <Text style={styles.statsTextRight} >£ { state.repObject.referrals *2.5 }</Text>
                     </View>
                 </View>

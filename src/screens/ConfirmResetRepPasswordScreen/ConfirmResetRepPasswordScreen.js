@@ -21,9 +21,9 @@ const ConfirmResetRepPasswordScreen = ({navigation}) => {
             
             <View style={styles.confirmResetTextBoxPosition}>
                 <View style={styles.confirmResetTextBox}>
-                    <Text style={styles.confirmResetTextBoxTop}>A link to reset your rep password</Text>
-                    <Text style={styles.confirmResetText}>has been</Text>
-                    <Text style={styles.confirmResetText}>SENT to</Text>
+                    <Text style={styles.confirmResetTextBoxTop}>A Link To Reset Your Rep Password</Text>
+                    <Text style={styles.confirmResetText}>Has Been</Text>
+                    <Text style={styles.confirmResetText}>SENT To:</Text>
 
                     <Text style={styles.confirmResetTextEmail}>
                         {JSON.stringify(navigation.getParam('email'))}

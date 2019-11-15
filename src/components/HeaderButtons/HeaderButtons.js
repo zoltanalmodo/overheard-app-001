@@ -20,7 +20,7 @@ const HeaderButtons = ({navigation}) => {
 
             <View style={styles.categoriesButtonBox}>
                 <ModalDropdown
-                    defaultValue={'Deals menu'}
+                    defaultValue={'Deals Menu'}
 
                     onSelect = {(newCategories) => setCategory(
                         newCategories === '0' ? 'Deals Menu' :

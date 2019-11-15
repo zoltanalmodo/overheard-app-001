@@ -48,10 +48,10 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
                 <View style={styles.instructionsPosition}>
                     <Text style={styles.instructions}>
                         
-                        Please present
-                        this code
-                        to the merchant
-                        to scan
+                        Please Present
+                        This Code
+                        To The Merchant
+                        To Scan
                     
                     </Text>
                 </View>

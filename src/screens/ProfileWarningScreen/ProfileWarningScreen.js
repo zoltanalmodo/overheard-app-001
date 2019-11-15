@@ -29,13 +29,13 @@ const ProfileWarningScreen = ({navigation}) => {
                     
                 </View>
                 <Text style={styles.profileValues}>
-                    To cancel your subscription from the next renewal date please email us at:
+                    To Cancel Your Subscription From The Next Renewal Date Please Email Us At:
                 </Text>
                 <Text style={styles.profileValues}>
                     memberships@overheard.co.uk
                 </Text>
                 <Text style={styles.profileValues}>
-                    with the email you used to sign up.
+                    With The Email You Used To Sign Up.
                 </Text>
 
 

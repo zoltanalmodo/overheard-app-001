@@ -25,13 +25,13 @@ const RepPlatformScreen = ({navigation}) => {
 
         <View style={styles.repPlatformTitleBoxPosition}>
             <View style={styles.repPlatformTitleBox}>                    
-                <Text style={styles.repPlatformTitleText} >Rep platform</Text>
+                <Text style={styles.repPlatformTitleText} >Rep Platform</Text>
             </View>
         </View>
         
         <View style={styles.repPlatformTextBoxPosition}>
             <View style={styles.repPlatformTextBox}>
-                <Text style={styles.repPlatformTextTop}>Your sales stats</Text>
+                <Text style={styles.repPlatformTextTop}>Your Sales Stats</Text>
 
 
                 <View style={styles.repPlatformStatsPosition}>
@@ -43,7 +43,7 @@ const RepPlatformScreen = ({navigation}) => {
                     
 
                     <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Commission earned:</Text>
+                        <Text style={styles.statsTextLeft} >Commission Earned:</Text>
                         <Text style={styles.statsTextRight} >£{ (state.repObject.referrals * 2.5).toFixed(2) }</Text>
                     </View>
                 </View>
@@ -72,7 +72,7 @@ const RepPlatformScreen = ({navigation}) => {
             shadow={true}
             startUp={true}
         >
-            <Button title="<<< log out >>>" onPress={() => navigation.navigate('LoginScreen')} />
+            <Button title="<<< Log Out >>>" onPress={() => navigation.navigate('LoginScreen')} />
         </BottomDrawer>
 
         

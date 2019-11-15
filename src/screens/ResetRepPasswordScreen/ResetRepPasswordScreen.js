@@ -51,7 +51,7 @@ const ResetRepPasswordScreen = ({navigation}) => {
         <View style={styles.resetRepPasswordButtonPosition}>
             <View style={styles.resetRepPasswordButton}>                    
                 <Button
-                    title='Reset rep password'
+                    title='Reset Rep Password'
                     onPress={ () => resetRepPassword ( { email } ) }
                 />
             </View>

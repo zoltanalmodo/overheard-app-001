@@ -25,16 +25,16 @@ const ConfirmProfileResetPasswordScreen = ({navigation}) => {
             <View style={styles.infoBox}>
                 
                 <Text style={styles.profileValues}>
-                    A link to reset
+                    A Link To Reset
                 </Text>
                 <Text style={styles.profileValues}>
-                    your password
+                    Your Password
                 </Text>
                 <Text style={styles.profileValues}>
-                    has been
+                    Has Been
                 </Text>
                 <Text style={styles.profileValues}>
-                    SENT to:
+                    SENT To:
                 </Text>
 
                 <Text style={styles.profileValues}>{ state.userObject.email }</Text>

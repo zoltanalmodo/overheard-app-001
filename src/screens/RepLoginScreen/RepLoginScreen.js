@@ -27,7 +27,7 @@ const RepLoginScreen = ({navigation}) => {
 
                 <View style={styles.repTitlePosition}>
                         
-                            <Text style={styles.repTitleText}>Rep login</Text>
+                            <Text style={styles.repTitleText}>Rep Login</Text>
                         
                 </View>
 
@@ -85,7 +85,7 @@ const RepLoginScreen = ({navigation}) => {
                         
                     >                    
                         <View style={styles.loginButtonPosition}>
-                            <Text style={styles.repLoginButton}>Rep login</Text>
+                            <Text style={styles.repLoginButton}>Rep Login</Text>
 
                         </View>
                     </TouchableOpacity>
@@ -96,7 +96,7 @@ const RepLoginScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => navigation.navigate('ResetRepPasswordScreen')} >
                     <View style={styles.forgotPasswordPosition}>
                             <View style={styles.forgotPassword}>
-                                <Text style={styles.forgotPasswordText }>forgot rep password</Text>
+                                <Text style={styles.forgotPasswordText }>Forgot Rep Password</Text>
                             </View>
                     </View>
                 </TouchableOpacity>
@@ -105,7 +105,7 @@ const RepLoginScreen = ({navigation}) => {
                 <TouchableOpacity onPress={() => navigation.navigate('RepSignUpScreen')} >
                     <View style={styles.becomeARepPosition}>
                             <View style={styles.becomeARep}>
-                                <Text style={styles.becomeARepText }>become a rep</Text>
+                                <Text style={styles.becomeARepText }>Become A Rep</Text>
                             </View>
                     </View>
                 </TouchableOpacity>

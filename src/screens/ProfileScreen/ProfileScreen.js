@@ -23,9 +23,9 @@ const ProfileScreen = ({navigation}) => {
 
             <View style={styles.infoBox}>
 
-                <Text style={styles.profileInitials}>Contact details:</Text>
+                <Text style={styles.profileInitials}>Contact Details:</Text>
 
-                <Text style={styles.profileValues}>First name:</Text>
+                <Text style={styles.profileValues}>First Name:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
                 </View>
@@ -40,7 +40,7 @@ const ProfileScreen = ({navigation}) => {
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
                 </View>
 
-                <Text style={styles.profileValues}>Renewal date:</Text>
+                <Text style={styles.profileValues}>Renewal Date:</Text>
                 <View style={styles.profilePanelTextBoxPosition}>
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
                 </View>
@@ -52,7 +52,7 @@ const ProfileScreen = ({navigation}) => {
                     
                 >                    
                     <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileButton}>Reset password</Text>
+                        <Text style={styles.profileButton}>Reset Password</Text>
 
                     </View>
                 </TouchableOpacity>
@@ -63,7 +63,7 @@ const ProfileScreen = ({navigation}) => {
                     onPress={ () => navigate('ProfileWarningScreen')}
                 >                    
                     <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileButton}>Cancel subscription</Text>
+                        <Text style={styles.profileButton}>Cancel Subscription</Text>
 
                     </View>
                 </TouchableOpacity>
@@ -74,7 +74,7 @@ const ProfileScreen = ({navigation}) => {
                     onPress={ () => navigate('LoginScreen')}
                 >                    
                     <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileLogOutButton}>Log out</Text>
+                        <Text style={styles.profileLogOutButton}>Log Out</Text>
 
                     </View>
                 </TouchableOpacity>

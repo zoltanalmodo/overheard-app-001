@@ -40,8 +40,8 @@ const RepSigUpScreen = ({navigation}) => {
                         
 
                         style={styles.firstNameTextInput}
-                        label='first name'
-                        placeholder='first name'
+                        label='First Name'
+                        placeholder='First Name'
                         placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='default'
@@ -57,8 +57,8 @@ const RepSigUpScreen = ({navigation}) => {
                         onChangeText = {setLast}
 
                         style={styles.lastNameTextInput}
-                        label='last name'
-                        placeholder='last name'
+                        label='Last Name'
+                        placeholder='Last Name'
                         placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='default'
@@ -74,8 +74,8 @@ const RepSigUpScreen = ({navigation}) => {
                         onChangeText = {setEmail}
 
                         style={styles.emailTextInput}
-                        label='email'
-                        placeholder='email'
+                        label='Email'
+                        placeholder='Email'
                         placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='email-address'
@@ -92,8 +92,8 @@ const RepSigUpScreen = ({navigation}) => {
                         autoCapitalize='none'
                         autoCorrect={false}
                         style={styles.passwordTextInput}
-                        label='password'
-                        placeholder='password'
+                        label='Password'
+                        placeholder='Password'
                         placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='default'
@@ -109,8 +109,8 @@ const RepSigUpScreen = ({navigation}) => {
                         onChangeText = {setPhone}
 
                         style={styles.phoneTextInput}
-                        label='phone'
-                        placeholder='phone'
+                        label='Phone'
+                        placeholder='Phone'
                         placeholderTextColor='black'
                         keyboardAppearance='dark'
                         keyboardType='phone-pad'
@@ -126,11 +126,11 @@ const RepSigUpScreen = ({navigation}) => {
                             newUniversity === '0' ? 'University of Cardiff' :
                             newUniversity === '1' ? 'University of South Wales' :
                             newUniversity === '2' ? 'Cardiff Metropolitan University' :
-                            'error setUniversity'
+                            'Error SetUniversity'
                             )}
                         
 
-                        defaultValue={'select your uni'}
+                        defaultValue={'Select Your Uni'}
                         options={['University of Cardiff', 'University of South Wales', 'Cardiff Metropolitan University']}
                         style={styles.modalDropdown}
                         textStyle={styles.modalDropdownText}
@@ -153,7 +153,7 @@ const RepSigUpScreen = ({navigation}) => {
 
                 <View style={styles.signUpButtonPosition}>
                         <View style={styles.signUpButton}>                    
-                            <Button title='Become a rep' onPress={() => repRegister({
+                            <Button title='Become A Rep' onPress={() => repRegister({
                                 first,
                                 last,
                                 email,
