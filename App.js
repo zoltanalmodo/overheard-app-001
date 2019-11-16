@@ -63,6 +63,7 @@ const switchNavigator = createSwitchNavigator ({
       // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
       ReactNativeCarouselControl: ReactNativeCarouselControl,
 
+      
 
       // BackButtonFirstTest: BackButtonFirstTest,
 
@@ -134,4 +135,7 @@ export default () => {
     </AuthProvider>
   );
 };
+
+
+//*********************** ALMODO SOFTWARE *************************//
 

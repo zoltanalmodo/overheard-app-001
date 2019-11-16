@@ -15,14 +15,22 @@ const ReactNativeCarouselControl = () => {
         <Text style={styles.mapUserCenteredScreenText}>ReactNativeCarouselControl</Text>
 
         <Carousel 
-            pageStyle={ {
-                height: 250,
-            } }
-            // pageWidth={300}
-            sneak={23}
-            // initialPage={3}
-            // currentPage={3}
+            
+            pageWidth={290}
+            sneak={25}
+            initialPage={3}
+
+            // currentPage={ this.state.pageNumber }>
+
+            currentPage={3}
+
             swipeThreshold={0.05}
+            containerStyle={ {
+                // height: 10,
+                // borderColor: 'red',
+                // borderWidth: 2,
+            } }
+            
         >
 
 
