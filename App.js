@@ -62,7 +62,7 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
 
-      
+
       // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
 
       // ReactNativeCarouselControl: ReactNativeCarouselControl,
@@ -95,13 +95,13 @@ const switchNavigator = createSwitchNavigator ({
       //==========================================build
       
 
-      LoginScreen: LoginScreen,
-      ResetPasswordScreen: ResetPasswordScreen,
-      RepLoginScreen: RepLoginScreen,
-      ResetRepPasswordScreen: ResetRepPasswordScreen,
-      RepSignUpScreen: RepSignUpScreen,                               
+      // LoginScreen: LoginScreen,
+      // ResetPasswordScreen: ResetPasswordScreen,
+      // RepLoginScreen: RepLoginScreen,
+      // ResetRepPasswordScreen: ResetRepPasswordScreen,
+      // RepSignUpScreen: RepSignUpScreen,                               
       
-      RepPlatformScreen: RepPlatformScreen,
+      // RepPlatformScreen: RepPlatformScreen,
       
     }),
 
