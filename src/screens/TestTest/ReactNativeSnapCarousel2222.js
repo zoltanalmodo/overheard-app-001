@@ -309,30 +309,23 @@ const ReactNativeSnapCarousel2222 = () => {
       }
 
     return (
-    <ImageBackground source={backimage} style={styles.container}>
-        
-        <Text style={styles.centeredScreenText}>React Native Snap Carousel2222</Text>
+
+        <ImageBackground source={backimage} style={styles.container}>
+            
+            <Text style={styles.centeredScreenText}>React Native Snap Carousel2222</Text>
 
 
 
-        <SafeAreaView style={styles.safeAreaContainer}>
-            <FlatList
-                data={DATA}
-                renderItem={({ item }) => <Item content={item.content} />}
-                keyExtractor={item => item.id}
-            />
-        </SafeAreaView>
+            <SafeAreaView style={styles.safeAreaContainer}>
+                <FlatList
+                    data={DATA}
+                    renderItem={({ item }) => <Item content={item.content} />}
+                    keyExtractor={item => item.id}
+                />
+            </SafeAreaView>
 
-
-
+        </ImageBackground>
         
-        
-        
-        
-        
-        
-
-    </ImageBackground>
     )
 };
 

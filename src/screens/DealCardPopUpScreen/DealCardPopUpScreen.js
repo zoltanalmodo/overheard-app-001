@@ -4,6 +4,7 @@ import { AppRegistry, TextInput, View, Linking, Text, StyleSheet, ImageBackgroun
 import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png'
+import tagsIcon from '../../img/tag-icon.png'
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
@@ -94,7 +95,11 @@ const DealCardPopUpScreen = ({navigation}, props) => {
                     <View style={styles.cardButtonPositionCyan}>
                             {renderDealButton()}
                     </View>
-                    <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
+
+                    <View style={styles.tagLinePosition}>
+                        <Image source={tagsIcon} style={styles.imgTags}/>
+                        <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
+                    </View>
 
                 </View>
 
@@ -104,7 +109,7 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
 
         <BottomDrawer
-            containerHeight={90}
+            containerHeight={70}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
@@ -145,7 +150,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
 
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: 'grey',
     },
 
 
@@ -160,7 +165,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
 
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: 'grey',
 
         textAlign: 'center',
     },
@@ -168,7 +173,9 @@ const styles = StyleSheet.create({
     cardTextContainerOrange: {
         flexDirection: 'column',
         justifyContent: 'space-between',
-        height: 225,
+        height: 229,
+
+        // backgroundColor: 'orange',
 
     },
 
@@ -186,10 +193,22 @@ const styles = StyleSheet.create({
         fontSize: 12,
         textAlign: 'center',
     },
+
+
+    tagLinePosition: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+    },
+    imgTags: {
+        marginLeft: 5,
+        width: 12,
+        height: 12,
+    },
     cardTextTags: {
-        fontSize: 12,
-        textAlign: 'center',
-        marginBottom: 3,
+        marginLeft: 5,
+        fontSize: 8,
+        textAlign: 'left',
+        marginTop: 1,
     },
     
     cardButtonPositionCyan: {
@@ -197,17 +216,18 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         position: 'relative',
         textAlign: 'center',
-
     },
     cardButtonSectionRed: {
         position: 'absolute',
-        bottom: -2,
-        width: 280,
-        height: 55,
+        bottom: -1,
+        width: 278,
+        height: 51,
         textAlign: 'center',
+
+        // backgroundColor: 'red'
     },
     cardButton: {
-        width: '85%',
+        width: 270,
         height: 25,
         backgroundColor: '#FF8D4F',
     },
@@ -222,7 +242,7 @@ const styles = StyleSheet.create({
     touchableOpacity: {
         flexDirection: 'row',
         justifyContent: 'center',
-        width: '85%',
+        width: '95%',
         height: 25,
         backgroundColor: '#FF8D4F',
         textAlign: 'center',

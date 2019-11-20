@@ -62,19 +62,9 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
 
-
-      // ReactNativeLoopedCarousel: ReactNativeLoopedCarousel,
-
-      // ReactNativeCarouselControl: ReactNativeCarouselControl,
-      // ReactNativeAnchorCarousel: ReactNativeAnchorCarousel,
-
+      // ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
       
-      ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
-      // ReactNativeSnapCarousel: ReactNativeSnapCarousel,
       
-
-      
-
       // BackButtonFirstTest: BackButtonFirstTest,
 
       // BackButton: BackButton,
@@ -85,11 +75,8 @@ const switchNavigator = createSwitchNavigator ({
 
       //==========================================build
 
-      //===BUILD=== <<< log out >>>
-
-
-
-      // DealsScreen: DealsScreen,
+      
+      DealsScreen: DealsScreen,
       
 
       //==========================================build

@@ -118,7 +118,9 @@ const styles = StyleSheet.create({
         height: 137,
 
         borderWidth: 1,
-        borderColor: '#dfdfdf',
+        // borderColor: '#dfdfdf',
+        borderColor: 'grey',
+
     },
 
     
@@ -188,11 +190,9 @@ const styles = StyleSheet.create({
 
 
     touchableOpacity: {
-        width: 128,
+        width: 129,
         height: 25,
         backgroundColor: '#FF8D4F',
-        // position: 'absolute',
-        // bottom: 10,
 
 
         flexDirection: 'row',
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         
     },
     cardButton: {
-        width: 128,
+        width: 129,
         height: 25,
         backgroundColor: '#FF8D4F',
     },
@@ -229,7 +229,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         
         borderWidth: 1,
-        borderColor: '#dfdfdf',
+        // borderColor: '#dfdfdf',
+        borderColor: 'grey',
     },
 
     cardTextContainerOrange: {
@@ -251,9 +252,10 @@ const styles = StyleSheet.create({
 
         position: 'absolute',
         bottom: 2,
-        width: 133,
+        width: 135,
         height: 40,
         textAlign: 'center',
+
 
     },
 
@@ -266,6 +268,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
 
         bottom: -2,
+
+        // backgroundColor: 'cyan',
 
     },
 
