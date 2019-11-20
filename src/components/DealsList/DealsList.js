@@ -16,15 +16,16 @@ const DealsList = ({navigation} ) => {
     const [deals, setDeals] = useState([]);
 
     async function fetchMyAPI() {
+
         // var is used to shadow the global variable, DO NOT change it to const or let
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
         setDeals(deals.data);
         setCategory('Deals Menu');
-      }
+    }
   
-      useEffect(() => {
-        fetchMyAPI();
-      }, []);
+        useEffect(() => {
+            fetchMyAPI();
+        }, []);
     
     
 
@@ -38,38 +39,44 @@ const DealsList = ({navigation} ) => {
 
             <View >
 
-                 <Text style={styles.categoryText}>{state.category}</Text>
+
+                <Text style={styles.categoryText}>{state.category}</Text>
 
                 <FlatList
                     style={styles.flatListPosition}
                     showsVerticalScrollIndicator= {false}
                     data={currentDeals}
-                    centerContent = {true}
+                    centerContent = {false}
                     numColumns = {2}
                     columnWrapperStyle
                     keyExtractor = {item => item._id}
                     renderItem = {(deal) => {
 
                         return (
-                            <DealCard 
-                                _id={deal.item._id}
-                                key={deal.item.order}
-                                name={deal.item.name}
-                                img={deal.item.img}
-                                lineOne={deal.item.lineOne}
-                                lineTwo={deal.item.lineTwo}
-                                lineThree={deal.item.lineThree}
-                                mainOffer={deal.item.mainOffer}
-                                offerSmall={deal.item.offerSmall}
-                                buttonText={deal.item.buttonText}
-                                categories={deal.item.category}
-                                tags={deal.item.tags}
-                                location={deal.item.location}
-                                availability={deal.item.availability}
-                                link={deal.item.link}
 
-                                offline={!deal.item.online}
-                            />
+                            <View>
+                                
+                                <DealCard 
+                                    _id={deal.item._id}
+                                    key={deal.item.order}
+                                    name={deal.item.name}
+                                    img={deal.item.img}
+                                    lineOne={deal.item.lineOne}
+                                    lineTwo={deal.item.lineTwo}
+                                    lineThree={deal.item.lineThree}
+                                    mainOffer={deal.item.mainOffer}
+                                    offerSmall={deal.item.offerSmall}
+                                    buttonText={deal.item.buttonText}
+                                    categories={deal.item.category}
+                                    tags={deal.item.tags}
+                                    location={deal.item.location}
+                                    availability={deal.item.availability}
+                                    link={deal.item.link}
+
+                                    offline={!deal.item.online}
+                                />
+
+                            </View>
                         )
 
                     }}

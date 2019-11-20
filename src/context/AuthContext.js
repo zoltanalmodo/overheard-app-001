@@ -45,8 +45,7 @@ const authReducer = (state, action) => {
                 repObject: action.payload.repObject
             };
 
-        // === OK ===
-
+        
     
         case 'repPlatform':
             return {
@@ -55,7 +54,7 @@ const authReducer = (state, action) => {
                 token: action.payload.token,
                 repObject: action.payload.repObject
             };
-        // === OK ===
+        
 
 
         case 'add_success':
@@ -126,15 +125,6 @@ const login = (dispatch) => async ({ email, password }) => {
 
 };
 
-
-// // cardObject === start ===
-
-// const cardObject = dispatch => category => {
-//     dispatch({
-//         type: 'SET_CATEGORY',
-//     payload: category
-//     });
-// };
 
 
 const cardObject = ( dispatch ) => ( dealObject ) => {

@@ -33,11 +33,11 @@ const DealCard = (props) => {
 
                         <View style={styles.cardTextContainerOrange}>
 
-                            <Text style={styles.cardTextName}>{props.name.capitalize()}</Text>
+                            <Text style={styles.cardTextName}>{props.name}</Text>
 
-                            <Text style={styles.cardTextMainOffer}>{props.mainOffer.capitalize()}</Text>
+                            <Text style={styles.cardTextMainOffer}>{props.mainOffer}</Text>
 
-                            <Text style={styles.cardTextOfferSmall}>{props.offerSmall.capitalize()}</Text>
+                            <Text style={styles.cardTextOfferSmall}>{props.offerSmall}</Text>
 
                         </View>
 
@@ -82,7 +82,7 @@ const DealCard = (props) => {
                                 >
                                         
                                     <View style={styles.cardButton}>     
-                                        <Text style={styles.cardButtonText}>{props.buttonText.toUpperCase()}</Text>
+                                        <Text style={styles.cardButtonText}>{props.buttonText}</Text>
                                     </View>
 
                                 </TouchableOpacity>
@@ -102,11 +102,11 @@ const DealCard = (props) => {
 const styles = StyleSheet.create({
 
     cardContainer: {
-        marginBottom: 16,
-        marginLeft: 8,
-        marginRight: 8,
+        marginTop: 0,
+        marginBottom: 0,
+        
         backgroundColor: 'white',
-        width: 139,
+        width: 137,
         height: 260,
         alignItems: 'center',
 
