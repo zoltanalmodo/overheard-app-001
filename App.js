@@ -26,8 +26,7 @@ import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 
 import DealCardPopUpScreen from './src/screens/DealCardPopUpScreen/DealCardPopUpScreen';
 
-import DealBuyOnlineScreen from './src/screens/DealBuyOnlineScreen/DealBuyOnlineScreen';
-import DealsBuyInStoreScreen from './src/screens/DealsBuyInStoreScreen/DealsBuyInStoreScreen';
+
 
 import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCenteredScreen';
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
@@ -96,10 +95,6 @@ const switchNavigator = createSwitchNavigator ({
       DealsScreen: DealsScreen,
       
       DealCardPopUpScreen: DealCardPopUpScreen,
-
-      DealBuyOnlineScreen: DealBuyOnlineScreen,
-      DealsBuyInStoreScreen: DealsBuyInStoreScreen,
-
       DealCardQRPopUpScreen: DealCardQRPopUpScreen,
 
       MapUserCenteredScreen: MapUserCenteredScreen,
