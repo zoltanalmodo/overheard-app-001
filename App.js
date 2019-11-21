@@ -28,7 +28,6 @@ import DealCardPopUpScreen from './src/screens/DealCardPopUpScreen/DealCardPopUp
 
 import DealBuyOnlineScreen from './src/screens/DealBuyOnlineScreen/DealBuyOnlineScreen';
 import DealsBuyInStoreScreen from './src/screens/DealsBuyInStoreScreen/DealsBuyInStoreScreen';
-import DealsQRCodeScreen from './src/screens/DealsQRCodeScreen/DealsQRCodeScreen';
 
 import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCenteredScreen';
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
@@ -62,7 +61,7 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
 
-      // ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
+      ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
       
       
       // BackButtonFirstTest: BackButtonFirstTest,
@@ -100,7 +99,6 @@ const switchNavigator = createSwitchNavigator ({
 
       DealBuyOnlineScreen: DealBuyOnlineScreen,
       DealsBuyInStoreScreen: DealsBuyInStoreScreen,
-      DealsQRCodeScreen: DealsQRCodeScreen,
 
       DealCardQRPopUpScreen: DealCardQRPopUpScreen,
 

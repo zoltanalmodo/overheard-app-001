@@ -21,16 +21,13 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
         <View style={styles.dealImagePosition}>
             <View>
 
-                {/* QR code = state.userObject.id */}
-
                 <View style={styles.cardImageContainer}>
 
                     <View style={styles.dealImage}>
-                        {/* <Text style={styles.cardTextMainOffer}>{state.userObject.id}</Text> */}
 
                         <QRCode
                             value={state.userObject.id}
-                            size={276}
+                            size={278}
                             color="black"
                             backgroundColor="white"
                         />
@@ -108,8 +105,9 @@ const styles = StyleSheet.create({
         width: 280,
         height: 280,
         backgroundColor: 'pink',
-        borderWidth: 2,
-        borderColor: 'black',
+
+        borderWidth: 1,
+        borderColor: 'grey',
     },
 
     dealDescriptionPosition: {
@@ -121,8 +119,9 @@ const styles = StyleSheet.create({
         width: 280,
         height: 280,
         backgroundColor: 'white',
-        borderWidth: 2,
-        borderColor: 'black',
+
+        borderWidth: 1,
+        borderColor: 'grey',
     },
 
     cardTextName: {
