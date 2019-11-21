@@ -22,32 +22,90 @@ import { Context as AuthContext } from '../../context/AuthContext'
 // };
 
 
-const ReactNativeSnapCarousel2222 = () => {
 
-    const deviceDisplayWidth = Dimensions.get('window').width;
+
+const ReactNativeSnapCarousel2222 = () => {
 
 
     const { state, setCategory } = useContext(AuthContext);
     const [deals, setDeals] = useState([]);
 
+    const deviceDisplayWidth = Dimensions.get('window').width;
+
+    const currentDeals = deals.filter(deal => deal.category.includes(state.category));
+
+    const populateCarousel = () => {
+        return currentDeals.slice(0, 6)
+    
+    };
 
     async function fetchMyAPI() {
         // var is used to shadow the global variable, DO NOT change it to const or let
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
         setDeals(deals.data);
-        setCategory('Deals Menu');
-    }
-  
+        setCategory('Alcohol');
+    };
+
         useEffect(() => {
             fetchMyAPI();
         }, []);
 
 
+
+        const spliceTest = () => {
+
+            let arrayToSplice = currentDeals;
+            let returnArray = [];
+            
+            while(arrayToSplice.length) {
+                
+                returnArray.push(arrayToSplice.splice(0, 6));
+                
+                return returnArray;
+
+            }
+
+        };
+
+
+
+
     // deals.forEach(deal => console.log(deal));
 
-    // console.log(deals);
+    
+    
+    console.log(spliceTest());
+    
+    
 
-    const currentDeals = deals.filter(deal => deal.category.includes(state.category))
+    const DATA = [        
+        {   
+            content:
+
+                <Carousel
+                    data={populateCarousel()}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    // layout={'default'}
+                    // enableSnap={true}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 0,
+        }
+    ];
+
+    
+    
 
 
     _renderCarouselRow = ({item, index}) => {
@@ -78,49 +136,7 @@ const ReactNativeSnapCarousel2222 = () => {
         );
     };
 
-    const DATA = [
-        
-        {   
-            content:
-                <Carousel
 
-                    data={currentDeals.slice(0, 5)}
-
-                    renderItem={this._renderCarouselRow}
-
-                    sliderWidth={deviceDisplayWidth}
-                    sliderHeight={260}
-
-                    itemWidth={140}
-                    itemHeight={260}
-                    layout={'default'}
-                    firstItem={2}
-
-                    enableSnap={true}
-                    loop={true}
-                    contentContainerCustomStyle={
-                        {
-                            backgroundColor: 'pink',
-                            height: 264,
-
-                            marginTop: 4,
-                            marginBottom: 0,
-
-                            flexGrow: 0,
-
-                        }
-                    }
-
-                />,
-                
-            title: 'carousel-001',
-            id: '123-001'
-
-        },
-
-
-        
-    ];
 
     function Item({ content }) {
         return (
@@ -130,17 +146,23 @@ const ReactNativeSnapCarousel2222 = () => {
         );
       }
 
+
+
     return (
 
         <ImageBackground source={backimage} style={styles.container}>
             
-            <Text style={styles.centeredScreenText}>React Native Snap Carousel2222</Text>     
-            
+            <View style={{backgroundColor: 'cyan',}}>
+                <Text style={styles.centeredScreenText}>React Native Snap Carousel2222</Text>
+            </View>
+                        
                 <FlatList
                     data={DATA}
                     renderItem={({ item }) => <Item content={item.content} />}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item.key}
                 />
+            
+
 
         </ImageBackground>
 
@@ -156,22 +178,22 @@ ReactNativeSnapCarousel2222.navigationOptions = () => {
 const styles = StyleSheet.create({
 
     container: {
+
         marginTop: 33,
-        backgroundColor: 'white',
-        // flex: 1,
         // remove width and height to override fixed static size
         width: null,
         height: null,
 
+        // flex: 1,
+
         flexDirection: 'column',
         justifyContent: 'flex-start',
+
+        // backgroundColor: 'red',
 
     },
 
     
-    container: {
-        flex: 1,
-    },
 
     centeredScreenText: {
         textAlign: 'center',
