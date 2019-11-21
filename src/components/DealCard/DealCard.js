@@ -102,8 +102,10 @@ const DealCard = (props) => {
 const styles = StyleSheet.create({
 
     cardContainer: {
-        marginTop: 0,
-        marginBottom: 0,
+
+        marginBottom: 16,
+        marginLeft: 8,
+        marginRight: 8,
         
         backgroundColor: 'white',
         width: 137,
@@ -156,7 +158,6 @@ const styles = StyleSheet.create({
     },
 
     cardTextMainOffer: {
-
         alignSelf: 'center',
         width: 130,
         fontSize: 14,
@@ -193,14 +194,11 @@ const styles = StyleSheet.create({
         width: 129,
         height: 25,
         backgroundColor: '#FF8D4F',
-
-
         flexDirection: 'row',
         justifyContent: 'center',
         textAlign: 'center',
         marginTop: 5,
         marginBottom: 3,
-        
     },
     cardButton: {
         width: 129,
@@ -234,7 +232,6 @@ const styles = StyleSheet.create({
     },
 
     cardTextContainerOrange: {
-
         flexDirection: 'column',
         justifyContent: 'space-between',
         
@@ -242,11 +239,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: 133,
         height: 82,
-
     },
 
     cardButtonSectionRed: {
-
         flexDirection: 'row',
         justifyContent: 'center',
 
@@ -255,8 +250,6 @@ const styles = StyleSheet.create({
         width: 135,
         height: 40,
         textAlign: 'center',
-
-
     },
 
 
@@ -270,7 +263,6 @@ const styles = StyleSheet.create({
         bottom: -2,
 
         // backgroundColor: 'cyan',
-
     },
 
     imgTags: {
@@ -280,10 +272,8 @@ const styles = StyleSheet.create({
     },
 
     tagLinePosition: {
-
         flexDirection: 'row',
         justifyContent: 'flex-start',
-
     },
 
     

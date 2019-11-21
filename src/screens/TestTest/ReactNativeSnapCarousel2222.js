@@ -67,6 +67,20 @@ const ReactNativeSnapCarousel2222 = () => {
 
         };
 
+        const spliceForLoop = () => {
+
+            let arrayToSplice = currentDeals;
+            let returnChunk = [];
+            
+            // while(arrayToSplice.length) {
+            //     returnArray.push(arrayToSplice.splice(0, 6));
+            //     return returnArray;
+            // }
+
+
+
+        };
+
 
 
 
@@ -78,7 +92,8 @@ const ReactNativeSnapCarousel2222 = () => {
     
     
 
-    const DATA = [        
+    const DATA = [
+
         {   
             content:
 
@@ -89,8 +104,6 @@ const ReactNativeSnapCarousel2222 = () => {
                     sliderHeight={260}
                     itemWidth={140}
                     itemHeight={260}
-                    // layout={'default'}
-                    // enableSnap={true}
                     loop={true}
 
                     contentContainerCustomStyle={{
@@ -101,15 +114,47 @@ const ReactNativeSnapCarousel2222 = () => {
                 />,
                 
             key: 0,
+            
         }
+
     ];
 
-    
+
+
+    //  function returning an object =
+    //      content = Carousel = populated with properties
+    //      key = (generated from index)
+    //
+    //
+    //  =========== example ===========
+    //
+    //  var myCar = new Object();
+    //  myCar.make = 'Ford';
+    //  myCar.model = 'Mustang';
+    //  myCar.year = 1969;
+    //
+    //  =========== TEST ===========
+    //
+    //
+    //  LOOP ( loop001 (items = 12, index = 0 ) ) creates =>
+    //
+    //      =>  let DATA = new Object();
+    //      =>  DATA.content = <Carousel
+    //              
+    //              data={ loop002 => arrayToSplice.splice(0,4) }
+    //          
+    //  DATA = 
+    //  {
+    //      
+    //                  
+    //      key : index
+    //  }
     
 
 
     _renderCarouselRow = ({item, index}) => {
         return (
+
             <View style={styles.slideCard}>
 
                 <DealCard 
@@ -133,6 +178,7 @@ const ReactNativeSnapCarousel2222 = () => {
                 />
 
             </View>
+
         );
     };
 
@@ -140,9 +186,7 @@ const ReactNativeSnapCarousel2222 = () => {
 
     function Item({ content }) {
         return (
-          <View>
-            <View>{content}</View>
-          </View>
+          <View>{ content }</View>
         );
       }
 
@@ -152,12 +196,12 @@ const ReactNativeSnapCarousel2222 = () => {
 
         <ImageBackground source={backimage} style={styles.container}>
             
-            <View style={{backgroundColor: 'cyan',}}>
+            <View style={{backgroundColor: 'yellow',}}>
                 <Text style={styles.centeredScreenText}>React Native Snap Carousel2222</Text>
             </View>
                         
                 <FlatList
-                    data={DATA}
+                    data={ DATA }
                     renderItem={({ item }) => <Item content={item.content} />}
                     keyExtractor={item => item.key}
                 />
@@ -189,7 +233,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'flex-start',
 
-        // backgroundColor: 'red',
+        // backgroundColor: 'magenta',
 
     },
 
@@ -198,17 +242,12 @@ const styles = StyleSheet.create({
     centeredScreenText: {
         textAlign: 'center',
         marginTop: 0,
-        fontSize: 10,
+        fontSize: 14,
         fontWeight: '400',
         color: 'purple',
     },
 
-    title: {
-        fontSize: 16,
-        fontWeight: '600',
-        color: 'black',
-        textAlign: 'center',
-    }
+
 
 });
 

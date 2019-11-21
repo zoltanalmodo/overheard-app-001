@@ -62,7 +62,7 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
 
-      ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
+      // ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
       
       
       // BackButtonFirstTest: BackButtonFirstTest,
