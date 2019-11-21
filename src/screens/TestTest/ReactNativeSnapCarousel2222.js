@@ -23,7 +23,6 @@ import { Context as AuthContext } from '../../context/AuthContext'
 
 
 
-
 const ReactNativeSnapCarousel2222 = () => {
 
 
@@ -75,12 +74,31 @@ const ReactNativeSnapCarousel2222 = () => {
             // while(arrayToSplice.length) {
             //     returnArray.push(arrayToSplice.splice(0, 6));
             //     return returnArray;
-            // }
-
+            // 
 
 
         };
 
+        
+
+
+
+        function chunkArray(theArrayToSplice, chunk_size){
+            var chunkingResults = [];
+            
+            while (theArrayToSplice.length) {
+                chunkingResults.push(theArrayToSplice.splice(0, chunk_size));
+            }
+            
+            return chunkingResults;
+        }
+        
+        // Split in group of 6 items
+        // var chunkingResults = chunkArray([1,2,3,4,5,6,7,8], 6);
+        // Outputs : [ [1,2,3,4,5,6] ,[7,8] ]
+        // console.log(chunkArray(currentDeals, 6));
+
+        console.log(chunkArray(currentDeals, 6));
 
 
 
@@ -88,12 +106,11 @@ const ReactNativeSnapCarousel2222 = () => {
 
     
     
-    console.log(spliceTest());
+    // console.log(spliceTest());
     
     
 
     const DATA = [
-
         {   
             content:
 
@@ -113,10 +130,8 @@ const ReactNativeSnapCarousel2222 = () => {
                     }}
                 />,
                 
-            key: 0,
-            
+            key: 0,   
         }
-
     ];
 
 
@@ -138,17 +153,28 @@ const ReactNativeSnapCarousel2222 = () => {
     //
     //  LOOP ( loop001 (items = 12, index = 0 ) ) creates =>
     //
-    //      =>  let DATA = new Object();
+    //      =>  let populatedDATA = new Object();
     //      =>  DATA.content = <Carousel
     //              
-    //              data={ loop002 => arrayToSplice.splice(0,4) }
-    //          
-    //  DATA = 
-    //  {
-    //      
-    //                  
-    //      key : index
-    //  }
+    //              data = { loop002 => arrayToSplice.splice(0,4) }
+    //              renderItem = {this._renderCarouselRow}
+    //              sliderWidth={deviceDisplayWidth}
+    //              sliderHeight={260}
+    //              itemWidth={140}
+    //              itemHeight={260}
+    //              loop={true}
+    //              
+    //              contentContainerCustomStyle={{
+    //              height: 264,
+    //              marginTop: 5,
+    //              flexGrow: 0,
+    //              }}
+    //
+    //          />
+    //  
+    //      => DATA.key = loop001.index + 1
+    //
+    //
     
 
 
