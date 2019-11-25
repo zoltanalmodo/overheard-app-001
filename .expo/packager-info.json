@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 72577,
+  "expoServerNgrokUrl": "https://wb-g8w.zoltanalmodo.overheard-app-001.exp.direct",
+  "packagerNgrokUrl": "https://packager.wb-g8w.zoltanalmodo.overheard-app-001.exp.direct",
+  "ngrokPid": 72587,
   "webpackServerPort": null
 }

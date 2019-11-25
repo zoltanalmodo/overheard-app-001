@@ -196,7 +196,7 @@ const ReactNativeSnapCarousel2222 = () => {
             content:
 
                 <Carousel
-                    data={chunkSlice(currentDeals, 6)[chunkSlice(currentDeals, 6).length - chunkSlice(currentDeals, 6).length+1 ]}
+                    data={chunkSlice(currentDeals, 6)[1]}
                     renderItem={this._renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
@@ -560,8 +560,8 @@ const ReactNativeSnapCarousel2222 = () => {
 
         <ImageBackground source={backimage} style={styles.container}>
             
-            <View style={{backgroundColor: 'yellow',}}>
-                <Text style={styles.centeredScreenText}>React Native Snap Carousel2222</Text>
+            <View style={{backgroundColor: 'magenta',}}>
+                <Text style={styles.centeredScreenText}>React Native Snap Carousel -Lifestyle-</Text>
             </View>
                         
                 <FlatList
