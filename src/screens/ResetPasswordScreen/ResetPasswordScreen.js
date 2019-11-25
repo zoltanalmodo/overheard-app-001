@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
-import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
 import { Context as AuthContext } from '../../context/AuthContext';
+
+import BackButton from '../../components/BackButton/BackButton';
 
 
 const ResetPasswordScreen = ({navigation}) => {
@@ -17,6 +18,9 @@ const ResetPasswordScreen = ({navigation}) => {
     return (
 
     <ImageBackground source={backimage} style={styles.container}>
+
+        <BackButton navigate='LoginScreen' />
+
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>
@@ -61,17 +65,6 @@ const ResetPasswordScreen = ({navigation}) => {
 
         
 
-        
-        <BottomDrawer
-            containerHeight={90}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >       
-            <Button title="<<< back" onPress={() => navigation.navigate('LoginScreen')} />
-        </BottomDrawer>
-        
-
     </ImageBackground>
 
     )
@@ -93,11 +86,11 @@ const styles = StyleSheet.create({
         height: null,
       },
     logoPosition: {
-        marginTop: 52,
+        marginTop: 32,
       },
     
     emailTextInputStylePosition: {
-        marginTop: 122,
+        marginTop: 82,
         flexDirection: 'row',
         justifyContent: 'center',
     },

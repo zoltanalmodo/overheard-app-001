@@ -23,22 +23,21 @@ const HeaderButtons = ({navigation}) => {
                     defaultValue={'Deals Menu'}
 
                     onSelect = {(newCategories) => setCategory(
-                        newCategories === '0' ? 'Deals Menu' :
-                        newCategories === '1' ? 'Alcohol' :
-                        newCategories === '2' ? 'Events & Festivals' :
-                        newCategories === '3' ? 'Fashion & Shopping' :
-                        newCategories === '4' ? 'Food & Drink' :
-                        newCategories === '5' ? 'Hair & Beauty' :
-                        newCategories === '6' ? 'Health & Fitness' :
-                        newCategories === '7' ? 'Lifestyle' :
-                        newCategories === '8' ? 'Taxis & Cars' :
-                        newCategories === '9' ? 'Technology' :
+                        newCategories === '0' ? 'Alcohol' :
+                        newCategories === '1' ? 'Events & Festivals' :
+                        newCategories === '2' ? 'Fashion & Shopping' :
+                        newCategories === '3' ? 'Food & Drink' :
+                        newCategories === '4' ? 'Hair & Beauty' :
+                        newCategories === '5' ? 'Health & Fitness' :
+                        newCategories === '6' ? 'Lifestyle' :
+                        newCategories === '7' ? 'Taxis & Cars' :
+                        newCategories === '8' ? 'Technology' :
+                        newCategories === '9' ? 'All Deals' :
                         'error setCategories'
                     )}
 
 
                     options={[
-                        'Deals Menu',
                         'Alcohol',
                         'Events & Festivals',
                         'Fashion & Shopping',
@@ -48,6 +47,7 @@ const HeaderButtons = ({navigation}) => {
                         'Lifestyle',
                         'Taxis & Cars',
                         'Technology',
+                        'All Deals',
                     ]}
                     
                     textStyle={styles.modalButtonText}

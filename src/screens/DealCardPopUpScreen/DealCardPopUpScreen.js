@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AppRegistry, TextInput, View, Linking, Text, StyleSheet, ImageBackground, Button, Image, TouchableOpacity } from 'react-native';
 
-import BottomDrawer from 'rn-bottom-drawer';
+import BackButton from '../../components/BackButton/BackButton';
 
 import backimage from '../../img/newbg.png'
 import tagsIcon from '../../img/tag-icon.png'
@@ -108,14 +108,14 @@ const DealCardPopUpScreen = ({navigation}, props) => {
         </View>
 
 
-        <BottomDrawer
+        {/* <BottomDrawer
             containerHeight={70}
             backgroundColor='darkblue'
             shadow={true}
             startUp={true}
         >       
             <Button title="<<< back" onPress={() => navigation.navigate('DealsScreen')} />
-        </BottomDrawer>
+        </BottomDrawer> */}
 
 
     </ImageBackground>

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { View, StyleSheet, ImageBackground, Button, Text, Clipboard } from 'react-native';
 
-import BottomDrawer from 'rn-bottom-drawer';
+
 
 import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
@@ -66,15 +66,7 @@ const RepPlatformScreen = ({navigation}) => {
             </View>
         </View>
 
-        <BottomDrawer
-            containerHeight={90}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >
-            <Button title="<<< Log Out >>>" onPress={() => navigation.navigate('LoginScreen')} />
-        </BottomDrawer>
-
+        
         
     </ImageBackground>
     )

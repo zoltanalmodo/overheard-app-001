@@ -4,7 +4,6 @@ import { View, StyleSheet, ImageBackground, Button, Text, TouchableOpacity, Clip
 import backimage from '../../img/newbg.png'
 import HeaderProfile from '../../components/Header/HeaderProfile/HeaderProfile'
 
-import BottomDrawer from 'rn-bottom-drawer';
 
 import { navigate } from '../../navigationRef';
 
@@ -55,14 +54,6 @@ const ProfileWarningScreen = ({navigation}) => {
         </View>
 
 
-        {/* <BottomDrawer
-            containerHeight={90}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >       
-            <Button title="<<< back" onPress={() => navigate('DealsScreen')} />
-        </BottomDrawer> */}
         
     </ImageBackground>
     )

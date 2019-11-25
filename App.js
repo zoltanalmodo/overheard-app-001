@@ -37,15 +37,16 @@ import DealCardQRPopUpScreen from './src/screens/DealCardQRPopUpScreen/DealCardQ
 import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileResetPasswordScreen/ConfirmProfileResetPasswordScreen';
 
 //===========================================test
+
 import ReactNativeCarouselControl from './src/screens/TestTest/ReactNativeCarouselControl'
 import ReactNativeLoopedCarousel from './src/screens/TestTest/ReactNativeLoopedCarousel'
 import ReactNativeAnchorCarousel from './src/screens/TestTest/ReactNativeAnchorCarousel'
 import ReactNativeSnapCarousel from './src/screens/TestTest/ReactNativeSnapCarousel'
 import ReactNativeSnapCarousel2222 from './src/screens/TestTest/ReactNativeSnapCarousel2222'
 
-import BackButton from './src/screens/TestTest/BackButtonScreenTest'
+import BackButtonScreeenTest from './src/screens/TestTest/BackButtonScreenTest'
 
-import BackButtonFirstTest from './src/screens/TestTest/BackButtonFirstTest'
+
 //===========================================test
 
 
@@ -59,13 +60,14 @@ const switchNavigator = createSwitchNavigator ({
 
       //===========================================test
 
+      
 
       ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
       
       
-      // BackButtonFirstTest: BackButtonFirstTest,
+      // BackButtonScreeenTest: BackButtonScreeenTest,
 
-      // BackButton: BackButton,
+            
       
 
 
@@ -74,19 +76,19 @@ const switchNavigator = createSwitchNavigator ({
       //==========================================build
 
       
-      DealsScreen: DealsScreen,
+      // DealsScreen: DealsScreen,
       
 
       //==========================================build
       
 
-      // LoginScreen: LoginScreen,
-      // ResetPasswordScreen: ResetPasswordScreen,
-      // RepLoginScreen: RepLoginScreen,
-      // ResetRepPasswordScreen: ResetRepPasswordScreen,
-      // RepSignUpScreen: RepSignUpScreen,                               
+      LoginScreen: LoginScreen,
+      ResetPasswordScreen: ResetPasswordScreen,
+      RepLoginScreen: RepLoginScreen,
+      ResetRepPasswordScreen: ResetRepPasswordScreen,
+      RepSignUpScreen: RepSignUpScreen,                              
       
-      // RepPlatformScreen: RepPlatformScreen,
+      RepPlatformScreen: RepPlatformScreen,
       
     }),
 

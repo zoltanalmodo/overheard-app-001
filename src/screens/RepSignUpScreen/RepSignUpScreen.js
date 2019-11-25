@@ -1,9 +1,10 @@
 import React, { useState, useContext }  from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
-
 import ModalDropdown from 'react-native-modal-dropdown';
-import BottomDrawer from 'rn-bottom-drawer';
+
+
+import BackButton from '../../components/BackButton/BackButton';
 
 
 import { Context as AuthContext } from '../../context/AuthContext';
@@ -27,6 +28,13 @@ const RepSigUpScreen = ({navigation}) => {
         return (
 
             <ImageBackground source={backimage} style={styles.container}>
+
+
+                <View style={styles.backButtonPosition}>
+                    <BackButton navigate='RepLoginScreen' />
+                </View>
+
+
                 <View style={styles.logoPosition}>
                     <OverheardDealsLogo />
                 </View>
@@ -84,6 +92,22 @@ const RepSigUpScreen = ({navigation}) => {
                     />
                 </View>
 
+                <View style={styles.phoneTextInputPosition}>
+                    <TextInput
+                        value={phone}
+                        onChangeText = {setPhone}
+
+                        style={styles.phoneTextInput}
+                        label='Phone'
+                        placeholder='Phone'
+                        placeholderTextColor='black'
+                        keyboardAppearance='dark'
+                        keyboardType='phone-pad'
+                        returnKeyType='done'
+                        clearTextOnFocus={true}
+                    />
+                </View>
+
                 <View style={styles.passwordTextInputPosition}>
                     <TextInput
                         value={password}
@@ -103,21 +127,7 @@ const RepSigUpScreen = ({navigation}) => {
                     />
                 </View>
                 
-                <View style={styles.phoneTextInputPosition}>
-                    <TextInput
-                        value={phone}
-                        onChangeText = {setPhone}
-
-                        style={styles.phoneTextInput}
-                        label='Phone'
-                        placeholder='Phone'
-                        placeholderTextColor='black'
-                        keyboardAppearance='dark'
-                        keyboardType='phone-pad'
-                        returnKeyType='done'
-                        clearTextOnFocus={true}
-                    />
-                </View>
+                
 
                 <View style={styles.modalDropdownPosition}>
                     <ModalDropdown
@@ -163,16 +173,7 @@ const RepSigUpScreen = ({navigation}) => {
                             })} />
                         </View>
                 </View>
-
-
-                <BottomDrawer
-                    containerHeight={90}
-                    backgroundColor='darkblue'
-                    shadow={true}
-                    startUp={true}
-                >       
-                    <Button title="<<< back" onPress={() => navigation.navigate('RepLoginScreen')} />
-                </BottomDrawer>
+                
                 
             </ImageBackground>
 
@@ -198,6 +199,11 @@ const styles = StyleSheet.create({
 
     logoPosition: {
         marginTop: 0,
+
+        // borderColor: 'red',
+        // borderWidth: 2,
+
+        position: 'relative',
       },
 
     firstNameTextInputPosition: {
@@ -355,6 +361,10 @@ const styles = StyleSheet.create({
         shadowRadius: 0,
     },
       
+    backButtonPosition: {
+        position: 'absolute',
+        zIndex: 55,
+    },
 });
 
 

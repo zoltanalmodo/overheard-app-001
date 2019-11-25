@@ -17,12 +17,6 @@ import { Context as AuthContext } from '../../context/AuthContext'
 
 
 
-// String.prototype.capitalize = function() {
-//     return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
-// };
-
-
-
 const ReactNativeSnapCarousel2222 = () => {
 
 
@@ -31,18 +25,11 @@ const ReactNativeSnapCarousel2222 = () => {
 
     const deviceDisplayWidth = Dimensions.get('window').width;
 
-    const currentDeals = deals.filter(deal => deal.category.includes(state.category));
-
-    const populateCarousel = () => {
-        return currentDeals.slice(0, 6)
-    
-    };
-
     async function fetchMyAPI() {
         // var is used to shadow the global variable, DO NOT change it to const or let
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
         setDeals(deals.data);
-        setCategory('Alcohol');
+        setCategory('Lifestyle');
     };
 
         useEffect(() => {
@@ -50,40 +37,26 @@ const ReactNativeSnapCarousel2222 = () => {
         }, []);
 
 
+    const currentDeals = deals.filter(deal => deal.category.includes(state.category));
 
-        const spliceTest = () => {
 
-            let arrayToSplice = currentDeals;
-            let returnArray = [];
+    // ===================== chunking =====================
+
+        // =========== chunking works =========== start
+            const populateCarousel = () => {
+                return currentDeals.slice(0, 6)
             
-            while(arrayToSplice.length) {
-                
-                returnArray.push(arrayToSplice.splice(0, 6));
-                
-                return returnArray;
+            };
 
-            }
+            // console.log(populateCarousel());
 
-        };
+        // =========== chunking works =========== end
 
-        const spliceForLoop = () => {
 
-            let arrayToSplice = currentDeals;
-            let returnChunk = [];
+
+        // =========== chunking WHILE loop =========== start
             
-            // while(arrayToSplice.length) {
-            //     returnArray.push(arrayToSplice.splice(0, 6));
-            //     return returnArray;
-            // 
-
-
-        };
-
-        
-
-
-
-        function chunkArray(theArrayToSplice, chunk_size){
+        function chunkWhile(theArrayToSplice, chunk_size){
             var chunkingResults = [];
             
             while (theArrayToSplice.length) {
@@ -96,18 +69,105 @@ const ReactNativeSnapCarousel2222 = () => {
         // Split in group of 6 items
         // var chunkingResults = chunkArray([1,2,3,4,5,6,7,8], 6);
         // Outputs : [ [1,2,3,4,5,6] ,[7,8] ]
-        // console.log(chunkArray(currentDeals, 6));
-
-        console.log(chunkArray(currentDeals, 6));
 
 
+        // console.log(chunkWhile(currentDeals, 6));
 
-    // deals.forEach(deal => console.log(deal));
+        
+        // =========== chunking WHILE loop =========== end
+
+
+        // =========== chunking USING SLICE loop =========== start
+
+        function chunkSlice(arrayToSlice, size) {
+            const chunked_arr = [];
+            var index = 0;
+            while (index < arrayToSlice.length) {
+              chunked_arr.push(arrayToSlice.slice(index, size + index));
+              index += size;
+            }
+            return chunked_arr;
+        }
+
+
+        // console.log(chunkSlice(currentDeals, 6)[0]);
+
+        // =========== chunking USING SLICE loop =========== start
+
+        
+
+
+
+        // =========== chunking with LOOP =========== start
+
+        // need to return => 
+        // chunkArrayLoopDATA = [{content: <Carousel props />, key: i + increment with each loop }]
+
+
+            const chunkArrayLoop = () => {
+
+                let chunkedDATA = [
+                    {content: {title: 'index-000'}, key: 0,}, 
+                    {content: {title: 'index-1'}, key: 1,}
+                ];
+                
+                return chunkedDATA
+            
+            };
+            
+            // console.log(chunkArrayLoop());
+
+        // =========== chunking with LOOP =========== end
+
+
+        
+        
+        
 
     
-    
-    // console.log(spliceTest());
-    
+
+        //  function returning an object =
+        //      content = Carousel = populated with properties
+        //      key = (generated from index)
+        //
+        //
+        //  =========== example ===========
+        //
+        //  var myCar = new Object();
+        //  myCar.make = 'Ford';
+        //  myCar.model = 'Mustang';
+        //  myCar.year = 1969;
+        //
+        //  =========== TEST ===========
+        //
+        //
+        //  LOOP ( loop001 (items = 12, index = 0 ) ) creates =>
+        //
+        //      =>  let populatedDATA = new Object();
+        //      =>  populatedDATA.content = <Carousel
+        //              
+        //              data = { loop002 => arrayToSplice.splice(0,4) }
+        //              renderItem = {this._renderCarouselRow}
+        //              sliderWidth={deviceDisplayWidth}
+        //              sliderHeight={260}
+        //              itemWidth={140}
+        //              itemHeight={260}
+        //              loop={true}
+        //              
+        //              contentContainerCustomStyle={{
+        //              height: 264,
+        //              marginTop: 5,
+        //              flexGrow: 0,
+        //              }}
+        //
+        //          />
+        //  
+        //      => populatedDATA.key = loop001.index + 1
+        //
+        //
+   
+
+        
     
 
     const DATA = [
@@ -115,7 +175,7 @@ const ReactNativeSnapCarousel2222 = () => {
             content:
 
                 <Carousel
-                    data={populateCarousel()}
+                    data={chunkSlice(currentDeals, 6)[chunkSlice(currentDeals, 6).length - chunkSlice(currentDeals, 6).length]}
                     renderItem={this._renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
@@ -131,50 +191,328 @@ const ReactNativeSnapCarousel2222 = () => {
                 />,
                 
             key: 0,   
-        }
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[chunkSlice(currentDeals, 6).length - chunkSlice(currentDeals, 6).length+1 ]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 1,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[2]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 2,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[3]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 3,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[4]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 4,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[5]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 5,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[6]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 6,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[7]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 7,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[8]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 8,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[9]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 9,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[10]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 10,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[11]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 11,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[12]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 12,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[13]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 13,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[14]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 14,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[15]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 15,   
+        },
+    
     ];
 
 
 
-    //  function returning an object =
-    //      content = Carousel = populated with properties
-    //      key = (generated from index)
-    //
-    //
-    //  =========== example ===========
-    //
-    //  var myCar = new Object();
-    //  myCar.make = 'Ford';
-    //  myCar.model = 'Mustang';
-    //  myCar.year = 1969;
-    //
-    //  =========== TEST ===========
-    //
-    //
-    //  LOOP ( loop001 (items = 12, index = 0 ) ) creates =>
-    //
-    //      =>  let populatedDATA = new Object();
-    //      =>  DATA.content = <Carousel
-    //              
-    //              data = { loop002 => arrayToSplice.splice(0,4) }
-    //              renderItem = {this._renderCarouselRow}
-    //              sliderWidth={deviceDisplayWidth}
-    //              sliderHeight={260}
-    //              itemWidth={140}
-    //              itemHeight={260}
-    //              loop={true}
-    //              
-    //              contentContainerCustomStyle={{
-    //              height: 264,
-    //              marginTop: 5,
-    //              flexGrow: 0,
-    //              }}
-    //
-    //          />
-    //  
-    //      => DATA.key = loop001.index + 1
-    //
-    //
+    
     
 
 

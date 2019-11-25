@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
-import BottomDrawer from 'rn-bottom-drawer';
+import BackButton from '../../components/BackButton/BackButton';
 
 import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
@@ -17,6 +17,10 @@ const ResetRepPasswordScreen = ({navigation}) => {
     return (
 
     <ImageBackground source={backimage} style={styles.container}>
+
+
+        <BackButton navigate='RepLoginScreen' />
+
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>
@@ -58,14 +62,7 @@ const ResetRepPasswordScreen = ({navigation}) => {
         </View>
 
         
-        <BottomDrawer
-            containerHeight={90}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >       
-            <Button title="<<< back" onPress={() => navigation.navigate('RepLoginScreen')} />
-        </BottomDrawer>
+    
         
 
     </ImageBackground>
@@ -89,11 +86,11 @@ const styles = StyleSheet.create({
         height: null,
       },
     logoPosition: {
-        marginTop: 52,
+        marginTop: 32,
       },
     
     emailTextInputPosition: {
-        marginTop: 122,
+        marginTop: 82,
         flexDirection: 'row',
         justifyContent: 'center',
     },

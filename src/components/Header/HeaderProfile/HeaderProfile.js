@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     header: {
         height: 88,
         backgroundColor: 'white',
-        zIndex: 1,
+        position: 'relative',
+        // zIndex: 1,
     },
     logoBar: {
         height: 30,

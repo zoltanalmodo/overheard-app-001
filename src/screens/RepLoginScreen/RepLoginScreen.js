@@ -1,11 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 
-import BottomDrawer from 'rn-bottom-drawer';
+import backimage from '../../img/newbg.png';
+import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
-import backimage from '../../img/newbg.png'
-import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
-
+import BackButton from '../../components/BackButton/BackButton';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
@@ -20,9 +19,15 @@ const RepLoginScreen = ({navigation}) => {
         return (
 
             <ImageBackground source={backimage} style={styles.container}>
+                
+
+                <BackButton navigate='LoginScreen' />                
+                
+                
                 <View style={styles.logoPosition}>
                     <OverheardDealsLogo />
                 </View>
+
 
 
                 <View style={styles.repTitlePosition}>
@@ -110,16 +115,7 @@ const RepLoginScreen = ({navigation}) => {
                     </View>
                 </TouchableOpacity>
 
-
-
-                <BottomDrawer
-                    containerHeight={90}
-                    backgroundColor='darkblue'
-                    shadow={true}
-                    startUp={true}
-                >
-                    <Button title="<<< back" onPress={() => navigation.navigate('LoginScreen')} />
-                </BottomDrawer>
+                
                 
             </ImageBackground>
 
@@ -136,7 +132,6 @@ RepLoginScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
     container: {
         marginTop: 33,
-        backgroundColor: 'white',
         flex: 1,
         // remove width and height to override fixed static size
         width: null,
@@ -144,17 +139,20 @@ const styles = StyleSheet.create({
     },
 
     logoPosition: {
-        marginTop: 52,
+        marginTop: 22,
+
+        // borderWidth: 2,
+        // borderColor: 'red',
     },
 
     repTitlePosition: {
-        marginTop: 42,
+        marginTop: 32,
     },
     repTitleText: {
         textAlign: 'center',
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: 'black',
-        fontSize: 32,
+        fontSize: 30,
     },
 
     emailTextInputPosition: {

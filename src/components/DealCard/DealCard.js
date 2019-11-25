@@ -20,11 +20,43 @@ const DealCard = (props) => {
         
             <View style={styles.cardContainer}>
 
-                <View style={styles.cardImageContainer}>
-                    <Image style={{ width: 135, height: 135 }} source={{ uri: `https://overheard.co.uk/img/${props.img}` }} />
-                </View>
+                <TouchableOpacity style={styles.touchableImage}
+                    
+                    onPress={ () => { cardObject({
 
-                
+                        id: props._id,
+                        img: props.img,
+                        name: props.name,
+                        lineOne: props.lineOne,
+                        lineTwo: props.lineTwo,
+                        lineThree: props.lineThree,
+                        mainOffer: props.mainOffer,
+                        offerSmall: props.offerSmall,
+                        categories: props.categories,
+                        buttonText: props.buttonText,
+                        tags: props.tags,
+                        location: props.location,
+                        availability: props.availability,
+                        link: props.link,
+
+                        offline: props.offline,
+
+                    });
+
+                        navigate('DealCardPopUpScreen')
+                    }}
+                >
+
+                    <View style={styles.cardImageContainer}>
+                        <Image
+                            style={{ width: 135, height: 135 }}
+                            source={{ uri: `https://overheard.co.uk/img/${props.img}` }}
+                        />
+                    </View>
+
+                </TouchableOpacity>
+
+
 
                 <View style={styles.dealDescriptionPosition}>
 
@@ -51,10 +83,9 @@ const DealCard = (props) => {
                             
                             
 
-
                             <View style={styles.cardButtonPositionCyan}>
 
-                                <TouchableOpacity style={styles.touchableOpacity}
+                                <TouchableOpacity style={styles.touchableButton}
                     
                                     onPress={ () => { cardObject({
 
@@ -102,7 +133,6 @@ const DealCard = (props) => {
 const styles = StyleSheet.create({
 
     cardContainer: {
-
         marginBottom: 16,
         marginLeft: 8,
         marginRight: 8,
@@ -111,11 +141,16 @@ const styles = StyleSheet.create({
         width: 137,
         height: 260,
         alignItems: 'center',
+    },
 
+
+    touchableImage: {
+        width: 137,
+        height: 137,
+        flex: 1,
     },
 
     cardImageContainer: {
-        backgroundColor: 'white',
         width: 137,
         height: 137,
 
@@ -190,7 +225,7 @@ const styles = StyleSheet.create({
 
 
 
-    touchableOpacity: {
+    touchableButton: {
         width: 129,
         height: 25,
         backgroundColor: '#FF8D4F',

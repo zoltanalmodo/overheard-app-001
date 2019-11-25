@@ -5,36 +5,43 @@ import {
     Image,
     TouchableOpacity } from 'react-native';
 
+
 import { navigate } from '../../navigationRef';
 import backicon from '../../img/back-icon.png';
 
+import BackButton from '../../components/BackButton/BackButton';
 
-const BackButton = () => {
+
+const BackButtonScreeenTest = () => {
 
     return (
 
-    <View style={styles.container}>
+        <View style={styles.container}>
+            
+            <BackButton navigate='DealsScreen' />
 
-        <TouchableOpacity style={styles.touchableOpacity}                            
-            onPress={() => navigate('DealsScreen')} >
-            <View style={styles.backButtonPosition}>
-                <Image source={backicon} style={styles.backicon}/>
+            <View style={styles.test}>
             </View>
-        </TouchableOpacity>
 
-        <View style={styles.test}></View>
-    </View>
+        </View>
+
+            
+
+            
+
+        
 
     )
 };
 
-BackButton.navigationOptions = () => {
+BackButtonScreeenTest.navigationOptions = () => {
     return {
         header: null
     };
 };
 
 const styles = StyleSheet.create({
+
     container: {
         marginTop: 33,
         flex: 1,
@@ -42,40 +49,23 @@ const styles = StyleSheet.create({
         width: null,
         height: null,
         position: 'relative',
-      },
-
-    mapUserCenteredScreenText: {
-        textAlign: 'center',
-        marginTop: 50,
-        fontSize: 36,
-        color: 'salmon',
     },
 
-    backButtonPosition: {
-        position: 'fixed',
-        textAlign: 'right',
-        zIndex: 4,
-    },
-
-    backicon: {
-
-        marginLeft: 15,
-        width: 30,
-        height: 30,
-
-        zIndex: 5,
-    },
 
     test: {
-        backgroundColor: 'magenta',
+        backgroundColor: 'yellow',
         height: '100%',
         width: '100%',
 
         zIndex: -1,
 
         position: 'absolute',
+
+        borderWidth: 2,
+        borderColor: 'red',
     },
+
 
 });
 
-export default BackButton;
+export default BackButtonScreeenTest;
