@@ -16,56 +16,54 @@ const ResetRepPasswordScreen = ({navigation}) => {
 
     return (
 
-    <ImageBackground source={backimage} style={styles.container}>
+        <ImageBackground source={backimage} style={styles.container}>
 
 
-        <BackButton navigate='RepLoginScreen' />
+            <BackButton navigate='RepLoginScreen' />
 
-        <View style={styles.logoPosition}>
-            <OverheardDealsLogo />
-        </View>
-        
-        <View style={styles.emailTextInputPosition}>
-            <TextInput
-                value={email}
-                onChangeText = {(newEmail) => setEmail(newEmail)}
-
-                style={styles.emailTextInput}
-                label='email'
-                placeholder='email'
-                placeholderTextColor='black'
-                keyboardAppearance='dark'
-                keyboardType='email-address'
-                returnKeyType='done'
-                clearTextOnFocus={true}
-            />
-        </View>
-
-
-        {state.errorMessage ?
-                
-            <Text style={styles.errorMessage}>
+            <View style={styles.logoPosition}>
+                <OverheardDealsLogo />
+            </View>
             
-                {state.errorMessage}
+            <View style={styles.emailTextInputPosition}>
+                <TextInput
+                    value={email}
+                    onChangeText = {(newEmail) => setEmail(newEmail)}
 
-            </Text> : null}
-
-
-
-        <View style={styles.resetRepPasswordButtonPosition}>
-            <View style={styles.resetRepPasswordButton}>                    
-                <Button
-                    title='Reset Rep Password'
-                    onPress={ () => resetRepPassword ( { email } ) }
+                    style={styles.emailTextInput}
+                    label='email'
+                    placeholder='email'
+                    placeholderTextColor='black'
+                    keyboardAppearance='dark'
+                    keyboardType='email-address'
+                    returnKeyType='done'
+                    clearTextOnFocus={true}
                 />
             </View>
-        </View>
 
-        
-    
-        
 
-    </ImageBackground>
+            {state.errorMessage ?
+                    
+                <Text style={styles.errorMessage}>
+                
+                    {state.errorMessage}
+
+                </Text> : null}
+
+
+
+            <View style={styles.resetRepPasswordButtonPosition}>
+                <View style={styles.resetRepPasswordButton}>                    
+                    <Button
+                        title='Reset Rep Password'
+                        onPress={ () => resetRepPassword ( { email } ) }
+                    />
+                </View>
+            </View>
+
+            
+        
+        </ImageBackground>
 
     )
 };

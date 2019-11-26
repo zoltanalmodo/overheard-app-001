@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Button, Text, TouchableOpacity, Clipboard } from 'react-native';
+import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import HeaderProfile from '../../components/Header/HeaderProfile/HeaderProfile'
@@ -13,12 +13,14 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const ProfileScreen = ({navigation}) => {
 
-    const { state, resetPassword } = useContext(AuthContext);
+    const { state, displayProfile } = useContext(AuthContext);
 
     return (
+    
     <ImageBackground source={backimage} style={styles.container}>
         
         <HeaderProfile />
+
         <View style={styles.infoBoxPosition}>
 
             <View style={styles.infoBox}>
@@ -49,6 +51,34 @@ const ProfileScreen = ({navigation}) => {
                 <View style={styles.profilePanelTextBoxPosition}>
                     <Text style={styles.profilePanelTextBox} >{ state.userObject.university }</Text>
                 </View>
+
+
+                <View style={styles.profilePanelTextBoxPosition}>
+
+                    <Text style={styles.profilePanelTextBox} >{
+                        state.modalVisible === false ? 'false' :
+                        state.modalVisible === true ? 'true' :
+                        'null' }
+                    </Text>
+
+                </View>
+
+
+                
+
+
+                <TouchableOpacity
+                    style={styles.touchableOpacity}
+                    onPress={() => displayProfile()}
+                >                    
+
+                    <View style={styles.profileButtonPosition}>
+                        <Text style={styles.profileButton}>TOGGLE</Text>
+                    </View>
+
+                </TouchableOpacity>
+
+
 
 
 
@@ -154,6 +184,7 @@ const styles = StyleSheet.create({
     },
     profilePanelTextBox: {
         textAlign: 'center',
+        paddingTop: 4,
         fontSize: 14,
         color:  '#ababab',
         height: 30,

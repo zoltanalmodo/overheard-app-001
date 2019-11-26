@@ -10,8 +10,9 @@ import { navigate } from '../../../navigationRef';
 
 const HeaderButtonsProfile = ({navigation}) => {
 
-    const { state, setCategory } = useContext(AuthContext);
+    const { state, displayProfile } = useContext(AuthContext);
     
+
     // const [Categories, setCategories] = useState('');
 
 
@@ -22,13 +23,13 @@ const HeaderButtonsProfile = ({navigation}) => {
             
             <TouchableOpacity style={styles.touchableOpacity}
                             
-                onPress={ () => navigate('ProfileScreen')}
+                onPress={ () => displayProfile() }
             
             >
 
                     
                     <View style={styles.buttonBox}>
-                    <Text style={styles.buttonText}>Profile</Text>
+                    <Text style={styles.buttonText}>PPProfile</Text>
 
                 </View>
 

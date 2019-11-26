@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { useState, useContext } from 'react';
 import { Text, View, StyleSheet, ImageBackground } from 'react-native';
 
 import Overlay from 'react-native-modal-overlay';
@@ -17,19 +17,28 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 
 
-export default class ReactNativeModalOverlay extends Component {
-  state = {
-    modalVisible: true, 
-  }
-  
-  onClose = () => this.setState({ modalVisible: false});
-
+const ReactNativeModalOverlayStateless = () => {
   
 
-  render() {
+    const { state, repPlatform } = useContext(AuthContext);
+  
 
-    
 
+    // onClose = () => this.statehere({ modalVisible: false});
+
+    // statehere = {
+    //     modalVisible: true,
+    // }
+
+    let stateNow = {
+        modalVisible: true, 
+      }
+      
+    onClose = () => {
+        stateNow.modalVisible = !stateNow.modalVisible
+    };
+
+  
     return (
 
         
@@ -38,7 +47,7 @@ export default class ReactNativeModalOverlay extends Component {
 
             <View style={styles.modalOverlayPosition}>
                 <Overlay
-                    visible={this.state.modalVisible}
+                    visible={stateNow.modalVisible}
                     onClose={this.onClose}
                     closeOnTouchOutside
 
@@ -59,11 +68,12 @@ export default class ReactNativeModalOverlay extends Component {
 
         </ImageBackground>
 
-    );
-  }
-}
+    )
+  
 
-ReactNativeModalOverlay.navigationOptions = () => {
+};
+
+ReactNativeModalOverlayStateless.navigationOptions = () => {
     return {
         header: null
     };
@@ -138,3 +148,5 @@ const styles = StyleSheet.create({
 
 
 });
+
+export default ReactNativeModalOverlayStateless;

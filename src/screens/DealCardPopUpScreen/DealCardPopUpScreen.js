@@ -11,9 +11,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 import { navigate } from '../../navigationRef';
 
 
-String.prototype.capitalize = function() {
-    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
-};
+
 
 const DealCardPopUpScreen = ({navigation}, props) => {
 
@@ -44,7 +42,7 @@ const DealCardPopUpScreen = ({navigation}, props) => {
             onPress={ () => Linking.openURL(state.cardObject.link)} >
 
             <View style={styles.cardButton}>     
-                <Text style={styles.cardButtonText}>{state.cardObject.buttonText.toUpperCase()}</Text>
+                <Text style={styles.cardButtonText}>{state.cardObject.buttonText}</Text>
             </View>
 
         </TouchableOpacity>
@@ -53,72 +51,61 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
     return (
 
-    <ImageBackground source={backimage} style={styles.container}>
-        
-        
-        <View style={styles.dealImagePosition}>
-            <View>
-                <View style={styles.cardImageContainer}>
-                    <View>                  
-                        <Image
-                            style={styles.dealImage}
-                            source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
-                    </View>
-                </View>
-            </View>
-        </View>
-
-
-        <View style={styles.dealDescriptionPosition}>
-
-            <View style={styles.dealDescriptionGreen}>
-
-                <View style={styles.cardTextContainerOrange}>
-
-                    <Text style={styles.cardTextName} >{state.cardObject.name.capitalize()}</Text>
-                    <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer.capitalize()}</Text>
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall.capitalize()}</Text>
-
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne.capitalize()}</Text>
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo.capitalize()}</Text>
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree.capitalize()}</Text>
-                    
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability.capitalize()}</Text>
-        
-                    <Text style={styles.cardTextOfferSmall}>{state.cardObject.location.capitalize()}</Text>
-                
-                </View>
-
+        <ImageBackground source={backimage} style={styles.container}>
             
-                <View style={styles.cardButtonSectionRed}>
+            
+            <View style={styles.dealImagePosition}>
+                <View>
+                    <View style={styles.cardImageContainer}>
+                        <View>                  
+                            <Image
+                                style={styles.dealImage}
+                                source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
+                        </View>
+                    </View>
+                </View>
+            </View>
 
-                    <View style={styles.cardButtonPositionCyan}>
-                            {renderDealButton()}
+
+            <View style={styles.dealDescriptionPosition}>
+
+                <View style={styles.dealDescriptionGreen}>
+
+                    <View style={styles.cardTextContainerOrange}>
+
+                        <Text style={styles.cardTextName} >{state.cardObject.name}</Text>
+                        <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
+                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
+
+                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne}</Text>
+                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo}</Text>
+                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree}</Text>
+                        
+                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability}</Text>
+            
+                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.location}</Text>
+                    
                     </View>
 
-                    <View style={styles.tagLinePosition}>
-                        <Image source={tagsIcon} style={styles.imgTags}/>
-                        <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
+                
+                    <View style={styles.cardButtonSectionRed}>
+
+                        <View style={styles.cardButtonPositionCyan}>
+                                {renderDealButton()}
+                        </View>
+
+                        <View style={styles.tagLinePosition}>
+                            <Image source={tagsIcon} style={styles.imgTags}/>
+                            <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
+                        </View>
+
                     </View>
 
                 </View>
 
             </View>
 
-        </View>
-
-
-        {/* <BottomDrawer
-            containerHeight={70}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >       
-            <Button title="<<< back" onPress={() => navigation.navigate('DealsScreen')} />
-        </BottomDrawer> */}
-
-
-    </ImageBackground>
+        </ImageBackground>
     );
 };
 

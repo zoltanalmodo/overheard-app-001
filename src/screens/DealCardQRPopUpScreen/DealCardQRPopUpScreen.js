@@ -3,8 +3,6 @@ import { AppRegistry, TextInput, View, Linking, Text, StyleSheet, ImageBackgroun
 
 import QRCode from 'react-native-qrcode-svg';
 
-import BottomDrawer from 'rn-bottom-drawer';
-
 import backimage from '../../img/newbg.png'
 
 import { Context as AuthContext } from '../../context/AuthContext';
@@ -62,15 +60,7 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
             </View>
         </View>
 
-        <BottomDrawer
-            containerHeight={90}
-            backgroundColor='darkblue'
-            shadow={true}
-            startUp={true}
-        >       
-            <Button title="<<< back" onPress={() => navigation.navigate('DealsScreen')} />
-        </BottomDrawer>
-        
+            
     </ImageBackground>
     )
 };
