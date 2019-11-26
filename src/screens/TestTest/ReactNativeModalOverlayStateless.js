@@ -1,13 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Text, View, StyleSheet, ImageBackground } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 
 import Overlay from 'react-native-modal-overlay';
 
 import backimage from '../../img/newbg.png';
 
 
-
-import QRCode from 'react-native-qrcode-svg';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
@@ -20,7 +18,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 const ReactNativeModalOverlayStateless = () => {
   
 
-    const { state, repPlatform } = useContext(AuthContext);
+    
   
 
 
@@ -32,11 +30,13 @@ const ReactNativeModalOverlayStateless = () => {
 
     let stateNow = {
         modalVisible: true, 
-      }
+    };
       
     onClose = () => {
-        stateNow.modalVisible = !stateNow.modalVisible
+        stateNow.modalVisible = false
     };
+
+            
 
   
     return (
@@ -55,7 +55,7 @@ const ReactNativeModalOverlayStateless = () => {
                     childrenWrapperStyle={styles.childrenWrapperStyle}
 
                     animationType={'bounceIn'}
-                    animationOutType={'bounceOut'}
+                    animationOutType={'slideOutUp'}
                 >
 
                     <Text>======================24</Text>
@@ -65,6 +65,18 @@ const ReactNativeModalOverlayStateless = () => {
 
                 </Overlay>
             </View>
+
+            <TouchableOpacity style={styles.touchableOpacity}
+                            
+                onPress={this.onClose}
+            
+            >
+
+                <View style={styles.buttonBox}>
+                    <Text style={styles.buttonText}>PPProfile</Text>
+                </View>
+
+            </TouchableOpacity>
 
         </ImageBackground>
 
