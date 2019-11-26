@@ -112,7 +112,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 16,
         paddingTop: 5,
-        color: 'red',
+
+        color: 'black',
+
     },
 
     modalDropdownDropdownBox: {

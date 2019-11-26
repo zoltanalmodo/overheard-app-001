@@ -69,7 +69,7 @@ const switchNavigator = createSwitchNavigator ({
       // ReactNativeModalOverlay: ReactNativeModalOverlay,
 
             
-      // ReactNativeModalOverlayStateless: ReactNativeModalOverlayStateless,
+      ReactNativeModalOverlayStateless: ReactNativeModalOverlayStateless,
 
       // ProfileScreen: ProfileScreen,
 

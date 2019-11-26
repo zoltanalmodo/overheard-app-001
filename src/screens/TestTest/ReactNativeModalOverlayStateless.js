@@ -11,34 +11,14 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 
 
-
-
-
-
 const ReactNativeModalOverlayStateless = () => {
   
 
-    
-  
+    const { state, displayPopUp, hidePopUp } = useContext(AuthContext);
+
+    console.log(state.displayPopUp);
 
 
-    // onClose = () => this.statehere({ modalVisible: false});
-
-    // statehere = {
-    //     modalVisible: true,
-    // }
-
-    let stateNow = {
-        modalVisible: true, 
-    };
-      
-    onClose = () => {
-        stateNow.modalVisible = false
-    };
-
-            
-
-  
     return (
 
         
@@ -47,38 +27,40 @@ const ReactNativeModalOverlayStateless = () => {
 
             <View style={styles.modalOverlayPosition}>
                 <Overlay
-                    visible={stateNow.modalVisible}
-                    onClose={this.onClose}
+                    visible={ state.displayPopUp }
+                    onClose={ () => hidePopUp() }
                     closeOnTouchOutside
 
                     containerStyle={styles.containerStyle}
                     childrenWrapperStyle={styles.childrenWrapperStyle}
 
-                    animationType={'bounceIn'}
-                    animationOutType={'slideOutUp'}
+                    animationType={'fadeInDown'}
+                    animationOutType={'fadeOutUp'}
                 >
 
-                    <Text>======================24</Text>
-                    <Text>======================24</Text>
-                    <Text>======================24</Text>
-                    <Text>======================24</Text>
+                    <Text style={styles.qrContentText}>======================24</Text>
+                    <Text style={styles.qrContentText}>======================24</Text>
+                    <Text style={styles.qrContentText}>======================24</Text>
+                    <Text style={styles.qrContentText}>======================24</Text>
 
                 </Overlay>
             </View>
 
             <TouchableOpacity style={styles.touchableOpacity}
                             
-                onPress={this.onClose}
+                onPress={ () => displayPopUp() }
             
             >
 
                 <View style={styles.buttonBox}>
-                    <Text style={styles.buttonText}>PPProfile</Text>
+                    <Text style={styles.buttonText}>Profile</Text>
                 </View>
 
             </TouchableOpacity>
 
         </ImageBackground>
+
+        
 
     )
   
@@ -128,7 +110,7 @@ const styles = StyleSheet.create({
 
     containerStyle: {
 
-        backgroundColor: 'hsla(0, 0%, 80%, 0.33)',
+        backgroundColor: 'hsla(0, 0%, 96%, 0.55)',
 
         flexDirection: 'row',
         justifyContent: 'center',
@@ -150,11 +132,26 @@ const styles = StyleSheet.create({
         width: 260,
         height: 520,
 
-
         backgroundColor: 'hsla(157, 71%, 84%, 0.69)',
 
         borderWidth: 1,
         borderColor: 'gray',
+
+    },
+
+    qrContentText: {
+        
+        fontWeight: '800',
+
+        // borderColor: 'cyan',
+        // borderWidth: 1,
+
+        // backgroundColor: 'yellow',
+        width: 260,
+
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 5,
 
     },
 

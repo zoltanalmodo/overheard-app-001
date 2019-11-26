@@ -91,10 +91,16 @@ const authReducer = (state, action) => {
                 cardObject: action.payload
             };
 
-        case 'TOGGLE_PROFILE':
+            case 'DISPLAY_POPUP':
                 return {
                     ...state,
-                    diplayProfilePanel: Boolean(!state.displayProfilePanel)
+                    displayPopUp: action.payload,
+                };
+
+            case 'HIDE_POPUP':
+                return {
+                    ...state,
+                    displayPopUp: action.payload,
                 };
 
         default:
@@ -182,7 +188,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
     try {
         const response = await trackerApi.post('/reps/login', { email, password });
 
-        console.log(response.data);
+        // console.log(response.data);
 
         await AsyncStorage.setItem('token', response.data.token);
 
@@ -225,7 +231,7 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 
     } catch (err) {
 
-        console.log(err.message);
+        // console.log(err.message);
 
         dispatch({ type: 'add_error', payload: 'RepPlatform =error='});
     }
@@ -252,7 +258,10 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
 
     } catch (err) {
 
-        dispatch({ type: 'add_error', payload: 'This email is already in use. Use another or press back to sign in.'});
+        dispatch({
+            type: 'add_error',
+            payload: 'This email is already in use. Use another or press back to sign in.'
+        });
         
     }
 
@@ -274,9 +283,18 @@ const setCategory = dispatch => category => {
     });
 };
 
-const displayProfile = dispatch => () => {
+const displayPopUp = dispatch => displayPopUp => {
     dispatch({
-        type: 'TOGGLE_PROFILE',
+        type: 'DISPLAY_POPUP',
+        payload: true,
+
+    })
+};
+
+const hidePopUp = dispatch => displayPopUp => {
+    dispatch({
+        type: 'HIDE_POPUP',
+        payload: false,
 
     })
 }
@@ -284,7 +302,8 @@ const displayProfile = dispatch => () => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform, resetRepPassword, setCategory, cardObject, displayProfile },
-    { token: null, errorMessage: '', userObject: {}, repObject: {} }
+    { login, resetPassword, repLogin, signOut, repRegister, repPlatform,
+        resetRepPassword, setCategory, cardObject, displayPopUp, hidePopUp },
+    { token: null, errorMessage: '', userObject: {}, repObject: {}, displayPopUp: false, }
 
 );
