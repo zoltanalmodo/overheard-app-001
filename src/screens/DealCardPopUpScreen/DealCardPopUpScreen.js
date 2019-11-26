@@ -53,50 +53,53 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
         <ImageBackground source={backimage} style={styles.container}>
             
+            <View style={styles.dealPopUpCardPosition}>
             
-            <View style={styles.dealImagePosition}>
-                <View>
-                    <View style={styles.cardImageContainer}>
-                        <View>                  
-                            <Image
-                                style={styles.dealImage}
-                                source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
+                <View style={styles.dealImagePosition}>
+                    <View>
+                        <View style={styles.cardImageContainer}>
+                            <View>                  
+                                <Image
+                                    style={styles.dealImage}
+                                    source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
+                            </View>
                         </View>
                     </View>
                 </View>
-            </View>
 
 
-            <View style={styles.dealDescriptionPosition}>
+                <View style={styles.dealDescriptionPosition}>
 
-                <View style={styles.dealDescriptionGreen}>
+                    <View style={styles.dealDescriptionGreen}>
 
-                    <View style={styles.cardTextContainerOrange}>
+                        <View style={styles.cardTextContainerOrange}>
 
-                        <Text style={styles.cardTextName} >{state.cardObject.name}</Text>
-                        <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
-                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
+                            <Text style={styles.cardTextName} >{state.cardObject.name}</Text>
+                            <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
+                            <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
 
-                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne}</Text>
-                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo}</Text>
-                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree}</Text>
-                        
-                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability}</Text>
-            
-                        <Text style={styles.cardTextOfferSmall}>{state.cardObject.location}</Text>
-                    
-                    </View>
-
+                            <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineOne}</Text>
+                            <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineTwo}</Text>
+                            <Text style={styles.cardTextOfferSmall}>{state.cardObject.lineThree}</Text>
+                            
+                            <Text style={styles.cardTextOfferSmall}>{state.cardObject.availability}</Text>
                 
-                    <View style={styles.cardButtonSectionRed}>
-
-                        <View style={styles.cardButtonPositionCyan}>
-                                {renderDealButton()}
+                            <Text style={styles.cardTextOfferSmall}>{state.cardObject.location}</Text>
+                        
                         </View>
 
-                        <View style={styles.tagLinePosition}>
-                            <Image source={tagsIcon} style={styles.imgTags}/>
-                            <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
+                    
+                        <View style={styles.cardButtonSectionRed}>
+
+                            <View style={styles.cardButtonPositionCyan}>
+                                    {renderDealButton()}
+                            </View>
+
+                            <View style={styles.tagLinePosition}>
+                                <Image source={tagsIcon} style={styles.imgTags}/>
+                                <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
+                            </View>
+
                         </View>
 
                     </View>
@@ -119,15 +122,25 @@ DealCardPopUpScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 33,
-        backgroundColor: 'white',
+
+        flexDirection: 'column',
+        justifyContent: 'center',
+
+
+        // borderWidth: 2,
+        // borderColor: 'red',
+        
         flex: 1,
         // remove width and height to override fixed static size
-        width: null,
-        height: null,
+        // width: null,
+        // height: null,
     },
+
+    dealPopUpCardPosition: {
+        
+    },
+
     dealImagePosition: {
-        marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
     },

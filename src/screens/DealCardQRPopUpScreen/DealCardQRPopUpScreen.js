@@ -16,47 +16,44 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
-        <View style={styles.dealImagePosition}>
-            <View>
+        <View style={styles.dealPopUpCardPosition}>
+            <View style={styles.dealImagePosition}>
+                <View>
 
-                <View style={styles.cardImageContainer}>
+                    <View style={styles.cardImageContainer}>
 
-                    <View style={styles.dealImage}>
+                        <View style={styles.dealImage}>
 
-                        <QRCode
-                            value={state.userObject.id}
-                            size={278}
-                            color="black"
-                            backgroundColor="white"
-                        />
-                        
+                            <QRCode
+                                value={state.userObject.id}
+                                size={278}
+                                color="black"
+                                backgroundColor="white"
+                            />
+                            
 
 
+                        </View>
                     </View>
-                </View>
 
+                </View>
             </View>
-        </View>
-        <View style={styles.dealDescriptionPosition}>
-            <View style={styles.dealDescription}>
 
-                <View style={styles.instructionsPosition}>
-                    <Text style={styles.instructions}>
+            <View style={styles.dealDescriptionPosition}>
+                <View style={styles.dealDescription}>
+
+                    <View style={styles.instructionsPosition}>
+                        <Text style={styles.instructions}>
+                            
+                            Please Present
+                            This Code
+                            To The Merchant
+                            To Scan
                         
-                        Please Present
-                        This Code
-                        To The Merchant
-                        To Scan
+                        </Text>
+                    </View>
                     
-                    </Text>
                 </View>
-
-
-                
-
-
-
-                
             </View>
         </View>
 
@@ -73,21 +70,31 @@ DealCardQRPopUpScreen.navigationOptions = () => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 33,
-        backgroundColor: 'white',
+
+        flexDirection: 'column',
+        justifyContent: 'center',
+
+
+        // borderWidth: 2,
+        // borderColor: 'red',
+        
         flex: 1,
         // remove width and height to override fixed static size
-        width: null,
-        height: null,
+        // width: null,
+        // height: null,
     },
+    dealPopUpCardPosition: {
+        // borderWidth: 2,
+        // borderColor: 'blue',
+    },
+
     dealBuyOnlineScreenText: {
         textAlign: 'center',
-        marginTop: 50,
         fontSize: 36,
         color: 'salmon',
     },
     dealImagePosition: {
-        marginTop: 10,
+        
         flexDirection: 'row',
         justifyContent: 'center',
     },
