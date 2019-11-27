@@ -13,7 +13,7 @@ String.prototype.capitalize = function() {
 
 const DealCard = (props) => {
 
-    const { state, cardObject } = useContext(AuthContext);
+    const { state, cardObject, displayPopUp } = useContext(AuthContext);
 
 
     return (
@@ -22,28 +22,29 @@ const DealCard = (props) => {
 
                 <TouchableOpacity style={styles.touchableImage}
                     
-                    onPress={ () => { cardObject({
+                    onPress={ () => { 
+                        
+                        cardObject({
 
-                        id: props._id,
-                        img: props.img,
-                        name: props.name,
-                        lineOne: props.lineOne,
-                        lineTwo: props.lineTwo,
-                        lineThree: props.lineThree,
-                        mainOffer: props.mainOffer,
-                        offerSmall: props.offerSmall,
-                        categories: props.categories,
-                        buttonText: props.buttonText,
-                        tags: props.tags,
-                        location: props.location,
-                        availability: props.availability,
-                        link: props.link,
-
-                        offline: props.offline,
+                            id: props._id,
+                            img: props.img,
+                            name: props.name,
+                            lineOne: props.lineOne,
+                            lineTwo: props.lineTwo,
+                            lineThree: props.lineThree,
+                            mainOffer: props.mainOffer,
+                            offerSmall: props.offerSmall,
+                            categories: props.categories,
+                            buttonText: props.buttonText,
+                            tags: props.tags,
+                            location: props.location,
+                            availability: props.availability,
+                            link: props.link,
+                            offline: props.offline,
 
                     });
 
-                        navigate('DealCardPopUpScreen')
+                        displayPopUp()
                     }}
                 >
 
@@ -87,28 +88,29 @@ const DealCard = (props) => {
 
                                 <TouchableOpacity style={styles.touchableButton}
                     
-                                    onPress={ () => { cardObject({
+                                    onPress={ () => {
+                                        
+                                        cardObject({
 
-                                        id: props._id,
-                                        img: props.img,
-                                        name: props.name,
-                                        lineOne: props.lineOne,
-                                        lineTwo: props.lineTwo,
-                                        lineThree: props.lineThree,
-                                        mainOffer: props.mainOffer,
-                                        offerSmall: props.offerSmall,
-                                        categories: props.categories,
-                                        buttonText: props.buttonText,
-                                        tags: props.tags,
-                                        location: props.location,
-                                        availability: props.availability,
-                                        link: props.link,
-
-                                        offline: props.offline,
+                                            id: props._id,
+                                            img: props.img,
+                                            name: props.name,
+                                            lineOne: props.lineOne,
+                                            lineTwo: props.lineTwo,
+                                            lineThree: props.lineThree,
+                                            mainOffer: props.mainOffer,
+                                            offerSmall: props.offerSmall,
+                                            categories: props.categories,
+                                            buttonText: props.buttonText,
+                                            tags: props.tags,
+                                            location: props.location,
+                                            availability: props.availability,
+                                            link: props.link,
+                                            offline: props.offline,
 
                                     });
 
-                                        navigate('DealCardPopUpScreen')
+                                        displayPopUp()
                                     }}
                                 >
                                         

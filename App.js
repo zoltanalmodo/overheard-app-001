@@ -38,14 +38,10 @@ import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileReset
 
 //===========================================test
 
-import ReactNativeCarouselControl from './src/screens/TestTest/ReactNativeCarouselControl'
-import ReactNativeLoopedCarousel from './src/screens/TestTest/ReactNativeLoopedCarousel'
-import ReactNativeAnchorCarousel from './src/screens/TestTest/ReactNativeAnchorCarousel'
-import ReactNativeSnapCarousel2222 from './src/screens/TestTest/ReactNativeSnapCarousel2222'
+
+import ReactNativeSnapCarousel from './src/components/ReactNativeSnapCarousel/ReactNativeSnapCarousel'
 
 import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOverlay'
-import ReactNativeModalOverlayStateless from './src/screens/TestTest/ReactNativeModalOverlayStateless'
-
 
 
 
@@ -64,22 +60,24 @@ const switchNavigator = createSwitchNavigator ({
 
       
 
-      // ReactNativeSnapCarousel2222: ReactNativeSnapCarousel2222,
+      // ReactNativeSnapCarousel: ReactNativeSnapCarousel,
       
-      // ReactNativeModalOverlay: ReactNativeModalOverlay,
 
             
-      ReactNativeModalOverlayStateless: ReactNativeModalOverlayStateless,
+      // ReactNativeModalOverlay: ReactNativeModalOverlay,
+
+
 
       // ProfileScreen: ProfileScreen,
 
+      
 
       //===========================================test
 
       //==========================================build
 
       
-      // DealsScreen: DealsScreen,
+      DealsScreen: DealsScreen,
       
 
       //==========================================build

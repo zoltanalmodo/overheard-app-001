@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AppRegistry, TextInput, View, Linking, Text, StyleSheet, ImageBackground, Button, Image, TouchableOpacity } from 'react-native';
 
-import BackButton from '../../components/BackButton/BackButton';
-
 import backimage from '../../img/newbg.png'
 import tagsIcon from '../../img/tag-icon.png'
 

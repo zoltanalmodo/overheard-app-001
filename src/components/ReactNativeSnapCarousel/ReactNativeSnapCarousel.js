@@ -1,27 +1,19 @@
 import React, { useState, useContext, useEffect }  from 'react';
-import {
-    View, Text, StyleSheet, ImageBackground,
-    TouchableOpacity, Dimensions, FlatList, SafeAreaView
-} from 'react-native';
-
-
-// ============================== test
-import Carousel from 'react-native-snap-carousel';
+import { View, Text, StyleSheet, Dimensions, FlatList } from 'react-native';
 
 import axios from 'axios';
+import Carousel from 'react-native-snap-carousel';
 
-import backimage from '../../img/newbg.png'
+import DealCard from '../DealCard/DealCard'
 
-import DealCard from '../../components/DealCard/DealCard'
 import { Context as AuthContext } from '../../context/AuthContext'
 
 
 
-const ReactNativeSnapCarousel2222 = () => {
+const ReactNativeSnapCarousel = () => {
 
-
-    const { state, setCategory } = useContext(AuthContext);
-    const [deals, setDeals] = useState([]);
+    const { state, setCategory } = useContext( AuthContext );
+    const [ deals, setDeals ] = useState( [] );
 
     const deviceDisplayWidth = Dimensions.get('window').width;
 
@@ -40,44 +32,7 @@ const ReactNativeSnapCarousel2222 = () => {
     const currentDeals = deals.filter(deal => deal.category.includes(state.category));
 
 
-    // ===================== chunking =====================
-
-        // =========== chunking works =========== start
-            const populateCarousel = () => {
-                return currentDeals.slice(0, 6)
-            
-            };
-
-            // console.log(populateCarousel());
-
-        // =========== chunking works =========== end
-
-
-
-        // =========== chunking WHILE loop =========== start
-            
-        function chunkWhile(theArrayToSplice, chunk_size){
-            var chunkingResults = [];
-            
-            while (theArrayToSplice.length) {
-                chunkingResults.push(theArrayToSplice.splice(0, chunk_size));
-            }
-            
-            return chunkingResults;
-        }
-        
-        // Split in group of 6 items
-        // var chunkingResults = chunkArray([1,2,3,4,5,6,7,8], 6);
-        // Outputs : [ [1,2,3,4,5,6] ,[7,8] ]
-
-
-        // console.log(chunkWhile(currentDeals, 6));
-
-        
-        // =========== chunking WHILE loop =========== end
-
-
-        // =========== chunking USING SLICE loop =========== start
+    // ===================== chunking SLICE loop ===================== start
 
         function chunkSlice(arrayToSlice, size) {
             const chunked_arr = [];
@@ -88,89 +43,17 @@ const ReactNativeSnapCarousel2222 = () => {
             }
             return chunked_arr;
         }
-
-
-        // console.log(chunkSlice(currentDeals, 6)[0]);
-
-        // =========== chunking USING SLICE loop =========== start
-
-        
-
-
-
-        // =========== chunking with LOOP =========== start
-
-        // need to return => 
-        // chunkArrayLoopDATA = [{content: <Carousel props />, key: i + increment with each loop }]
-
-
-            const chunkArrayLoop = () => {
-
-                let chunkedDATA = [
-                    {content: {title: 'index-000'}, key: 0,}, 
-                    {content: {title: 'index-1'}, key: 1,}
-                ];
-                
-                return chunkedDATA
-            
-            };
-            
-            // console.log(chunkArrayLoop());
-
-        // =========== chunking with LOOP =========== end
-
-
-        
-        
-        
-
     
+    // ===================== chunking SLICE loop ======================= end
 
-        //  function returning an object =
-        //      content = Carousel = populated with properties
-        //      key = (generated from index)
-        //
-        //
-        //  =========== example ===========
-        //
-        //  var myCar = new Object();
-        //  myCar.make = 'Ford';
-        //  myCar.model = 'Mustang';
-        //  myCar.year = 1969;
-        //
-        //  =========== TEST ===========
-        //
-        //
-        //  LOOP ( loop001 (items = 12, index = 0 ) ) creates =>
-        //
-        //      =>  let populatedDATA = new Object();
-        //      =>  populatedDATA.content = <Carousel
-        //              
-        //              data = { loop002 => arrayToSplice.splice(0,4) }
-        //              renderItem = {this._renderCarouselRow}
-        //              sliderWidth={deviceDisplayWidth}
-        //              sliderHeight={260}
-        //              itemWidth={140}
-        //              itemHeight={260}
-        //              loop={true}
-        //              
-        //              contentContainerCustomStyle={{
-        //              height: 264,
-        //              marginTop: 5,
-        //              flexGrow: 0,
-        //              }}
-        //
-        //          />
-        //  
-        //      => populatedDATA.key = loop001.index + 1
-        //
-        //
-   
-
-        
     
 
     const DATA = [
+
+        {
+            content: <Text style={styles.categoryText}>{state.category}</Text>,
+            key: 'deals-title'
+        },
         {   
             content:
 
@@ -511,11 +394,6 @@ const ReactNativeSnapCarousel2222 = () => {
     ];
 
 
-
-    
-    
-
-
     _renderCarouselRow = ({item, index}) => {
         return (
 
@@ -537,7 +415,6 @@ const ReactNativeSnapCarousel2222 = () => {
                     location={item.location}
                     availability={item.availability}
                     link={item.link}
-
                     offline={!item.online}
                 />
 
@@ -547,7 +424,7 @@ const ReactNativeSnapCarousel2222 = () => {
     };
 
 
-
+    
     function Item({ content }) {
         return (
           <View>{ content }</View>
@@ -558,26 +435,20 @@ const ReactNativeSnapCarousel2222 = () => {
 
     return (
 
-        <ImageBackground source={backimage} style={styles.container}>
-            
-            <View style={{backgroundColor: 'magenta',}}>
-                <Text style={styles.centeredScreenText}>React Native Snap Carousel -Lifestyle-</Text>
-            </View>
-                        
+        <View style={styles.container}>
+                                    
                 <FlatList
                     data={ DATA }
                     renderItem={({ item }) => <Item content={item.content} />}
                     keyExtractor={item => item.key}
                 />
-            
 
-
-        </ImageBackground>
+        </View>
 
     )
 };
 
-ReactNativeSnapCarousel2222.navigationOptions = () => {
+ReactNativeSnapCarousel.navigationOptions = () => {
     return {
         header: null
     };
@@ -587,32 +458,24 @@ const styles = StyleSheet.create({
 
     container: {
 
-        marginTop: 33,
+        // marginTop: 33,
         // remove width and height to override fixed static size
         width: null,
         height: null,
 
-        // flex: 1,
-
         flexDirection: 'column',
         justifyContent: 'flex-start',
 
-        // backgroundColor: 'magenta',
-
     },
 
-    
-
-    centeredScreenText: {
+    categoryText: {
+        marginTop: 5,
+        marginBottom: 2,
+        fontSize: 16,
+        fontWeight: '800',
         textAlign: 'center',
-        marginTop: 0,
-        fontSize: 14,
-        fontWeight: '400',
-        color: 'purple',
     },
-
-
 
 });
 
-export default ReactNativeSnapCarousel2222;
+export default ReactNativeSnapCarousel;

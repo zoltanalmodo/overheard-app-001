@@ -139,8 +139,6 @@ const cardObject = ( dispatch ) => ( dealObject ) => {
         
         dispatch({ type: 'SET_CARD_OBJECT', payload: dealObject });
 
-        // navigate('DealsScreen');
-
     } catch (err) {
         dispatch({ type: 'add_error', payload: 'carObject =error='});
     }

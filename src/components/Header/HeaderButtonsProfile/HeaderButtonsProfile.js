@@ -29,7 +29,7 @@ const HeaderButtonsProfile = ({navigation}) => {
 
                     
                     <View style={styles.buttonBox}>
-                    <Text style={styles.buttonText}>PPProfile</Text>
+                    <Text style={styles.buttonText}>Profile</Text>
 
                 </View>
 

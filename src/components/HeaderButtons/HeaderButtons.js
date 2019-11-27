@@ -1,24 +1,44 @@
-import React, { useState, useContext }  from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-
-import ModalDropdown from 'react-native-modal-dropdown';
+import React, { useState, useContext } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
-import { navigate } from '../../navigationRef';
 
 
 const HeaderButtons = ({navigation}) => {
 
-    const { state, setCategory } = useContext(AuthContext);
+    const { displayPopUp } = useContext(AuthContext);
     
     // const [Categories, setCategories] = useState('');
 
 
     return (
+
         <View style={styles.topNavBar}>
 
-            <View style={styles.categoriesButtonBox}>
+            <TouchableOpacity style={styles.touchableOpacity}
+                            
+            // = TEST =======================================
+
+                    onPress={ () => displayPopUp() }
+
+            // = TEST =======================================
+
+
+                // onPress={ () =>
+                // triggerProfileOverlay => return =>
+                // Filter Deals => return =>
+                // Carousel with filtered list()}
+                        
+            >
+                                
+                <View style={styles.categoriesButtonBox}>
+                    <Text style={styles.buttonText}>Deals Menu</Text>
+                </View>
+
+            </TouchableOpacity>
+
+            {/* <View style={styles.categoriesButtonBox}>
                 <ModalDropdown
                     defaultValue={'Deals Menu'}
 
@@ -56,22 +76,20 @@ const HeaderButtons = ({navigation}) => {
                     dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
                     dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
                 />
-            </View>
+            </View> */}
 
             
 
-            
             
             <TouchableOpacity style={styles.touchableOpacity}
                             
-                onPress={ () => navigate('ProfileScreen')}
+                
+                onPress={ () => displayPopUp() }
             
             >
-
                     
-                    <View style={styles.profileButtonBox}>
+                <View style={styles.profileButtonBox}>
                     <Text style={styles.buttonText}>Profile</Text>
-
                 </View>
 
             </TouchableOpacity>
@@ -91,21 +109,46 @@ const styles = StyleSheet.create({
         borderColor: 'black',
     },
     
+// Buttons styling   ==================start
 
     categoriesButtonBox: {
         height: 36,
-        width: 178,
-        marginLeft: 10,
-
-
-        borderRightWidth: 2,
-        borderLeftWidth: 2,
-        borderTopWidth: 2,
-        borderColor: 'black',
-
-
+        width: 111,
         top: 1,
+        marginLeft: 0,
+
+        borderTopWidth: 2,
+        borderRightWidth: 2,
+        borderLeftWidth: 0,
+        
+        borderColor: 'black',
+        
     },
+
+    profileButtonBox: {
+        height: 36,
+        width: 111,
+        top: 1,
+        marginRight: 0,
+
+        borderTopWidth: 2,
+        borderRightWidth: 0,
+        borderLeftWidth: 2,
+        
+        borderColor: 'black',
+        
+    },
+
+    buttonText: {
+        fontWeight: '800',
+        textAlign: 'center',
+        fontSize: 16,
+        paddingTop: 5,
+    },
+
+// Buttons styling   ====================end
+
+// Pop Up panel stylinng    ===========start
 
     modalButtonText: {
         fontWeight: '800',
@@ -147,26 +190,8 @@ const styles = StyleSheet.create({
         
     },
 
+// Pop Up panel stylinng    =============end
 
-    profileButtonBox: {
-        height: 36,
-        width: 178,
-        marginRight: 10,
-
-        borderRightWidth: 2,
-        borderLeftWidth: 0,
-        borderTopWidth: 2,
-        borderColor: 'black',
-
-        top: 1,
-    },
-
-    buttonText: {
-        fontWeight: '800',
-        textAlign: 'center',
-        fontSize: 16,
-        paddingTop: 5,
-    },
 });
 
 export default HeaderButtons;
