@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, ImageBackground, Dimensions, View, Text } from 'react-native';
 
 import backimage from '../../img/newbg.png'
@@ -12,9 +12,10 @@ import OverlayDealCard from 'react-native-modal-overlay';
 import OverlayDealsMenu from 'react-native-modal-overlay';
 import OverlayProfile from 'react-native-modal-overlay';
 
+
 import DealCardPopUp from '../../components/DealCardPopUp/DealCardPopUp';
-
-
+import DealCardPopUpQR from '../../components/DealCardPopUpQR/DealCardPopUpQR';
+ 
 const deviceDisplayWidth = Dimensions.get('window').width;
 
 
@@ -73,6 +74,32 @@ const deviceDisplayWidth = Dimensions.get('window').width;
                 </View>
 
             </OverlayDealCard>
+
+        
+
+        :   state.overlayType === "DealCardQR" ?
+
+        <OverlayDealCard
+
+        containerStyle={styles.containerStyleDealCard}
+        visible={ state.overlayStatus }
+        onClose={ () => hidePopUpDealCard() }
+        closeOnTouchOutside
+        childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
+        animationType={'zoomIn'}
+        animationOutType={'zoomOut'}
+
+        >
+
+            <View>
+                
+                <DealCardPopUpQR />
+                
+            </View>
+
+        </OverlayDealCard>
+
+
 
         : state.overlayType === "Profile" ?
 
@@ -159,14 +186,14 @@ const styles = StyleSheet.create({
         marginRight: (deviceDisplayWidth / 2),
         right: -130,
         width: 260,
-        height: 571,
+        height: 569,
         backgroundColor: 'hsla(300, 71%, 50%, 1)',
         backgroundColor: 'hsla(300, 71%, 100%, 1)',
         borderWidth: 1,
         borderColor: 'gray',
         position: 'absolute',
 
-        backgroundColor: 'yellow'
+        // backgroundColor: 'magenta'
     },
 
 

@@ -47,7 +47,7 @@ const ReactNativeSnapCarousel = () => {
     
     // ===================== chunking SLICE loop ======================= end
 
-    
+
 
     const DATA = [
 
@@ -397,6 +397,69 @@ const ReactNativeSnapCarousel = () => {
                 />,
                 
             key: 15,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[16]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 16,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[17]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 17,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[18]}
+                    renderItem={this._renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 18,   
         },
     
     ];

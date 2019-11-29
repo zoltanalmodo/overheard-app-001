@@ -105,13 +105,30 @@ const authReducer = (state, action) => {
                 overlayStatus: action.payload.overlayStatus  
             };
 
+
+
+
+
+
+            case 'DISPLAY_POPUP_DEAL_CARD_QR':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus  
+            };
+
+
+
+
+
+            
+
         case 'DISPLAY_POPUP_PROFILE':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
                 overlayStatus: action.payload.overlayStatus
             };
-
 
 
 
@@ -248,23 +265,15 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
     try {
         const response = await trackerApi.post('/reps/login', { email, password });
 
-        // console.log(response.data);
-
         await AsyncStorage.setItem('token', response.data.token);
 
         const repObject = jwt_decode(response.data.token);
 
         dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
 
-        // console.log( repObject );  // +++OK+++
-
         navigate('ConfirmRepPlatformScreen');
 
-        // *** COPY UNIQUE REP LINK ***  >>> to >>>  < Operation System Clipboard > !!!  
-
     } catch (err) {
-
-        // console.log(err.message);
 
         dispatch({ type: 'add_error', payload: 'RepPlatform =error='});
     }
@@ -329,6 +338,22 @@ const displayPopUpDealCard = dispatch => () => {
         payload: { overlayType: "DealCard", overlayStatus: true }
     })
 };
+
+
+
+
+
+const displayPopUpDealCardQR = dispatch => () => {
+    dispatch({
+        type: 'DISPLAY_POPUP_DEAL_CARD_QR',
+        payload: { overlayType: "DealCardQR", overlayStatus: true }
+    })
+};
+
+
+
+
+
 const displayPopUpProfile = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_PROFILE',
@@ -367,6 +392,11 @@ export const { Provider, Context } = createDataContext(
 
         displayPopUpDealsMenu,
         displayPopUpDealCard,
+
+
+        displayPopUpDealCardQR,
+
+
         displayPopUpProfile,
 
         hidePopUpDealsMenu,
@@ -383,7 +413,6 @@ export const { Provider, Context } = createDataContext(
         hidePopUpDealsMenu: { overlayType: "", overlayStatus: false },
         hidePopUpDealCard: { overlayType: "", overlayStatus: false },
         hidePopUpProfile: { overlayType: "", overlayStatus: false }
-
     }
 
 );

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { AppRegistry, TextInput, View, Linking, Text, StyleSheet, ImageBackground, Button, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 
 import QRCode from 'react-native-qrcode-svg';
 
@@ -11,17 +11,15 @@ import { navigate } from '../../navigationRef';
 
 const DealCardQRPopUpScreen = ({navigation}, props) => {
 
-    const { state, repPlatform } = useContext(AuthContext);
+    const { state } = useContext(AuthContext);
 
     return (
     <ImageBackground source={backimage} style={styles.container}>
         
         <View style={styles.dealPopUpCardPosition}>
             <View style={styles.dealImagePosition}>
-                <View>
 
                     <View style={styles.cardImageContainer}>
-
                         <View style={styles.dealImage}>
 
                             <QRCode
@@ -30,13 +28,10 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
                                 color="black"
                                 backgroundColor="white"
                             />
-                            
-
 
                         </View>
                     </View>
 
-                </View>
             </View>
 
             <View style={styles.dealDescriptionPosition}>
@@ -57,8 +52,9 @@ const DealCardQRPopUpScreen = ({navigation}, props) => {
             </View>
         </View>
 
-            
+
     </ImageBackground>
+
     )
 };
 

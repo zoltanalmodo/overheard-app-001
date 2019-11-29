@@ -8,7 +8,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 
 
-const DealCardPopUp = ({navigation}, props) => {
+const DealCardPopUpQR = ({navigation}, props) => {
 
     const { state, displayPopUpDealCardQR } = useContext(AuthContext)
 
@@ -53,17 +53,14 @@ const DealCardPopUp = ({navigation}, props) => {
                 <View>
                     <View style={styles.cardImageContainer}>
                         <View>                  
-                            <Image
-                                style={styles.dealImage}
-                                source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
-                        
+                                                
 
-                            {/* <QRCode
+                            <QRCode
                                 value={state.userObject.id}
                                 size={258}
                                 color="black"
                                 backgroundColor="white"
-                            /> */}
+                            />
 
                         
                         </View>
@@ -73,7 +70,21 @@ const DealCardPopUp = ({navigation}, props) => {
 
             <View style={styles.dealDescriptionPosition}>
                 <View style={styles.dealDescriptionGreen}>
-                    <View style={styles.cardTextContainerOrange}>
+
+
+                    <View style={styles.instructionsPosition}>
+                        <Text style={styles.instructions}>
+                            
+                            Please Present
+                            This Code
+                            To The Merchant
+                            To Scan
+                        
+                        </Text>
+                    </View>
+
+
+                    {/* <View style={styles.cardTextContainerOrange}>
                         <Text style={styles.cardTextName} >{state.cardObject.name}</Text>
                         <Text style={styles.cardTextMainOffer}>{state.cardObject.mainOffer}</Text>
                         <Text style={styles.cardTextOfferSmall}>{state.cardObject.offerSmall}</Text>
@@ -91,7 +102,11 @@ const DealCardPopUp = ({navigation}, props) => {
                             <Image source={tagsIcon} style={styles.imgTags}/>
                             <Text style={styles.cardTextTags}>{state.cardObject.tags}</Text>
                         </View>
-                    </View>
+                    </View> */}
+
+                    
+
+
                 </View>
             </View>
 
@@ -103,7 +118,7 @@ const DealCardPopUp = ({navigation}, props) => {
 };
 
 
-DealCardPopUp.navigationOptions = () => {
+DealCardPopUpQR.navigationOptions = () => {
     return {
         header: null
     };
@@ -257,6 +272,18 @@ const styles = StyleSheet.create({
         marginBottom: 3,
     },
 
+    instructionsPosition: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+    instructions: {
+        marginTop: 90,
+        fontSize: 24,
+        textAlign: 'center',
+        color: 'black',
+        fontWeight: '800',
+    },
+
 });
 
-export default DealCardPopUp;
+export default DealCardPopUpQR;
