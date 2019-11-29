@@ -36,7 +36,6 @@ const authReducer = (state, action) => {
                 userObject: action.payload.userObject
             };
 
-    
         case 'repLogin':
             return {
                 ...state,
@@ -44,8 +43,6 @@ const authReducer = (state, action) => {
                 token: action.payload.token,
                 repObject: action.payload.repObject
             };
-
-        
     
         case 'repPlatform':
             return {
@@ -54,8 +51,6 @@ const authReducer = (state, action) => {
                 token: action.payload.token,
                 repObject: action.payload.repObject
             };
-        
-
 
         case 'add_success':
             return {
@@ -64,7 +59,6 @@ const authReducer = (state, action) => {
                 token: action.payload.token,
                 repObject: action.payload.repObject
             };
-
 
         case 'repRegister':
             return {
@@ -91,18 +85,61 @@ const authReducer = (state, action) => {
                 cardObject: action.payload
             };
 
-            case 'DISPLAY_POPUP':
-                return {
-                    ...state,
-                    displayPopUp: action.payload,
-                };
 
-            case 'HIDE_POPUP':
-                return {
-                    ...state,
-                    displayPopUp: action.payload,
-                };
 
+
+
+            
+
+        case 'DISPLAY_POPUP_DEALS_MENU':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus  
+            };
+
+        case 'DISPLAY_POPUP_DEAL_CARD':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus  
+            };
+
+        case 'DISPLAY_POPUP_PROFILE':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+
+
+
+
+
+        case 'HIDE_POPUP_DEALS_MENU':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+
+        case 'HIDE_POPUP_DEAL_CARD':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+                
+            };
+
+        case 'HIDE_POPUP_PROFILE':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+
+
+        
         default:
             return state;
     }
@@ -115,11 +152,9 @@ const login = (dispatch) => async ({ email, password }) => {
     try {
         const response = await trackerApi.post('/login', { email, password });
 
-        // console.log(response.data);
-
         await AsyncStorage.setItem('token', response.data.token);
 
-        const userObject = jwt_decode(response.data.token); //same logic for the RepLoginScreen === const repObject = jwt
+        const userObject = jwt_decode(response.data.token);
 
         dispatch({ type: 'login', payload: {token: response.data.token, userObject} });
 
@@ -281,27 +316,74 @@ const setCategory = dispatch => category => {
     });
 };
 
-const displayPopUp = dispatch => displayPopUp => {
+const displayPopUpDealsMenu = dispatch => () => {
     dispatch({
-        type: 'DISPLAY_POPUP',
-        payload: true,
+    type: 'DISPLAY_POPUP_DEALS_MENU',
+    payload: { overlayType: "DealsMenu", overlayStatus: true }
+    })
+
+};
+const displayPopUpDealCard = dispatch => () => {
+    dispatch({
+        type: 'DISPLAY_POPUP_DEAL_CARD',
+        payload: { overlayType: "DealCard", overlayStatus: true }
+    })
+};
+const displayPopUpProfile = dispatch => () => {
+    dispatch({
+        type: 'DISPLAY_POPUP_PROFILE',
+        payload: { overlayType: "Profile", overlayStatus: true }
 
     })
 };
 
-const hidePopUp = dispatch => displayPopUp => {
+
+const hidePopUpDealsMenu = dispatch => () => {
     dispatch({
-        type: 'HIDE_POPUP',
-        payload: false,
+        type: 'HIDE_POPUP_DEALS_MENU',
+        payload: { overlayType: "", overlayStatus: false }
 
     })
-}
+};
+const hidePopUpDealCard = dispatch => () => {
+    dispatch({
+        type: 'HIDE_POPUP_DEAL_CARD',
+        payload: { overlayType: "", overlayStatus: false }
+
+    })
+};
+const hidePopUpProfile = dispatch => () => {
+    dispatch({
+        type: 'HIDE_POPUP_PROFILE',
+        payload: { overlayType: "", overlayStatus: false }
+    })
+};
 
 
 export const { Provider, Context } = createDataContext(
     authReducer,
     { login, resetPassword, repLogin, signOut, repRegister, repPlatform,
-        resetRepPassword, setCategory, cardObject, displayPopUp, hidePopUp },
-    { token: null, errorMessage: '', userObject: {}, repObject: {}, displayPopUp: false, }
+        resetRepPassword, setCategory, cardObject,
+
+        displayPopUpDealsMenu,
+        displayPopUpDealCard,
+        displayPopUpProfile,
+
+        hidePopUpDealsMenu,
+        hidePopUpDealCard,
+        hidePopUpProfile,
+
+    },
+    { token: null, errorMessage: '', userObject: {}, repObject: {},
+
+        displayPopUpDealsMenu: { overlayType: "", overlayStatus: false },
+        displayPopUpDealCard: { overlayType: "", overlayStatus: false },
+        displayPopUpProfile: { overlayType: "", overlayStatus: false },
+
+        hidePopUpDealsMenu: { overlayType: "", overlayStatus: false },
+        hidePopUpDealCard: { overlayType: "", overlayStatus: false },
+        hidePopUpProfile: { overlayType: "", overlayStatus: false }
+
+    }
 
 );

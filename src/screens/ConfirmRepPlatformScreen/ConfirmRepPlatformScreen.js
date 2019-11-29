@@ -49,19 +49,17 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
             </View>   
         </View>
 
-{/* kok */}
+
 
         <View style={styles.repLinkCopiedButtonPosition}>
             <View style={styles.repLinkCopiedButton}>                    
                                
                 <Button title= "<<< Log Out >>>" onPress={() => navigation.navigate('RepLoginScreen')} />
 
-{/* kok - state.errorMessage:'' */}               
-                
+               
             </View>
         </View>
 
-        
 
         
     </ImageBackground>

@@ -13,7 +13,7 @@ String.prototype.capitalize = function() {
 
 const DealCard = (props) => {
 
-    const { state, cardObject, displayPopUp } = useContext(AuthContext);
+    const { state, cardObject, displayPopUpDealCard } = useContext(AuthContext);
 
 
     return (
@@ -44,7 +44,8 @@ const DealCard = (props) => {
 
                     });
 
-                        displayPopUp()
+                        displayPopUpDealCard()
+
                     }}
                 >
 

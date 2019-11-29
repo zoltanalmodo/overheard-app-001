@@ -7,7 +7,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const HeaderButtons = ({navigation}) => {
 
-    const { displayPopUp } = useContext(AuthContext);
+    const { displayPopUpDealsMenu, displayPopUpProfile } = useContext(AuthContext);
     
     // const [Categories, setCategories] = useState('');
 
@@ -20,16 +20,13 @@ const HeaderButtons = ({navigation}) => {
                             
             // = TEST =======================================
 
-                    onPress={ () => displayPopUp() }
+                    onPress={ () => displayPopUpDealsMenu() }
+
+                    // Filter Deals => return =>
+                    // Carousel with filtered list()}
 
             // = TEST =======================================
 
-
-                // onPress={ () =>
-                // triggerProfileOverlay => return =>
-                // Filter Deals => return =>
-                // Carousel with filtered list()}
-                        
             >
                                 
                 <View style={styles.categoriesButtonBox}>
@@ -84,8 +81,14 @@ const HeaderButtons = ({navigation}) => {
             <TouchableOpacity style={styles.touchableOpacity}
                             
                 
-                onPress={ () => displayPopUp() }
-            
+                onPress={ () => displayPopUpProfile() }
+
+
+                // onPress={ () => display overlay profile panel =>
+                // return => Profile panel content
+
+
+
             >
                     
                 <View style={styles.profileButtonBox}>

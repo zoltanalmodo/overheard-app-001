@@ -32,6 +32,7 @@ const ReactNativeSnapCarousel = () => {
     const currentDeals = deals.filter(deal => deal.category.includes(state.category));
 
 
+    
     // ===================== chunking SLICE loop ===================== start
 
         function chunkSlice(arrayToSlice, size) {
@@ -51,28 +52,35 @@ const ReactNativeSnapCarousel = () => {
     const DATA = [
 
         {
-            content: <Text style={styles.categoryText}>{state.category}</Text>,
+            content:
+                <View style={styles.centerShit}>
+                    <View>
+                    <Text style={styles.categoryText}>{state.category}</Text>
+                    </View>
+                </View>,
             key: 'deals-title'
         },
         {   
             content:
-
-                <Carousel
-                    data={chunkSlice(currentDeals, 6)[chunkSlice(currentDeals, 6).length - chunkSlice(currentDeals, 6).length]}
-                    renderItem={this._renderCarouselRow}
-                    sliderWidth={deviceDisplayWidth}
-                    sliderHeight={260}
-                    itemWidth={140}
-                    itemHeight={260}
-                    loop={true}
-
-                    contentContainerCustomStyle={{
-                        height: 264,
-                        marginTop: 5,
-                        flexGrow: 0,
-                    }}
-                />,
                 
+                <View style={styles.centerShit}>
+                    <Carousel
+                        data={chunkSlice(currentDeals, 6)[0]}
+                        renderItem={this._renderCarouselRow}
+                        sliderWidth={deviceDisplayWidth}
+                        sliderHeight={260}
+                        itemWidth={140}
+                        itemHeight={260}
+                        loop={true}
+
+                        contentContainerCustomStyle={{
+                            height: 264,
+                            marginTop: 5,
+                            flexGrow: 0,
+                        }}
+                    />
+                </View>,
+
             key: 0,   
         },
         {   
@@ -468,12 +476,35 @@ const styles = StyleSheet.create({
 
     },
 
+    centerShit: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        flex: 1,
+    },
+
     categoryText: {
+
+        // backgroundColor: 'magenta',
+
+        width: 160,
+        height: 20,
+
         marginTop: 5,
         marginBottom: 2,
         fontSize: 16,
         fontWeight: '800',
         textAlign: 'center',
+    },
+
+    slideCard: {
+        
+        flexDirection: 'row',
+        justifyContent: 'center',
+        flex: 1,
+
+        // borderWidth: 2,
+        // borderColor: 'red',
+    
     },
 
 });

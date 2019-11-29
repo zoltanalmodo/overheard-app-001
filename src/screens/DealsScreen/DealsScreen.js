@@ -8,42 +8,62 @@ import ReactNativeSnapCarousel from '../../components/ReactNativeSnapCarousel/Re
 import { Context as AuthContext } from '../../context/AuthContext';
 
 
-import Overlay from 'react-native-modal-overlay';
+import OverlayDealCard from 'react-native-modal-overlay';
+import OverlayDealsMenu from 'react-native-modal-overlay';
+import OverlayProfile from 'react-native-modal-overlay';
 
 
 const deviceDisplayWidth = Dimensions.get('window').width;
+
+
+
 
 // ===== COMPONENT =====
 
     const DealsScreen = ({navigation}) => {
 
 
-        const { state, displayPopUp, hidePopUp } = useContext(AuthContext);
+        const { state, hidePopUpDealsMenu, hidePopUpDealCard, hidePopUpProfile  } = useContext(AuthContext);
 
-        return (
-            
-        <ImageBackground source={backimage} style={styles.container} >
 
-            <Header />
+        const renderOverlayType = () => state.overlayType === "DealsMenu" ?
+        
+            <OverlayDealsMenu
 
-            <Overlay
-
-                containerStyle={styles.containerStyle}
-
-                visible={ state.displayPopUp }
-
-                onClose={ () => hidePopUp() }
-                
+                containerStyle={styles.containerStyleDealsMenu}
+                visible={ state.overlayStatus }
+                onClose={ () => hidePopUpDealsMenu() }
                 closeOnTouchOutside
+                childrenWrapperStyle={styles.childrenWrapperStyleDealsMenu}
+                animationType={'fadeInDown'}
+                animationOutType={'fadeOutUpBig'}
 
-                childrenWrapperStyle={styles.childrenWrapperStyle}
+            >
 
-                // animationType={'fadeInDown'}
-                // animationOutType={'fadeOutUp'}
+                <View style={styles.cardContentCenter}>
 
-                animationType={'zoomIn'}
-                animationOutType={'zoomOut'}
-                >
+                    <Text style={styles.cardPopUpContentText}>========================</Text>
+                    <Text style={styles.cardPopUpContentText}>====== Deals Menu ======</Text>
+                    <Text style={styles.cardPopUpContentText}>========================</Text>
+
+                </View>
+
+            </OverlayDealsMenu>
+
+        :   state.overlayType === "DealCard" ?
+
+            <OverlayDealCard
+
+            containerStyle={styles.containerStyleDealCard}
+            visible={ state.overlayStatus }
+            onClose={ () => hidePopUpDealCard() }
+            closeOnTouchOutside
+            childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
+            animationType={'zoomIn'}
+            animationOutType={'zoomOut'}
+
+            >
+
                 <View style={styles.cardContentCenter}>
 
                     <Text style={styles.cardPopUpContentText}>========================</Text>
@@ -56,13 +76,50 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
                 </View>
 
-            </Overlay>
+            </OverlayDealCard>
 
-            
+        : state.overlayType === "Profile" ?
 
-            <ReactNativeSnapCarousel />
-            
-        </ImageBackground>
+                <OverlayProfile
+
+                    containerStyle={styles.containerStyleProfile}
+                    visible={ state.overlayStatus }
+                    onClose={ () => hidePopUpProfile() }
+                    closeOnTouchOutside
+                    childrenWrapperStyle={styles.childrenWrapperStyleProfile}
+                    animationType={'fadeInDown'}
+                    animationOutType={'fadeOutUpBig'}
+                        
+                >
+
+                    <View style={styles.cardContentCenter}>
+
+                        <Text style={styles.cardPopUpContentText}>========================</Text>
+                        <Text style={styles.cardPopUpContentText}>======== Profile =======</Text>
+                        <Text style={styles.cardPopUpContentText}>========================</Text>
+
+                    </View>
+
+                </OverlayProfile>
+
+        : <View></View>
+
+     
+
+        return (
+
+            <ImageBackground source={backimage} style={styles.container} >
+
+
+                <Header />
+
+                <ReactNativeSnapCarousel />
+
+                {renderOverlayType()}        
+
+                
+            </ImageBackground>
+
         )
     };
 
@@ -82,46 +139,84 @@ const styles = StyleSheet.create({
         // remove width and height to override fixed static size
         width: null,
         height: null,
-      },
+    },
+
+
     
-    containerStyle: {
-
-        backgroundColor: 'hsla(120, 0%, 99%, 0.45)',
-
+    containerStyleDealCard: {
+        backgroundColor: 'hsla(120, 0%, 99%, 0.40)',
         flexDirection: 'column',
         justifyContent: 'center',
-
         alignText: 'center',
-
         flex: 1,
         // remove width and height to override fixed static size
         width: null,
         height: null,
-
     },
-
-    childrenWrapperStyle: {
-
-        
+    childrenWrapperStyleDealCard: {
         marginLeft: (deviceDisplayWidth / 2),
         left: -130,
-
         marginRight: (deviceDisplayWidth / 2),
         right: -130,
-        
-
         width: 260,
         height: 520,
-
         backgroundColor: 'hsla(300, 71%, 100%, 1)',
-
         borderWidth: 1,
         borderColor: 'gray',
         position: 'absolute',
-
     },
 
 
+
+
+
+    containerStyleDealsMenu: {
+        backgroundColor: 'hsla(120, 0%, 99%, 0.0)',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignText: 'center',
+        flex: 1,
+        // remove width and height to override fixed static size
+        width: null,
+        height: null,
+    },
+    childrenWrapperStyleDealsMenu: {
+        marginTop: 0,
+        top: 123,
+        width: 260,
+        height: 480,
+        backgroundColor: 'hsla(129, 70%, 84%, 0.96)',
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: 'black',
+        position: 'absolute',
+    },
+
+
+
+
+
+    containerStyleProfile: {
+        backgroundColor: 'hsla(300, 0%, 99%, 0.0)',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignText: 'center',
+        flex: 1,
+        // remove width and height to override fixed static size
+        width: null,
+        height: null,
+    },
+    childrenWrapperStyleProfile: {
+        marginTop: 0,
+        top: 123,
+        width: 260,
+        height: 480,
+        backgroundColor: 'hsla(50, 97%, 86%, 0.96)',
+        borderLeftWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: 'black',
+        position: 'absolute',
+    },
 
 });
 

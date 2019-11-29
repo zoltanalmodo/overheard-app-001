@@ -13,8 +13,7 @@ import { navigate } from '../../navigationRef';
 
 const DealCardPopUpScreen = ({navigation}, props) => {
 
-    const { state, repPlatform } = useContext(AuthContext);
-
+    const { state } = useContext(AuthContext);
 
 
     const renderDealButton = () => state.cardObject.offline ?

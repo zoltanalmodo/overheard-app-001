@@ -59,17 +59,13 @@ const switchNavigator = createSwitchNavigator ({
       //===========================================test
 
       
-
       // ReactNativeSnapCarousel: ReactNativeSnapCarousel,
-      
 
             
       // ReactNativeModalOverlay: ReactNativeModalOverlay,
 
 
-
       // ProfileScreen: ProfileScreen,
-
       
 
       //===========================================test
@@ -82,7 +78,6 @@ const switchNavigator = createSwitchNavigator ({
 
       //==========================================build
       
-
       LoginScreen: LoginScreen,
       ResetPasswordScreen: ResetPasswordScreen,
       RepLoginScreen: RepLoginScreen,
