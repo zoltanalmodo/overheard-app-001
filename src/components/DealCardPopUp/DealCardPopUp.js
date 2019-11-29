@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Linking, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Linking, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import tagsIcon from '../../img/tag-icon.png'
@@ -11,16 +11,17 @@ import { navigate } from '../../navigationRef';
 
 
 
-const DealCardPopUpScreen = ({navigation}, props) => {
+const DealCardPopUp = ({navigation}, props) => {
 
-    const { state } = useContext(AuthContext);
+    const { state } = useContext(AuthContext)
+
 
 
     const renderDealButton = () => state.cardObject.offline ?
         
         <TouchableOpacity style={styles.touchableOpacity}
                         
-            onPress={ () => navigate('DealCardQRPopUpScreen')} >
+            onPress={ () => navigate('DealCardQRPopUpScreen') } >
 
             <View style={styles.cardButton}>     
                 <Text style={styles.cardButtonText}>CLAIM</Text>
@@ -28,13 +29,10 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
         </TouchableOpacity>
 
-    :   state.cardObject.name === 'Capital Cabs' ?
-
+    :   state.cardObject.link === "" ?
         <Text></Text>
 
-    :
-
-        <TouchableOpacity style={styles.touchableOpacity}
+    :   <TouchableOpacity style={styles.touchableOpacity}
                             
             onPress={ () => Linking.openURL(state.cardObject.link)} >
 
@@ -46,9 +44,11 @@ const DealCardPopUpScreen = ({navigation}, props) => {
     
 
 
+
+
     return (
 
-        <ImageBackground source={backimage} style={styles.container}>
+        // <ImageBackground source={backimage} style={styles.container}>
             
             <View style={styles.dealPopUpCardPosition}>
             
@@ -105,12 +105,12 @@ const DealCardPopUpScreen = ({navigation}, props) => {
 
             </View>
 
-        </ImageBackground>
+        // </ImageBackground>
     );
 };
 
 
-DealCardPopUpScreen.navigationOptions = () => {
+DealCardPopUp.navigationOptions = () => {
     return {
         header: null
     };
@@ -124,45 +124,56 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
 
 
-        // borderWidth: 2,
+        // // borderWidth: 2,
         // borderColor: 'red',
         
-        flex: 1,
+        // flex: 1,
         // remove width and height to override fixed static size
         // width: null,
         // height: null,
     },
 
     dealPopUpCardPosition: {
-        
-    },
+        flexDirection: 'column',
+        justifyContent: 'center',
 
+        height: 571,
+        width: 260,
+
+        // borderColor: 'red',
+        // borderWidth: 2,
+       
+    },
+        
     dealImagePosition: {
         flexDirection: 'row',
         justifyContent: 'center',
     },
+
     dealImage: {
-        width: 280,
-        height: 280,
+        width: 258,
+        height: 260,
         backgroundColor: 'white',
 
-        borderWidth: 1,
-        borderColor: 'grey',
+        // borderWidth: 1,
+        // borderColor: 'grey',
     },
 
 
     dealDescriptionPosition: {
-        marginTop: -2,
+        marginTop: -1,
         flexDirection: 'row',
         justifyContent: 'center',
     },
     dealDescriptionGreen: {
-        width: 280,
-        height: 280,
+        width: 258,
+        height: 310,
         backgroundColor: 'white',
 
-        borderWidth: 1,
-        borderColor: 'grey',
+        paddingLeft: 5,
+        paddingRight: 5,
+        borderTopWidth: 1,
+        borderColor: 'gray',
 
         textAlign: 'center',
     },
@@ -170,9 +181,12 @@ const styles = StyleSheet.create({
     cardTextContainerOrange: {
         flexDirection: 'column',
         justifyContent: 'space-between',
-        height: 229,
+        height: 249,
 
         // backgroundColor: 'orange',
+
+        // borderWidth: 2,
+        // borderColor: 'orange',
 
     },
 
@@ -213,20 +227,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         position: 'relative',
         textAlign: 'center',
+
+        // borderWidth: 2,
+        // borderColor: 'cyan',
     },
     cardButtonSectionRed: {
         position: 'absolute',
         bottom: -1,
-        width: 278,
+        width: 258,
         height: 51,
         textAlign: 'center',
 
-        // backgroundColor: 'red'
+        // borderWidth: 2,
+        // borderColor: 'blue',
     },
     cardButton: {
-        width: 270,
+        width: 250,
         height: 25,
         backgroundColor: '#FF8D4F',
+        // backgroundColor: 'red',
+
     },
     cardButtonText: {
         paddingTop: 5,
@@ -239,7 +259,7 @@ const styles = StyleSheet.create({
     touchableOpacity: {
         flexDirection: 'row',
         justifyContent: 'center',
-        width: '95%',
+        width: '90%',
         height: 25,
         backgroundColor: '#FF8D4F',
         textAlign: 'center',
@@ -249,4 +269,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default DealCardPopUpScreen;
+export default DealCardPopUp;

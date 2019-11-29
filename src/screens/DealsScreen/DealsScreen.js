@@ -12,6 +12,8 @@ import OverlayDealCard from 'react-native-modal-overlay';
 import OverlayDealsMenu from 'react-native-modal-overlay';
 import OverlayProfile from 'react-native-modal-overlay';
 
+import DealCardPopUp from '../../components/DealCardPopUp/DealCardPopUp';
+
 
 const deviceDisplayWidth = Dimensions.get('window').width;
 
@@ -64,16 +66,10 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
             >
 
-                <View style={styles.cardContentCenter}>
-
-                    <Text style={styles.cardPopUpContentText}>========================</Text>
-                    <Text style={styles.cardPopUpContentText}>========================</Text>
-                    <Text style={styles.cardPopUpContentText}>========= DEAL =========</Text>
-                    <Text style={styles.cardPopUpContentText}>========= CARD =========</Text>
-                    <Text style={styles.cardPopUpContentText}>======== POP UP ========</Text>
-                    <Text style={styles.cardPopUpContentText}>========================</Text>
-                    <Text style={styles.cardPopUpContentText}>========================</Text>
-
+                <View>
+                    
+                    <DealCardPopUp />
+                    
                 </View>
 
             </OverlayDealCard>
@@ -154,16 +150,23 @@ const styles = StyleSheet.create({
         height: null,
     },
     childrenWrapperStyleDealCard: {
+
+        flexDirection: 'column',
+        justifyContent: 'center',
+
         marginLeft: (deviceDisplayWidth / 2),
         left: -130,
         marginRight: (deviceDisplayWidth / 2),
         right: -130,
         width: 260,
-        height: 520,
+        height: 571,
+        backgroundColor: 'hsla(300, 71%, 50%, 1)',
         backgroundColor: 'hsla(300, 71%, 100%, 1)',
         borderWidth: 1,
         borderColor: 'gray',
         position: 'absolute',
+
+        backgroundColor: 'yellow'
     },
 
 

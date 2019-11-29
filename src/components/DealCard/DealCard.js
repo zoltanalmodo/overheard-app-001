@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, Image, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { navigate } from '../../navigationRef';
 
 import { Context as AuthContext } from '../../context/AuthContext';
@@ -13,7 +13,7 @@ String.prototype.capitalize = function() {
 
 const DealCard = (props) => {
 
-    const { state, cardObject, displayPopUpDealCard } = useContext(AuthContext);
+    const { cardObject, displayPopUpDealCard } = useContext(AuthContext);
 
 
     return (
@@ -111,7 +111,8 @@ const DealCard = (props) => {
 
                                     });
 
-                                        displayPopUp()
+                                        displayPopUpDealCard()
+
                                     }}
                                 >
                                         
@@ -158,12 +159,11 @@ const styles = StyleSheet.create({
         height: 137,
 
         borderWidth: 1,
-        // borderColor: '#dfdfdf',
         borderColor: 'grey',
 
     },
 
-    
+
 
     cardTextDescription: {
         flexDirection: 'column',
@@ -176,7 +176,6 @@ const styles = StyleSheet.create({
         fontSize: 14,
         paddingLeft: 10,
         paddingRight: 10,
-        // fontWeight: '800',
         textAlign: 'center',
     },
 

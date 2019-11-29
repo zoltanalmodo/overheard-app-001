@@ -36,13 +36,15 @@ import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarn
 import DealCardQRPopUpScreen from './src/screens/DealCardQRPopUpScreen/DealCardQRPopUpScreen';
 import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileResetPasswordScreen/ConfirmProfileResetPasswordScreen';
 
+
+import DealCardPopUp from './src/components/DealCardPopUp/DealCardPopUp'
+
 //===========================================test
 
 
 import ReactNativeSnapCarousel from './src/components/ReactNativeSnapCarousel/ReactNativeSnapCarousel'
 
 import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOverlay'
-
 
 
 //===========================================test
@@ -61,9 +63,7 @@ const switchNavigator = createSwitchNavigator ({
       
       // ReactNativeSnapCarousel: ReactNativeSnapCarousel,
 
-            
       // ReactNativeModalOverlay: ReactNativeModalOverlay,
-
 
       // ProfileScreen: ProfileScreen,
       
@@ -72,10 +72,11 @@ const switchNavigator = createSwitchNavigator ({
 
       //==========================================build
 
-      
-      DealsScreen: DealsScreen,
-      
 
+      DealsScreen: DealsScreen,
+      DealCardPopUp: DealCardPopUp,
+      
+    
       //==========================================build
       
       LoginScreen: LoginScreen,
@@ -107,7 +108,6 @@ const switchNavigator = createSwitchNavigator ({
       ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
-
       
     })
 
