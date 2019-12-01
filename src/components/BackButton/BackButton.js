@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
     backButtonPosition: {
         marginTop: 0,
-        position: 'fixed',
+        position: 'absolute',
         textAlign: 'right',
         zIndex: 55,
         width: 80,

@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(120, 0%, 99%, 0.40)',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignText: 'center',
+        textAlign: 'center',
         flex: 1,
         // remove width and height to override fixed static size
         width: null,
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(120, 0%, 99%, 0.0)',
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        alignText: 'center',
+        textAlign: 'center',
         flex: 1,
         // remove width and height to override fixed static size
         width: null,
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'hsla(300, 0%, 99%, 0.0)',
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        alignText: 'center',
+        textAlign: 'center',
         flex: 1,
         // remove width and height to override fixed static size
         width: null,

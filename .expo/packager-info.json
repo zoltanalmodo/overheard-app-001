@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 33380,
-  "expoServerNgrokUrl": "https://vm-pf5.zoltanalmodo.overheard-app-001.exp.direct",
-  "packagerNgrokUrl": "https://packager.vm-pf5.zoltanalmodo.overheard-app-001.exp.direct",
-  "ngrokPid": 33390,
+  "packagerPid": 35791,
+  "expoServerNgrokUrl": "https://vm-pf5.anonymous.overheard-app-001.exp.direct",
+  "packagerNgrokUrl": "https://packager.vm-pf5.anonymous.overheard-app-001.exp.direct",
+  "ngrokPid": 35809,
   "webpackServerPort": null
 }

@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
 
-        alignText: 'center',
+        textAlign: 'center',
 
         flex: 1,
         // remove width and height to override fixed static size
