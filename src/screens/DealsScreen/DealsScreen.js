@@ -20,7 +20,6 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
 
 
-
 // ===== COMPONENT =====
 
     const DealsScreen = ({navigation}) => {
@@ -57,13 +56,13 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
             <OverlayDealCard
 
-            containerStyle={styles.containerStyleDealCard}
-            visible={ state.overlayStatus }
-            onClose={ () => hidePopUpDealCard() }
-            closeOnTouchOutside
-            childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
-            animationType={'zoomIn'}
-            animationOutType={'zoomOut'}
+                containerStyle={styles.containerStyleDealCard}
+                visible={ state.overlayStatus }
+                onClose={ () => hidePopUpDealCard() }
+                closeOnTouchOutside
+                childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
+                animationType={'zoomIn'}
+                animationOutType={'zoomOut'}
 
             >
 

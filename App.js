@@ -24,7 +24,6 @@ import ConfirmRepPlatformScreen from './src/screens/ConfirmRepPlatformScreen/Con
 import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 
 
-import DealCardPopUpScreen from './src/screens/DealCardPopUpScreen/DealCardPopUpScreen';
 
 
 
@@ -33,11 +32,10 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
-import DealCardQRPopUpScreen from './src/screens/DealCardQRPopUpScreen/DealCardQRPopUpScreen';
 import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileResetPasswordScreen/ConfirmProfileResetPasswordScreen';
 
 
-import DealCardPopUp from './src/components/DealCardPopUp/DealCardPopUp'
+
 
 //===========================================test
 
@@ -74,8 +72,7 @@ const switchNavigator = createSwitchNavigator ({
 
 
       DealsScreen: DealsScreen,
-      DealCardPopUp: DealCardPopUp,
-      
+
     
       //==========================================build
       
@@ -92,9 +89,6 @@ const switchNavigator = createSwitchNavigator ({
     mainFlow: createSwitchNavigator({
         
       DealsScreen: DealsScreen,
-      
-      DealCardPopUpScreen: DealCardPopUpScreen,
-      DealCardQRPopUpScreen: DealCardQRPopUpScreen,
 
       MapUserCenteredScreen: MapUserCenteredScreen,
       MapDealCenteredScreen: MapDealCenteredScreen,
