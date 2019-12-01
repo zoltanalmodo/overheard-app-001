@@ -72,7 +72,7 @@ const switchNavigator = createSwitchNavigator ({
 
       // ProfileScreen: ProfileScreen,
 
-      // DealsScreen: DealsScreen,
+      DealsScreen: DealsScreen,
 
     
       //==========================================build

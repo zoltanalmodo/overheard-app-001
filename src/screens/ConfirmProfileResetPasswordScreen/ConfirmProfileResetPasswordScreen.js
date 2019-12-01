@@ -40,7 +40,9 @@ const ConfirmProfileResetPasswordScreen = ({navigation}) => {
                 <Text style={styles.profileValues}>{ state.userObject.email }</Text>
 
                 <TouchableOpacity style={styles.touchableOpacity}
+
                     onPress={ () => navigate('ProfileScreen')}
+                    
                 >
                     <View style={styles.okButtonPosition}>
                         <Text style={styles.okButton}>* OK *</Text>
@@ -48,12 +50,8 @@ const ConfirmProfileResetPasswordScreen = ({navigation}) => {
                 </TouchableOpacity>
 
 
-
             </View>
-
         </View>
-
-
         
     </ImageBackground>
     )

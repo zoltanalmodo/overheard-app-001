@@ -86,9 +86,6 @@ const authReducer = (state, action) => {
             };
 
 
-
-
-
             
 
         case 'DISPLAY_POPUP_DEALS_MENU':
@@ -98,19 +95,15 @@ const authReducer = (state, action) => {
                 overlayStatus: action.payload.overlayStatus  
             };
 
+
+
         case 'DISPLAY_POPUP_DEAL_CARD':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
                 overlayStatus: action.payload.overlayStatus  
             };
-
-
-
-
-
-
-            case 'DISPLAY_POPUP_DEAL_CARD_QR':
+        case 'DISPLAY_POPUP_DEAL_CARD_QR':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
@@ -119,17 +112,18 @@ const authReducer = (state, action) => {
 
 
 
-
-
-            
-
         case 'DISPLAY_POPUP_PROFILE':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
                 overlayStatus: action.payload.overlayStatus
+            };        
+        case 'DISPLAY_POPUP_PROFILE_CONFIRM_RESET_PASSWORD':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
             };
-
 
 
 
@@ -198,7 +192,7 @@ const cardObject = ( dispatch ) => ( dealObject ) => {
 };
 
 
-// ERROR ===
+// CLEARE ERROR s ==============================================
 // const clearErrors = () => dispatch({ type: 'CLEAR_ERRORS' });
   
 
@@ -341,8 +335,6 @@ const displayPopUpDealCard = dispatch => () => {
 
 
 
-
-
 const displayPopUpDealCardQR = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_DEAL_CARD_QR',
@@ -352,12 +344,19 @@ const displayPopUpDealCardQR = dispatch => () => {
 
 
 
-
-
 const displayPopUpProfile = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_PROFILE',
         payload: { overlayType: "Profile", overlayStatus: true }
+
+    })
+};
+
+
+const displayPopUpProfileConfirmResetPassword = dispatch => () => {
+    dispatch({
+        type: 'DISPLAY_POPUP_PROFILE_CONFIRM_RESET_PASSWORD',
+        payload: { overlayType: "ProfileResetPassword", overlayStatus: true }
 
     })
 };
@@ -398,10 +397,13 @@ export const { Provider, Context } = createDataContext(
 
 
         displayPopUpProfile,
+        displayPopUpProfileConfirmResetPassword,
 
         hidePopUpDealsMenu,
         hidePopUpDealCard,
         hidePopUpProfile,
+
+        
 
     },
     { token: null, errorMessage: '', userObject: {}, repObject: {},
@@ -409,6 +411,7 @@ export const { Provider, Context } = createDataContext(
         displayPopUpDealsMenu: { overlayType: "", overlayStatus: false },
         displayPopUpDealCard: { overlayType: "", overlayStatus: false },
         displayPopUpProfile: { overlayType: "", overlayStatus: false },
+        displayPopUpProfileConfirmResetPassword: { overlayType: "", overlayStatus: false }, 
 
         hidePopUpDealsMenu: { overlayType: "", overlayStatus: false },
         hidePopUpDealCard: { overlayType: "", overlayStatus: false },

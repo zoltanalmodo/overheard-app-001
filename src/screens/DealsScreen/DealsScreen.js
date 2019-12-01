@@ -22,61 +22,69 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
 // ===== COMPONENT =====
 
-    const DealsScreen = ({navigation}) => {
+const DealsScreen = ({navigation}) => {
 
 
-        const { state, hidePopUpDealsMenu, hidePopUpDealCard, hidePopUpProfile  } = useContext(AuthContext);
-
-
-        const renderOverlayType = () => state.overlayType === "DealsMenu" ?
+    const { 
         
-            <OverlayDealsMenu
+        state,
+        hidePopUpDealsMenu,
+        hidePopUpDealCard,
+        hidePopUpProfile,
+        displayPopUpProfileConfirmResetPassword,
+    
+    } = useContext(AuthContext);
 
-                containerStyle={styles.containerStyleDealsMenu}
-                visible={ state.overlayStatus }
-                onClose={ () => hidePopUpDealsMenu() }
-                closeOnTouchOutside
-                childrenWrapperStyle={styles.childrenWrapperStyleDealsMenu}
-                animationType={'fadeInDown'}
-                animationOutType={'fadeOutUpBig'}
 
-            >
+    const renderOverlayType = () => state.overlayType === "DealsMenu" ?
+    
+        <OverlayDealsMenu
 
-                <View style={styles.cardContentCenter}>
+            containerStyle={styles.containerStyleDealsMenu}
+            visible={ state.overlayStatus }
+            onClose={ () => hidePopUpDealsMenu() }
+            closeOnTouchOutside
+            childrenWrapperStyle={styles.childrenWrapperStyleDealsMenu}
+            animationType={'fadeInDown'}
+            animationOutType={'fadeOutUpBig'}
 
-                    <Text style={styles.cardPopUpContentText}>========================</Text>
-                    <Text style={styles.cardPopUpContentText}>====== Deals Menu ======</Text>
-                    <Text style={styles.cardPopUpContentText}>========================</Text>
+        >
 
-                </View>
+            <View style={styles.cardContentCenter}>
 
-            </OverlayDealsMenu>
+                <Text style={styles.cardPopUpContentText}>========================</Text>
+                <Text style={styles.cardPopUpContentText}>====== Deals Menu ======</Text>
+                <Text style={styles.cardPopUpContentText}>========================</Text>
 
-        :   state.overlayType === "DealCard" ?
+            </View>
 
-            <OverlayDealCard
+        </OverlayDealsMenu>
 
-                containerStyle={styles.containerStyleDealCard}
-                visible={ state.overlayStatus }
-                onClose={ () => hidePopUpDealCard() }
-                closeOnTouchOutside
-                childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
-                animationType={'zoomIn'}
-                animationOutType={'zoomOut'}
+    :   state.overlayType === "DealCard" ?
 
-            >
+        <OverlayDealCard
 
-                <View>
-                    
-                    <DealCardPopUp />
-                    
-                </View>
+            containerStyle={styles.containerStyleDealCard}
+            visible={ state.overlayStatus }
+            onClose={ () => hidePopUpDealCard() }
+            closeOnTouchOutside
+            childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
+            animationType={'zoomIn'}
+            animationOutType={'zoomOut'}
 
-            </OverlayDealCard>
+        >
 
-        
+            <View>
+                
+                <DealCardPopUp />
+                
+            </View>
 
-        :   state.overlayType === "DealCardQR" ?
+        </OverlayDealCard>
+
+    
+
+    :   state.overlayType === "DealCardQR" ?
 
         <OverlayDealCard
 
@@ -100,120 +108,167 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
 
 
-        : state.overlayType === "Profile" ?
+    : state.overlayType === "Profile" ?
 
-                <OverlayProfile
+        <OverlayProfile
 
-                    containerStyle={styles.containerStyleProfile}
-                    visible={ state.overlayStatus }
-                    onClose={ () => hidePopUpProfile() }
-                    closeOnTouchOutside
-                    childrenWrapperStyle={styles.childrenWrapperStyleProfile}
-                    animationType={'fadeInDown'}
-                    animationOutType={'fadeOutUpBig'}
-                        
-                >
+            containerStyle={styles.containerStyleProfile}
+            visible={ state.overlayStatus }
+            onClose={ () => hidePopUpProfile() }
+            closeOnTouchOutside
+            childrenWrapperStyle={styles.childrenWrapperStyleProfile}
+            animationType={'fadeInDown'}
+            animationOutType={'fadeOutUpBig'}
+                
+        >
 
-                    <View style={styles.cardContentCenter}>
+            <View style={styles.cardContentCenter}>
 
-                        <View style={styles.infoBox}>
+                <View style={styles.infoBox}>
 
-                            <Text style={styles.profileInitials}>Contact Details:</Text>
+                    <Text style={styles.profileInitials}>Contact Details:</Text>
 
-                            <Text style={styles.profileValues}>First Name:</Text>
-                            <View style={styles.profilePanelTextBoxPosition}>
-                                <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
-                            </View>
-
-                            <Text style={styles.profileValues}>Surname:</Text>
-                            <View style={styles.profilePanelTextBoxPosition}>
-                                <Text style={styles.profilePanelTextBox} >{ state.userObject.last }</Text>
-                            </View>
-
-                            <Text style={styles.profileValues}>E-mail address:</Text>
-                            <View style={styles.profilePanelTextBoxPosition}>
-                                <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
-                            </View>
-
-                            <Text style={styles.profileValues}>Renewal Date:</Text>
-                            <View style={styles.profilePanelTextBoxPosition}>
-                                <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
-                            </View>
-
-                            <Text style={styles.profileValues}>University:</Text>
-                            <View style={styles.profilePanelTextBoxPosition}>
-                                <Text style={styles.profilePanelTextBox} >{ state.userObject.university }</Text>
-                            </View>
-
-
-
-                            <TouchableOpacity style={styles.touchableOpacity}
-                                onPress={ () => navigate('ConfirmProfileResetPasswordScreen')}
-                                
-                            >                    
-                                <View style={styles.profileButtonPosition}>
-                                    <Text style={styles.profileButton}>Reset Password</Text>
-
-                                </View>
-                            </TouchableOpacity>
-
-
-
-                            <TouchableOpacity style={styles.touchableOpacity}
-                                onPress={ () => navigate('ProfileWarningScreen')}
-                            >                    
-                                <View style={styles.profileButtonPosition}>
-                                    <Text style={styles.profileButton}>Cancel Subscription</Text>
-
-                                </View>
-                            </TouchableOpacity>
-
-
-
-                            <TouchableOpacity style={styles.touchableOpacity}
-                                onPress={ () => navigate('LoginScreen')}
-                            >                    
-                                <View style={styles.profileButtonPosition}>
-                                    <Text style={styles.profileLogOutButton}>Log Out</Text>
-
-                                </View>
-                            </TouchableOpacity>
-
-                        </View>
-
-
+                    <Text style={styles.profileValues}>First Name:</Text>
+                    <View style={styles.profilePanelTextBoxPosition}>
+                        <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
                     </View>
 
-                </OverlayProfile>
+                    <Text style={styles.profileValues}>Surname:</Text>
+                    <View style={styles.profilePanelTextBoxPosition}>
+                        <Text style={styles.profilePanelTextBox} >{ state.userObject.last }</Text>
+                    </View>
 
-        : <View></View>
+                    <Text style={styles.profileValues}>E-mail address:</Text>
+                    <View style={styles.profilePanelTextBoxPosition}>
+                        <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
+                    </View>
 
-     
+                    <Text style={styles.profileValues}>Renewal Date:</Text>
+                    <View style={styles.profilePanelTextBoxPosition}>
+                        <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
+                    </View>
 
-        return (
+                    <Text style={styles.profileValues}>University:</Text>
+                    <View style={styles.profilePanelTextBoxPosition}>
+                        <Text style={styles.profilePanelTextBox} >{ state.userObject.university }</Text>
+                    </View>
 
-            <ImageBackground source={backimage} style={styles.container} >
 
 
-                <Header />
+                    <TouchableOpacity style={styles.touchableOpacity}
+                        onPress={ () => displayPopUpProfileConfirmResetPassword() }
+                        
+                    >                    
+                        <View style={styles.profileButtonPosition}>
+                            <Text style={styles.profileButton}>Reset Password</Text>
 
-                <ReactNativeSnapCarousel />
+                        </View>
+                    </TouchableOpacity>
 
-                {renderOverlayType()}        
 
+
+                    <TouchableOpacity style={styles.touchableOpacity}
+                        onPress={ () => navigate('ProfileWarningScreen')}
+                    >                    
+                        <View style={styles.profileButtonPosition}>
+                            <Text style={styles.profileButton}>Cancel Subscription</Text>
+
+                        </View>
+                    </TouchableOpacity>
+
+
+
+                    <TouchableOpacity style={styles.touchableOpacity}
+                        onPress={ () => navigate('LoginScreen')}
+                    >                    
+                        <View style={styles.profileButtonPosition}>
+                            <Text style={styles.profileLogOutButton}>Log Out</Text>
+
+                        </View>
+                    </TouchableOpacity>
+
+                </View>
+
+
+            </View>
+
+        </OverlayProfile>
+
+    : state.overlayType === "ProfileResetPassword" ?
+    
+        <OverlayProfile
+
+            containerStyle={styles.containerStyleProfile}
+            visible={ state.overlayStatus }
+            onClose={ () => hidePopUpProfile() }
+            closeOnTouchOutside
+            childrenWrapperStyle={styles.childrenWrapperStyleProfile}
+            animationType={'fadeInDown'}
+            animationOutType={'fadeOutUpBig'}
                 
-            </ImageBackground>
+        >
+            
+            <View style={styles.infoBoxProfileConfirmPassword} >
+                <Text style={styles.profileConfirmPasswordValues}>
+                    A Link To Reset
+                </Text>
+                <Text style={styles.profileConfirmPasswordValues}>
+                    Your Password
+                </Text>
+                <Text style={styles.profileConfirmPasswordValues}>
+                    Has Been
+                </Text>
+                <Text style={styles.profileConfirmPasswordValues}>
+                    SENT To:
+                </Text>
 
-        )
-    };
+                <Text style={styles.profileConfirmPasswordValues}>{ state.userObject.email }</Text>
+
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => hidePopUpProfile() }
+                >
+                    <View style={styles.okButtonPosition}>
+                        <Text style={styles.okButton}>* OK *</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+
+        </OverlayProfile>
+
+    
+
+    : <View></View>
+
+    return (
+
+        <ImageBackground source={backimage} style={styles.container} >
 
 
+            <Header />
+
+            <ReactNativeSnapCarousel />
+
+            {renderOverlayType()}        
+
+            
+        </ImageBackground>
+
+    )
+};
+
+
+
+
+// CLEAR HEADER =======================================================
 
 DealsScreen.navigationOptions = () => {
     return {
         header: null
     };
 };
+
+
+// STYLES =============================================================
 
 const styles = StyleSheet.create({
     container: {
@@ -224,7 +279,6 @@ const styles = StyleSheet.create({
         width: null,
         height: null,
     },
-
 
     
     containerStyleDealCard: {
@@ -254,11 +308,7 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
         position: 'absolute',
 
-        // backgroundColor: 'magenta'
     },
-
-
-
 
 
     containerStyleDealsMenu: {
@@ -284,9 +334,6 @@ const styles = StyleSheet.create({
     },
 
 
-
-
-
     containerStyleProfile: {
         backgroundColor: 'hsla(300, 0%, 99%, 0.0)',
         flexDirection: 'row',
@@ -308,7 +355,6 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         position: 'absolute',
     },
-
 
 
 
@@ -390,6 +436,46 @@ const styles = StyleSheet.create({
         fontWeight: '800',
 
     },
+
+
+    infoBoxProfileConfirmPassword: {
+        marginTop: 120,
+    },
+
+    profileConfirmPasswordValues: {
+        marginTop: 10,
+        marginLeft: 10,
+        fontSize: 18,
+        fontWeight: '400',
+        color: 'blue',
+        textAlign: 'center',
+    },
+
+    okButtonPosition: {
+        paddingTop: 0,
+        marginTop: 120,
+        marginLeft: 10,
+        textAlign: 'center',
+        height: 30,
+        width: 228,
+        backgroundColor: 'black',
+
+        shadowColor: '#ababab',
+        shadowOffset: {width: 4, height: 4},
+        shadowOpacity: 1,
+        shadowRadius: 0,
+    },
+
+    okButton: {
+        marginLeft: 10,
+        paddingTop: 3,
+        color: 'white',
+        fontSize: 18,
+        fontWeight: '800',
+        textAlign: 'center',
+    },
+
+
 
     // profile content style =========================== end
 
