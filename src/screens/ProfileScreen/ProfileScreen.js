@@ -53,35 +53,6 @@ const ProfileScreen = ({navigation}) => {
                 </View>
 
 
-                <View style={styles.profilePanelTextBoxPosition}>
-
-                    <Text style={styles.profilePanelTextBox} >{
-                        state.modalVisible === false ? 'false' :
-                        state.modalVisible === true ? 'true' :
-                        'null' }
-                    </Text>
-
-                </View>
-
-
-                
-
-
-                <TouchableOpacity
-                    style={styles.touchableOpacity}
-                    onPress={() => displayProfile()}
-                >                    
-
-                    <View style={styles.profileButtonPosition}>
-                        <Text style={styles.profileButton}>TOGGLE</Text>
-                    </View>
-
-                </TouchableOpacity>
-
-
-
-
-
                 <TouchableOpacity style={styles.touchableOpacity}
                     onPress={ () => navigate('ConfirmProfileResetPasswordScreen')}
                     

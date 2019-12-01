@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, ImageBackground, Dimensions, View, Text } from 'react-native';
+import { StyleSheet, ImageBackground, Dimensions, View, Text, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png'
 import Header from '../../components/Header/Header.js'
@@ -116,9 +116,71 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
                     <View style={styles.cardContentCenter}>
 
-                        <Text style={styles.cardPopUpContentText}>========================</Text>
-                        <Text style={styles.cardPopUpContentText}>======== Profile =======</Text>
-                        <Text style={styles.cardPopUpContentText}>========================</Text>
+                        <View style={styles.infoBox}>
+
+                            <Text style={styles.profileInitials}>Contact Details:</Text>
+
+                            <Text style={styles.profileValues}>First Name:</Text>
+                            <View style={styles.profilePanelTextBoxPosition}>
+                                <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
+                            </View>
+
+                            <Text style={styles.profileValues}>Surname:</Text>
+                            <View style={styles.profilePanelTextBoxPosition}>
+                                <Text style={styles.profilePanelTextBox} >{ state.userObject.last }</Text>
+                            </View>
+
+                            <Text style={styles.profileValues}>E-mail address:</Text>
+                            <View style={styles.profilePanelTextBoxPosition}>
+                                <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
+                            </View>
+
+                            <Text style={styles.profileValues}>Renewal Date:</Text>
+                            <View style={styles.profilePanelTextBoxPosition}>
+                                <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
+                            </View>
+
+                            <Text style={styles.profileValues}>University:</Text>
+                            <View style={styles.profilePanelTextBoxPosition}>
+                                <Text style={styles.profilePanelTextBox} >{ state.userObject.university }</Text>
+                            </View>
+
+
+
+                            <TouchableOpacity style={styles.touchableOpacity}
+                                onPress={ () => navigate('ConfirmProfileResetPasswordScreen')}
+                                
+                            >                    
+                                <View style={styles.profileButtonPosition}>
+                                    <Text style={styles.profileButton}>Reset Password</Text>
+
+                                </View>
+                            </TouchableOpacity>
+
+
+
+                            <TouchableOpacity style={styles.touchableOpacity}
+                                onPress={ () => navigate('ProfileWarningScreen')}
+                            >                    
+                                <View style={styles.profileButtonPosition}>
+                                    <Text style={styles.profileButton}>Cancel Subscription</Text>
+
+                                </View>
+                            </TouchableOpacity>
+
+
+
+                            <TouchableOpacity style={styles.touchableOpacity}
+                                onPress={ () => navigate('LoginScreen')}
+                            >                    
+                                <View style={styles.profileButtonPosition}>
+                                    <Text style={styles.profileLogOutButton}>Log Out</Text>
+
+                                </View>
+                            </TouchableOpacity>
+
+                        </View>
+
 
                     </View>
 
@@ -246,6 +308,90 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         position: 'absolute',
     },
+
+
+
+
+    // profile content style =========================== start
+
+    profileInitials: {
+        marginTop: 5,
+        // marginLeft: 10,
+        fontSize: 16,
+        fontWeight: '800',
+    },
+    profileValues: {
+        marginTop: 4,
+        // marginLeft: 10,
+        fontSize: 14,
+        fontWeight: '400',
+    },
+
+    profilePanelTextBoxPosition: {
+        marginTop: 2,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    profilePanelTextBox: {
+        textAlign: 'center',
+        paddingTop: 4,
+        fontSize: 14,
+        color:  '#ababab',
+        height: 30,
+        width: 228,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: '#ECECEC',
+        
+    },
+    profilePanelText: {
+        paddingTop: 5,
+        paddingLeft: 20,
+        paddingRight: 20,
+        fontSize: 18,
+        fontWeight: '400',
+        textAlign: 'center',
+        color: '#ababab',
+    },
+
+
+
+    profileButtonPosition: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        paddingTop: 0,
+        marginTop: 15,
+        // marginLeft: 6,
+        textAlign: 'center',
+        height: 30,
+        width: 228,
+        backgroundColor: 'black',
+
+        shadowColor: '#ababab',
+        shadowOffset: {width: 4, height: 4},
+        shadowOpacity: 1,
+        shadowRadius: 0,
+    },
+
+    profileButton: {
+        
+        paddingTop: 3,
+        color: 'white',
+
+        fontSize: 18,
+        fontWeight: '800',
+    },
+
+    profileLogOutButton: {
+        marginLeft: 10,
+        paddingTop: 3,
+        color: 'white',
+        fontSize: 18,
+        fontWeight: '800',
+
+    },
+
+    // profile content style =========================== end
 
 });
 
