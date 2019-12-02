@@ -9,7 +9,6 @@ const HeaderButtons = ({navigation}) => {
 
     const { displayPopUpDealsMenu, displayPopUpProfile } = useContext(AuthContext);
     
-    // const [Categories, setCategories] = useState('');
 
 
     return (
@@ -17,16 +16,7 @@ const HeaderButtons = ({navigation}) => {
         <View style={styles.topNavBar}>
 
             <TouchableOpacity style={styles.touchableOpacity}
-                            
-            // = TEST =======================================
-
                     onPress={ () => displayPopUpDealsMenu() }
-
-                    // Filter Deals => return =>
-                    // Carousel with filtered list()}
-
-            // = TEST =======================================
-
             >
                                 
                 <View style={styles.categoriesButtonBox}>
@@ -35,60 +25,10 @@ const HeaderButtons = ({navigation}) => {
 
             </TouchableOpacity>
 
-            {/* <View style={styles.categoriesButtonBox}>
-                <ModalDropdown
-                    defaultValue={'Deals Menu'}
-
-                    onSelect = {(newCategories) => setCategory(
-                        newCategories === '0' ? 'Alcohol' :
-                        newCategories === '1' ? 'Events & Festivals' :
-                        newCategories === '2' ? 'Fashion & Shopping' :
-                        newCategories === '3' ? 'Food & Drink' :
-                        newCategories === '4' ? 'Hair & Beauty' :
-                        newCategories === '5' ? 'Health & Fitness' :
-                        newCategories === '6' ? 'Lifestyle' :
-                        newCategories === '7' ? 'Taxis & Cars' :
-                        newCategories === '8' ? 'Technology' :
-                        newCategories === '9' ? 'All Deals' :
-                        'error setCategories'
-                    )}
-
-
-                    options={[
-                        'Alcohol',
-                        'Events & Festivals',
-                        'Fashion & Shopping',
-                        'Food & Drink',
-                        'Hair & Beauty',
-                        'Health & Fitness',
-                        'Lifestyle',
-                        'Taxis & Cars',
-                        'Technology',
-                        'All Deals',
-                    ]}
+        
                     
-                    textStyle={styles.modalButtonText}
-                    
-                    dropdownStyle={styles.modalDropdownDropdownBox}
-                    dropdownTextStyle={styles.modalDropdownDropdownTextStyle}
-                    dropdownTextHighlightStyle={styles.dropdownTextHighlightStyle}
-                />
-            </View> */}
-
-            
-
-            
-            <TouchableOpacity style={styles.touchableOpacity}
-                            
-                
+            <TouchableOpacity style={styles.touchableOpacity}           
                 onPress={ () => displayPopUpProfile() }
-
-
-                // onPress={ () => display overlay profile panel =>
-                // return => Profile panel content
-
-
-
             >
                     
                 <View style={styles.profileButtonBox}>
@@ -150,6 +90,8 @@ const styles = StyleSheet.create({
     },
 
 // Buttons styling   ====================end
+
+
 
 // Pop Up panel stylinng    ===========start
 

@@ -166,6 +166,71 @@ const authReducer = (state, action) => {
                 userObject: action.payload.userObject,
                 repObject: action.payload.repObject,
             };
+
+        case 'SET_CATEGORY_ALCOHOL':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+
+        case 'SET_CATEGORY_EVENTS':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };        
+        case 'SET_CATEGORY_FASHION':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+        case 'SET_CATEGORY_FOOD':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+        case 'SET_CATEGORY_HAIR':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+        case 'SET_CATEGORY_LIFESTYLE':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+        case 'SET_CATEGORY_TAXIS':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+        case 'SET_CATEGORY_TECHNOLOGY':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
+        case 'SET_CATEGORY_ALL_DEALS':
+            return {
+                ...state,
+                category: action.payload.category,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
         
         default:
             return state;
@@ -208,7 +273,7 @@ const cardObject = ( dispatch ) => ( dealObject ) => {
 };
 
 
-// CLEARE ERROR s ==============================================
+// CLEAR ERROR s ===============================================
 // const clearErrors = () => dispatch({ type: 'CLEAR_ERRORS' });
   
 
@@ -321,13 +386,6 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
 
 
 
-const signOut = (dispatch) => {
-    return () => {
-
-        // sign out !
-    }; 
-};
-
 const setCategory = dispatch => category => {
     dispatch({
         type: 'SET_CATEGORY',
@@ -335,31 +393,128 @@ const setCategory = dispatch => category => {
     });
 };
 
+
+// DEALS MENU ====================================================== start
+
 const displayPopUpDealsMenu = dispatch => () => {
     dispatch({
     type: 'DISPLAY_POPUP_DEALS_MENU',
     payload: { overlayType: "DealsMenu", overlayStatus: true }
     })
-
 };
+const setCategoryAlcohol = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_ALCOHOL',
+        payload: {
+            category: "Alcohol",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryEvents = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_EVENTS',
+        payload: {
+            category: "Events & Festivals",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryFashion = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_FASHION',
+        payload: {
+            category: "Fashion & Shopping",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryFood = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_FOOD',
+        payload: {
+            category: "Food & Drink",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryHair = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_HAIR',
+        payload: {
+            category: "Hair & Beauty",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryLifestyle = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_LIFESTYLE',
+        payload: {
+            category: "Lifestyle",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryTaxis = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_TAXIS',
+        payload: {
+            category: "Taxis & Cars",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryTechnology = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_TECHNOLOGY',
+        payload: {
+            category: "Technology",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+const setCategoryAllDeals = dispatch => () => {
+    dispatch({
+        type: 'SET_CATEGORY_ALL_DEALS',
+        payload: {
+            category: "All Deals",
+            overlayType: "",
+            overlayStatus: false,
+        }
+    });
+};
+
+
+
+
+// DEALS MENU ====================================================== end
+
+
+
+
+
+
 const displayPopUpDealCard = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_DEAL_CARD',
         payload: { overlayType: "DealCard", overlayStatus: true }
     })
 };
-
-
-
 const displayPopUpDealCardQR = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_DEAL_CARD_QR',
         payload: { overlayType: "DealCardQR", overlayStatus: true }
     })
 };
-
-
-
 const displayPopUpProfile = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_PROFILE',
@@ -367,8 +522,6 @@ const displayPopUpProfile = dispatch => () => {
 
     })
 };
-
-
 const displayPopUpProfileConfirmResetPassword = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_PROFILE_CONFIRM_RESET_PASSWORD',
@@ -376,7 +529,6 @@ const displayPopUpProfileConfirmResetPassword = dispatch => () => {
 
     })
 };
-
 const displayPopUpProfileCancelSubscription = dispatch => () => {
     dispatch({
         type: 'DISPLAY_POPUP_PROFILE_CANCEL_SUBSCRIPTION',
@@ -384,6 +536,7 @@ const displayPopUpProfileCancelSubscription = dispatch => () => {
 
     })
 };
+
 
 
 const hidePopUpDealsMenu = dispatch => () => {
@@ -423,10 +576,13 @@ const LogOut = dispatch => () => {
     navigate('LoginScreen');
 };
 
+// EXPORT ==========================================================
+// EXPORT ==========================================================
+// EXPORT ==========================================================
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, signOut, repRegister, repPlatform,
+    { login, resetPassword, repLogin, repRegister, repPlatform,
         resetRepPassword, setCategory, cardObject,
 
         displayPopUpDealsMenu,
@@ -444,9 +600,17 @@ export const { Provider, Context } = createDataContext(
         hidePopUpDealCard,
         hidePopUpProfile,
 
-        LogOut
+        setCategoryAlcohol,
+        setCategoryEvents,
+        setCategoryFashion,
+        setCategoryFood,
+        setCategoryHair,
+        setCategoryLifestyle,
+        setCategoryTaxis,
+        setCategoryTechnology,
+        setCategoryAllDeals,
 
-        
+        LogOut
 
     },
     { token: null, errorMessage: '', userObject: {}, repObject: {},

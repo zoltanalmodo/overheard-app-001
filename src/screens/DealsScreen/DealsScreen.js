@@ -7,16 +7,14 @@ import ReactNativeSnapCarousel from '../../components/ReactNativeSnapCarousel/Re
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
-
 import OverlayDealCard from 'react-native-modal-overlay';
 import OverlayDealsMenu from 'react-native-modal-overlay';
 import OverlayProfile from 'react-native-modal-overlay';
 
-
 import DealCardPopUp from '../../components/DealCardPopUp/DealCardPopUp';
 import DealCardPopUpQR from '../../components/DealCardPopUpQR/DealCardPopUpQR';
  
-import { navigate } from '../../navigationRef';
+
 
 const deviceDisplayWidth = Dimensions.get('window').width;
 
@@ -33,7 +31,19 @@ const DealsScreen = ({navigation}) => {
         hidePopUpProfile,
         displayPopUpProfileConfirmResetPassword,
         displayPopUpProfileCancelSubscription,
+
+        setCategoryAlcohol,
+        setCategoryEvents,
+        setCategoryFashion,
+        setCategoryFood,
+        setCategoryHair,
+        setCategoryLifestyle,
+        setCategoryTaxis,
+        setCategoryTechnology,
+        setCategoryAllDeals,
+
         LogOut,
+
     
     } = useContext(AuthContext);
 
@@ -54,10 +64,70 @@ const DealsScreen = ({navigation}) => {
 
             <View style={styles.cardContentCenter}>
 
-                <Text style={styles.cardPopUpContentText}>========================</Text>
-                <Text style={styles.cardPopUpContentText}>====== Deals Menu ======</Text>
-                <Text style={styles.cardPopUpContentText}>========================</Text>
-
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryAlcohol() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Alcohol</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryEvents() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Events &amp; Festivals</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryFashion() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Fashion &amp; Shopping</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryFood() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Food &amp; Drink</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryHair() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Hair &amp; Beauty</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryLifestyle() }
+                >
+                    <View>
+                    <Text style={styles.dealsMenuTextStyle}>Lifestyle</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryTaxis() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Taxis &amp; Cars</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryTechnology() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>Technology</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.touchableOpacity}
+                    onPress={ () => setCategoryAllDeals() }
+                >
+                    <View>
+                        <Text style={styles.dealsMenuTextStyle}>All Deals</Text>
+                    </View>
+                </TouchableOpacity>
+                
             </View>
 
         </OverlayDealsMenu>
@@ -169,7 +239,6 @@ const DealsScreen = ({navigation}) => {
 
                     <TouchableOpacity style={styles.touchableOpacity}
                         onPress={ () => displayPopUpProfileConfirmResetPassword() }
-                        
                     >                    
                         <View style={styles.profileButtonPosition}>
                             <Text style={styles.profileButton}>Reset Password</Text>
@@ -314,8 +383,9 @@ DealsScreen.navigationOptions = () => {
     };
 };
 
-
+// ====================================================================
 // STYLES =============================================================
+// ====================================================================
 
 const styles = StyleSheet.create({
     container: {
@@ -327,6 +397,8 @@ const styles = StyleSheet.create({
         height: null,
     },
 
+
+// DealCard settings ============================================= start
     
     containerStyleDealCard: {
         backgroundColor: 'hsla(120, 0%, 99%, 0.40)',
@@ -358,6 +430,12 @@ const styles = StyleSheet.create({
     },
 
 
+// DealCard settings ============================================= end
+
+
+// DealsMenu settings ============================================ start
+
+
     containerStyleDealsMenu: {
         backgroundColor: 'hsla(120, 0%, 99%, 0.0)',
         flexDirection: 'row',
@@ -379,6 +457,21 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         position: 'absolute',
     },
+
+    dealsMenuTextStyle: {
+        textAlign: 'left',
+        paddingTop: 10,
+        fontSize: 24,
+        fontWeight: '800',
+        color: 'black',
+        
+    },
+
+
+// DealsMenu settings ============================================ end
+
+
+// Profile Panel style =========================================== start
 
 
     containerStyleProfile: {
@@ -405,7 +498,7 @@ const styles = StyleSheet.create({
 
 
 
-    // profile content style =========================== start
+    
 
     profileInitials: {
         marginTop: 5,
@@ -544,8 +637,8 @@ const styles = StyleSheet.create({
     },
 
 
+// Profile Panel style =========================================== end
 
-    // profile content style =========================== end
 
 });
 
