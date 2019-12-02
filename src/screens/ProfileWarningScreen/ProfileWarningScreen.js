@@ -23,10 +23,6 @@ const ProfileWarningScreen = ({navigation}) => {
             <View style={styles.infoBox}>
 
                 
-                <View style={styles.profilePanelTextBoxPosition}>
-                    
-                    
-                </View>
                 <Text style={styles.profileValues}>
                     To Cancel Your Subscription From The Next Renewal Date Please Email Us At:
                 </Text>
@@ -36,9 +32,6 @@ const ProfileWarningScreen = ({navigation}) => {
                 <Text style={styles.profileValues}>
                     With The Email You Used To Sign Up.
                 </Text>
-
-
-
 
                 <TouchableOpacity style={styles.touchableOpacity}
                     onPress={ () => navigate('ProfileScreen')}

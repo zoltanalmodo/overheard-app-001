@@ -16,9 +16,9 @@ import OverlayProfile from 'react-native-modal-overlay';
 import DealCardPopUp from '../../components/DealCardPopUp/DealCardPopUp';
 import DealCardPopUpQR from '../../components/DealCardPopUpQR/DealCardPopUpQR';
  
+import { navigate } from '../../navigationRef';
+
 const deviceDisplayWidth = Dimensions.get('window').width;
-
-
 
 // ===== COMPONENT =====
 
@@ -32,6 +32,8 @@ const DealsScreen = ({navigation}) => {
         hidePopUpDealCard,
         hidePopUpProfile,
         displayPopUpProfileConfirmResetPassword,
+        displayPopUpProfileCancelSubscription,
+        LogOut,
     
     } = useContext(AuthContext);
 
@@ -130,27 +132,37 @@ const DealsScreen = ({navigation}) => {
 
                     <Text style={styles.profileValues}>First Name:</Text>
                     <View style={styles.profilePanelTextBoxPosition}>
-                        <Text style={styles.profilePanelTextBox} >{ state.userObject.first }</Text>
+                        <Text style={styles.profilePanelTextBox} >
+                            { state.userObject.first }
+                        </Text>
                     </View>
 
                     <Text style={styles.profileValues}>Surname:</Text>
                     <View style={styles.profilePanelTextBoxPosition}>
-                        <Text style={styles.profilePanelTextBox} >{ state.userObject.last }</Text>
+                        <Text style={styles.profilePanelTextBox} >
+                            { state.userObject.last }
+                        </Text>
                     </View>
 
                     <Text style={styles.profileValues}>E-mail address:</Text>
                     <View style={styles.profilePanelTextBoxPosition}>
-                        <Text style={styles.profilePanelTextBox} >{ state.userObject.email }</Text>
+                        <Text style={styles.profilePanelTextBox} >
+                            { state.userObject.email }
+                        </Text>
                     </View>
 
                     <Text style={styles.profileValues}>Renewal Date:</Text>
                     <View style={styles.profilePanelTextBoxPosition}>
-                        <Text style={styles.profilePanelTextBox} >{ state.userObject.expiryDate }</Text>
+                        <Text style={styles.profilePanelTextBox} >
+                            { state.userObject.expiryDate }
+                        </Text>
                     </View>
 
                     <Text style={styles.profileValues}>University:</Text>
                     <View style={styles.profilePanelTextBoxPosition}>
-                        <Text style={styles.profilePanelTextBox} >{ state.userObject.university }</Text>
+                        <Text style={styles.profilePanelTextBox} >
+                            { state.userObject.university }
+                        </Text>
                     </View>
 
 
@@ -161,29 +173,26 @@ const DealsScreen = ({navigation}) => {
                     >                    
                         <View style={styles.profileButtonPosition}>
                             <Text style={styles.profileButton}>Reset Password</Text>
-
                         </View>
                     </TouchableOpacity>
 
 
 
                     <TouchableOpacity style={styles.touchableOpacity}
-                        onPress={ () => navigate('ProfileWarningScreen')}
+                        onPress={ () => displayPopUpProfileCancelSubscription() }
                     >                    
                         <View style={styles.profileButtonPosition}>
                             <Text style={styles.profileButton}>Cancel Subscription</Text>
-
                         </View>
                     </TouchableOpacity>
 
 
 
                     <TouchableOpacity style={styles.touchableOpacity}
-                        onPress={ () => navigate('LoginScreen')}
+                        onPress={ () => LogOut() }
                     >                    
                         <View style={styles.profileButtonPosition}>
                             <Text style={styles.profileLogOutButton}>Log Out</Text>
-
                         </View>
                     </TouchableOpacity>
 
@@ -207,7 +216,7 @@ const DealsScreen = ({navigation}) => {
             animationOutType={'fadeOutUpBig'}
                 
         >
-            
+
             <View style={styles.infoBoxProfileConfirmPassword} >
                 <Text style={styles.profileConfirmPasswordValues}>
                     A Link To Reset
@@ -222,7 +231,9 @@ const DealsScreen = ({navigation}) => {
                     SENT To:
                 </Text>
 
-                <Text style={styles.profileConfirmPasswordValues}>{ state.userObject.email }</Text>
+                <Text style={styles.profileConfirmPasswordValues}>
+                    { state.userObject.email }
+                </Text>
 
                 <TouchableOpacity style={styles.touchableOpacity}
                     onPress={ () => hidePopUpProfile() }
@@ -235,7 +246,43 @@ const DealsScreen = ({navigation}) => {
 
         </OverlayProfile>
 
+    : state.overlayType === "ProfileCancelSubscription" ?
+        
+    <OverlayProfile
+
+        containerStyle={styles.containerStyleProfile}
+        visible={ state.overlayStatus }
+        onClose={ () => hidePopUpProfile() }
+        closeOnTouchOutside
+        childrenWrapperStyle={styles.childrenWrapperStyleProfile}
+        animationType={'fadeInDown'}
+        animationOutType={'fadeOutUpBig'}
+            
+    >
+        <View style={styles.infoBoxProfileCancelSubscription} >
+            <Text style={styles.profileCancelSubscriptionValues}>
+                To Cancel Your Subscription From The Next Renewal Date Please Email Us At:
+            </Text>
+            <Text style={styles.profileCancelSubscriptionValuesBlack}>
+                memberships
+            </Text>
+            <Text style={styles.profileCancelSubscriptionValuesBlack}>
+                @overheard.co.uk
+            </Text>
+            <Text style={styles.profileCancelSubscriptionValues}>
+                With The Email You Used To Sign Up.
+            </Text>
+
+            <TouchableOpacity style={styles.touchableOpacity}
+                onPress={ () => hidePopUpProfile() }
+            >
+                <View style={styles.okButtonPosition}>
+                    <Text style={styles.okButton}>* OK *</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
     
+    </OverlayProfile>
 
     : <View></View>
 
@@ -450,6 +497,27 @@ const styles = StyleSheet.create({
         color: 'blue',
         textAlign: 'center',
     },
+
+    infoBoxProfileCancelSubscription: {
+        marginTop: 80,
+    },
+
+    profileCancelSubscriptionValues: {
+        marginTop: 10,
+        marginLeft: 10,
+        fontSize: 18,
+        fontWeight: '400',
+        color: 'red',
+    },
+
+    profileCancelSubscriptionValuesBlack: {
+        marginTop: 10,
+        marginLeft: 10,
+        fontSize: 18,
+        textAlign: 'center',
+        fontWeight: '400',
+        color: 'black',
+    },    
 
     okButtonPosition: {
         paddingTop: 0,

@@ -124,6 +124,13 @@ const authReducer = (state, action) => {
                 overlayType: action.payload.overlayType,
                 overlayStatus: action.payload.overlayStatus
             };
+            
+        case 'DISPLAY_POPUP_PROFILE_CANCEL_SUBSCRIPTION':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus
+            };
 
 
 
@@ -149,7 +156,16 @@ const authReducer = (state, action) => {
                 overlayStatus: action.payload.overlayStatus
             };
 
-
+        case 'LOG_OUT':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus,
+                token: action.payload.token,
+                errorMessage: action.payload.errorMessage,
+                userObject: action.payload.userObject,
+                repObject: action.payload.repObject,
+            };
         
         default:
             return state;
@@ -361,6 +377,14 @@ const displayPopUpProfileConfirmResetPassword = dispatch => () => {
     })
 };
 
+const displayPopUpProfileCancelSubscription = dispatch => () => {
+    dispatch({
+        type: 'DISPLAY_POPUP_PROFILE_CANCEL_SUBSCRIPTION',
+        payload: { overlayType: "ProfileCancelSubscription", overlayStatus: true }
+
+    })
+};
+
 
 const hidePopUpDealsMenu = dispatch => () => {
     dispatch({
@@ -384,6 +408,22 @@ const hidePopUpProfile = dispatch => () => {
 };
 
 
+const LogOut = dispatch => () => {
+    dispatch({
+        type: 'LOG_OUT',
+        payload: {
+            overlayType: "",
+            overlayStatus: false,
+            token: null,
+            errorMessage: '',
+            userObject: {},
+            repObject: {},
+        }
+    });
+    navigate('LoginScreen');
+};
+
+
 export const { Provider, Context } = createDataContext(
     authReducer,
     { login, resetPassword, repLogin, signOut, repRegister, repPlatform,
@@ -398,10 +438,13 @@ export const { Provider, Context } = createDataContext(
 
         displayPopUpProfile,
         displayPopUpProfileConfirmResetPassword,
+        displayPopUpProfileCancelSubscription,
 
         hidePopUpDealsMenu,
         hidePopUpDealCard,
         hidePopUpProfile,
+
+        LogOut
 
         
 
@@ -411,7 +454,8 @@ export const { Provider, Context } = createDataContext(
         displayPopUpDealsMenu: { overlayType: "", overlayStatus: false },
         displayPopUpDealCard: { overlayType: "", overlayStatus: false },
         displayPopUpProfile: { overlayType: "", overlayStatus: false },
-        displayPopUpProfileConfirmResetPassword: { overlayType: "", overlayStatus: false }, 
+        displayPopUpProfileConfirmResetPassword: { overlayType: "", overlayStatus: false },
+        displayPopUpProfileCancelSubscription: { overlayType: "", overlayStatus: false },
 
         hidePopUpDealsMenu: { overlayType: "", overlayStatus: false },
         hidePopUpDealCard: { overlayType: "", overlayStatus: false },

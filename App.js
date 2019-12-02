@@ -32,7 +32,6 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
-import ConfirmProfileResetPasswordScreen from './src/screens/ConfirmProfileResetPasswordScreen/ConfirmProfileResetPasswordScreen';
 
 
 
@@ -100,7 +99,6 @@ const switchNavigator = createSwitchNavigator ({
 
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
       ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
-      ConfirmProfileResetPasswordScreen: ConfirmProfileResetPasswordScreen,
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
       
