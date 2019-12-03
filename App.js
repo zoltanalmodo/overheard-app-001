@@ -20,12 +20,7 @@ import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
 import RepPlatformScreen from './src/screens/RepPlatformScreen/RepPlatformScreen';
 import ConfirmRepPlatformScreen from './src/screens/ConfirmRepPlatformScreen/ConfirmRepPlatformScreen';
 
-
 import DealsScreen from './src/screens/DealsScreen/DealsScreen';
-
-
-
-
 
 import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCenteredScreen';
 import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCenteredScreen';
@@ -71,7 +66,7 @@ const switchNavigator = createSwitchNavigator ({
 
       // ProfileScreen: ProfileScreen,
 
-      DealsScreen: DealsScreen,
+      // DealsScreen: DealsScreen,
     
       //==========================================build
       

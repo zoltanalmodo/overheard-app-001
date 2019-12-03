@@ -84,7 +84,12 @@ const authReducer = (state, action) => {
                 ...state,
                 cardObject: action.payload
             };
-
+        
+        case 'SET_DEALS_ARRAY':
+            return {
+                ...state,
+                dealsArray: action.payload
+            };
 
             
 
@@ -263,11 +268,19 @@ const login = (dispatch) => async ({ email, password }) => {
 const cardObject = ( dispatch ) => ( dealObject ) => {
 
     try {
-        
         dispatch({ type: 'SET_CARD_OBJECT', payload: dealObject });
-
     } catch (err) {
         dispatch({ type: 'add_error', payload: 'carObject =error='});
+    }
+
+};
+
+const setDealsArray = ( dispatch ) => ( dealsArray ) => {
+
+    try {
+        dispatch({ type: 'SET_DEALS_ARRAY', payload: dealsArray });
+    } catch (err) {
+        dispatch({ type: 'add_error', payload: 'dealsArray =error='});
     }
 
 };
@@ -383,8 +396,6 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
     }
 
 };
-
-
 
 const setCategory = dispatch => category => {
     dispatch({
@@ -571,34 +582,34 @@ const LogOut = dispatch => () => {
             errorMessage: '',
             userObject: {},
             repObject: {},
+            deals: [],
         }
     });
     navigate('LoginScreen');
 };
 
+
 // EXPORT ==========================================================
 // EXPORT ==========================================================
 // EXPORT ==========================================================
+
 
 export const { Provider, Context } = createDataContext(
     authReducer,
     { login, resetPassword, repLogin, repRegister, repPlatform,
-        resetRepPassword, setCategory, cardObject,
+        resetRepPassword, setCategory, cardObject, setDealsArray,
 
         displayPopUpDealsMenu,
+        hidePopUpDealsMenu,
+
         displayPopUpDealCard,
-
-
+        hidePopUpDealCard,
         displayPopUpDealCardQR,
 
-
         displayPopUpProfile,
+        hidePopUpProfile,
         displayPopUpProfileConfirmResetPassword,
         displayPopUpProfileCancelSubscription,
-
-        hidePopUpDealsMenu,
-        hidePopUpDealCard,
-        hidePopUpProfile,
 
         setCategoryAlcohol,
         setCategoryEvents,
@@ -613,17 +624,20 @@ export const { Provider, Context } = createDataContext(
         LogOut
 
     },
-    { token: null, errorMessage: '', userObject: {}, repObject: {},
+    {   
+        token: null,
+        errorMessage: '',
 
-        displayPopUpDealsMenu: { overlayType: "", overlayStatus: false },
-        displayPopUpDealCard: { overlayType: "", overlayStatus: false },
-        displayPopUpProfile: { overlayType: "", overlayStatus: false },
-        displayPopUpProfileConfirmResetPassword: { overlayType: "", overlayStatus: false },
-        displayPopUpProfileCancelSubscription: { overlayType: "", overlayStatus: false },
+        userObject: {},
+        repObject: {},
 
-        hidePopUpDealsMenu: { overlayType: "", overlayStatus: false },
-        hidePopUpDealCard: { overlayType: "", overlayStatus: false },
-        hidePopUpProfile: { overlayType: "", overlayStatus: false }
+        category: "All Deals",
+
+        dealsArray: [],
+
+        overlayType: "",
+        overlayStatus: false,
+
     }
 
 );

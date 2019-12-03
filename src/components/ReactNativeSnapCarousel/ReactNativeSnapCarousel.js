@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect }  from 'react';
 import { View, Text, StyleSheet, Dimensions, FlatList } from 'react-native';
 
-import axios from 'axios';
+
 import Carousel from 'react-native-snap-carousel';
 
 import DealCard from '../DealCard/DealCard'
@@ -12,24 +12,11 @@ import { Context as AuthContext } from '../../context/AuthContext'
 
 const ReactNativeSnapCarousel = () => {
 
-    const { state, setCategory } = useContext( AuthContext );
-    const [ deals, setDeals ] = useState( [] );
+    const { state } = useContext( AuthContext );
 
     const deviceDisplayWidth = Dimensions.get('window').width;
 
-    async function fetchMyAPI() {
-        // var is used to shadow the global variable, DO NOT change it to const or let
-        var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
-        setDeals(deals.data);
-        setCategory('Lifestyle');
-    };
-
-        useEffect(() => {
-            fetchMyAPI();
-        }, []);
-
-
-    const currentDeals = deals.filter(deal => deal.category.includes(state.category));
+    const currentDeals = state.dealsArray.filter(deal => deal.category.includes(state.category));
 
 
     
@@ -39,8 +26,8 @@ const ReactNativeSnapCarousel = () => {
             const chunked_arr = [];
             var index = 0;
             while (index < arrayToSlice.length) {
-              chunked_arr.push(arrayToSlice.slice(index, size + index));
-              index += size;
+            chunked_arr.push(arrayToSlice.slice(index, size + index));
+            index += size;
             }
             return chunked_arr;
         }
@@ -53,7 +40,7 @@ const ReactNativeSnapCarousel = () => {
 
         {
             content:
-                <View style={styles.centerShit}>
+                <View style={styles.centerContainer}>
                     <View>
                     <Text style={styles.categoryText}>{state.category}</Text>
                     </View>
@@ -63,7 +50,7 @@ const ReactNativeSnapCarousel = () => {
         {   
             content:
                 
-                <View style={styles.centerShit}>
+                <View style={styles.centerContainer}>
                     <Carousel
                         data={chunkSlice(currentDeals, 6)[0]}
                         renderItem={this._renderCarouselRow}
@@ -529,8 +516,6 @@ const styles = StyleSheet.create({
 
     container: {
 
-        // marginTop: 33,
-        // remove width and height to override fixed static size
         width: null,
         height: null,
 
@@ -539,15 +524,13 @@ const styles = StyleSheet.create({
 
     },
 
-    centerShit: {
+    centerContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         flex: 1,
     },
 
     categoryText: {
-
-        // backgroundColor: 'magenta',
 
         width: 160,
         height: 20,
@@ -564,9 +547,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         flex: 1,
-
-        // borderWidth: 2,
-        // borderColor: 'red',
     
     },
 

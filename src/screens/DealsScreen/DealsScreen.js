@@ -294,12 +294,8 @@ const DealsScreen = ({navigation}) => {
                     Your Password
                 </Text>
                 <Text style={styles.profileConfirmPasswordValues}>
-                    Has Been
+                    Has Been Sent To:
                 </Text>
-                <Text style={styles.profileConfirmPasswordValues}>
-                    SENT To:
-                </Text>
-
                 <Text style={styles.profileConfirmPasswordValues}>
                     { state.userObject.email }
                 </Text>
@@ -501,6 +497,7 @@ const styles = StyleSheet.create({
     
 
     profileInitials: {
+        color: 'black',
         marginTop: 5,
         // marginLeft: 10,
         fontSize: 16,
@@ -508,7 +505,7 @@ const styles = StyleSheet.create({
     },
     profileValues: {
         marginTop: 4,
-        // marginLeft: 10,
+        color: 'black',
         fontSize: 14,
         fontWeight: '400',
     },
@@ -522,7 +519,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         paddingTop: 4,
         fontSize: 14,
-        color:  '#ababab',
+        color:  'black',
         height: 30,
         width: 228,
         borderColor: 'black',
@@ -537,7 +534,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '400',
         textAlign: 'center',
-        color: '#ababab',
+        color: 'black',
     },
 
 
@@ -601,6 +598,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '400',
         color: 'red',
+        textAlign: 'center',
     },
 
     profileCancelSubscriptionValuesBlack: {

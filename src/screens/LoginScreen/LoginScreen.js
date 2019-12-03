@@ -1,21 +1,51 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { View, TextInput, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
 
-import backimage from '../../img/newbg.png'
-import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
+import backimage from '../../img/newbg.png';
+import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
 
-import { Context as AuthContext, clearErrors } from '../../context/AuthContext';
+import { Context as AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
 
+
+// async function fetchMyAPI() {
+    //     // var is used to shadow the global variable, DO NOT change it to const or let
+    //     var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
+    //     setDeals(deals.data);
+    //     setCategory('All Deals');
+    // };
+
+    //     useEffect(() => {
+    //         fetchMyAPI();
+    //     }, []);
 
 
 const LoginScreen = ({navigation}) => {
 
-    const { state, login } = useContext(AuthContext);
+    const { state, login, setDealsArray } = useContext(AuthContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
+    async function fetchDealsArray() {
+
+        // var is used to shadow the global variable, DO NOT change it to const or let
+        var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
+
+        setDealsArray(deals.data);
+
+    };
+
+   
+
+    useEffect(() => {
+        fetchDealsArray();
+        // console.log(state);
+    }, []);
+
+    
         return (
 
             <ImageBackground source={backimage} style={styles.container}>

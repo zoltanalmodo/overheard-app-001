@@ -22,7 +22,7 @@ const DealsList = ({navigation} ) => {
         setDeals(deals.data);
         setCategory('All Deals');
     }
-  
+
         useEffect(() => {
             fetchMyAPI();
         }, []);
