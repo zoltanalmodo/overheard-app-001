@@ -28,6 +28,7 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
 
+import MerchantQRCodeScanScreen from './src/screens/MerchantQRCodeScanScreen/MerchantQRCodeScanScreen';
 
 
 
@@ -37,6 +38,8 @@ import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarn
 import ReactNativeSnapCarousel from './src/components/ReactNativeSnapCarousel/ReactNativeSnapCarousel'
 
 import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOverlay'
+
+import QRCodeScannerTest from './src/screens/TestTest/QRCodeScannerTest'
 
 
 //===========================================test
@@ -59,6 +62,9 @@ const switchNavigator = createSwitchNavigator ({
 
       // ProfileScreen: ProfileScreen,
       
+      QRCodeScannerTest: QRCodeScannerTest,
+
+      MerchantQRCodeScanScreen: MerchantQRCodeScanScreen,
 
       //===========================================test
 

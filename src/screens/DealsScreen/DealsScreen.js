@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, ImageBackground, Dimensions, View, Text, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png'
@@ -18,10 +18,11 @@ import DealCardPopUpQR from '../../components/DealCardPopUpQR/DealCardPopUpQR';
 
 const deviceDisplayWidth = Dimensions.get('window').width;
 
+
+
 // ===== COMPONENT =====
 
 const DealsScreen = ({navigation}) => {
-
 
     const { 
         
@@ -31,6 +32,8 @@ const DealsScreen = ({navigation}) => {
         hidePopUpProfile,
         displayPopUpProfileConfirmResetPassword,
         displayPopUpProfileCancelSubscription,
+
+        setCategory,
 
         setCategoryAlcohol,
         setCategoryEvents,
@@ -43,10 +46,15 @@ const DealsScreen = ({navigation}) => {
         setCategoryAllDeals,
 
         LogOut,
-
     
     } = useContext(AuthContext);
 
+
+    // useEffect(() => {
+    //     setCategoryAllDeals();
+    //     console.log(state);
+    // }, []);
+    
 
     const renderOverlayType = () => state.overlayType === "DealsMenu" ?
     
@@ -287,16 +295,16 @@ const DealsScreen = ({navigation}) => {
         >
 
             <View style={styles.infoBoxProfileConfirmPassword} >
-                <Text style={styles.profileConfirmPasswordValues}>
+                <Text style={styles.profileCancelSubscriptionValuesBlack}>
                     A Link To Reset
                 </Text>
-                <Text style={styles.profileConfirmPasswordValues}>
+                <Text style={styles.profileCancelSubscriptionValuesBlack}>
                     Your Password
                 </Text>
-                <Text style={styles.profileConfirmPasswordValues}>
+                <Text style={styles.profileCancelSubscriptionValuesBlack}>
                     Has Been Sent To:
                 </Text>
-                <Text style={styles.profileConfirmPasswordValues}>
+                <Text style={styles.profileCancelSubscriptionValuesLight}>
                     { state.userObject.email }
                 </Text>
 
@@ -325,7 +333,7 @@ const DealsScreen = ({navigation}) => {
             
     >
         <View style={styles.infoBoxProfileCancelSubscription} >
-            <Text style={styles.profileCancelSubscriptionValues}>
+            <Text style={styles.profileCancelSubscriptionValuesLight}>
                 To Cancel Your Subscription From The Next Renewal Date Please Email Us At:
             </Text>
             <Text style={styles.profileCancelSubscriptionValuesBlack}>
@@ -334,7 +342,7 @@ const DealsScreen = ({navigation}) => {
             <Text style={styles.profileCancelSubscriptionValuesBlack}>
                 @overheard.co.uk
             </Text>
-            <Text style={styles.profileCancelSubscriptionValues}>
+            <Text style={styles.profileCancelSubscriptionValuesLight}>
                 With The Email You Used To Sign Up.
             </Text>
 
@@ -351,10 +359,18 @@ const DealsScreen = ({navigation}) => {
 
     : <View></View>
 
+
+
+
+// ============================================================================
+// ============================= RETURN STATEMENT =============================
+// ============================================================================
+
+
+
     return (
 
         <ImageBackground source={backimage} style={styles.container} >
-
 
             <Header />
 
@@ -362,7 +378,6 @@ const DealsScreen = ({navigation}) => {
 
             {renderOverlayType()}        
 
-            
         </ImageBackground>
 
     )
@@ -544,12 +559,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingTop: 0,
         marginTop: 15,
-        // marginLeft: 6,
         textAlign: 'center',
         height: 30,
         width: 228,
         backgroundColor: 'black',
-
         shadowColor: '#ababab',
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
@@ -557,10 +570,8 @@ const styles = StyleSheet.create({
     },
 
     profileButton: {
-        
         paddingTop: 3,
         color: 'white',
-
         fontSize: 18,
         fontWeight: '800',
     },
@@ -571,8 +582,10 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         fontWeight: '800',
-
     },
+
+
+
 
 
     infoBoxProfileConfirmPassword: {
@@ -581,7 +594,7 @@ const styles = StyleSheet.create({
 
     profileConfirmPasswordValues: {
         marginTop: 10,
-        marginLeft: 10,
+        // marginLeft: 10,
         fontSize: 18,
         fontWeight: '400',
         color: 'blue',
@@ -592,18 +605,18 @@ const styles = StyleSheet.create({
         marginTop: 80,
     },
 
-    profileCancelSubscriptionValues: {
+    profileCancelSubscriptionValuesBlack: {
         marginTop: 10,
-        marginLeft: 10,
+        // marginLeft: 10,
         fontSize: 18,
-        fontWeight: '400',
-        color: 'red',
+        fontWeight: '800',
+        color: 'black',
         textAlign: 'center',
     },
 
-    profileCancelSubscriptionValuesBlack: {
+    profileCancelSubscriptionValuesLight: {
         marginTop: 10,
-        marginLeft: 10,
+        // marginLeft: 10,
         fontSize: 18,
         textAlign: 'center',
         fontWeight: '400',
@@ -613,7 +626,7 @@ const styles = StyleSheet.create({
     okButtonPosition: {
         paddingTop: 0,
         marginTop: 120,
-        marginLeft: 10,
+        // marginLeft: 0,
         textAlign: 'center',
         height: 30,
         width: 228,
@@ -626,7 +639,7 @@ const styles = StyleSheet.create({
     },
 
     okButton: {
-        marginLeft: 10,
+        marginLeft: 0,
         paddingTop: 3,
         color: 'white',
         fontSize: 18,

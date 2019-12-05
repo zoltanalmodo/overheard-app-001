@@ -9,7 +9,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 
 
-// async function fetchMyAPI() {
+    // async function fetchMyAPI() {
     //     // var is used to shadow the global variable, DO NOT change it to const or let
     //     var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
     //     setDeals(deals.data);
@@ -23,7 +23,7 @@ import axios from 'axios';
 
 const LoginScreen = ({navigation}) => {
 
-    const { state, login, setDealsArray } = useContext(AuthContext);
+    const { state, login, setDealsArray, setCategoryAllDeals } = useContext(AuthContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -35,6 +35,7 @@ const LoginScreen = ({navigation}) => {
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
 
         setDealsArray(deals.data);
+        setCategory("All Deals");
 
     };
 
@@ -42,7 +43,8 @@ const LoginScreen = ({navigation}) => {
 
     useEffect(() => {
         fetchDealsArray();
-        // console.log(state);
+        // setCategoryAllDeals();
+        console.log(state);
     }, []);
 
     

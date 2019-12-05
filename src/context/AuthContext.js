@@ -400,7 +400,7 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
 const setCategory = dispatch => category => {
     dispatch({
         type: 'SET_CATEGORY',
-        payload: category
+        payload: "All Deals",
     });
 };
 
@@ -631,7 +631,7 @@ export const { Provider, Context } = createDataContext(
         userObject: {},
         repObject: {},
 
-        category: "All Deals",
+        category: "",
 
         dealsArray: [],
 

@@ -10,9 +10,13 @@ import { Context as AuthContext } from '../../context/AuthContext'
 
 
 
+
+
+
+
 const ReactNativeSnapCarousel = () => {
 
-    const { state } = useContext( AuthContext );
+    const { state, setCategory } = useContext( AuthContext );
 
     const deviceDisplayWidth = Dimensions.get('window').width;
 
