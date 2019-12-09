@@ -39,14 +39,14 @@ import ReactNativeSnapCarousel from './src/components/ReactNativeSnapCarousel/Re
 
 import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOverlay'
 
-import QRCodeScannerTest from './src/screens/TestTest/QRCodeScannerTest'
+// import QRCodeScannerTest from './src/screens/TestTest/QRCodeScannerTest'
 
+import BarcodeScannerExample from './src/screens/TestTest/BarcodeScannerExample'
 
 //===========================================test
 
 
 import { Provider as AuthProvider } from './src/context/AuthContext';
-
 
 
 const switchNavigator = createSwitchNavigator ({
@@ -62,9 +62,11 @@ const switchNavigator = createSwitchNavigator ({
 
       // ProfileScreen: ProfileScreen,
       
-      QRCodeScannerTest: QRCodeScannerTest,
+      // QRCodeScannerTest: QRCodeScannerTest,
 
-      MerchantQRCodeScanScreen: MerchantQRCodeScanScreen,
+      // MerchantQRCodeScanScreen: MerchantQRCodeScanScreen,
+
+      // BarcodeScannerExample: BarcodeScannerExample,
 
       //===========================================test
 

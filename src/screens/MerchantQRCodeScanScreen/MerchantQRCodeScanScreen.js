@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Button, Text, Clipboard } from 'react-native';
+import { View, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
 
 
 
@@ -14,76 +14,74 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const MerchantQRCodeScanScreen = ({navigation}) => {
 
-    const { state } = useContext(AuthContext);
+    const { state, LogOut } = useContext(AuthContext);
 
     return (
 
-    <ImageBackground source={backimage} style={styles.container}>
+        <ImageBackground source={backimage} style={styles.container}>
 
-
-        <View style={styles.logoPosition}>
-            <OverheardDealsLogo />
-        </View>
-
-        <View style={styles.repPlatformTitleBoxPosition}>
-            <View style={styles.repPlatformTitleBox}>                    
-                <Text style={styles.repPlatformTitleText}>Merchant Stats</Text>
+            <View style={styles.logoPosition}>
+                <OverheardDealsLogo />
             </View>
-        </View>
-        
-        <View style={styles.repPlatformTextBoxPosition}>
 
-            <View style={styles.repPlatformTextBox}>
+            <View style={styles.repPlatformTitleBoxPosition}>
+                <View style={styles.repPlatformTitleBox}>                    
+                    <Text style={styles.repPlatformTitleText}>Merchant Stats</Text>
+                </View>
+            </View>
+            
+            <View style={styles.repPlatformTextBoxPosition}>
 
-                <View style={styles.repPlatformStatsPosition}>
+                <View style={styles.repPlatformTextBox}>
 
-                    <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Name:</Text>
-                        <Text style={styles.statsTextRight} >First and Last Name</Text>
+                    <View style={styles.repPlatformStatsPosition}>
+
+                        <View style={styles.repPlatformStats}>
+                            <Text style={styles.statsTextLeft} >Name:</Text>
+                            <Text style={styles.statsTextRight} >First and Last Name</Text>
+                        </View>
+
+                        <View style={styles.repPlatformStats}>
+                            <Text style={styles.statsTextLeft} >Deal:</Text>
+                            <Text style={styles.statsTextRight} >Best Deal Ever</Text>
+                        </View>
+
+                        <View style={styles.repPlatformStats}>
+                            <Text style={styles.statsTextLeft} >Email:</Text>
+                            <Text style={styles.statsTextRight} >email@mail.com</Text>
+                        </View>
+
+                        <View style={styles.repPlatformStats}>
+                            <Text style={styles.statsTextLeft} >Sales:</Text>
+                            <Text style={styles.statsTextRight} >45</Text>
+                        </View>
+
                     </View>
+            
+                </View>
 
-                    <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Deal:</Text>
-                        <Text style={styles.statsTextRight} >Best Deal Ever</Text>
-                    </View>
+            </View>
 
-                    <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Email:</Text>
-                        <Text style={styles.statsTextRight} >email@mail.com</Text>
-                    </View>
+            <TouchableOpacity
+                onPress={() => login({ email, password })}     
+            >                    
+                <View style={styles.scanButtonPosition}>
+                    <Text style={styles.orangeButton}>Scan QR Code</Text>
+                </View>
+            </TouchableOpacity>
 
-                    <View style={styles.repPlatformStats}>
-                        <Text style={styles.statsTextLeft} >Sales:</Text>
-                        <Text style={styles.statsTextRight} >45</Text>
-                    </View>
-
-                    
+            <TouchableOpacity
+                onPress={() => LogOut()} 
+                
+            >                    
+                <View style={styles.logOutButtonPosition}>
+                    <Text style={styles.blackButton}>Log Out</Text>
 
                 </View>
-                
+            </TouchableOpacity>
 
-            
-
-            </View>
-
-        </View>
-
-
-
-        <View style={styles.copyRepLinkButtonPosition}>
-            <View style={styles.copyRepLinkButton}>
-                <Button title='Scan QR Code' onPress={() => {
-
-                    //action
-
-                }} />
-            </View>
-        </View>
-
-        
-        
-    </ImageBackground>
-    )
+        </ImageBackground>
+    );
 };
 
 MerchantQRCodeScanScreen.navigationOptions = () => {
@@ -102,11 +100,11 @@ const styles = StyleSheet.create({
         height: null,
     },
     logoPosition: {
-        marginTop: 52,
+        marginTop: 42,
     },
     
     repPlatformTitleBoxPosition: {
-        marginTop: 52,
+        marginTop: 42,
         flexDirection: 'row',
         justifyContent: 'center',
         zIndex: 1,
@@ -206,13 +204,42 @@ const styles = StyleSheet.create({
         color: '#ababab',
     },
 
-    copyRepLinkButtonPosition: {
+    // BUTTON styling ========================================================
+
+    scanButtonPosition: {
         marginTop: -26,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    copyRepLinkButton: {
+
+    logOutButtonPosition: {
+        marginTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+
+    orangeButton: {
         textAlign: 'center',
+        paddingTop: 8,
+        fontSize: 24,
+        fontWeight: 'bold',
+        color:  'black',
+        height: 50,
+        width: 270,
+        borderColor: '#FF8D4F',
+        borderWidth: 2,
+        backgroundColor: '#FF8D4F',
+
+        shadowColor: 'black',
+        shadowOffset: {width: 4, height: 4},
+        shadowOpacity: 1,
+        shadowRadius: 0,
+
+    },
+
+    blackButton: {
+        textAlign: 'center',
+        paddingTop: 8,
         fontSize: 24,
         fontWeight: 'bold',
         color:  'white',
@@ -226,6 +253,7 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 4, height: 4},
         shadowOpacity: 1,
         shadowRadius: 0,
+
     },
     
 });

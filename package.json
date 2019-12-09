@@ -36,7 +36,8 @@
     "react-navigation-stack": "^1.5.4",
     "react-responsive-carousel": "^3.1.51",
     "react-scroll-paged-view": "^2.2.6",
-    "rn-bottom-drawer": "^1.4.3"
+    "rn-bottom-drawer": "^1.4.3",
+    "expo-barcode-scanner": "~6.0.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0"
