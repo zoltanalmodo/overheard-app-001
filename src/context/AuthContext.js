@@ -161,16 +161,7 @@ const authReducer = (state, action) => {
                 overlayStatus: action.payload.overlayStatus
             };
 
-        case 'LOG_OUT':
-            return {
-                ...state,
-                overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus,
-                token: action.payload.token,
-                errorMessage: action.payload.errorMessage,
-                userObject: action.payload.userObject,
-                repObject: action.payload.repObject,
-            };
+//  DEALS MENU ==================================================== start
 
         case 'SET_CATEGORY_ALCOHOL':
             return {
@@ -236,12 +227,62 @@ const authReducer = (state, action) => {
                 overlayType: action.payload.overlayType,
                 overlayStatus: action.payload.overlayStatus
             };
+
+//  DEALS MENU ====================================================== end
+
+        case 'LOG_OUT':
+            return {
+                ...state,
+                overlayType: action.payload.overlayType,
+                overlayStatus: action.payload.overlayStatus,
+                token: action.payload.token,
+                errorMessage: action.payload.errorMessage,
+                userObject: action.payload.userObject,
+                repObject: action.payload.repObject,
+            };
+        
+
+//  QR Code modifiers ============================================= start
+
+        case 'SET_CAMERA_PERMISSION_TRUE':
+            return {
+                ...state,
+                hasCameraPermission: action.payload.hasCameraPermission,
+            };
+        case 'SET_CAMERA_PERMISSION_FALSE':
+                return {
+                    ...state,
+                    hasCameraPermission: action.payload.hasCameraPermission,
+                };
+
+        case 'SET_SCANNED_TRUE':
+                return {
+                    ...state,
+                    scanned: action.payload.scanned,
+                };
+        case 'SET_SCANNED_FALSE':
+            return {
+                ...state,
+                scanned: action.payload.scanned,
+            };
+        
+
+//  QR Code modifiers =============================================== end
+        
         
         default:
             return state;
-    }
+    };
 
 };
+
+
+
+
+
+// ACTIONS ====================================================================
+// ACTIONS ====================================================================
+// ACTIONS ====================================================================
 
 
 const login = (dispatch) => async ({ email, password }) => {
@@ -288,6 +329,7 @@ const setDealsArray = ( dispatch ) => ( dealsArray ) => {
 
 // CLEAR ERROR s ===============================================
 // const clearErrors = () => dispatch({ type: 'CLEAR_ERRORS' });
+// Clear ERROR s ===============================================
   
 
 
@@ -380,8 +422,6 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
         const repObject = jwt_decode(response.data.token);
 
         dispatch({ type: 'repPlatform', payload: { token: response.data.token, repObject } });
-
-        // console.log( repObject )
 
         navigate('RepPlatformScreen');
 
@@ -504,13 +544,63 @@ const setCategoryAllDeals = dispatch => () => {
     });
 };
 
-
-
-
 // DEALS MENU ====================================================== end
 
+const LogOut = dispatch => () => {
+    dispatch({
+        type: 'LOG_OUT',
+        payload: {
+            overlayType: "",
+            overlayStatus: false,
+            token: null,
+            errorMessage: '',
+            userObject: {},
+            repObject: {},
+            deals: [],
+        }
+    });
+    navigate('LoginScreen');
+};
+
+// QR Code modifiers ============================================= start
+
+const setCameraPermissionTrue = dispatch => () => {
+    dispatch({
+        type: 'SET_CAMERA_PERMISSION_TRUE',
+        payload: {
+            hasCameraPermission: true,
+        }
+    });
+};
+const setCameraPermissionFalse = dispatch => () => {
+    dispatch({
+        type: 'SET_CAMERA_PERMISSION_FALSE',
+        payload: {
+            hasCameraPermission: false
+        }
+    });
+};
+
+const setScannedTrue = dispatch => () => {
+    dispatch({
+        type: 'SET_SCANNED_TRUE',
+        payload: {
+            scanned: true,
+        }
+    });
+};
+const setScannedFalse = dispatch => () => {
+    dispatch({
+        type: 'SET_SCANNED_FALSE',
+        payload: {
+            scanned: false,
+        }
+    });
+};
 
 
+
+// QR Code modifiers =============================================== end
 
 
 
@@ -572,22 +662,6 @@ const hidePopUpProfile = dispatch => () => {
 };
 
 
-const LogOut = dispatch => () => {
-    dispatch({
-        type: 'LOG_OUT',
-        payload: {
-            overlayType: "",
-            overlayStatus: false,
-            token: null,
-            errorMessage: '',
-            userObject: {},
-            repObject: {},
-            deals: [],
-        }
-    });
-    navigate('LoginScreen');
-};
-
 
 // EXPORT ==========================================================
 // EXPORT ==========================================================
@@ -611,6 +685,7 @@ export const { Provider, Context } = createDataContext(
         displayPopUpProfileConfirmResetPassword,
         displayPopUpProfileCancelSubscription,
 
+// DEALS MENU =============================================== start
         setCategoryAlcohol,
         setCategoryEvents,
         setCategoryFashion,
@@ -621,7 +696,19 @@ export const { Provider, Context } = createDataContext(
         setCategoryTechnology,
         setCategoryAllDeals,
 
-        LogOut
+// DEALS MENU ================================================= end
+
+        LogOut,
+
+// QR Code component modifiers ============================== start
+
+        setCameraPermissionTrue,
+        setCameraPermissionFalse,
+        
+        setScannedTrue,
+        setScannedFalse,        
+
+// QR Code component modifiers ================================ end
 
     },
     {   
@@ -633,333 +720,15 @@ export const { Provider, Context } = createDataContext(
 
         category: "All Deals",
 
-        dealsArray: [
-
-            {
-                "category": [
-                  "Food & Drink",
-                  "All Deals"
-                ],
-                "_id": "5dc445177c213e708d070177",
-                "name": "Dominos",
-                "img": "dominos.png",
-                "gender": "both",
-                "location": "Cathays, City Centre, Canton, Cardiff Bay, Ely, Llandaff, Maes Y Coe, Penarth, Pentwyn, Rumney Hill",
-                "availability": "Sunday - Thursday: 50% Off Relates To Pizzas Only. All Other Menu Items Will Be Charged At Regular Menu Price. Offer Valid In Participating Stores Only.",
-                "lineOne": "When You Spend £20 Or More Online VOUCHER CODE: OVERHERD",
-                "lineTwo": "To Claim This Deal, You Will Need To Present Your Overheard Membership Upon Delivery",
-                "lineThree": "",
-                "logo": "img/logos/ciliegino-logo.png",
-                "order": 0,
-                "hoverid": "qwerty1",
-                "mainOffer": "50% Off Pizzas",
-                "offerSmall": "",
-                "buttonText": "Buy Online",
-                "online": true,
-                "tags": "Food & Drink",
-                "latitude": 51.4794623,
-                "longitude": -3.1765643,
-                "sales": 0,
-                "link": ""
-              },
-              {
-                "category": [
-                  "Food & Drink",
-                  "Lifestyle",
-                  "All Deals",
-                  "Alcohol"
-                ],
-                "_id": "5d28b2da7c213e5998eaf855",
-                "name": "Walkabout",
-                "img": "walkabout.jpg",
-                "gender": "both",
-                "location": "65-74 St Mary St, Cardiff CF10 1FA",
-                "mainOffer": "5 Exclusive Deals",
-                "offerSmall": "",
-                "online": false,
-                "lineOne": "20% Off, £2 Carling And Strongbow",
-                "lineTwo": "Spirit And mixer £2: Vodka, Jack Daniels, Captain Morgan",
-                "lineThree": "Jagerbombs 2 For £5",
-                "buttonText": "Redeem In Store",
-                "offline": "true",
-                "order": 1,
-                "availability": "Anytime During Opening Hours",
-                "tags": "Food & Drink, Lifestyle",
-                "latitude": 51.4768283,
-                "longitude": -3.1792438,
-                "sales": 0
-              },
-              {
-                "category": [
-                  "Health & Fitness",
-                  "All Deals"
-                ],
-                "_id": "5d075742fb6fc00e79ab0a8b",
-                "name": "Better Gym",
-                "img": "better.png",
-                "gender": "both",
-                "location": "City Wide - Centres in Cardiff: Eastern, Fairwater, Llanishen, Maindy, Pentwyn, Star Hub and Western",
-                "availability": "Anytime During Opening Hours",
-                "lineOne": "£24 per Month",
-                "lineTwo": "£199 per Year",
-                "lineThree": "More Info: Visit better.org.uk/leisure-centre/cardiff or call 02920 529230",
-                "mainOffer": "£61/Year Off Student Price",
-                "offerSmall": "",
-                "buttonText": "Redeem In Store",
-                "longtext": true,
-                "offline": "true",
-                "order": 1,
-                "tags": "Health & Fitness",
-                "sales": 0
-              },
-              {
-                "category": [
-                  "Events & Festivals",
-                  "All Deals"
-                ],
-                "_id": "5d8c657d7c213e55613680a9",
-                "name": "Smack",
-                "img": "smack.jpg",
-                "gender": "both",
-                "location": "",
-                "lineOne": "£1 Off Entry",
-                "lineTwo": "",
-                "lineThree": "",
-                "mainOffer": "£1 Off Entry",
-                "offerSmall": "",
-                "offline": "true",
-                "buttonText": "Redeem At Door",
-                "order": 2,
-                "availability": "Anytime During Opening Hours",
-                "redeemInstructions": "",
-                "tags": "Events & Festivals"
-              },
-              {
-                "category": [
-                  "Events & Festivals",
-                  "All Deals"
-                ],
-                "_id": "5d8c643f7c213e5561368059",
-                "name": "QUIDZ Mondays",
-                "img": "quidz.jpg",
-                "gender": "both",
-                "location": "",
-                "lineOne": "£1 Entry",
-                "lineTwo": "Redeem At The Door",
-                "lineThree": "",
-                "mainOffer": "£1 Entry",
-                "offerSmall": "",
-                "offline": "true",
-                "buttonText": "Redeem At Door",
-                "order": 3,
-                "availability": "Anytime During Opening Hours",
-                "tags": "Events & Festivals"
-              },
-              {
-                "category": [
-                  "Food & Drink",
-                  "Lifestyle",
-                  "All Deals"
-                ],
-                "_id": "5d136e97e7179a4e432a1c14",
-                "name": "Steinbeck And Shaw",
-                "img": "steinbeck.jpg",
-                "lineOne": "50% Off Food",
-                "lineTwo": "",
-                "lineThree": "",
-                "availability": "Friday & Saturday",
-                "gender": "both",
-                "location": "Greyfriars Rd, Cardiff CF10 3DP",
-                "logo": "img/logos/ciliegino-logo.png",
-                "order": 4,
-                "buttonText": "Redeem In Store",
-                "mainOffer": "50% Off Food",
-                "offerSmall": "",
-                "offline": "true",
-                "tags": "Food & Drink, Lifestyle",
-                "latitude": 51.4831917,
-                "longitude": -3.17727,
-                "sales": 0
-              },
-              {
-                "category": [
-                  "Fashion & Shopping",
-                  "All Deals"
-                ],
-                "_id": "5d35c3927c213e5998ef9a0b",
-                "name": "I Saw It First",
-                "img": "i-saw-it-first.png",
-                "gender": "both",
-                "online": true,
-                "location": "https://www.isawitfirst.com",
-                "availability": "Anytime During Opening Hours",
-                "lineOne": "50% Off",
-                "lineTwo": "",
-                "lineThree": "",
-                "order": 5,
-                "link": "https://www.isawitfirst.com",
-                "ecommerceDeal": true,
-                "redeemInstructions": "Enter 'over50' as a promo code at the checkout",
-                "mainOffer": "50% Off",
-                "offerSmall": "",
-                "buttonText": "Buy Online",
-                "tags": "Fashion & Shopping"
-              },
-              {
-                "category": [
-                  "Food & Drink",
-                  "Lifestyle",
-                  "All Deals",
-                  "Alcohol"
-                ],
-                "_id": "5d14f0befb6fc00e79b1752b",
-                "name": "Old Havana",
-                "img": "old-havana.jpg",
-                "gender": "both",
-                "location": "6 High St, Cardiff, CF10 1AW",
-                "availability": "Anytime During Opening Hours",
-                "lineOne": "3 For £10 Bottled Beer",
-                "lineTwo": "3 For 1 On Daiquiris And Mojitos",
-                "lineThree": "2 For £12 Full-priced Cocktails",
-                "buttonText": "Redeem In Store",
-                "mainOffer": "3 For 1 Cocktails",
-                "offline": "true",
-                "offerSmall": "+ More",
-                "longtext": true,
-                "tags": "Food & Drink, Lifestyle",
-                "order": 6,
-                "latitude": 51.4809404,
-                "longitude": -3.1823857,
-                "sales": 0
-              },
-              {
-                "category": [
-                  "Events & Festivals",
-                  "All Deals"
-                ],
-                "_id": "5cf79a34e7179a6896b19c14",
-                "name": "Spring Break Amsterdam",
-                "img": "sba-artwork.jpg",
-                "gender": "both",
-                "location": "Amsterdam",
-                "logo": "img/logos/budafest-logo.png",
-                "mainOffer": "£20 Off",
-                "availability": "Tickets In Limited Supply",
-                "ecommerceDeal": true,
-                "link": "https://moree.springbreakamsterdam.co.uk/bookings/new",
-                "offerSmall": "",
-                "lineOne": "£20 Off Tickets",
-                "lineTwo": "",
-                "lineThree": "",
-                "order": 7,
-                "buttonText": "Buy Online",
-                "modalId": "sbaModal",
-                "tags": "Events & Festivals"
-              },
-              {
-                "category": [
-                  "Food & Drink",
-                  "Lifestyle",
-                  "All Deals"
-                ],
-                "_id": "5d6e00b4e7179a084ef784b7",
-                "name": "Revolucion De Cuba",
-                "img": "revolution.jpg",
-                "gender": "both",
-                "location": "",
-                "availability": "Anytime During Opening Hours",
-                "lineOne": "1 Free Coffee A Day",
-                "lineTwo": "25% Off Main Plates",
-                "lineThree": "3 Tapas Dishes For £10",
-                "buttonText": "Redeem In Store",
-                "mainOffer": "FREE COFFEE Every Day",
-                "offline": "true",
-                "offerSmall": "+ More",
-                "longtext": true,
-                "tags": "Food & Drink, Lifestyle",
-                "order": 8,
-                "latitude": 51.482783,
-                "longitude": -3.180082,
-                "sales": 0
-              },
-              {
-                "category": [
-                  "Fashion & Shopping",
-                  "All Deals"
-                ],
-                "_id": "5d7bbee6e7179a084efce837",
-                "name": "Judy's Affordable Vintage Fair",
-                "img": "judy-vintage.jpg",
-                "gender": "both",
-                "tags": "Fashion & Shopping",
-                "availability": "Anytime During Opening Hours",
-                "location": "",
-                "lineOne": "Free Entry with Card After 11am",
-                "lineTwo": "Pre-register For First Hour (10-11am), With 25p Booking Fee",
-                "lineThree": "Enter 'OVERHEARD' as a Promo Code at the Checkout",
-                "mainOffer": "FREE ENTRY",
-                "offerSmall": "",
-                "longtext": true,
-                "buttonText": "Buy Online",
-                "order": 9,
-                "redeemInstructions": "Enter 'OVERHEARD' as a promo code at the checkout",
-                "link": "http://buytickets.at/thevintageclothingkilosale1/283909",
-                "ecommerceDeal": true
-              },
-              {
-                "category": [
-                  "Events & Festivals",
-                  "All Deals"
-                ],
-                "_id": "5d7eb266e7179a084efd8df8",
-                "name": "Good Life",
-                "img": "good-life.jpg",
-                "gender": "both",
-                "location": "",
-                "lineOne": "30% Off Tickets",
-                "lineTwo": "Tickets Coming Soon",
-                "lineThree": "",
-                "mainOffer": "30% Off Tickets",
-                "offerSmall": "",
-                "online": true,
-                "ecommerceDeal": true,
-                "buttonText": "Buy Online",
-                "order": 10,
-                "link": "https://www.residentadvisor.net/events/1304965?p=Overheard",
-                "availability": "Tickets In Limited Supply",
-                "redeemInstructions": "",
-                "tags": "Events & Festivals"
-              },
-              {
-                "category": [
-                  "Events & Festivals",
-                  "All Deals",
-                  "Alcohol"
-                ],
-                "_id": "5d7eabc4e7179a084efd8cec",
-                "name": "Vale Warehouse",
-                "img": "vale-warehouse.png",
-                "gender": "both",
-                "location": "",
-                "mainOffer": "4 For £10 Spirit & Mixer",
-                "offerSmall": "+ More",
-                "lineOne": "4 For a £10 On Jägermeister, Sambuca And Tequila",
-                "lineTwo": "3 For £10 On Cans Of Lager And Cider",
-                "lineThree": "£14 pitchers On Lager And Cider",
-                "buttonText": "Redeem In Store",
-                "order": 11,
-                "link": "",
-                "redeemInstructions": "",
-                "availability": "Any Time During Opening Hours",
-                "tags": "Events & Festivals",
-                "sales": 0
-              }
-
-        ],
+        dealsArray: [],
 
         overlayType: "",
         overlayStatus: false,
 
+
+        // QR Code component state
+        hasCameraPermission: true,
+        scanned: false,
     }
 
 );

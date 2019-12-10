@@ -10,7 +10,9 @@ export default class BarcodeScannerExample extends React.Component {
   };
 
   async componentDidMount() {
+
     this.getPermissionsAsync();
+    
   }
 
   getPermissionsAsync = async () => {

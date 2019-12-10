@@ -390,7 +390,7 @@ const DealsScreen = ({navigation}) => {
 
 DealsScreen.navigationOptions = () => {
     return {
-        header: null
+        header: null,
     };
 };
 

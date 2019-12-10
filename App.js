@@ -43,6 +43,8 @@ import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOver
 
 import BarcodeScannerExample from './src/screens/TestTest/BarcodeScannerExample'
 
+import BarcodeScannerFunctional from './src/screens/TestTest/BarcodeScannerFunctional'
+
 //===========================================test
 
 
@@ -64,9 +66,11 @@ const switchNavigator = createSwitchNavigator ({
       
       // QRCodeScannerTest: QRCodeScannerTest,
 
-      // MerchantQRCodeScanScreen: MerchantQRCodeScanScreen,
+      MerchantQRCodeScanScreen: MerchantQRCodeScanScreen,
 
       // BarcodeScannerExample: BarcodeScannerExample,
+
+      // BarcodeScannerFunctional: BarcodeScannerFunctional,
 
       //===========================================test
 
