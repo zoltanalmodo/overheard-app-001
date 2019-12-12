@@ -5,7 +5,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { setNavigator } from './src/navigationRef';
 
 
-
 import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 import ResetPasswordScreen from './src/screens/ResetPasswordScreen/ResetPasswordScreen';
 import ConfirmResetPasswordScreen from './src/screens/ConfirmResetPasswordScreen/ConfirmResetPasswordScreen';
@@ -20,6 +19,8 @@ import RepSignUpScreen from './src/screens/RepSignUpScreen/RepSignUpScreen';
 import RepPlatformScreen from './src/screens/RepPlatformScreen/RepPlatformScreen';
 import ConfirmRepPlatformScreen from './src/screens/ConfirmRepPlatformScreen/ConfirmRepPlatformScreen';
 
+import MerchantLoginScreen from './src/screens/MerchantLoginScreen/MerchantLoginScreen';
+
 import DealsScreen from './src/screens/DealsScreen/DealsScreen';
 
 import MapUserCenteredScreen from './src/screens/MapUserCenteredScreen/MapUserCenteredScreen';
@@ -28,7 +29,7 @@ import MapDealCenteredScreen from './src/screens/MapDealCenteredScreen/MapDealCe
 import ProfileScreen from './src/screens/ProfileScreen/ProfileScreen';
 import ProfileWarningScreen from './src/screens/ProfileWarningScreen/ProfileWarningScreen';
 
-import MerchantQRCodeScanScreen from './src/screens/MerchantQRCodeScanScreen/MerchantQRCodeScanScreen';
+import MerchantPlatformScreen from './src/screens/MerchantPlatformScreen/MerchantPlatformScreen';
 
 
 
@@ -66,11 +67,11 @@ const switchNavigator = createSwitchNavigator ({
       
       // QRCodeScannerTest: QRCodeScannerTest,
 
-      MerchantQRCodeScanScreen: MerchantQRCodeScanScreen,
+      // BarcodeScannerFunctional: BarcodeScannerFunctional,
 
       // BarcodeScannerExample: BarcodeScannerExample,
 
-      // BarcodeScannerFunctional: BarcodeScannerFunctional,
+      
 
       //===========================================test
 
@@ -79,6 +80,8 @@ const switchNavigator = createSwitchNavigator ({
       // ProfileScreen: ProfileScreen,
 
       // DealsScreen: DealsScreen,
+
+      // MerchantLoginScreen: MerchantLoginScreen,
     
       //==========================================build
       
@@ -89,6 +92,9 @@ const switchNavigator = createSwitchNavigator ({
       RepSignUpScreen: RepSignUpScreen,                              
       
       RepPlatformScreen: RepPlatformScreen,
+
+      MerchantLoginScreen: MerchantLoginScreen,
+      MerchantPlatformScreen: MerchantPlatformScreen,
       
     }),
 
@@ -102,11 +108,12 @@ const switchNavigator = createSwitchNavigator ({
       ProfileScreen: ProfileScreen,
       ProfileWarningScreen: ProfileWarningScreen,
 
-
       ConfirmResetPasswordScreen: ConfirmResetPasswordScreen,
       ConfirmResetRepPasswordScreen: ConfirmResetRepPasswordScreen,
       
       ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
+
+      BarcodeScannerFunctional: BarcodeScannerFunctional,
       
     })
 
@@ -123,5 +130,4 @@ export default () => {
 };
 
 
-//*********************** ALMODO SOFTWARE *************************//
 

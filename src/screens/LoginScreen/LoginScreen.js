@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
@@ -35,16 +35,18 @@ const LoginScreen = ({navigation}) => {
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
 
         setDealsArray(deals.data);
-        setCategory("All Deals");
+        // setCategory("All Deals");
 
     };
 
-   
+    
 
     useEffect(() => {
         fetchDealsArray();
         // setCategoryAllDeals();
+        
         console.log(state);
+        
     }, []);
 
     
@@ -105,7 +107,7 @@ const LoginScreen = ({navigation}) => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('ResetPasswordScreen', {clearErrors})} >
+                <TouchableOpacity onPress={() => navigation.navigate('ResetPasswordScreen')} >
                     <View style={styles.forgotPasswordPosition}>
                             <View style={styles.forgotPassword}>
                                 <Text style={styles.forgotPasswordText}>Forgot Password</Text>
@@ -132,7 +134,7 @@ const LoginScreen = ({navigation}) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('#')}
+                    onPress={() => navigation.navigate('MerchantLoginScreen')}
                 >                    
                     <View style={styles.loginButtonPosition}>
                         <Text style={styles.merchantLoginButton}>Merchant Login</Text>

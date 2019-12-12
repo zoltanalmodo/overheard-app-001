@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect}  from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Button } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
@@ -19,7 +19,9 @@ const BarcodeScannerFunctional = ({navigation}) => {
         setCameraPermissionFalse,
         
         setScannedTrue,
-        setScannedFalse, 
+        setScannedFalse,
+
+        verifyQRCode,
     
     
     } = useContext(AuthContext);
@@ -54,16 +56,35 @@ const BarcodeScannerFunctional = ({navigation}) => {
     handleBarCodeScanned = ({ type, data }) => {
 
 
-        // state >>> scanned (state = modify) setScannedTrue
-        // change scanned state >>> true
-                setScannedTrue();
-        // // change scanned state <<< true
+        verifyQRCode({data, merchant: state.merchantObject.id});
+
+            setScannedTrue();
             
-                alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-        
-        };
+               
+    };
 
 
+    showScanResult = () => {
+
+        switch (state.qrResult) {
+
+            case '': return;
+            break;
+            case 'Invalid QR Code - If the user was ever a genuine customer, please contact technical support.'
+                : alert('Invalid QR Code - If the user was ever a genuine customer, please contact technical support.');
+            break;
+            case 'APPROVED - Enjoy your discount!'
+                : alert('APPROVED - Enjoy your discount!');
+            break;
+            case 'DECLINED - Please ensure you are up-to-date with payments in order to continue redeeming discounts using our app.'
+                : alert('DECLINED - Please ensure you are up-to-date with payments in order to continue redeeming discounts using our app.');
+            break;
+
+            default : return;
+   
+       }
+
+    };
 
 
     const { hasCameraPermission, scanned } = state;
@@ -82,7 +103,7 @@ const BarcodeScannerFunctional = ({navigation}) => {
         <View style={styles.scannerContainer}>
 
             <BarCodeScanner
-                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                onBarCodeScanned={scanned ? showScanResult() : handleBarCodeScanned}
                 style={styles.scannerWrapper}
             />
 
@@ -103,8 +124,6 @@ const BarcodeScannerFunctional = ({navigation}) => {
     );
 
 
-    
-
 };
 
 
@@ -116,18 +135,39 @@ BarcodeScannerFunctional.navigationOptions = () => {
     };
 };
 
+const deviceDisplayWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
     scannerContainer: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
+        marginTop: 33,
+        backgroundColor: 'yellow', 
     },
     scannerWrapper: {
-        ...StyleSheet.absoluteFillObject,
-        marginTop: 33,
+        width: deviceDisplayWidth,
+        height: deviceDisplayWidth,
     },
+
+    showResultPosition: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+    },
+
+    showResultTextBOX: {
+        height: 100,
+        width: 200,
+        backgroundColor: 'yellow',
+    },
+    showResultText: {
+        textAlign: 'center',
+        color: 'red',
+        fontSize: 22,
+        fontWeight: '800',
+    }
 
 });
 

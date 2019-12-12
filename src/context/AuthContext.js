@@ -21,19 +21,13 @@ const authReducer = (state, action) => {
 
     switch (action.type) {
         
-        case 'add_error':
-            return {
-                ...state,
-                errorMessage:
-                action.payload
-            };
-
-        case 'login':
+        
+        case 'LOGIN':
             return {
                 ...state,
                 errorMessage: '',
                 token: action.payload.token,
-                userObject: action.payload.userObject
+                userObject: action.payload.userObject,
             };
 
         case 'repLogin':
@@ -41,7 +35,7 @@ const authReducer = (state, action) => {
                 ...state,
                 errorMessage: '',
                 token: action.payload.token,
-                repObject: action.payload.repObject
+                repObject: action.payload.repObject,
             };
     
         case 'repPlatform':
@@ -49,7 +43,7 @@ const authReducer = (state, action) => {
                 ...state,
                 errorMessage: '',
                 token: action.payload.token,
-                repObject: action.payload.repObject
+                repObject: action.payload.repObject,
             };
 
         case 'add_success':
@@ -57,38 +51,50 @@ const authReducer = (state, action) => {
                 ...state,
                 errorMessage: '',
                 token: action.payload.token,
-                repObject: action.payload.repObject
+                repObject: action.payload.repObject,
             };
 
         case 'repRegister':
             return {
                 ...state,
                 errorMessage: '',
-                token: action.payload
+                token: action.payload,
             };
+
+        case 'MERCHANT_LOGIN':
+            return {
+                ...state,
+                errorMessage: '',
+                token: action.payload.token,
+                merchantObject: action.payload.merchantObject,
+            }
+
+// ==== displaying ERRORS ==== start
+
+        case 'ADD_ERROR':
+                return {
+                    ...state,
+                    errorMessage: action.payload,
+                };
 
         case 'CLEAR_ERRORS':
             return {
                 ...state,
-                errorMessage: ''
+                errorMessage: '',
             };
 
-        case 'SET_CATEGORY':
-            return {
-                ...state,
-                category: action.payload
-            };
+// ==== displaying ERRORS ====== end
 
         case 'SET_CARD_OBJECT':
             return {
                 ...state,
-                cardObject: action.payload
+                cardObject: action.payload,
             };
         
         case 'SET_DEALS_ARRAY':
             return {
                 ...state,
-                dealsArray: action.payload
+                dealsArray: action.payload,
             };
 
             
@@ -97,7 +103,7 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus  
+                overlayStatus: action.payload.overlayStatus,
             };
 
 
@@ -106,13 +112,13 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus  
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'DISPLAY_POPUP_DEAL_CARD_QR':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus  
+                overlayStatus: action.payload.overlayStatus,
             };
 
 
@@ -121,20 +127,20 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };        
         case 'DISPLAY_POPUP_PROFILE_CONFIRM_RESET_PASSWORD':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
             
         case 'DISPLAY_POPUP_PROFILE_CANCEL_SUBSCRIPTION':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
 
 
@@ -143,14 +149,14 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
 
         case 'HIDE_POPUP_DEAL_CARD':
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
                 
             };
 
@@ -158,7 +164,7 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
 
 //  DEALS MENU ==================================================== start
@@ -168,7 +174,7 @@ const authReducer = (state, action) => {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
 
         case 'SET_CATEGORY_EVENTS':
@@ -176,56 +182,56 @@ const authReducer = (state, action) => {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };        
         case 'SET_CATEGORY_FASHION':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'SET_CATEGORY_FOOD':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'SET_CATEGORY_HAIR':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'SET_CATEGORY_LIFESTYLE':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'SET_CATEGORY_TAXIS':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'SET_CATEGORY_TECHNOLOGY':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
         case 'SET_CATEGORY_ALL_DEALS':
             return {
                 ...state,
                 category: action.payload.category,
                 overlayType: action.payload.overlayType,
-                overlayStatus: action.payload.overlayStatus
+                overlayStatus: action.payload.overlayStatus,
             };
 
 //  DEALS MENU ====================================================== end
@@ -266,6 +272,11 @@ const authReducer = (state, action) => {
                 scanned: action.payload.scanned,
             };
         
+        case 'VERIFY_QR_CODE':
+            return {
+                ...state,
+                qrResult: action.payload.token,
+            };
 
 //  QR Code modifiers =============================================== end
         
@@ -294,12 +305,12 @@ const login = (dispatch) => async ({ email, password }) => {
 
         const userObject = jwt_decode(response.data.token);
 
-        dispatch({ type: 'login', payload: {token: response.data.token, userObject} });
+        dispatch({ type: 'LOGIN', payload: {token: response.data.token, userObject} });
 
         navigate('DealsScreen');
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Something Is Wrong... Try Again!'});
+        dispatch({ type: 'ADD_ERROR', payload: 'Something Is Wrong... Try Again!'});
     }
 
 };
@@ -311,7 +322,7 @@ const cardObject = ( dispatch ) => ( dealObject ) => {
     try {
         dispatch({ type: 'SET_CARD_OBJECT', payload: dealObject });
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'carObject =error='});
+        dispatch({ type: 'ADD_ERROR', payload: 'carObject =error='});
     }
 
 };
@@ -321,14 +332,14 @@ const setDealsArray = ( dispatch ) => ( dealsArray ) => {
     try {
         dispatch({ type: 'SET_DEALS_ARRAY', payload: dealsArray });
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'dealsArray =error='});
+        dispatch({ type: 'ADD_ERROR', payload: 'dealsArray =error='});
     }
 
 };
 
 
 // CLEAR ERROR s ===============================================
-// const clearErrors = () => dispatch({ type: 'CLEAR_ERRORS' });
+const clearErrors = () => dispatch({ type: 'CLEAR_ERRORS', payload: '' });
 // Clear ERROR s ===============================================
   
 
@@ -341,7 +352,7 @@ const resetPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Incorrect Email' });
+        dispatch({ type: 'ADD_ERROR', payload: 'Incorrect Email' });
     }
 
 };
@@ -357,7 +368,7 @@ const resetRepPassword = (dispatch) => async ({ email }) => {
         navigate( 'ConfirmResetRepPasswordScreen', { email } );
 
     } catch (err) {
-        dispatch({ type: 'add_error', payload: 'Incorrect Email' });
+        dispatch({ type: 'ADD_ERROR', payload: 'Incorrect Email' });
     }
 
 };
@@ -384,7 +395,7 @@ const repLogin = (dispatch) => async ({ email, password }) => {
 
         // console.log(err.message);
 
-        dispatch({ type: 'add_error', payload: `Incorrect Login Details` });
+        dispatch({ type: 'ADD_ERROR', payload: `Incorrect Login Details` });
     }
     
 };
@@ -405,7 +416,7 @@ const repPlatform = (dispatch) => async ({ email, password }) => {
 
     } catch (err) {
 
-        dispatch({ type: 'add_error', payload: 'RepPlatform =error='});
+        dispatch({ type: 'ADD_ERROR', payload: 'RepPlatform =error='});
     }
     
 };
@@ -429,7 +440,7 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
     } catch (err) {
 
         dispatch({
-            type: 'add_error',
+            type: 'ADD_ERROR',
             payload: 'This email is already in use. Use another or press back to sign in.'
         });
         
@@ -437,12 +448,54 @@ const repRegister = (dispatch) => async ({ first, last, email, password, phone, 
 
 };
 
-const setCategory = dispatch => category => {
-    dispatch({
-        type: 'SET_CATEGORY',
-        payload: "All Deals",
-    });
+
+const merchantLogin = (dispatch) => async ({ email, password }) => {
+        
+    try {
+        const response = await trackerApi.post('/merchant/login', { email, password });
+
+        // console.log(response.data);
+
+        await AsyncStorage.setItem('token', response.data.token);
+
+        const merchantObject = jwt_decode(response.data.token);
+
+        dispatch({ type: 'MERCHANT_LOGIN', payload: { token: response.data.token, merchantObject } });
+
+        // console.log( repObject );
+
+        navigate('MerchantPlatformScreen');
+
+    } catch (err) {
+
+        // console.log(err.message);
+
+        dispatch({ type: 'ADD_ERROR', payload: `Incorrect Login Details` });
+    }
+    
 };
+
+
+const verifyQRCode = (dispatch) => async ({ data, merchant }) => {
+
+    try {
+        const response = await trackerApi.post('/sale', { customerId: data, merchantId: merchant });
+
+        // console.log(response.data);
+        
+        dispatch({ type: 'VERIFY_QR_CODE', payload: { token: response.data.qrResult } });
+
+        // navigate('MerchantPlatformScreen');
+
+    } catch (err) {
+
+        // console.log(err.message);
+
+        dispatch({ type: 'ADD_ERROR', payload: `Error QR Code Validation` });
+    }
+
+};
+
 
 
 // DEALS MENU ====================================================== start
@@ -556,6 +609,7 @@ const LogOut = dispatch => () => {
             errorMessage: '',
             userObject: {},
             repObject: {},
+            merchantObject: {},
             deals: [],
         }
     });
@@ -670,8 +724,19 @@ const hidePopUpProfile = dispatch => () => {
 
 export const { Provider, Context } = createDataContext(
     authReducer,
-    { login, resetPassword, repLogin, repRegister, repPlatform,
-        resetRepPassword, setCategory, cardObject, setDealsArray,
+    {   
+        login,
+        resetPassword,
+
+        repLogin,
+        repRegister,
+        repPlatform,
+        resetRepPassword,
+
+        merchantLogin,
+
+        cardObject,
+        setDealsArray,
 
         displayPopUpDealsMenu,
         hidePopUpDealsMenu,
@@ -706,7 +771,9 @@ export const { Provider, Context } = createDataContext(
         setCameraPermissionFalse,
         
         setScannedTrue,
-        setScannedFalse,        
+        setScannedFalse,
+        
+        verifyQRCode,
 
 // QR Code component modifiers ================================ end
 
@@ -717,18 +784,20 @@ export const { Provider, Context } = createDataContext(
 
         userObject: {},
         repObject: {},
+        merchantObject: {},
 
-        category: "All Deals",
+        category: 'All Deals',
 
         dealsArray: [],
 
-        overlayType: "",
+        overlayType: '',
         overlayStatus: false,
 
 
         // QR Code component state
         hasCameraPermission: true,
         scanned: false,
+        qrResult: '',
     }
 
 );

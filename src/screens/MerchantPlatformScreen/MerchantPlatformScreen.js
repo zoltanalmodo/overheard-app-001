@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Button, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 
 
 
@@ -12,7 +12,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 // repObject: action.payload.repObject
 
-const MerchantQRCodeScanScreen = ({navigation}) => {
+const MerchantPlatformScreen = ({navigation}) => {
 
     const { state, LogOut } = useContext(AuthContext);
 
@@ -38,22 +38,22 @@ const MerchantQRCodeScanScreen = ({navigation}) => {
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Name:</Text>
-                            <Text style={styles.statsTextRight} >First and Last Name</Text>
+                            <Text style={styles.statsTextRight} >{ state.merchantObject.name }</Text>
                         </View>
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Deal:</Text>
-                            <Text style={styles.statsTextRight} >Best Deal Ever</Text>
+                            <Text style={styles.statsTextRight} >{ state.merchantObject.deal }</Text>
                         </View>
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Email:</Text>
-                            <Text style={styles.statsTextRight} >email@mail.com</Text>
+                            <Text style={styles.statsTextRight} >{ state.merchantObject.email }</Text>
                         </View>
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Sales:</Text>
-                            <Text style={styles.statsTextRight} >45</Text>
+                            <Text style={styles.statsTextRight} >{ state.merchantObject.sales }</Text>
                         </View>
 
                     </View>
@@ -63,8 +63,10 @@ const MerchantQRCodeScanScreen = ({navigation}) => {
             </View>
 
             <TouchableOpacity
-                onPress={() => login({ email, password })}     
-            >                    
+
+    // CHANGE THIS TO INVOKE (navigate to) QR CODE READER module => BarcodeScannerFunctional.js
+                onPress={() => navigation.navigate('BarcodeScannerFunctional') }     
+            >                 
                 <View style={styles.scanButtonPosition}>
                     <Text style={styles.orangeButton}>Scan QR Code</Text>
                 </View>
@@ -84,7 +86,7 @@ const MerchantQRCodeScanScreen = ({navigation}) => {
     );
 };
 
-MerchantQRCodeScanScreen.navigationOptions = () => {
+MerchantPlatformScreen.navigationOptions = () => {
     return {
         header: null
     };
@@ -258,4 +260,4 @@ const styles = StyleSheet.create({
     
 });
 
-export default MerchantQRCodeScanScreen;
+export default MerchantPlatformScreen;

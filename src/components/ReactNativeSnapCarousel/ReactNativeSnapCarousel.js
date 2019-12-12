@@ -10,10 +10,6 @@ import { Context as AuthContext } from '../../context/AuthContext'
 
 
 
-
-
-
-
 const ReactNativeSnapCarousel = () => {
 
     const { state, setCategory } = useContext( AuthContext );
@@ -461,9 +457,10 @@ const ReactNativeSnapCarousel = () => {
 
             <View style={styles.slideCard}>
 
-                <DealCard 
+                <DealCard
+                    index = {index}
                     _id={item._id}
-                    key={item.order}
+                    key={item._id}
                     name={item.name}
                     img={item.img}
                     lineOne={item.lineOne}

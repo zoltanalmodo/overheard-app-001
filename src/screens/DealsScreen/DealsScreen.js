@@ -33,8 +33,6 @@ const DealsScreen = ({navigation}) => {
         displayPopUpProfileConfirmResetPassword,
         displayPopUpProfileCancelSubscription,
 
-        setCategory,
-
         setCategoryAlcohol,
         setCategoryEvents,
         setCategoryFashion,
@@ -43,6 +41,7 @@ const DealsScreen = ({navigation}) => {
         setCategoryLifestyle,
         setCategoryTaxis,
         setCategoryTechnology,
+
         setCategoryAllDeals,
 
         LogOut,
@@ -50,10 +49,10 @@ const DealsScreen = ({navigation}) => {
     } = useContext(AuthContext);
 
 
-    // useEffect(() => {
-    //     setCategoryAllDeals();
-    //     console.log(state);
-    // }, []);
+    useEffect(() => {
+        setCategoryAllDeals();
+        // console.log(state);
+    }, []);
     
 
     const renderOverlayType = () => state.overlayType === "DealsMenu" ?
@@ -360,7 +359,10 @@ const DealsScreen = ({navigation}) => {
     : <View></View>
 
 
+    
 
+    
+    
 
 // ============================================================================
 // ============================= RETURN STATEMENT =============================

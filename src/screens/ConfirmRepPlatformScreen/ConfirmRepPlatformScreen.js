@@ -10,7 +10,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const ConfirmRepPlatformScreen = ({navigation}) => {
 
-    const { state, repPlatform } = useContext(AuthContext);
+    const { state } = useContext(AuthContext);
 
     return (
 
