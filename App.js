@@ -97,6 +97,7 @@ const switchNavigator = createSwitchNavigator ({
       MerchantPlatformScreen: MerchantPlatformScreen,
       
     }),
+    
 
     mainFlow: createSwitchNavigator({
         
