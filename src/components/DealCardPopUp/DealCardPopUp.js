@@ -6,6 +6,7 @@ import tagsIcon from '../../img/tag-icon.png'
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
+import Images from '../../components/Images/Images';
 
 
 const DealCardPopUp = ({navigation}, props) => {
@@ -55,7 +56,8 @@ const DealCardPopUp = ({navigation}, props) => {
                         <View>                  
                             <Image
                                 style={styles.dealImage}
-                                source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
+                                // source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
+                                source={Images[state.cardObject.imageLabel]} />
                         
 
                             {/* <QRCode

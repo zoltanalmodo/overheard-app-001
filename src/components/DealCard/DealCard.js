@@ -41,6 +41,7 @@ const DealCard = (props) => {
                             availability: props.availability,
                             link: props.link,
                             offline: props.offline,
+                            imageLabel: props.imageLabel
 
                     });
 
@@ -108,6 +109,7 @@ const DealCard = (props) => {
                                             availability: props.availability,
                                             link: props.link,
                                             offline: props.offline,
+                                            imageLabel: props.imageLabel
 
                                     });
 

@@ -36,13 +36,46 @@ const ReactNativeSnapCarousel = () => {
 
 
 
+    const _renderCarouselRow = ({item, index}) => {
+        return (
+
+            <View style={styles.slideCard}>
+
+                <DealCard
+                    index = {index}
+                    _id = {item._id}
+                    key = {item._id}
+                    name = {item.name}
+                    img={item.img}
+                    lineOne={item.lineOne}
+                    lineTwo={item.lineTwo}
+                    lineThree={item.lineThree}
+                    mainOffer={item.mainOffer}
+                    offerSmall={item.offerSmall}
+                    buttonText={item.buttonText}
+                    categories={item.category}
+                    tags={item.tags}
+                    location={item.location}
+                    availability={item.availability}
+                    link={item.link}
+                    offline={!item.online}
+                    imageLabel={item.imageLabel}
+                />
+
+            </View>
+
+        );
+    };
+
+
+
     const DATA = [
 
         {
             content:
                 <View style={styles.centerContainer}>
                     <View>
-                    <Text style={styles.categoryText}>{state.category}</Text>
+                        <Text style={styles.categoryText}>{state.category}</Text>
                     </View>
                 </View>,
             key: 'deals-title'
@@ -53,7 +86,7 @@ const ReactNativeSnapCarousel = () => {
                 <View style={styles.centerContainer}>
                     <Carousel
                         data={chunkSlice(currentDeals, 6)[0]}
-                        renderItem={this._renderCarouselRow}
+                        renderItem={_renderCarouselRow}
                         sliderWidth={deviceDisplayWidth}
                         sliderHeight={260}
                         itemWidth={140}
@@ -75,7 +108,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[1]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -96,7 +129,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[2]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -117,7 +150,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[3]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -138,7 +171,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[4]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -159,7 +192,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[5]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -180,7 +213,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[6]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -201,7 +234,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[7]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -222,7 +255,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[8]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -243,7 +276,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[9]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -264,7 +297,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[10]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -285,7 +318,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[11]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -306,7 +339,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[12]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -327,7 +360,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[13]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -348,7 +381,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[14]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -369,7 +402,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[15]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -390,7 +423,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[16]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -411,7 +444,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[17]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -432,7 +465,7 @@ const ReactNativeSnapCarousel = () => {
 
                 <Carousel
                     data={chunkSlice(currentDeals, 6)[18]}
-                    renderItem={this._renderCarouselRow}
+                    renderItem={_renderCarouselRow}
                     sliderWidth={deviceDisplayWidth}
                     sliderHeight={260}
                     itemWidth={140}
@@ -448,42 +481,74 @@ const ReactNativeSnapCarousel = () => {
                 
             key: 18,   
         },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[19]}
+                    renderItem={_renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 19,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[20]}
+                    renderItem={_renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 20,   
+        },
+        {   
+            content:
+
+                <Carousel
+                    data={chunkSlice(currentDeals, 6)[21]}
+                    renderItem={_renderCarouselRow}
+                    sliderWidth={deviceDisplayWidth}
+                    sliderHeight={260}
+                    itemWidth={140}
+                    itemHeight={260}
+                    loop={true}
+
+                    contentContainerCustomStyle={{
+                        height: 264,
+                        marginTop: 5,
+                        flexGrow: 0,
+                    }}
+                />,
+                
+            key: 21,   
+        },
     
     ];
 
-
-    _renderCarouselRow = ({item, index}) => {
-        return (
-
-            <View style={styles.slideCard}>
-
-                <DealCard
-                    index = {index}
-                    _id={item._id}
-                    key={item._id}
-                    name={item.name}
-                    img={item.img}
-                    lineOne={item.lineOne}
-                    lineTwo={item.lineTwo}
-                    lineThree={item.lineThree}
-                    mainOffer={item.mainOffer}
-                    offerSmall={item.offerSmall}
-                    buttonText={item.buttonText}
-                    categories={item.category}
-                    tags={item.tags}
-                    location={item.location}
-                    availability={item.availability}
-                    link={item.link}
-                    offline={!item.online}
-                />
-
-            </View>
-
-        );
-    };
-
-
     
+
     function Item({ content }) {
         return (
           <View>{ content }</View>
@@ -495,8 +560,9 @@ const ReactNativeSnapCarousel = () => {
     return (
 
         <View style={styles.container}>
-                                    
+                                     
                 <FlatList
+                    initialNumToRender={2}
                     data={ DATA }
                     renderItem={({ item }) => <Item content={item.content} />}
                     keyExtractor={item => item.key}

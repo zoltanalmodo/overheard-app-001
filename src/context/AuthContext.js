@@ -67,7 +67,8 @@ const authReducer = (state, action) => {
                 errorMessage: '',
                 token: action.payload.token,
                 merchantObject: action.payload.merchantObject,
-            }
+            };
+            
 
 // ==== displaying ERRORS ==== start
 
@@ -84,6 +85,7 @@ const authReducer = (state, action) => {
             };
 
 // ==== displaying ERRORS ====== end
+
 
         case 'SET_CARD_OBJECT':
             return {

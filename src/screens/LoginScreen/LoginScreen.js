@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { View, TextInput, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Text, TouchableOpacity, Linking } from 'react-native';
 
 import backimage from '../../img/newbg.png';
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
@@ -35,8 +35,7 @@ const LoginScreen = ({navigation}) => {
         var deals = await axios.get('https://overheard.co.uk/card/all-ajax');
 
         setDealsArray(deals.data);
-        // setCategory("All Deals");
-
+        
     };
 
     
@@ -45,7 +44,6 @@ const LoginScreen = ({navigation}) => {
         fetchDealsArray();
         // setCategoryAllDeals();
         
-        console.log(state);
         
     }, []);
 
@@ -115,7 +113,8 @@ const LoginScreen = ({navigation}) => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('#')} >
+                <TouchableOpacity onPress= { () => Linking.openURL('https://overheard.co.uk')} >
+                
                     <View style={styles.forgotPasswordPosition}>
                             <View style={styles.forgotPassword}>
                                 <Text style={styles.newUserText }>I Am A New User</Text>

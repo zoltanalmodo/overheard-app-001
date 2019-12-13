@@ -69,7 +69,6 @@ const BarcodeScannerFunctional = ({navigation}) => {
         switch (state.qrResult) {
 
             case '': return;
-            break;
             case 'Invalid QR Code - If the user was ever a genuine customer, please contact technical support.'
                 : alert('Invalid QR Code - If the user was ever a genuine customer, please contact technical support.');
             break;

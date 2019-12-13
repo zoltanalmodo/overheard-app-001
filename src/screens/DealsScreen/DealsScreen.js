@@ -49,10 +49,7 @@ const DealsScreen = ({navigation}) => {
     } = useContext(AuthContext);
 
 
-    useEffect(() => {
-        setCategoryAllDeals();
-        // console.log(state);
-    }, []);
+    
     
 
     const renderOverlayType = () => state.overlayType === "DealsMenu" ?
@@ -143,11 +140,11 @@ const DealsScreen = ({navigation}) => {
 
         <OverlayDealCard
 
-            containerStyle={styles.containerStyleDealCard}
+            containerStyle={ styles.containerStyleDealCard }
             visible={ state.overlayStatus }
             onClose={ () => hidePopUpDealCard() }
             closeOnTouchOutside
-            childrenWrapperStyle={styles.childrenWrapperStyleDealCard}
+            childrenWrapperStyle={ styles.childrenWrapperStyleDealCard }
             animationType={'zoomIn'}
             animationOutType={'zoomOut'}
 

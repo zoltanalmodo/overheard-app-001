@@ -25,8 +25,7 @@ const ResetPasswordScreen = ({navigation}) => {
             <OverheardDealsLogo />
         </View>
         
-        {/* {console.log(state)}; */}
-
+    
         <View style={styles.emailTextInputStylePosition}>
             <TextInput
                 value={email}
