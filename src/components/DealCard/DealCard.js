@@ -42,7 +42,7 @@ const DealCard = (props) => {
                             link: props.link,
                             offline: props.offline,
                             imageLabel: props.imageLabel
-
+                            
                     });
 
                         displayPopUpDealCard()

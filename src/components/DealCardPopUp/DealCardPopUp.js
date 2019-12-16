@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Linking, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-import QRCode from 'react-native-qrcode-svg';
 import tagsIcon from '../../img/tag-icon.png'
 
 import { Context as AuthContext } from '../../context/AuthContext';
@@ -56,18 +55,8 @@ const DealCardPopUp = ({navigation}, props) => {
                         <View>                  
                             <Image
                                 style={styles.dealImage}
-                                // source={{ uri: `https://overheard.co.uk/img/${state.cardObject.img}` }} />
-                                source={Images[state.cardObject.imageLabel]} />
-                        
-
-                            {/* <QRCode
-                                value={state.userObject.id}
-                                size={258}
-                                color="black"
-                                backgroundColor="white"
-                            /> */}
-
-                        
+                                source={Images[state.cardObject.imageLabel]}
+                            />                        
                         </View>
                     </View>
                 </View>
