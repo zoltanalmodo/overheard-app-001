@@ -40,8 +40,6 @@ import ReactNativeSnapCarousel from './src/components/ReactNativeSnapCarousel/Re
 
 import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOverlay'
 
-// import QRCodeScannerTest from './src/screens/TestTest/QRCodeScannerTest'
-
 import BarcodeScannerFunctional from './src/screens/TestTest/BarcodeScannerFunctional'
 
 //===========================================test
@@ -56,6 +54,7 @@ const switchNavigator = createSwitchNavigator ({
 
       //===========================================test
 
+
       
       // ReactNativeSnapCarousel: ReactNativeSnapCarousel,
 
@@ -63,11 +62,9 @@ const switchNavigator = createSwitchNavigator ({
 
       // ProfileScreen: ProfileScreen,
       
-      // QRCodeScannerTest: QRCodeScannerTest,
+      BarcodeScannerFunctional: BarcodeScannerFunctional,
 
-      // BarcodeScannerFunctional: BarcodeScannerFunctional,
 
-      
 
       //===========================================test
 
