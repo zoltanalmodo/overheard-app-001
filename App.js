@@ -41,7 +41,6 @@ import ReactNativeSnapCarousel from './src/components/ReactNativeSnapCarousel/Re
 import ReactNativeModalOverlay from './src/screens/TestTest/ReactNativeModalOverlay'
 
 import BarcodeScannerFunctional from './src/screens/TestTest/BarcodeScannerFunctional'
-import BarcodeScannerSTYLE from './src/screens/TestTest/BarcodeScannerSTYLE'
 
 //===========================================test
 
@@ -62,19 +61,11 @@ const switchNavigator = createSwitchNavigator ({
       // ReactNativeModalOverlay: ReactNativeModalOverlay,
 
       // ProfileScreen: ProfileScreen,
-      // ResetRepPasswordScreen: ResetRepPasswordScreen,
-
-      // RepPlatformScreen: RepPlatformScreen,
-
-
-      // ConfirmRepPlatformScreen: ConfirmRepPlatformScreen,
-
-      // BarcodeScannerSTYLE: BarcodeScannerSTYLE,
-
+      
       BarcodeScannerFunctional: BarcodeScannerFunctional,
 
-      
-      
+
+
       //===========================================test
 
       //==========================================build

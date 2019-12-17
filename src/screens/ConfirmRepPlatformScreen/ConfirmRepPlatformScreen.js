@@ -1,13 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { View, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 
+import BottomDrawer from 'rn-bottom-drawer';
 
 import backimage from '../../img/newbg.png'
 import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js'
 
 import { Context as AuthContext } from '../../context/AuthContext';
-
-import BackButton from '../../components/BackButton/BackButton';
 
 const ConfirmRepPlatformScreen = ({navigation}) => {
 
@@ -16,9 +15,6 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
     return (
 
     <ImageBackground source={backimage} style={styles.container}>
-
-        <BackButton navigate='LoginScreen' />
-
         <View style={styles.logoPosition}>
             <OverheardDealsLogo />
         </View>

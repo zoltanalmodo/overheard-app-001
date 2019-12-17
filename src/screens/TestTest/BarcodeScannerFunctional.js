@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect}  from 'react';
-import { Text, View, StyleSheet, Dimensions, ImageBackground, Button } from 'react-native';
-
-
+import { Text, View, StyleSheet, Dimensions, Button } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
@@ -10,11 +8,6 @@ import { BarCodeScanner } from 'expo-barcode-scanner';
 import { Context as AuthContext } from '../../context/AuthContext';
 
 
-import backimage from '../../img/newbg.png';
-
-import BackButton from '../../components/BackButton/BackButton';
-
-import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
 const BarcodeScannerFunctional = ({navigation}) => {
 
@@ -32,6 +25,12 @@ const BarcodeScannerFunctional = ({navigation}) => {
     
     
     } = useContext(AuthContext);
+
+
+//   state = {
+//     hasCameraPermission: null,
+//     scanned: false,
+//   };
 
 
     componentDidMount = async () => {
@@ -89,45 +88,37 @@ const BarcodeScannerFunctional = ({navigation}) => {
 
     const { hasCameraPermission, scanned } = state;
 
-    
 
 
-    // if (hasCameraPermission === null) {
-    //   return <Text>Requesting for camera permission</Text>;
-    // }
-    // if (hasCameraPermission === false) {
-    //   return <Text>No access to camera. Please set permission in settings.</Text>;
-    // }
+
+    if (hasCameraPermission === null) {
+      return <Text>Requesting for camera permission</Text>;
+    }
+    if (hasCameraPermission === false) {
+      return <Text>No access to camera. Please set permission in settings.</Text>;
+    }
     return (
 
-        <ImageBackground source={backimage} style={styles.container}>
+        <View style={styles.scannerContainer}>
 
-            <BackButton style={styles.backButtonPosition} navigate='LoginScreen' />
+            <BarCodeScanner
+                onBarCodeScanned={scanned ? showScanResult() : handleBarCodeScanned}
+                style={styles.scannerWrapper}
+            />
 
-            <View style={styles.logoPosition}>
-                <OverheardDealsLogo />
-            </View>
+            {scanned && (
 
-            <View >
+                <Button
+                    title={'Tap to Scan Again'}
 
-                
+// state >>> scanned: false (state = setScannedFalse)
+// change scanned state >>> false
+                    onPress={ () => setScannedFalse() } />
+// change scanned state <<< false
+            
+            )}
 
-                <BarCodeScanner
-                    onBarCodeScanned={scanned ? showScanResult() : handleBarCodeScanned}
-                    style={styles.scannerWrapper}
-                />
-
-                {scanned && (
-
-                    <Button
-                        title={'Tap to Scan Again'}
-                        onPress={ () => setScannedFalse() } />
-                
-                )}
-
-            </View>
-
-        </ImageBackground>
+        </View>
 
     );
 
@@ -147,36 +138,13 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
-    container: {
-        marginTop: 33,
-        flex: 1,
-
-    },
-
-    logoPosition: {
-        marginTop: 0,
-        marginBottom: 20,
-        zIndex: 1,
-
-    },
-
-    backButtonPosition: {
-        marginTop: 0,
-        position: 'absolute',
-        textAlign: 'right',
-        zIndex: 99,
-        width: 80,
-        height: 30,
-
-        // borderWidth: 2,
-        // borderColor: 'blue',
-    },
-
     scannerContainer: {
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
+        marginTop: 33,
+        backgroundColor: 'yellow', 
     },
-
     scannerWrapper: {
         width: deviceDisplayWidth,
         height: deviceDisplayWidth,

@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 20577,
+  "packagerPort": 19003,
+  "packagerPid": 36925,
   "expoServerNgrokUrl": "https://ni-ath.zoltanalmodo.overheard-app-expo-qr.exp.direct",
   "packagerNgrokUrl": "https://packager.ni-ath.zoltanalmodo.overheard-app-expo-qr.exp.direct",
-  "ngrokPid": 20589,
+  "ngrokPid": 36938,
   "webpackServerPort": null
 }
