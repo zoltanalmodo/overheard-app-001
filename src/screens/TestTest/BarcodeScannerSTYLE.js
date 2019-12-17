@@ -9,7 +9,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 import BackButton from '../../components/BackButton/BackButton';
 
-const ConfirmRepPlatformScreen = ({navigation}) => {
+const BarcodeScannerSTYLE = ({navigation}) => {
 
     const { state } = useContext(AuthContext);
 
@@ -71,7 +71,7 @@ const ConfirmRepPlatformScreen = ({navigation}) => {
     )
 };
 
-ConfirmRepPlatformScreen.navigationOptions = () => {
+BarcodeScannerSTYLE.navigationOptions = () => {
     return {
         header: null
     };
@@ -215,4 +215,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ConfirmRepPlatformScreen;
+export default BarcodeScannerSTYLE;

@@ -18,7 +18,7 @@ import { Context as AuthContext } from '../../context/AuthContext';
 
 const BackButton = (props) => {
 
-    const { clearErrors } = useContext(AuthContext);
+    // const { clearErrors } = useContext(AuthContext);
 
 
 // ADD >  < action to onPress
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         marginTop: 0,
         position: 'absolute',
         textAlign: 'right',
-        zIndex: 55,
+        zIndex: 99,
         width: 80,
         height: 30,
 

@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
         width: null,
         height: null,
       },
+      
     logoPosition: {
         marginTop: 32,
       },
