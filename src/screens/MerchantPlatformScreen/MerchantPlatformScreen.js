@@ -38,8 +38,7 @@ const MerchantPlatformScreen = ({navigation}) => {
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Name:</Text>
-                            {/* <Text style={styles.statsTextRight} >{ state.merchantObject.name }</Text> */}
-                            <Text style={styles.statsTextRight} >lala</Text>
+                            <Text style={styles.statsTextRight} >{ state.merchantObject.name }</Text>
                         </View>
 
                         <View style={styles.repPlatformStats}>
@@ -54,8 +53,7 @@ const MerchantPlatformScreen = ({navigation}) => {
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Sales:</Text>
-                            {/* <Text style={styles.statsTextRight} >{ state.merchantObject.sales }</Text> */}
-                            <Text style={styles.statsTextRight} >lala</Text>
+                            <Text style={styles.statsTextRight} >{ state.merchantObject.sales }</Text>
                         </View>
 
                     </View>
