@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, Dimensions } from 'react-native';
 
 
 
@@ -92,6 +92,8 @@ MerchantPlatformScreen.navigationOptions = () => {
     };
 };
 
+const deviceDisplayWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
     container: {
         marginTop: 33,
@@ -155,12 +157,14 @@ const styles = StyleSheet.create({
 
 
     repPlatformStatsPosition: {
-        width: 270,
+        width: (deviceDisplayWidth-50),
         paddingTop: 10,
-        marginLeft: 40,
-        marginLeft: 40,
-
+        marginLeft: 15,
+        marginLeft: 15,
     },
+    
+
+    
     repPlatformStats: {
         paddingTop: 10,
         flexDirection: 'row',

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, StyleSheet, ImageBackground, Button, Text, Clipboard } from 'react-native';
+import { View, StyleSheet, ImageBackground, Button, Text, Clipboard, TouchableOpacity } from 'react-native';
 
 
 
@@ -58,12 +58,19 @@ const RepPlatformScreen = ({navigation}) => {
 
 
         <View style={styles.copyRepLinkButtonPosition}>
-            <View style={styles.copyRepLinkButton}>
-                <Button title='Copy Rep link' onPress={() => {
+
+            <TouchableOpacity
+                onPress={() => {
                     navigation.navigate('ConfirmRepPlatformScreen');
-                    Clipboard.setString(`https://overheard.co.uk/deals/${ state.repObject.linkId }`)}
-                } />
-            </View>
+                    Clipboard.setString(`https://overheard.co.uk/deals/${ state.repObject.linkId }`)
+                }}
+            >                    
+                
+                    <Text style={styles.copyRepLinkButton}>Copy Rep link</Text>
+
+                
+            </TouchableOpacity>
+
         </View>
 
         
@@ -205,6 +212,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 2,
         backgroundColor: 'black',
+        paddingTop: 8,
 
         shadowColor: '#ababab',
         shadowOffset: {width: 4, height: 4},

@@ -1,9 +1,13 @@
 import React, { useState, useContext, useEffect}  from 'react';
-import { Text, View, StyleSheet, Dimensions, Button } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Button, ImageBackground, TouchableOpacity } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
+import backimage from '../../img/newbg.png';
 
+import BackButton from '../../components/BackButton/BackButton';
+
+import OverheardDealsLogo from '../../components/OverheardDealsLogo/OverheardDealsLogo.js';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
@@ -86,8 +90,8 @@ const BarcodeScannerFunctional = ({navigation}) => {
     };
 
 
-    const { hasCameraPermission, scanned } = state;
 
+    const { hasCameraPermission, scanned } = state;
 
 
 
@@ -99,32 +103,47 @@ const BarcodeScannerFunctional = ({navigation}) => {
     }
     return (
 
-        <View style={styles.scannerContainer}>
+        <ImageBackground source={backimage} style={styles.backImageContainer}>
 
-            <BarCodeScanner
-                onBarCodeScanned={scanned ? showScanResult() : handleBarCodeScanned}
-                style={styles.scannerWrapper}
-            />
+            <BackButton navigate='MerchantPlatformScreen' />
 
-            {scanned && (
+            <View style={styles.logoPosition}>
+                <OverheardDealsLogo style={styles.logoSize}/>
+            </View>
 
-                <Button
-                    title={'Tap to Scan Again'}
+            <View style={styles.scannerContainer}>
 
-// state >>> scanned: false (state = setScannedFalse)
-// change scanned state >>> false
-                    onPress={ () => setScannedFalse() } />
-// change scanned state <<< false
-            
-            )}
+                <BarCodeScanner
+                    onBarCodeScanned={scanned ? showScanResult() : handleBarCodeScanned}
+                    style={styles.scannerWrapper}
+                />
 
-        </View>
+                {scanned && (
+
+                    <View style={styles.repLoginButtonPosition}>
+
+                        <TouchableOpacity
+                            onPress={ () => setScannedFalse() }
+                            
+                        >                    
+                            <View style={styles.loginButtonPosition}>
+                                <Text style={styles.repLoginButton}>Tap To Scan Again</Text>
+
+                            </View>
+                        </TouchableOpacity>
+
+                    </View>
+
+                )}
+
+            </View>
+
+        </ImageBackground>
 
     );
 
 
 };
-
 
 
 
@@ -138,16 +157,34 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
 
+    backImageContainer: {
+        marginTop: 33,
+        backgroundColor: 'white',
+        flex: 1,
+        // remove width and height to override fixed static size
+        width: null,
+        height: null,
+    },
+
+    logoPosition: {
+        marginTop: 28,
+    },
+    
+
     scannerContainer: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        marginTop: 33,
-        backgroundColor: 'yellow', 
+        marginTop: 25,
+        marginBottom: 125,
     },
+
     scannerWrapper: {
-        width: deviceDisplayWidth,
-        height: deviceDisplayWidth,
+        width: (deviceDisplayWidth-20),
+        height: (deviceDisplayWidth-20),
+        alignSelf: 'center',
+        borderWidth: 2,
+        borderColor: 'black',
     },
 
     showResultPosition: {
@@ -159,14 +196,42 @@ const styles = StyleSheet.create({
     showResultTextBOX: {
         height: 100,
         width: 200,
-        backgroundColor: 'yellow',
+        backgroundColor: 'magenta',
     },
+
     showResultText: {
         textAlign: 'center',
         color: 'red',
         fontSize: 22,
         fontWeight: '800',
-    }
+    },
+
+
+    repLoginButtonPosition: {
+        marginTop: -26,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+
+    repLoginButton: {
+        textAlign: 'center',
+        paddingTop: 8,
+        fontSize: 24,
+        fontWeight: 'bold',
+        color:  'black',
+        height: 50,
+        width: 270,
+        borderColor: '#FF8D4F',
+        borderWidth: 2,
+        backgroundColor: '#FF8D4F',
+
+        shadowColor: 'black',
+        shadowOffset: {width: 4, height: 4},
+        shadowOpacity: 1,
+        shadowRadius: 0,
+
+    },
+
 
 });
 

@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "expo": "^34.0.1",
+    "expo-barcode-scanner": "~6.0.0",
     "install": "^0.13.0",
     "jwt-decode": "^2.2.0",
     "react": "16.8.3",
@@ -36,8 +37,7 @@
     "react-navigation-stack": "^1.5.4",
     "react-responsive-carousel": "^3.1.51",
     "react-scroll-paged-view": "^2.2.6",
-    "rn-bottom-drawer": "^1.4.3",
-    "expo-barcode-scanner": "~6.0.0"
+    "rn-bottom-drawer": "^1.4.3"
   },
   "devDependencies": {
     "babel-preset-expo": "^6.0.0"

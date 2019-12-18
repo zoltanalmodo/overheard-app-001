@@ -458,13 +458,11 @@ const merchantLogin = (dispatch) => async ({ email, password }) => {
 
         // console.log(response.data);
 
-        await AsyncStorage.setItem('token', response.data.token);
+        // await AsyncStorage.setItem('token', response.data.token);
 
         const merchantObject = jwt_decode(response.data.token);
-
-        dispatch({ type: 'MERCHANT_LOGIN', payload: { token: response.data.token, merchantObject } });
-
-        // console.log( repObject );
+        
+        dispatch({ type: 'MERCHANT_LOGIN', payload: {token: response.data.token, merchantObject} });
 
         navigate('MerchantPlatformScreen');
 
@@ -472,7 +470,7 @@ const merchantLogin = (dispatch) => async ({ email, password }) => {
 
         // console.log(err.message);
 
-        dispatch({ type: 'ADD_ERROR', payload: `Incorrect Login Details` });
+        dispatch({ type: 'ADD_ERROR', payload: `Incorrect Merchant Details`});
     }
     
 };

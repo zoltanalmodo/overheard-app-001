@@ -74,27 +74,19 @@ const MerchantLoginScreen = ({navigation}) => {
                     />
                 </View>
 
-                { state.errorMessage ? 
+                {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
                 
-                    <Text style={ styles.errorMessage }>{ state.errorMessage }</Text>
-                    
-                    : null
                 
-                }
-
-
-                
-                <View style={styles.repLoginButtonPosition}>
                     <TouchableOpacity
                         onPress={() => merchantLogin({ email, password })}
                         
                     >                    
-                        <View style={styles.loginButtonPosition}>
-                            <Text style={styles.repLoginButton}>Merchant Login</Text>
+                        <View style={styles.merchantLoginButtonPosition}>
+                            <Text style={styles.merchantLoginButton}>Merchant Login</Text>
 
                         </View>
                     </TouchableOpacity>
-                </View>
+                
 
                 
                 
@@ -121,9 +113,7 @@ const styles = StyleSheet.create({
 
     logoPosition: {
         marginTop: 54,
-
-        // borderWidth: 2,
-        // borderColor: 'red',
+        
     },
 
     repTitlePosition: {
@@ -175,12 +165,12 @@ const styles = StyleSheet.create({
         color: 'red',
     },
     
-    repLoginButtonPosition: {
+    merchantLoginButtonPosition: {
         marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    repLoginButton: {
+    merchantLoginButton: {
         textAlign: 'center',
         paddingTop: 8,
         fontSize: 24,

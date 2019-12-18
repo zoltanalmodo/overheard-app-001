@@ -23,7 +23,7 @@ import axios from 'axios';
 
 const LoginScreen = ({navigation}) => {
 
-    const { state, login, setDealsArray, setCategoryAllDeals } = useContext(AuthContext);
+    const { state, login, setDealsArray } = useContext(AuthContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -42,7 +42,6 @@ const LoginScreen = ({navigation}) => {
 
     useEffect(() => {
         fetchDealsArray();
-        // setCategoryAllDeals();
         
         
     }, []);
@@ -51,6 +50,7 @@ const LoginScreen = ({navigation}) => {
         return (
 
             <ImageBackground source={backimage} style={styles.container}>
+                
                 <View style={styles.logoPosition}>
                     <OverheardDealsLogo />
                 </View>
@@ -78,7 +78,6 @@ const LoginScreen = ({navigation}) => {
                     <TextInput
                         value={password}
                         onChangeText = {setPassword}
-
                         autoCapitalize='none'
                         autoCorrect={false}
                         style={styles.passwordTextInput}

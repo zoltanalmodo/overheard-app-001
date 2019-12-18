@@ -60,9 +60,10 @@ const switchNavigator = createSwitchNavigator ({
 
       // ReactNativeModalOverlay: ReactNativeModalOverlay,
 
-      // ProfileScreen: ProfileScreen,
-      
-      BarcodeScannerFunctional: BarcodeScannerFunctional,
+      // MerchantPlatformScreen: MerchantPlatformScreen,
+
+      // BarcodeScannerFunctional: BarcodeScannerFunctional,
+
 
 
 
@@ -73,8 +74,6 @@ const switchNavigator = createSwitchNavigator ({
       // ProfileScreen: ProfileScreen,
 
       // DealsScreen: DealsScreen,
-
-      // MerchantLoginScreen: MerchantLoginScreen,
     
       //==========================================build
       
