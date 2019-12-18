@@ -38,7 +38,8 @@ const MerchantPlatformScreen = ({navigation}) => {
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Name:</Text>
-                            <Text style={styles.statsTextRight} >{ state.merchantObject.name }</Text>
+                            {/* <Text style={styles.statsTextRight} >{ state.merchantObject.name }</Text> */}
+                            <Text style={styles.statsTextRight} >lala</Text>
                         </View>
 
                         <View style={styles.repPlatformStats}>
@@ -53,7 +54,8 @@ const MerchantPlatformScreen = ({navigation}) => {
 
                         <View style={styles.repPlatformStats}>
                             <Text style={styles.statsTextLeft} >Sales:</Text>
-                            <Text style={styles.statsTextRight} >{ state.merchantObject.sales }</Text>
+                            {/* <Text style={styles.statsTextRight} >{ state.merchantObject.sales }</Text> */}
+                            <Text style={styles.statsTextRight} >lala</Text>
                         </View>
 
                     </View>
@@ -137,19 +139,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     repPlatformTextBox: {
-        width: 355,
+        width: deviceDisplayWidth-30,
         height: 280,
         backgroundColor: 'white',
         borderWidth: 2,
         borderColor: 'black',
         paddingTop: 45,
+        alignSelf: 'center',
     },
 
 
     repPlatformTextTop: {
         paddingTop: 40,
-        paddingLeft: 20,
-        paddingRight: 20,
+        paddingLeft: 15,
+        paddingRight: 15,
         fontSize: 18,
         fontWeight: '800',
         textAlign: 'center',
@@ -157,10 +160,11 @@ const styles = StyleSheet.create({
 
 
     repPlatformStatsPosition: {
-        width: (deviceDisplayWidth-50),
-        paddingTop: 10,
-        marginLeft: 15,
-        marginLeft: 15,
+        width: deviceDisplayWidth-30,
+        marginTop: 15,
+        paddingLeft: 10,
+        paddingRight: 10,
+        alignSelf: 'center',
     },
     
 
