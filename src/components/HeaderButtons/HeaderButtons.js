@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Context as AuthContext } from '../../context/AuthContext';
 
 
 
-const HeaderButtons = ({navigation}) => {
+const HeaderButtons = () => {
 
     const { displayPopUpDealsMenu, displayPopUpProfile } = useContext(AuthContext);
     

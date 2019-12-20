@@ -1,22 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 
-
-
 import CarouselData from '../CarouselData/CarouselData'
 
 
-
 const ReactNativeSnapCarousel = () => {
-
     
     function Item({ content }) {
         return (
           <View>{ content }</View>
         );
     }
-
-
 
     return (
 
@@ -43,13 +37,10 @@ ReactNativeSnapCarousel.navigationOptions = () => {
 const styles = StyleSheet.create({
 
     container: {
-
         width: null,
         height: null,
-
         flexDirection: 'column',
         justifyContent: 'flex-start',
-
     },
 
 });

@@ -539,22 +539,10 @@ const CarouselData = () => {
         
         ]
 
-
-
     );
 };
 
 const styles = StyleSheet.create({
-
-    // container: {
-
-    //     width: null,
-    //     height: null,
-
-    //     flexDirection: 'column',
-    //     justifyContent: 'flex-start',
-
-    // },
 
     centerContainer: {
         flexDirection: 'row',

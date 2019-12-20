@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, ImageBackground, Dimensions, View, Text, TouchableOpacity } from 'react-native';
 
 import backimage from '../../img/newbg.png'
@@ -22,7 +22,7 @@ const deviceDisplayWidth = Dimensions.get('window').width;
 
 // ===== COMPONENT =====
 
-const DealsScreen = ({navigation}) => {
+const DealsScreen = ({ }) => {
 
     const { 
         
@@ -49,8 +49,6 @@ const DealsScreen = ({navigation}) => {
     } = useContext(AuthContext);
 
 
-    
-    
 
     const renderOverlayType = () => state.overlayType === "DealsMenu" ?
     
@@ -175,9 +173,7 @@ const DealsScreen = ({navigation}) => {
         >
 
             <View>
-                
                 <DealCardPopUpQR />
-                
             </View>
 
         </OverlayDealCard>
