@@ -172,19 +172,21 @@ const styles = StyleSheet.create({
     
 
     scannerContainer: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
+        // flex: 1,
+        // flexDirection: 'column',
+        // justifyContent: 'center',
         marginTop: 25,
         marginBottom: 125,
+        // backgroundColor: 'magenta',
     },
 
     scannerWrapper: {
-        width: (deviceDisplayWidth-20),
-        height: (deviceDisplayWidth-20),
+        width: '100%',
+        height: 355,
         alignSelf: 'center',
-        borderWidth: 2,
-        borderColor: 'black',
+        backgroundColor: 'yellow',
+        // borderWidth: 2,
+        // borderColor: 'black',
     },
 
     showResultPosition: {
